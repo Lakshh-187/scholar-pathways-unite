@@ -1,15 +1,15 @@
-
 import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
+import ProgramJourney from "@/components/ProgramJourney";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const Programs = () => {
   const campusToCorporateFeatures = [
     "Industry internships with partner companies",
-    "Project expo to showcase innovations",
+    "Project expo to showcase innovations", 
     "Uni-pitch for presentation skills",
     "Cohort-based learning with peers",
     "Profile verification for opportunities",
@@ -42,6 +42,9 @@ const Programs = () => {
             </div>
           </div>
         </section>
+        
+        {/* Program Journey */}
+        <ProgramJourney />
         
         {/* Campus to Corporate */}
         <section className="py-20 bg-gray-50">
