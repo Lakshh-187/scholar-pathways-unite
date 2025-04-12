@@ -1,59 +1,98 @@
-
 import React from 'react';
-import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CreditCard, BookOpen, GraduationCap, Briefcase, Award, Users, HeartHandshake } from 'lucide-react';
+import { 
+  CreditCard, 
+  BookOpen, 
+  GraduationCap, 
+  Briefcase, 
+  Award, 
+  Users, 
+  HeartHandshake,
+  FileBadge,
+  FileCheck
+} from 'lucide-react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const ScholarJourney = () => {
   const journeySteps = [
     {
       id: 1,
-      title: "Apply for ID Card",
-      description: "Scholars apply for a unique ID card that serves as their digital passport to the Unifor ecosystem.",
+      emoji: "✅",
+      title: "Apply for Uniford Scholar ID",
+      description: "Students apply for the official Uniford ID card & membership",
+      benefits: ["Verified Identity", "Access to all Uniford resources & programs"],
       icon: <CreditCard className="h-10 w-10 text-unifor-purple" />,
-      position: "left",
     },
     {
       id: 2,
-      title: "Access Resources & Portals",
-      description: "With the ID card, scholars get access to learning resources, mentorship, and various educational portals.",
-      icon: <BookOpen className="h-10 w-10 text-unifor-purple" />,
-      position: "right",
+      emoji: "📇",
+      title: "Receive Scholar ID & Membership Kit",
+      description: "Scholar receives Digital ID, Scholar Dashboard Access, Membership Card",
+      benefits: ["Entry into ecosystem", "Use ID to apply for internships, programs, events"],
+      icon: <FileBadge className="h-10 w-10 text-unifor-purple" />,
     },
     {
       id: 3,
-      title: "Enroll in Programs",
-      description: "Scholars participate in 3-phase programs including internships, cohorts, project expos, Uni-pitch, and annual reports.",
-      icon: <GraduationCap className="h-10 w-10 text-unifor-purple" />,
-      position: "left",
+      emoji: "📚",
+      title: "Get Access to Resources",
+      description: "Scholar gets free access to premium tools, courses, and mentorship via SEP-700",
+      benefits: ["Upskilling", "No cost learning", "Certified growth journey"],
+      icon: <BookOpen className="h-10 w-10 text-unifor-purple" />,
     },
     {
       id: 4,
-      title: "Participate in Challenges",
-      description: "Gain practical exposure through competitions and challenges designed to showcase real-world skills.",
-      icon: <Briefcase className="h-10 w-10 text-unifor-purple" />,
-      position: "right",
+      emoji: "⚙️",
+      title: "Join Programs & Platforms",
+      description: "Participate in: Internships (C2C, Frontliner), Project Expo, Uni-pitch, Training Cohorts, Social Campaigns",
+      benefits: ["Build portfolio", "Real-world exposure", "Leadership & Innovation"],
+      icon: <GraduationCap className="h-10 w-10 text-unifor-purple" />,
     },
     {
       id: 5,
-      title: "Profile Screening",
-      description: "Based on performance, scholars undergo profile screening for various opportunities.",
-      icon: <Award className="h-10 w-10 text-unifor-purple" />,
-      position: "left",
+      emoji: "🧪",
+      title: "Build & Submit Projects / Reports",
+      description: "Scholars submit: Projects, Social Impact Reports, Pitch Decks",
+      benefits: ["Credibility", "Public recognition", "Eligibility for screening"],
+      icon: <FileCheck className="h-10 w-10 text-unifor-purple" />,
     },
     {
       id: 6,
-      title: "Access Opportunities",
-      description: "Qualified scholars receive opportunities like internships, jobs, scholarships, grants, and more through the Talent Hunt Alliance.",
-      icon: <Users className="h-10 w-10 text-unifor-purple" />,
-      position: "right",
+      emoji: "📤",
+      title: "Profile Screening by Foundation",
+      description: "Based on: Participation score, Project impact, Mentor reviews",
+      benefits: ["Shortlisted for Talent Hunt Alliance", "Verified profile status"],
+      icon: <Award className="h-10 w-10 text-unifor-purple" />,
     },
     {
       id: 7,
-      title: "Join Scholar Council",
-      description: "Successful scholars join the council to donate network connections, mentorship, time, and resources to upcoming scholars.",
+      emoji: "🌐",
+      title: "Featured in Talent Hunt Alliance",
+      description: "Profile shared with a network of: Companies, Startups, NGOs, Investors, Publishers",
+      benefits: ["Internship/Job invites", "Grants/Funding", "Book Features", "Event Passes"],
+      icon: <Users className="h-10 w-10 text-unifor-purple" />,
+    },
+    {
+      id: 8,
+      emoji: "🏆",
+      title: "Receive Opportunities",
+      description: "Scholar receives real offers via email, dashboard or invite",
+      benefits: ["No application fee", "Direct entry", "Based on merit, not filters"],
+      icon: <Briefcase className="h-10 w-10 text-unifor-purple" />,
+    },
+    {
+      id: 9,
+      emoji: "💝",
+      title: "Give Back as Alumni (Optional)",
+      description: "After success, scholar contributes by: Mentorship, Networking, 1% Donation",
+      benefits: ["Help juniors", "Join Alumni Trust", "Build lasting impact"],
       icon: <HeartHandshake className="h-10 w-10 text-unifor-purple" />,
-      position: "left",
     },
   ];
 
@@ -70,7 +109,52 @@ const ScholarJourney = () => {
           </p>
         </div>
         
-        <div className="relative mt-20">
+        {/* Desktop table view */}
+        <div className="hidden md:block overflow-hidden rounded-xl shadow-lg border border-gray-200 bg-white animate-fade-in">
+          <Table>
+            <TableHeader className="bg-unifor-dark-purple">
+              <TableRow>
+                <TableHead className="text-white w-16 text-center">#</TableHead>
+                <TableHead className="text-white">Stage</TableHead>
+                <TableHead className="text-white">What Happens</TableHead>
+                <TableHead className="text-white">Benefits/Outcome</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {journeySteps.map((step) => (
+                <TableRow key={step.id} className="hover:bg-unifor-light-purple/10 transition-colors">
+                  <TableCell className="font-medium text-center text-2xl">
+                    {step.emoji}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-3">
+                      <div className="bg-unifor-light-purple p-2 rounded-lg">
+                        {step.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-unifor-dark-purple">{step.title}</h3>
+                        <p className="text-xs text-gray-500">Step {step.id}</p>
+                      </div>
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-gray-700">{step.description}</TableCell>
+                  <TableCell>
+                    <div className="flex flex-wrap gap-2">
+                      {step.benefits.map((benefit, index) => (
+                        <Badge key={index} variant="secondary" className="bg-unifor-light-purple/20 text-unifor-dark-purple">
+                          🔹 {benefit}
+                        </Badge>
+                      ))}
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+        
+        {/* Mobile timeline view - keeps the existing timeline design for mobile */}
+        <div className="md:hidden relative mt-20">
           {/* Central timeline line */}
           <div className="roadmap-line"></div>
           
@@ -79,12 +163,14 @@ const ScholarJourney = () => {
             {journeySteps.map((step, index) => (
               <React.Fragment key={step.id}>
                 {/* Timeline node */}
-                <div className="roadmap-node" style={{ top: `${index * 260 + 60}px` }}></div>
+                <div className="roadmap-node flex items-center justify-center text-white text-xs" style={{ top: `${index * 260 + 60}px` }}>
+                  {step.id}
+                </div>
                 
                 {/* Content card */}
                 <div className="relative" style={{ marginTop: index === 0 ? '0' : '200px' }}>
                   <div 
-                    className={`roadmap-card ${step.position === 'left' ? 'ml-auto mr-4 md:mr-0' : 'mr-auto ml-4 md:ml-0'}`}
+                    className={`roadmap-card ${index % 2 === 0 ? 'ml-auto mr-4' : 'mr-auto ml-4'}`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="flex items-start gap-4">
@@ -92,8 +178,18 @@ const ScholarJourney = () => {
                         {step.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                        <p className="text-gray-600">{step.description}</p>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xl">{step.emoji}</span>
+                          <h3 className="text-xl font-bold">{step.title}</h3>
+                        </div>
+                        <p className="text-gray-600 text-sm my-2">{step.description}</p>
+                        <div className="flex flex-wrap gap-1 mt-2">
+                          {step.benefits.map((benefit, index) => (
+                            <Badge key={index} variant="outline" className="text-xs bg-unifor-light-purple/10 text-unifor-dark-purple">
+                              🔹 {benefit}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
