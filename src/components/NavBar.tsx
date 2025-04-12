@@ -13,6 +13,8 @@ const NavBar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
+    { name: 'Uni-Pitch', path: '/uni-pitch' },
+    { name: 'UIRAD', path: '/uirad' },
   ];
   
   return (
