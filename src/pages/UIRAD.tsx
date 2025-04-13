@@ -7,8 +7,11 @@ import Footer from '@/components/Footer';
 import { UIRADIntro } from '@/components/UIRADIntro';
 import { UIRADInterrelation } from '@/components/UIRADInterrelation';
 import { UIRADImpact } from '@/components/UIRADImpact';
+import { UIRADTransformation } from '@/components/UIRADTransformation';
+import UIRADParentsProfile from '@/components/UIRADParentsProfile';
 import { Book, Globe, Layers, Database, Award, Rocket, School, Check, ArrowRight, Building, BookOpen, GraduationCap, Network } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Network as NetworkIcon } from '@/components/ui/network-icon';
 
 const UIRAD = () => {
   const [activeTab, setActiveTab] = useState('intro');
@@ -59,10 +62,11 @@ const UIRAD = () => {
               UIRAD
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-              Uniford International Research & Academic Development
+              <span className="font-bold">Uniford</span> International Research & Academic Development
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-              Research-driven academic innovation hub that transforms institutes to international standards.
+              Research-driven academic innovation hub that <span className="font-bold">transforms</span> institutes to <span className="font-bold">international standards</span>, 
+              empowering students through <span className="font-bold">free opportunities</span>.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center mt-8">
@@ -115,6 +119,12 @@ const UIRAD = () => {
       </section>
       
       <div className="container mx-auto max-w-6xl px-4 py-10">
+        {/* New IEP-X Transformation Section */}
+        <UIRADTransformation />
+        
+        {/* Uniford as Parents Profile Section */}
+        <UIRADParentsProfile />
+        
         {/* Navigation Tabs */}
         <div className="flex overflow-x-auto space-x-1 bg-gray-100 rounded-lg p-1 mb-10 max-w-2xl mx-auto">
           {tabs.map(tab => (
@@ -171,8 +181,13 @@ const UIRAD = () => {
         {/* CTA Section */}
         <div className="my-20 bg-gradient-to-r from-unifor-dark-purple to-unifor-purple rounded-xl overflow-hidden shadow-xl">
           <div className="p-10 md:p-16 text-center text-white">
+            <NetworkIcon size={56} animated={true} className="mx-auto mb-6 text-white" />
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Institute?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">Join leading educational institutions worldwide in embracing the future of education with UIRAD.</p>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Join leading educational institutions worldwide in embracing the future of education with 
+              <span className="font-bold"> Uniford Foundation</span>, a <span className="font-bold">non-profit organization</span> committed to
+              <span className="font-bold"> transformation</span>.
+            </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button className="bg-white text-unifor-dark-purple hover:bg-gray-100 font-medium px-8 py-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
                 Request a Consultation
@@ -194,7 +209,11 @@ const UIRAD = () => {
               <div className="text-6xl text-unifor-purple opacity-30">"</div>
             </div>
             <div className="text-center">
-              <p className="text-xl text-gray-700 italic mb-6">UIRAD has completely transformed how we approach international standards and student development. The systematic approach to academic enhancement coupled with the focus on global opportunities has put our institution on the world map.</p>
+              <p className="text-xl text-gray-700 italic mb-6">
+                <span className="font-bold text-unifor-dark-purple">UIRAD</span> has completely transformed how we approach 
+                <span className="font-bold text-unifor-dark-purple"> international standards</span> and student development. The systematic approach to academic 
+                enhancement coupled with the focus on <span className="font-bold text-unifor-dark-purple">global opportunities</span> has put our institution on the world map.
+              </p>
               <div className="inline-flex items-center">
                 <div className="w-12 h-12 bg-unifor-light-purple text-unifor-dark-purple rounded-full flex items-center justify-center font-bold text-xl mr-3">
                   DR
