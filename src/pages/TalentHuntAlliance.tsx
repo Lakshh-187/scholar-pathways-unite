@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import TalentHuntDashboard from '@/components/TalentHuntDashboard';
 import { 
   Users, 
   GraduationCap, 
@@ -232,6 +232,9 @@ const TalentHuntAlliance = () => {
             ))}
           </div>
         </section>
+        
+        {/* AI Dashboard Component */}
+        <TalentHuntDashboard />
         
         {/* AI-Based Profile Screening */}
         <section className="my-20">
