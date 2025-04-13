@@ -23,18 +23,30 @@ import {
   Medal,
   ChevronDown,
   ChevronUp,
-  ThumbsUp
+  ThumbsUp,
+  ArrowUpRight,
+  ArrowDown
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { UniPitchJourney } from '@/components/UniPitchJourney';
 import { UniPitchCategories } from '@/components/UniPitchCategories';
 import { UniPitchBenefits } from '@/components/UniPitchBenefits';
+import { Network } from '@/components/ui/network-icon';
+import UniPitchGallery from '@/components/UniPitchGallery';
 
 const UniPitch = () => {
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
+  const [activeHowItWorksStep, setActiveHowItWorksStep] = React.useState(0);
+  
+  // Reference for smooth scrolling
+  const galleryRef = React.useRef<HTMLDivElement>(null);
 
   const toggleFaq = (index: number) => {
     setExpandedFaq(expandedFaq === index ? null : index);
+  };
+
+  const scrollToGallery = () => {
+    galleryRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const faqs = [
@@ -53,6 +65,37 @@ const UniPitch = () => {
     {
       question: "Is there any cost involved?",
       answer: "No, Uni-Pitch is completely free for all eligible students. Our mission is to provide equal opportunities without financial barriers. All resources, mentorship, and platforms are provided at no cost to participants."
+    }
+  ];
+  
+  const howItWorksSteps = [
+    {
+      step: 1,
+      title: "Submit Your Pitch",
+      description: "Share your needs, achievements, or ideas through our simple submission form.",
+      icon: <Mic className="h-6 w-6 text-unifor-purple" />,
+      detail: "You can submit various types of pitches including project ideas, internship requests, funding needs, or achievements you want to showcase. Our platform accepts all kinds of student queries and connects them to the right opportunities."
+    },
+    {
+      step: 2,
+      title: "Expert Evaluation",
+      description: "Your pitch is evaluated by AI and industry experts from our council.",
+      icon: <Star className="h-6 w-6 text-unifor-purple" />,
+      detail: "Each pitch undergoes a thorough assessment process that considers factors like innovation, feasibility, impact potential, and alignment with available opportunities. You'll receive personalized feedback regardless of the outcome."
+    },
+    {
+      step: 3,
+      title: "Opportunity Matching",
+      description: "Get connected to relevant opportunities, resources, and platforms.",
+      icon: <Link className="h-6 w-6 text-unifor-purple" />,
+      detail: "Based on your pitch evaluation, we match you with opportunities from our vast network of partners, including internships, funding sources, mentorship programs, and global platforms that can help you achieve your goals."
+    },
+    {
+      step: 4,
+      title: "Real-World Impact",
+      description: "Transform your academic journey with tangible results and recognition.",
+      icon: <Rocket className="h-6 w-6 text-unifor-purple" />,
+      detail: "Students have secured internships, received funding for projects, been published in prestigious publications, and gained international recognition through our platform. Your pitch could be the beginning of your success story."
     }
   ];
 
@@ -120,8 +163,98 @@ const UniPitch = () => {
       </section>
       
       <div className="container mx-auto max-w-6xl px-4">
+        {/* How Uni-Pitch Works */}
+        <section className="my-20">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
+              THE PROCESS
+            </Badge>
+            <h2 className="text-3xl font-bold mb-4 text-unifor-dark-purple">How Uni-Pitch Works</h2>
+            <p className="text-gray-600">
+              A simple four-step process that connects students with life-changing opportunities and resources.
+            </p>
+            <Button 
+              onClick={scrollToGallery}
+              variant="outline" 
+              className="mt-4 border-unifor-purple text-unifor-purple hover:bg-unifor-light-purple/10"
+            >
+              See Success Stories
+              <ArrowDown className="ml-1 h-4 w-4" />
+            </Button>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-6 mb-10">
+            {howItWorksSteps.map((item, idx) => (
+              <div 
+                key={idx}
+                className={`p-6 rounded-xl transition-all duration-300 cursor-pointer 
+                  ${activeHowItWorksStep === idx ? 'bg-unifor-purple text-white shadow-lg' : 'bg-white hover:bg-unifor-light-purple/20 text-gray-800'}`}
+                onClick={() => setActiveHowItWorksStep(idx)}
+              >
+                <div className={`w-12 h-12 rounded-full mb-4 flex items-center justify-center 
+                  ${activeHowItWorksStep === idx ? 'bg-white text-unifor-purple' : 'bg-unifor-light-purple text-unifor-purple'}`}>
+                  <span className="text-xl font-bold">{item.step}</span>
+                </div>
+                <h3 className={`text-lg font-bold mb-2 ${activeHowItWorksStep === idx ? 'text-white' : 'text-unifor-dark-purple'}`}>
+                  {item.title}
+                </h3>
+                <p className={activeHowItWorksStep === idx ? 'text-white/90' : 'text-gray-600'}>
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="bg-white p-6 rounded-xl shadow-lg mb-10 animate-fade-in">
+            <div className="flex items-start gap-4">
+              <div className="bg-unifor-light-purple p-3 rounded-full">
+                {howItWorksSteps[activeHowItWorksStep].icon}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2 text-unifor-dark-purple">
+                  Step {howItWorksSteps[activeHowItWorksStep].step}: {howItWorksSteps[activeHowItWorksStep].title}
+                </h3>
+                <p className="text-gray-700">
+                  {howItWorksSteps[activeHowItWorksStep].detail}
+                </p>
+                <div className="mt-4 flex gap-4">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setActiveHowItWorksStep(Math.max(0, activeHowItWorksStep - 1))}
+                    disabled={activeHowItWorksStep === 0}
+                    className="border-unifor-purple text-unifor-purple hover:bg-unifor-light-purple/10"
+                  >
+                    Previous Step
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    onClick={() => setActiveHowItWorksStep(Math.min(howItWorksSteps.length - 1, activeHowItWorksStep + 1))}
+                    disabled={activeHowItWorksStep === howItWorksSteps.length - 1}
+                    className="bg-unifor-purple hover:bg-unifor-dark-purple"
+                  >
+                    Next Step
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white shadow-md hover:shadow-lg transition-all">
+              Submit Your Pitch Now
+              <ArrowUpRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </section>
+        
         {/* Visual Journey */}
         <UniPitchJourney />
+        
+        {/* Gallery Section */}
+        <div ref={galleryRef}>
+          <UniPitchGallery />
+        </div>
         
         {/* Real-life Impact */}
         <div className="mt-24">
@@ -259,6 +392,7 @@ const UniPitch = () => {
         {/* CTA Section */}
         <div className="mt-24 mb-20 bg-gradient-to-r from-unifor-purple to-unifor-blue rounded-xl overflow-hidden shadow-xl">
           <div className="p-10 md:p-16 text-center text-white">
+            <Network size={56} animated={true} className="mx-auto mb-6 text-white" />
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Academic Journey?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">Join thousands of students who have already unlocked global opportunities through Uni-Pitch.</p>
             <div className="flex flex-wrap gap-4 justify-center">

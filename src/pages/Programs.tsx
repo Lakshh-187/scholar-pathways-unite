@@ -1,8 +1,10 @@
+
 import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
 import ProgramJourney from "@/components/ProgramJourney";
+import ScholarIDCardProgram from "@/components/ScholarIDCardProgram";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -42,6 +44,9 @@ const Programs = () => {
             </div>
           </div>
         </section>
+        
+        {/* Scholar ID Card Program */}
+        <ScholarIDCardProgram />
         
         {/* Program Journey */}
         <ProgramJourney />
