@@ -9,6 +9,7 @@ import Programs from "./pages/Programs";
 import UniPitch from "./pages/UniPitch";
 import UIRAD from "./pages/UIRAD";
 import TalentHuntAlliance from "./pages/TalentHuntAlliance";
+import BackedByUniford from "./pages/BackedByUniford";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/uni-pitch" element={<UniPitch />} />
           <Route path="/uirad" element={<UIRAD />} />
           <Route path="/talent-hunt-alliance" element={<TalentHuntAlliance />} />
+          <Route path="/backed-by-uniford" element={<BackedByUniford />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
