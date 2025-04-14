@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { 
   BadgeCheck, 
@@ -19,6 +18,8 @@ import {
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import IDCardBenefits from "@/components/IDCardBenefits";
+import ScholarIDCardProgram from "@/components/ScholarIDCardProgram";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -411,6 +412,12 @@ const IDCard = () => {
             </div>
           </div>
         </section>
+        
+        {/* Add the new Benefits Component */}
+        <IDCardBenefits />
+        
+        {/* Add the Scholar ID Card Program Component */}
+        <ScholarIDCardProgram />
         
         {/* CTA Section */}
         <section className="py-16 bg-unifor-light-purple/20">

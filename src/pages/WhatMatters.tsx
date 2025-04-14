@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   BadgeCheck, 
@@ -17,7 +16,7 @@ import {
   Users, 
   X, 
   BarChart3,
-  Clock as ClockIcon // Import the Clock icon and rename it to ClockIcon
+  Clock
 } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -49,7 +48,7 @@ const WhatMatters = () => {
     {
       title: "Practical experience is only for later years",
       reality: "Starting early with real-world exposure builds stronger foundations and more competitive profiles.",
-      icon: <ClockIcon className="h-6 w-6 text-red-500" /> // Use ClockIcon instead of Clock
+      icon: <Clock className="h-6 w-6 text-red-500" />
     },
     {
       title: "Degrees guarantee employment",
@@ -68,7 +67,6 @@ const WhatMatters = () => {
       <NavBar />
       
       <main className="flex-grow pt-20">
-        {/* Hero Section */}
         <section className="bg-gradient-to-br from-unifor-dark to-black text-white py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
@@ -114,7 +112,6 @@ const WhatMatters = () => {
           </div>
         </section>
         
-        {/* Key Stats Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -138,7 +135,6 @@ const WhatMatters = () => {
           </div>
         </section>
         
-        {/* Credible Portfolio Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -235,7 +231,6 @@ const WhatMatters = () => {
           </div>
         </section>
         
-        {/* Common Illusions Section */}
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -326,7 +321,6 @@ const WhatMatters = () => {
           </div>
         </section>
         
-        {/* Model Comparison Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -387,16 +381,15 @@ const WhatMatters = () => {
           </div>
         </section>
         
-        {/* The Uniford Solution Section */}
-        <section className="py-20 bg-unifor-dark text-white">
+        <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-100 text-gray-800">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <Badge variant="outline" className="bg-unifor-light-purple text-white px-4 py-1 mb-4">
+                <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
                   THE SOLUTION
                 </Badge>
-                <h2 className="section-title">How Uniford Addresses These Challenges</h2>
-                <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                <h2 className="section-title text-unifor-dark-purple">How Uniford Addresses These Challenges</h2>
+                <p className="text-gray-700 text-lg max-w-3xl mx-auto">
                   Uniford's innovative RPO (Resources, Platform, Opportunities) model creates a comprehensive ecosystem for student success
                 </p>
               </div>
@@ -410,47 +403,53 @@ const WhatMatters = () => {
                 </TabsList>
                 
                 <TabsContent value="overview" className="animate-fade-in">
-                  <Card className="bg-white/10 border-white/20">
+                  <Card className="border-unifor-purple shadow-lg">
                     <CardHeader>
-                      <CardTitle>The RPO Model</CardTitle>
-                      <CardDescription className="text-gray-300">
+                      <CardTitle className="text-unifor-dark-purple">The RPO Model</CardTitle>
+                      <CardDescription>
                         A comprehensive approach to student development and success
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div className="flex items-start gap-4">
-                        <div className="h-10 w-10 rounded-full bg-unifor-purple/30 flex items-center justify-center flex-shrink-0">
-                          <BookOpen className="h-5 w-5 text-unifor-purple" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-medium mb-2">Resources to Learn</h3>
-                          <p className="text-gray-300">
-                            Access to quality learning materials, mentorship, and guidance to develop relevant skills
-                          </p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-4">
-                        <div className="h-10 w-10 rounded-full bg-unifor-purple/30 flex items-center justify-center flex-shrink-0">
-                          <Compass className="h-5 w-5 text-unifor-purple" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-medium mb-2">Platform to Perform</h3>
-                          <p className="text-gray-300">
-                            Opportunities for internships, projects, competitions, and real-world application of skills
-                          </p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-4">
-                        <div className="h-10 w-10 rounded-full bg-unifor-purple/30 flex items-center justify-center flex-shrink-0">
-                          <Sparkles className="h-5 w-5 text-unifor-purple" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-medium mb-2">Opportunities for Growth</h3>
-                          <p className="text-gray-300">
-                            Connection with real opportunities through AI profile screening and the Talent Hunt Alliance
-                          </p>
+                    <CardContent>
+                      <div className="relative py-10">
+                        <div className="absolute left-0 right-0 h-1 top-1/2 transform -translate-y-1/2 bg-unifor-light-purple"></div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                          <div className="relative z-10">
+                            <div className="bg-white rounded-lg p-6 border border-unifor-purple shadow-md relative mt-8">
+                              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-unifor-purple flex items-center justify-center text-white">
+                                <BookOpen className="h-8 w-8" />
+                              </div>
+                              <h3 className="text-xl font-bold mt-6 mb-3 text-center text-unifor-dark-purple">Resources to Learn</h3>
+                              <p className="text-gray-600">
+                                Access to quality learning materials, mentorship, and guidance to develop relevant skills
+                              </p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative z-10">
+                            <div className="bg-white rounded-lg p-6 border border-unifor-purple shadow-md relative mt-8">
+                              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-unifor-purple flex items-center justify-center text-white">
+                                <Compass className="h-8 w-8" />
+                              </div>
+                              <h3 className="text-xl font-bold mt-6 mb-3 text-center text-unifor-dark-purple">Platform to Perform</h3>
+                              <p className="text-gray-600">
+                                Opportunities for internships, projects, competitions, and real-world application of skills
+                              </p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative z-10">
+                            <div className="bg-white rounded-lg p-6 border border-unifor-purple shadow-md relative mt-8">
+                              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-unifor-purple flex items-center justify-center text-white">
+                                <Sparkles className="h-8 w-8" />
+                              </div>
+                              <h3 className="text-xl font-bold mt-6 mb-3 text-center text-unifor-dark-purple">Opportunities for Growth</h3>
+                              <p className="text-gray-600">
+                                Connection with real opportunities through AI profile screening and the Talent Hunt Alliance
+                              </p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </CardContent>
@@ -458,59 +457,51 @@ const WhatMatters = () => {
                 </TabsContent>
                 
                 <TabsContent value="caf" className="animate-fade-in">
-                  <Card className="bg-white/10 border-white/20">
+                  <Card className="border-unifor-purple shadow-lg">
                     <CardHeader>
-                      <CardTitle>Common Application Form (CAF)</CardTitle>
-                      <CardDescription className="text-gray-300">
+                      <CardTitle className="text-unifor-dark-purple">Common Application Form (CAF)</CardTitle>
+                      <CardDescription>
                         Streamlining the application process for multiple opportunities
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <p className="text-gray-300">
+                    <CardContent>
+                      <p className="text-gray-700 mb-8">
                         The CAF system allows students to fill out a single comprehensive form that connects them to multiple opportunities, eliminating the need to apply separately for each one.
                       </p>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                        <div className="bg-white/5 p-6 rounded-lg">
-                          <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
-                            <X className="h-5 w-5 text-red-400" />
-                            Traditional Process
-                          </h4>
-                          <ul className="space-y-2 text-gray-300">
-                            <li className="flex items-start gap-2">
-                              <ChevronRight className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                              <span>Fill out repetitive forms for each opportunity</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <ChevronRight className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                              <span>High rejection rates due to preliminary filters</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <ChevronRight className="h-5 w-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                              <span>Limited visibility of opportunities</span>
-                            </li>
-                          </ul>
-                        </div>
+                      <div className="relative py-10">
+                        <div className="absolute left-8 top-0 bottom-0 w-1 bg-unifor-light-purple"></div>
                         
-                        <div className="bg-unifor-purple/20 p-6 rounded-lg">
-                          <h4 className="text-lg font-medium mb-3 flex items-center gap-2">
-                            <BadgeCheck className="h-5 w-5 text-green-400" />
-                            CAF System
-                          </h4>
-                          <ul className="space-y-2 text-gray-300">
-                            <li className="flex items-start gap-2">
-                              <ChevronRight className="h-5 w-5 text-unifor-purple mt-0.5 flex-shrink-0" />
-                              <span>One comprehensive form for multiple opportunities</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <ChevronRight className="h-5 w-5 text-unifor-purple mt-0.5 flex-shrink-0" />
-                              <span>AI-powered matching based on skills and interests</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <ChevronRight className="h-5 w-5 text-unifor-purple mt-0.5 flex-shrink-0" />
-                              <span>Access to a wider range of relevant opportunities</span>
-                            </li>
-                          </ul>
+                        <div className="space-y-12">
+                          <div className="relative ml-16">
+                            <div className="absolute -left-20 top-0 w-10 h-10 rounded-full bg-unifor-purple flex items-center justify-center text-white z-10">
+                              1
+                            </div>
+                            <div className="bg-white p-5 rounded-lg border border-unifor-purple shadow-md">
+                              <h4 className="text-lg font-medium mb-2 text-unifor-dark-purple">Single Application</h4>
+                              <p className="text-gray-600">Complete one comprehensive profile instead of multiple repetitive forms</p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative ml-16">
+                            <div className="absolute -left-20 top-0 w-10 h-10 rounded-full bg-unifor-purple flex items-center justify-center text-white z-10">
+                              2
+                            </div>
+                            <div className="bg-white p-5 rounded-lg border border-unifor-purple shadow-md">
+                              <h4 className="text-lg font-medium mb-2 text-unifor-dark-purple">AI Matching</h4>
+                              <p className="text-gray-600">Intelligent matching algorithm connects you with relevant opportunities</p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative ml-16">
+                            <div className="absolute -left-20 top-0 w-10 h-10 rounded-full bg-unifor-purple flex items-center justify-center text-white z-10">
+                              3
+                            </div>
+                            <div className="bg-white p-5 rounded-lg border border-unifor-purple shadow-md">
+                              <h4 className="text-lg font-medium mb-2 text-unifor-dark-purple">Multiple Opportunities</h4>
+                              <p className="text-gray-600">Access to numerous positions across companies and organizations</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </CardContent>
@@ -518,120 +509,131 @@ const WhatMatters = () => {
                 </TabsContent>
                 
                 <TabsContent value="alliance" className="animate-fade-in">
-                  <Card className="bg-white/10 border-white/20">
+                  <Card className="border-unifor-purple shadow-lg">
                     <CardHeader>
-                      <CardTitle>Talent Hunt Alliance</CardTitle>
-                      <CardDescription className="text-gray-300">
+                      <CardTitle className="text-unifor-dark-purple">Talent Hunt Alliance</CardTitle>
+                      <CardDescription>
                         A network connecting worthy students with real opportunities
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <p className="text-gray-300">
+                    <CardContent>
+                      <p className="text-gray-700 mb-8">
                         The Talent Hunt Alliance is a network of companies, organizations, and institutions that connect with students based on their practical skills and demonstrated abilities.
                       </p>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                        <Card className="bg-white/5 border-white/10">
-                          <CardHeader className="pb-2">
-                            <CardTitle className="text-lg flex items-center gap-2">
-                              <Brain className="h-5 w-5 text-unifor-purple" />
-                              AI Profile Screening
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-gray-300">
-                              Advanced AI analyzes student profiles and matches them with suitable opportunities
-                            </p>
-                          </CardContent>
-                        </Card>
+                      <div className="relative py-10">
+                        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-unifor-light-purple"></div>
                         
-                        <Card className="bg-white/5 border-white/10">
-                          <CardHeader className="pb-2">
-                            <CardTitle className="text-lg flex items-center gap-2">
-                              <Users className="h-5 w-5 text-unifor-purple" />
-                              Referral System
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-gray-300">
-                              Direct referrals to companies and opportunities, bypassing traditional filters
-                            </p>
-                          </CardContent>
-                        </Card>
-                        
-                        <Card className="bg-white/5 border-white/10">
-                          <CardHeader className="pb-2">
-                            <CardTitle className="text-lg flex items-center gap-2">
-                              <LineChart className="h-5 w-5 text-unifor-purple" />
-                              Skill-Based Matching
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-gray-300">
-                              Opportunities based on demonstrated skills rather than traditional credentials
-                            </p>
-                          </CardContent>
-                        </Card>
+                        <div className="space-y-16">
+                          <div className="relative">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 -top-8 w-16 h-16 rounded-full bg-unifor-purple flex items-center justify-center text-white z-10">
+                              <Brain className="h-8 w-8" />
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                              <div className="md:text-right md:pr-10">
+                                <h4 className="text-lg font-medium mb-2 text-unifor-dark-purple">Profile Screening</h4>
+                                <p className="text-gray-600">Advanced AI evaluates student profiles based on relevant criteria</p>
+                              </div>
+                              <div className="md:pl-10 md:border-l border-unifor-light-purple">
+                                <p className="text-gray-600">Identifies strengths, areas of expertise, and potential matches</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="relative">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 -top-8 w-16 h-16 rounded-full bg-unifor-purple flex items-center justify-center text-white z-10">
+                              <Users className="h-8 w-8" />
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                              <div className="md:text-right md:pr-10">
+                                <h4 className="text-lg font-medium mb-2 text-unifor-dark-purple">Direct Referrals</h4>
+                                <p className="text-gray-600">Bypass traditional filtering systems through quality referrals</p>
+                              </div>
+                              <div className="md:pl-10 md:border-l border-unifor-light-purple">
+                                <p className="text-gray-600">90% success rate compared to traditional application methods</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="relative">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 -top-8 w-16 h-16 rounded-full bg-unifor-purple flex items-center justify-center text-white z-10">
+                              <Lightbulb className="h-8 w-8" />
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                              <div className="md:text-right md:pr-10">
+                                <h4 className="text-lg font-medium mb-2 text-unifor-dark-purple">Opportunity Matching</h4>
+                                <p className="text-gray-600">Connect with opportunities that match your actual skills</p>
+                              </div>
+                              <div className="md:pl-10 md:border-l border-unifor-light-purple">
+                                <p className="text-gray-600">Higher success rate and job satisfaction through better matches</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
                 </TabsContent>
                 
                 <TabsContent value="platforms" className="animate-fade-in">
-                  <Card className="bg-white/10 border-white/20">
+                  <Card className="border-unifor-purple shadow-lg">
                     <CardHeader>
-                      <CardTitle>Platforms for Practical Exposure</CardTitle>
-                      <CardDescription className="text-gray-300">
+                      <CardTitle className="text-unifor-dark-purple">Platforms for Practical Exposure</CardTitle>
+                      <CardDescription>
                         Environments for students to demonstrate and develop their skills
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-white/5 p-6 rounded-lg">
-                          <h4 className="text-lg font-medium mb-3">Guaranteed Internships</h4>
-                          <p className="text-gray-300 mb-3">
-                            Access to quality internships without the typical barriers of selection
-                          </p>
-                          <Button variant="outline" className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple/20">
-                            Learn More
-                          </Button>
+                    <CardContent>
+                      <div className="relative py-10">
+                        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 h-1 w-full bg-unifor-light-purple rounded-full"></div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                          <div className="relative z-10">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 -top-5 w-10 h-10 rounded-full bg-unifor-purple flex items-center justify-center text-white">
+                              1
+                            </div>
+                            <div className="bg-white mt-8 p-5 rounded-lg border border-unifor-purple shadow-md">
+                              <h4 className="text-lg font-medium mb-2 text-center text-unifor-dark-purple">Internships</h4>
+                              <p className="text-gray-600 text-center">Gain real-world experience through quality placements</p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative z-10">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 -top-5 w-10 h-10 rounded-full bg-unifor-purple flex items-center justify-center text-white">
+                              2
+                            </div>
+                            <div className="bg-white mt-8 p-5 rounded-lg border border-unifor-purple shadow-md">
+                              <h4 className="text-lg font-medium mb-2 text-center text-unifor-dark-purple">Project Expo</h4>
+                              <p className="text-gray-600 text-center">Showcase your skills to industry partners</p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative z-10">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 -top-5 w-10 h-10 rounded-full bg-unifor-purple flex items-center justify-center text-white">
+                              3
+                            </div>
+                            <div className="bg-white mt-8 p-5 rounded-lg border border-unifor-purple shadow-md">
+                              <h4 className="text-lg font-medium mb-2 text-center text-unifor-dark-purple">Uni-Pitch</h4>
+                              <p className="text-gray-600 text-center">Present your achievements and capabilities</p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative z-10">
+                            <div className="absolute left-1/2 transform -translate-x-1/2 -top-5 w-10 h-10 rounded-full bg-unifor-purple flex items-center justify-center text-white">
+                              4
+                            </div>
+                            <div className="bg-white mt-8 p-5 rounded-lg border border-unifor-purple shadow-md">
+                              <h4 className="text-lg font-medium mb-2 text-center text-unifor-dark-purple">Competitions</h4>
+                              <p className="text-gray-600 text-center">Participate in industry-relevant challenges</p>
+                            </div>
+                          </div>
                         </div>
                         
-                        <div className="bg-white/5 p-6 rounded-lg">
-                          <h4 className="text-lg font-medium mb-3">Project Expo</h4>
-                          <p className="text-gray-300 mb-3">
-                            Showcase projects to industry partners and potential employers
+                        <div className="bg-unifor-light-purple/20 p-6 rounded-lg mt-12 border border-unifor-purple">
+                          <p className="text-unifor-dark-purple text-center font-medium">
+                            All platforms are accessible to Uniford Scholars through their ID card with no additional fees or barriers
                           </p>
-                          <Button variant="outline" className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple/20">
-                            Learn More
-                          </Button>
                         </div>
-                        
-                        <div className="bg-white/5 p-6 rounded-lg">
-                          <h4 className="text-lg font-medium mb-3">Uni-Pitch</h4>
-                          <p className="text-gray-300 mb-3">
-                            Platform for students to pitch their achievements and capabilities
-                          </p>
-                          <Button variant="outline" className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple/20">
-                            Learn More
-                          </Button>
-                        </div>
-                        
-                        <div className="bg-white/5 p-6 rounded-lg">
-                          <h4 className="text-lg font-medium mb-3">Competitions & Challenges</h4>
-                          <p className="text-gray-300 mb-3">
-                            Participate in industry-relevant challenges and competitions
-                          </p>
-                          <Button variant="outline" className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple/20">
-                            Learn More
-                          </Button>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-unifor-purple/20 p-6 rounded-lg mt-6">
-                        <p className="text-white text-center">
-                          All platforms are accessible to Uniford Scholars through their ID card with no additional fees or barriers
-                        </p>
                       </div>
                     </CardContent>
                   </Card>
@@ -641,7 +643,6 @@ const WhatMatters = () => {
           </div>
         </section>
         
-        {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-unifor-dark-purple to-unifor-dark text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
