@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,10 +30,20 @@ import {
   Clock
 } from 'lucide-react';
 
+interface ProfileBase {
+  id: number;
+  name: string;
+  role: string;
+  skills: string[];
+  score: number;
+  status: string;
+  matchedWith?: string;
+}
+
 const TalentHuntDashboard = () => {
   const [activeTab, setActiveTab] = useState('matched');
   
-  const matchedProfiles = [
+  const matchedProfiles: ProfileBase[] = [
     {
       id: 1,
       name: "Priya Sharma",
@@ -73,7 +82,7 @@ const TalentHuntDashboard = () => {
     }
   ];
   
-  const pendingProfiles = [
+  const pendingProfiles: ProfileBase[] = [
     {
       id: 5,
       name: "Vikram Singh",
@@ -156,7 +165,6 @@ const TalentHuntDashboard = () => {
               </Button>
             </div>
             
-            {/* Dashboard Tabs */}
             <div className="flex border-b border-gray-800">
               <button 
                 className={`px-4 py-3 flex-1 text-center ${activeTab === 'matched' ? 'bg-unifor-purple/20 text-unifor-light-purple border-b-2 border-unifor-purple' : 'text-gray-400 hover:bg-gray-800/50'}`}
@@ -172,7 +180,6 @@ const TalentHuntDashboard = () => {
               </button>
             </div>
             
-            {/* Search and Filter */}
             <div className="p-4 flex flex-wrap items-center gap-3 border-b border-gray-800">
               <div className="relative flex-1 min-w-[200px]">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
@@ -194,7 +201,6 @@ const TalentHuntDashboard = () => {
               </select>
             </div>
             
-            {/* Scholar Profiles Table */}
             <div className="relative overflow-x-auto">
               <Table>
                 <TableHeader className="bg-gray-900">
@@ -276,7 +282,6 @@ const TalentHuntDashboard = () => {
                 </TableBody>
               </Table>
               
-              {/* Pagination */}
               <div className="flex justify-between items-center p-4 border-t border-gray-800">
                 <span className="text-sm text-gray-400">
                   Showing {activeTab === 'matched' ? matchedProfiles.length : pendingProfiles.length} items
@@ -295,7 +300,6 @@ const TalentHuntDashboard = () => {
           </div>
           
           <div className="flex flex-col gap-6">
-            {/* AI Screening Metrics */}
             <Card className="bg-black/40 backdrop-blur-md border-gray-800 shadow-xl">
               <CardHeader className="border-b border-gray-800">
                 <CardTitle className="flex items-center gap-2">
@@ -332,7 +336,6 @@ const TalentHuntDashboard = () => {
               </CardContent>
             </Card>
             
-            {/* Alliance Partners */}
             <Card className="bg-black/40 backdrop-blur-md border-gray-800 shadow-xl flex-1">
               <CardHeader className="border-b border-gray-800">
                 <CardTitle className="flex items-center gap-2">
@@ -370,7 +373,6 @@ const TalentHuntDashboard = () => {
           </div>
         </div>
         
-        {/* How the System Works */}
         <div className="mt-20">
           <h3 className="text-2xl font-bold mb-10 text-center">How Our AI Screening System Works</h3>
           <div className="grid md:grid-cols-4 gap-8">
@@ -416,7 +418,6 @@ const TalentHuntDashboard = () => {
           </div>
         </div>
         
-        {/* Full Pipeline Visualization */}
         <div className="mt-20 relative">
           <div className="absolute inset-0 bg-unifor-purple/5 rounded-2xl blur-3xl"></div>
           <div className="relative bg-black/40 backdrop-blur-md rounded-xl border border-gray-800 overflow-hidden shadow-xl">
@@ -430,7 +431,6 @@ const TalentHuntDashboard = () => {
             
             <div className="p-6">
               <div className="flex overflow-x-auto gap-6 pb-4">
-                {/* Application Column */}
                 <div className="min-w-[300px] flex-1">
                   <div className="bg-gray-800/70 p-3 rounded-lg flex justify-between items-center mb-4">
                     <h4 className="font-medium">Applications</h4>
@@ -450,7 +450,6 @@ const TalentHuntDashboard = () => {
                   </div>
                 </div>
                 
-                {/* Screening Column */}
                 <div className="min-w-[300px] flex-1">
                   <div className="bg-amber-900/20 p-3 rounded-lg flex justify-between items-center mb-4">
                     <h4 className="font-medium">AI Screening</h4>
@@ -478,7 +477,6 @@ const TalentHuntDashboard = () => {
                   </div>
                 </div>
                 
-                {/* Matching Column */}
                 <div className="min-w-[300px] flex-1">
                   <div className="bg-blue-900/20 p-3 rounded-lg flex justify-between items-center mb-4">
                     <h4 className="font-medium">Partner Matching</h4>
@@ -502,7 +500,6 @@ const TalentHuntDashboard = () => {
                   </div>
                 </div>
                 
-                {/* Finalized Column */}
                 <div className="min-w-[300px] flex-1">
                   <div className="bg-green-900/20 p-3 rounded-lg flex justify-between items-center mb-4">
                     <h4 className="font-medium">Opportunities</h4>
@@ -529,7 +526,6 @@ const TalentHuntDashboard = () => {
           </div>
         </div>
         
-        {/* Key Stats */}
         <div className="mt-20">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-black/30 backdrop-blur-md rounded-xl p-8 border border-gray-800 text-center">
