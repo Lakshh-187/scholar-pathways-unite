@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import Opportunity from "@/components/Opportunity";
 import TalentHuntAlliance from "@/components/TalentHuntAlliance";
 import WhatMattersPreview from "@/components/WhatMattersPreview";
+import { HomePageMyths } from "@/components/HomePageMyths";
 
 const Index = () => {
   const opportunities = [
@@ -112,6 +113,9 @@ const Index = () => {
         </section>
         
         <ScholarJourney />
+        
+        {/* Career Myths Section - New! */}
+        <HomePageMyths />
         
         {/* What Matters Section */}
         <WhatMattersPreview />
