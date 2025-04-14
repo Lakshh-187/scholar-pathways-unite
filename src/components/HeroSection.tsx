@@ -1,5 +1,6 @@
 
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
@@ -21,13 +22,17 @@ const HeroSection = () => {
               A complete ecosystem where scholars learn, perform, and connect with opportunities through the Talent Hunt Alliance.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="primary-btn" size="lg">
-                Apply for ID Card
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button className="secondary-btn" size="lg">
-                Explore Programs
-              </Button>
+              <Link to="/id-card">
+                <Button className="primary-btn" size="lg">
+                  Apply for ID Card
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/programs">
+                <Button className="secondary-btn" size="lg">
+                  Explore Programs
+                </Button>
+              </Link>
             </div>
             <div className="pt-6">
               <p className="text-gray-400">Trusted by leading institutions and organizations</p>
@@ -41,44 +46,13 @@ const HeroSection = () => {
           </div>
           
           <div className="relative animate-fade-in-right">
-            <div className="glass-card p-8 bg-white/5 border-white/10 max-w-md mx-auto">
-              <div className="absolute -top-5 -right-5 h-20 w-20 bg-gradient-to-br from-unifor-magenta to-unifor-purple rounded-lg rotate-12"></div>
-              <div className="relative z-10">
-                <div className="w-full h-10 bg-white/10 rounded-md mb-4"></div>
-                <div className="w-3/4 h-6 bg-white/10 rounded-md mb-10"></div>
-                
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-unifor-purple flex items-center justify-center text-white font-bold">1</div>
-                    <div className="flex-1">
-                      <div className="w-full h-6 bg-white/10 rounded-md"></div>
-                      <div className="w-3/4 h-4 bg-white/10 rounded-md mt-2"></div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-unifor-purple/70 flex items-center justify-center text-white font-bold">2</div>
-                    <div className="flex-1">
-                      <div className="w-full h-6 bg-white/10 rounded-md"></div>
-                      <div className="w-3/4 h-4 bg-white/10 rounded-md mt-2"></div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-unifor-purple/50 flex items-center justify-center text-white font-bold">3</div>
-                    <div className="flex-1">
-                      <div className="w-full h-6 bg-white/10 rounded-md"></div>
-                      <div className="w-3/4 h-4 bg-white/10 rounded-md mt-2"></div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="w-full h-12 bg-unifor-purple/80 rounded-md mt-10 flex items-center justify-center">
-                  <div className="w-3/4 h-4 bg-white/20 rounded-md"></div>
-                </div>
-              </div>
+            <div className="relative mx-auto">
+              <img 
+                src="https://www.uniford.org/uniford-main/temp.jpg" 
+                alt="Uniford Scholars" 
+                className="w-full h-auto object-cover rounded-2xl shadow-lg"
+                />
             </div>
-            
             <div className="absolute -bottom-8 -left-8 h-32 w-32 bg-unifor-blue/30 backdrop-blur-xl rounded-full animate-float"></div>
           </div>
         </div>

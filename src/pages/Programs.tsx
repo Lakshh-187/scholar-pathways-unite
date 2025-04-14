@@ -1,6 +1,7 @@
 
 import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target } from "lucide-react";
 import NavBar from "@/components/NavBar";
+import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
 import ProgramJourney from "@/components/ProgramJourney";
@@ -46,7 +47,9 @@ const Programs = () => {
         </section>
         
         {/* Scholar ID Card Program */}
-        <ScholarIDCardProgram />
+        <Link to='/id-card'>
+          <ScholarIDCardProgram />
+        </Link>
         
         {/* Program Journey */}
         <ProgramJourney />
@@ -92,7 +95,9 @@ const Programs = () => {
                     </div>
                   </div>
                 </div>
-                <Button className="primary-btn">Apply for Program</Button>
+                <Link to="/id-card">
+                    <Button className="primary-btn">Apply for Program</Button>
+                </Link>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -201,7 +206,9 @@ const Programs = () => {
                     </div>
                   </div>
                 </div>
-                <Button className="primary-btn">Apply for Program</Button>
+                 <Link to="/id-card">
+                  <Button className="primary-btn">Apply for Program</Button>
+                 </Link>
               </div>
             </div>
           </div>
@@ -216,12 +223,16 @@ const Programs = () => {
                 Apply for your scholar ID card and access a world of resources, opportunities, and connections.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
-                  Apply Now
-                </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                  Learn More
-                </Button>
+                <Link to="/id-card">
+                    <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
+                        Apply for ID Card
+                    </Button>
+                </Link>
+                <Link to="/programs">
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                        Learn More
+                    </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,14 +1,18 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Mic, 
   Award, 
-  ArrowRight, 
-  CheckCircle, 
+  ArrowRight,
+  ChevronDown,
+  ChevronUp,
+  CheckCircle,
   FileText, 
-  Rocket 
+  Rocket
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+
+
 
 export const UniPitchJourney = () => {
   const steps = [
@@ -62,18 +66,18 @@ export const UniPitchJourney = () => {
       
       {/* Desktop view - Horizontal timeline */}
       <div className="hidden md:block relative">
-        <div className="absolute left-0 top-24 w-full h-1 bg-gradient-to-r from-unifor-purple to-unifor-blue"></div>
-        
-        <div className="flex justify-between relative">
+         <div className="flex justify-between relative">
           {steps.map((step, index) => (
             <div key={step.id} className="w-1/4 px-4 flex flex-col items-center">
               <div className="relative z-10 flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg mb-6">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-unifor-light-purple">
+                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-unifor-light-purple">
+                 
+
                   {step.icon}
                 </div>
               </div>
               
-              <div className="text-center mb-4">
+              <div className="text-center mb-4 ">
                 <h3 className="text-xl font-bold text-unifor-dark-purple mb-2">
                   Step {step.id}: {step.title}
                 </h3>
@@ -138,7 +142,7 @@ export const UniPitchJourney = () => {
       </div>
       
       {/* Mobile view - Vertical timeline */}
-      <div className="md:hidden space-y-8">
+      <div className="md:hidden space-y-8">    
         {steps.map((step) => (
           <div key={step.id} className="relative pl-10 pb-8">
             {/* Timeline line */}
@@ -153,7 +157,7 @@ export const UniPitchJourney = () => {
             
             <div>
               <h3 className="text-lg font-bold text-unifor-dark-purple flex items-center">
-                {step.icon && <span className="mr-2">{React.cloneElement(step.icon, { className: 'h-5 w-5' })}</span>}
+                {step.icon && <span className="mr-2">{step.icon}</span>}
                 {step.title}
               </h3>
               <p className="text-gray-600 mb-3">{step.description}</p>
@@ -210,4 +214,5 @@ export const UniPitchJourney = () => {
       </div>
     </div>
   );
-};
+}; 
+

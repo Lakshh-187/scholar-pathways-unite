@@ -215,13 +215,13 @@ const UIRAD = () => {
                 enhancement coupled with the focus on <span className="font-bold text-unifor-dark-purple">global opportunities</span> has put our institution on the world map.
               </p>
               <div className="inline-flex items-center">
-                <div className="w-12 h-12 bg-unifor-light-purple text-unifor-dark-purple rounded-full flex items-center justify-center font-bold text-xl mr-3">
-                  DR
+                <div className="w-12 h-12 bg-unifor-light-purple text-unifor-dark-purple rounded-full flex items-center justify-center font-bold text-xl mr-3">                  
+                  LT
                 </div>
                 <div className="text-left">
-                  <div className="font-bold text-gray-800">Dr. Rachel Kumar</div>
-                  <div className="text-gray-500">Vice Chancellor, University of Excellence</div>
-                </div>
+                  <div className="font-bold text-gray-800">Lavish Tomar</div>
+                  <div className="text-gray-500">Director, CIA Delhi Road</div>
+                </div>                
               </div>
             </div>
           </div>

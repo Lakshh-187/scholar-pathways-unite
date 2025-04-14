@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,10 +14,8 @@ import {
   Lightbulb, 
   Briefcase, 
   DollarSign, 
-  Megaphone, 
   GraduationCap,
   Users,
-  Handshake,
   Link,
   Medal,
   ChevronDown,
@@ -29,10 +26,10 @@ import {
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { UniPitchJourney } from '@/components/UniPitchJourney';
-import { UniPitchCategories } from '@/components/UniPitchCategories';
-import { UniPitchBenefits } from '@/components/UniPitchBenefits';
+import {UniPitchCategories} from '@/components/UniPitchCategories';
 import { Network } from '@/components/ui/network-icon';
 import UniPitchGallery from '@/components/UniPitchGallery';
+
 
 const UniPitch = () => {
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
@@ -136,13 +133,13 @@ const UniPitch = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-xl max-w-4xl mx-auto mb-10 animate-fade-in">
             <h2 className="text-2xl font-bold text-white mb-4 text-center">Join Thousands of Students Who Found Success</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-unifor-purple/30 flex items-center justify-center mb-3">
-                  <Award className="h-8 w-8 text-white" />
+                <Award className="h-8 w-8 text-white" />
                 </div>
                 <p className="text-3xl font-bold text-white">4,500+</p>
                 <p className="text-gray-300">Successful Pitches</p>
-              </div>
+              </div>  
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-unifor-purple/30 flex items-center justify-center mb-3">
                   <Briefcase className="h-8 w-8 text-white" />
@@ -253,15 +250,15 @@ const UniPitch = () => {
         
         {/* Gallery Section */}
         <div ref={galleryRef}>
-          <UniPitchGallery />
+          <UniPitchGallery/>
         </div>
-        
+
         {/* Real-life Impact */}
         <div className="mt-24">
           <h2 className="text-3xl font-bold text-center mb-10 text-unifor-dark-purple">Real-Life Impact</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-green-500 animate-fade-in">
-              <CardHeader className="pb-2">
+           <div className="grid md:grid-cols-2 gap-8">
+           <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-green-500 animate-fade-in">
+             <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-xl">
                   <Briefcase className="h-5 w-5 text-unifor-purple" />
                   A Fresher Looking for an Internship
@@ -274,7 +271,7 @@ const UniPitch = () => {
                       <span className="text-red-500 text-lg">❌</span>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-700">Before Uni-Pitch:</p>
+                    <p className="font-medium text-gray-700">Before Uni-Pitch:</p>
                       <p className="text-gray-600">Struggles to find an internship, lacks guidance, and worries about paid training costs.</p>
                     </div>
                   </div>
@@ -283,16 +280,16 @@ const UniPitch = () => {
                       <span className="text-green-500 text-lg">✅</span>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-700">After Uni-Pitch:</p>
+                    <p className="font-medium text-gray-700">After Uni-Pitch:</p>
                       <p className="text-gray-600">Gets internship offers, access to free resources, and connections with top organizations.</p>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
-
+            
             <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-purple-500 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <CardHeader className="pb-2">
+             <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-xl">
                   <Lightbulb className="h-5 w-5 text-unifor-purple" />
                   A Student With an Innovative Project
@@ -305,7 +302,7 @@ const UniPitch = () => {
                       <span className="text-red-500 text-lg">❌</span>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-700">Before Uni-Pitch:</p>
+                    <p className="font-medium text-gray-700">Before Uni-Pitch:</p>
                       <p className="text-gray-600">Creates a great project but lacks visibility & support.</p>
                     </div>
                   </div>
@@ -314,7 +311,7 @@ const UniPitch = () => {
                       <span className="text-green-500 text-lg">✅</span>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-700">After Uni-Pitch:</p>
+                    <p className="font-medium text-gray-700">After Uni-Pitch:</p>
                       <p className="text-gray-600">Project is published in news/magazines, gets awards & funding, and is invited to global expos & summits.</p>
                     </div>
                   </div>
@@ -407,9 +404,6 @@ const UniPitch = () => {
             </div>
           </div>
         </div>
-        
-        {/* Benefits */}
-        <UniPitchBenefits />
       </div>
       
       <Footer />

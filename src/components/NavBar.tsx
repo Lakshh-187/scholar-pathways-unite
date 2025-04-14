@@ -1,8 +1,10 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +15,6 @@ const NavBar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
-    { name: 'What Matters?', path: '/what-matters' },
     { name: 'ID Card', path: '/id-card' },
     { name: 'Official Documents', path: '/official-documents' },
     { name: 'Uni-Pitch', path: '/uni-pitch' },
@@ -22,14 +23,24 @@ const NavBar = () => {
     { name: 'Backed By Uniford', path: '/backed-by-uniford' },
   ];
   
-  return (
+ return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-md bg-unifor-purple"></div>
-          <span className="text-xl font-bold text-unifor-dark">Unifor Scholar</span>
+        <Link to="/" className="font-bold text-2xl flex items-center">
+        <div className="flex items-center gap-2">
+           <div className="bg-unifor-purple h-5 w-5 rounded-sm"></div>
+            Uniford Council
+          </div>
         </Link>
-        
+
+        {/* Mobile Menu Toggle */}
+         <div className="md:hidden">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+           </button>
+          </div>
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           <div className="flex gap-6">
@@ -47,17 +58,11 @@ const NavBar = () => {
               </Link>
             ))}
           </div>
-          <Button className="primary-btn">Apply Now</Button>
-        </div>
-        
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          <Link to={"/id-card"}>
+              <Button className="primary-btn">Apply Now</Button>
+            </Link>
+        </div>       </div>
+    
       
       {/* Mobile Menu */}
       {isMenuOpen && (
@@ -75,14 +80,16 @@ const NavBar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
-              </Link>
+             </Link>
             ))}
-            <Button className="primary-btn w-full mt-2">Apply Now</Button>
+             <Link to={"/id-card"}>
+              <Button className="primary-btn w-full mt-2">Apply Now</Button>
+            </Link>
           </div>
         </div>
       )}
     </nav>
   );
-};
+ };
 
 export default NavBar;

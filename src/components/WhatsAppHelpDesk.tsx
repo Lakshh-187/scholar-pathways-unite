@@ -26,10 +26,8 @@ const WhatsAppHelpDesk: React.FC<WhatsAppHelpDeskProps> = ({
   };
 
   const handleOpenWhatsApp = () => {
-    const encodedMessage = encodeURIComponent(defaultMessage);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappUrl = "https://wa.me/7347099610?text=Hello!%20I%20have%20a%20question.";
     
-    window.open(whatsappUrl, '_blank');
     
     toast({
       title: "WhatsApp Opening",
@@ -37,6 +35,7 @@ const WhatsAppHelpDesk: React.FC<WhatsAppHelpDeskProps> = ({
     });
     
     setIsOpen(false);
+      window.open(whatsappUrl, '_blank');
   };
 
   return (

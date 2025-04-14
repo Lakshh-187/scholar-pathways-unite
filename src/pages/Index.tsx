@@ -104,7 +104,7 @@ const Index = () => {
                   <div className="absolute top-0 left-0 w-3/4 h-3/4 bg-unifor-purple/20 rounded-2xl"></div>
                   <div className="absolute bottom-0 right-0 w-3/4 h-3/4 bg-unifor-blue/20 rounded-2xl"></div>
                   <div className="absolute inset-0 m-auto w-5/6 h-5/6 glass-card bg-white flex items-center justify-center p-6">
-                    <img src="https://via.placeholder.com/400x400" alt="Students collaborating" className="rounded-xl" />
+                    <img src="https://www.uniford.org/uniford-main/uniford1.jpg" alt="Students collaborating" className="rounded-xl" />
                   </div>
                 </div>
               </div>
@@ -166,9 +166,11 @@ const Index = () => {
               <p className="text-xl text-gray-300 mb-8">
                 Apply for your ID card today and begin your path to success with Unifor Scholar.
               </p>
-              <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
-                Apply Now
-              </Button>
+              <Link to="/id-card">
+                <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
+                  Apply Now
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
