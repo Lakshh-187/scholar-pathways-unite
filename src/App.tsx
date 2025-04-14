@@ -11,7 +11,10 @@ import UIRAD from "./pages/UIRAD";
 import TalentHuntAlliance from "./pages/TalentHuntAlliance";
 import BackedByUniford from "./pages/BackedByUniford";
 import WhatMatters from "./pages/WhatMatters";
+import IDCard from "./pages/IDCard";
+import OfficialDocuments from "./pages/OfficialDocuments";
 import NotFound from "./pages/NotFound";
+import WhatsAppHelpDesk from "./components/WhatsAppHelpDesk";
 
 const queryClient = new QueryClient();
 
@@ -29,9 +32,12 @@ const App = () => (
           <Route path="/talent-hunt-alliance" element={<TalentHuntAlliance />} />
           <Route path="/backed-by-uniford" element={<BackedByUniford />} />
           <Route path="/what-matters" element={<WhatMatters />} />
+          <Route path="/id-card" element={<IDCard />} />
+          <Route path="/official-documents" element={<OfficialDocuments />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <WhatsAppHelpDesk />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

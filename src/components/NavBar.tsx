@@ -14,6 +14,8 @@ const NavBar = () => {
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
     { name: 'What Matters?', path: '/what-matters' },
+    { name: 'ID Card', path: '/id-card' },
+    { name: 'Official Documents', path: '/official-documents' },
     { name: 'Uni-Pitch', path: '/uni-pitch' },
     { name: 'UIRAD', path: '/uirad' },
     { name: 'Talent Hunt Alliance', path: '/talent-hunt-alliance' },
