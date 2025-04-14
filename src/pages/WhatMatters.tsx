@@ -26,6 +26,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import IllusionFAQ from "@/components/IllusionFAQ";
 
 const WhatMatters = () => {
   const [openIllusion, setOpenIllusion] = useState<number | null>(null);
@@ -229,6 +230,10 @@ const WhatMatters = () => {
               </div>
             </div>
           </div>
+        </section>
+        
+        <section className="py-20 bg-gray-50">
+          <IllusionFAQ />
         </section>
         
         <section className="py-20 bg-gray-50">
