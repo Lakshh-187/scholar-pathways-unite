@@ -13,6 +13,7 @@ const NavBar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
+    { name: 'What Matters?', path: '/what-matters' },
     { name: 'Uni-Pitch', path: '/uni-pitch' },
     { name: 'UIRAD', path: '/uirad' },
     { name: 'Talent Hunt Alliance', path: '/talent-hunt-alliance' },

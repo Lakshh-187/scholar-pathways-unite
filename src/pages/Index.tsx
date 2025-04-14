@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowRight, Briefcase, Building, CreditCard, Lightbulb, Rocket, Trophy, Users } from "lucide-react";
 import NavBar from "@/components/NavBar";
@@ -9,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Opportunity from "@/components/Opportunity";
 import TalentHuntAlliance from "@/components/TalentHuntAlliance";
+import WhatMattersPreview from "@/components/WhatMattersPreview";
 
 const Index = () => {
   const opportunities = [
@@ -110,6 +112,9 @@ const Index = () => {
         </section>
         
         <ScholarJourney />
+        
+        {/* What Matters Section */}
+        <WhatMattersPreview />
         
         {/* Talent Hunt Alliance Section */}
         <TalentHuntAlliance />
