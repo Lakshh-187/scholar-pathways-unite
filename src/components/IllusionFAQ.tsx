@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import { 
-  Brain, 
+  AlertTriangle, 
   ChevronRight, 
   Clock, 
   Code2, 
@@ -16,8 +15,7 @@ import {
   Sparkles, 
   TimerOff, 
   UserCheck, 
-  Users, 
-  WarningCircle
+  Users 
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -42,7 +40,7 @@ const IllusionFAQ = () => {
     {
       myth: "Engineering, Management, and Other Job Markets Are Not Changing",
       reality: "Job markets are highly disrupted by AI, layoffs, and skill gaps",
-      icon: WarningCircle,
+      icon: AlertTriangle,
       solution: "Only 1 in 10 students have the skills companies want today! Most focus on marks instead of practical skills.",
       bullets: [
         "AI Boom & Layoffs: Many jobs are affected by the rise of AI and layoffs due to geopolitics.",
