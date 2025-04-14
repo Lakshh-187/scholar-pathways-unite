@@ -15,7 +15,8 @@ import {
   Sparkles, 
   TimerOff, 
   UserCheck, 
-  Users 
+  Users,
+  Lightbulb  // Replace Brain with Lightbulb
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -51,7 +52,7 @@ const IllusionFAQ = () => {
     {
       myth: "AI will replace all jobs!",
       reality: "AI helps, but it won't replace skilled people who know how to use it!",
-      icon: Brain,
+      icon: Lightbulb, // Replace Brain with Lightbulb
       solution: "Time-Management and Efficiency Are Key! Companies want people who can use AI and tools to work faster.",
       bullets: [
         "AI & Automation: Companies want people who can use AI and tools to work faster.",
@@ -224,7 +225,7 @@ const IllusionFAQ = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="flex items-start gap-3 text-gray-200">
-                  <Brain className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
+                  <Lightbulb className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
                   <span>Problem-solving skills demonstrated through real projects</span>
                 </p>
                 <p className="flex items-start gap-3 text-gray-200">
