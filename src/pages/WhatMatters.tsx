@@ -16,7 +16,8 @@ import {
   Sparkles, 
   Users, 
   X, 
-  BarChart3
+  BarChart3,
+  Clock as ClockIcon // Import the Clock icon and rename it to ClockIcon
 } from "lucide-react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -48,7 +49,7 @@ const WhatMatters = () => {
     {
       title: "Practical experience is only for later years",
       reality: "Starting early with real-world exposure builds stronger foundations and more competitive profiles.",
-      icon: <Clock className="h-6 w-6 text-red-500" />
+      icon: <ClockIcon className="h-6 w-6 text-red-500" /> // Use ClockIcon instead of Clock
     },
     {
       title: "Degrees guarantee employment",
