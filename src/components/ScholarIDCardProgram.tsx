@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -21,9 +22,13 @@ import {
 } from 'lucide-react';
 
 const ScholarIDCardProgram = () => {
-  const [openSection, setOpenSection] = React.useState<number | null>(null);
+  const [openSection, setOpenSection] = useState<number | null>(null);
   const [paymentComplete, setPaymentComplete] = useState(false);
   const { toast } = useToast();
+
+  const toggleSection = (index: number) => {
+    setOpenSection(openSection === index ? null : index);
+  };
 
   const handlePayment = async () => {
     try {
