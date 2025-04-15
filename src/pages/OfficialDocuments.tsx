@@ -66,105 +66,281 @@ const OfficialDocuments = () => {
   ];
   
   const documents = [
+    
     {
       id: 1,
-      title: "Scholar Program Curriculum",
-      description: "Complete curriculum for the Uniford Scholar Program",
-      category: "curriculum",
+      title: " platforms & Programs ",
+      description: "Outsources platforms & old curriculam   Program",
+      category: "Guide",
       type: "pdf",
       date: "2023-08-15",
       size: "4.2 MB",
       downloads: 3250,
+      url: "https://drive.google.com/file/d/1fvnTwTTZCfOjUNl7aIvTNXs5YQDje0bl/view",
     },
     {
       id: 2,
-      title: "Campus to Corporate Roadmap",
+      title: "Uniford Platforms & Programs ",
       description: "Step-by-step roadmap for transitioning from campus to corporate",
-      category: "roadmaps",
+      category: "Guide",
       type: "pdf",
-      date: "2023-09-22",
+      date: "2024-09-22",
       size: "2.8 MB",
       downloads: 2180,
+      url: "https://drive.google.com/file/d/1UhxGOg-8KlhFSaoxlebO_pXKl1N2VBNe/view",
     },
     {
       id: 3,
-      title: "Internship Application Guide",
-      description: "Comprehensive guide for applying to internships through Uniford",
+      title: "Uniford Portals ",
+      description: "Email- info@uniford.org & password 1 to 8 in uniford.org",
       category: "guides",
       type: "pdf",
       date: "2023-07-10",
       size: "3.5 MB",
       downloads: 4120,
+      url: "https://drive.google.com/file/d/1NgXVXn76xiQCr4jNE1HaXLxLyd4ouW10/view",
     },
     {
       id: 4,
-      title: "Social Internship Certificate Template",
-      description: "Template for social internship certification",
-      category: "certificates",
-      type: "doc",
+      title: "Intern in organization",
+      description: "on-boarding detail & benefits ",
+      category: "Guide",
+      type: "pdf",
       date: "2023-10-05",
       size: "1.2 MB",
       downloads: 1850,
+      url: "https://drive.google.com/file/d/18zZY5c4hPWpO8Os9TKkI7VK_tRqxjLuj/view",
     },
     {
       id: 5,
-      title: "ID Card Application Form",
-      description: "Application form for Scholar ID Card",
-      category: "forms",
+      title: "Scholar Benefits Booklet",
+      description: "a booklet cover scholar benefits ",
+      category: "Guide",
       type: "pdf",
       date: "2023-11-12",
       size: "0.8 MB",
       downloads: 5230,
+      url: "https://drive.google.com/file/d/1s-NkVi238UfZ9nPcR4ZLWClMpnrdKm60/view",
     },
     {
       id: 6,
-      title: "Project Expo Guidelines",
-      description: "Guidelines and rules for participating in the Project Expo",
+      title: "Scholar Guide 2023 old",
+      description: "Guidelines and rules for participating using ID card",
       category: "guides",
       type: "pdf",
       date: "2023-12-01",
       size: "2.1 MB",
       downloads: 1920,
+      url: "https://drive.google.com/file/d/1u3BCUWAl6DEujjgGIAc3t1n007ze8Bmc/view",
     },
     {
       id: 7,
-      title: "Leadership Skills Development",
-      description: "Curriculum for developing leadership skills",
-      category: "curriculum",
+      title: " Uniford Scholar Council",
+      description: "Empowering scholars to lead and grow.",
+      category: "Guide",
       type: "ppt",
       date: "2024-01-15",
       size: "5.6 MB",
       downloads: 1430,
+      url: "https://drive.google.com/file/d/1f-pvSDyd2sNvBVOnggMan6HFYzP1uKEw/view",
     },
     {
       id: 8,
-      title: "Entrepreneurship Roadmap",
-      description: "Roadmap for student entrepreneurs",
+      title: "💼 Leadership & Management by YLS",
+      description: "Roadmap for student entrepreneurs & Initiator",
       category: "roadmaps",
       type: "pdf",
       date: "2024-02-20",
       size: "3.2 MB",
       downloads: 2670,
+      url: "https://drive.google.com/file/d/1S8DExEOoet-jD0iQ2ejZfPFwBmeSGEds/view",
     },
     {
       id: 9,
-      title: "Verified Scholar Badge Guidelines",
-      description: "Requirements and process for earning the Verified Scholar Badge",
+      title: "🚀 Entrepreneurship (AI & Financial Literacy Advancement)",
+      description: "Unlock entrepreneurial potential with cutting-edge AI and financial literacy programs.",
       category: "guides",
       type: "pdf",
       date: "2024-03-08",
       size: "1.5 MB",
       downloads: 3120,
+      url: "https://drive.google.com/file/d/1ZY76PqWZq1mVFN5fItDPTnOdHFAXcQ4Y/view",
     },
     {
       id: 10,
-      title: "Membership Refund Form",
-      description: "Form for applying for a membership fee refund",
-      category: "forms",
-      type: "doc",
+      title: "🌀 Illusion - A Black Hole Campaign",
+      description: "Uncover the truth about scams, myths, and facts to make informed decisions.",
+      category: "Guide",
+      type: "pdf",
       date: "2024-04-01",
       size: "0.6 MB",
       downloads: 980,
+      url: "https://drive.google.com/file/d/1NFwhGuri2e3sj2BRxGJKLWzpaR_-PXvq/view",
+    },
+     {
+      id: 11,
+      title: " 6i Campaign",
+      description: "Drive social initiatives that create meaningful impact.",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "1.2 MB",
+      downloads: 100,
+      url: "https://drive.google.com/file/d/1UyPhrPXGSduznwoM7euuOLtoMrkO_F36/view",
+    },
+    {
+      id: 12,
+      title: "Uniford Parliament for youths ",
+      description: "Information about Uniford Parliament for youths",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "1.8 MB",
+      downloads: 150,
+      url: "https://drive.google.com/file/d/18ZjrEWedABrYw6xyPwTnG_zKn-pjGvaA/view",
+    },
+    {
+      id: 13,
+      title: "Social Internship",
+      description: "detail task of social internships",
+      category: "Guide",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "0.5 MB",
+      downloads: 200,
+      url: "https://drive.google.com/file/d/1Ce7ekLK_npBvNkdgInyPiaMaytTTzgIK/view",
+    },
+    {
+      id: 14,
+      title: "ID card On-boarding",
+      description: "details of ID card On-boarding ",
+      category: "Guide",
+      type: "pdf",
+      date: "2023-10-26",
+      size: "0.6 MB",
+      downloads: 220,
+      url: "https://drive.google.com/file/d/15FvJTc-wB3Q4QGjcHby9TaLOA08hbFja/view",
+    },
+     {
+      id: 15,
+      title: " donated kits ",
+      description: "Link to join the Uniford Biggest Campaign",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "0.1 MB",
+      downloads: 500,
+      url: "https://zaap.bio/be-aware",
+    },
+    {
+      id: 16,
+      title: "Premium Resources & FAQ",
+      description: "Access premium resources and FAQ",
+      category: "guides",
+      type: "pdf",
+      date: "2024-10-26",
+      size: "3.5 MB",
+      downloads: 6300,
+      url: "https://drive.google.com/file/d/1jOWEcddhaQ30KMzDNd2v0y_I8P9RvhWR/view",
+    },
+     {
+      id: 17,
+      title: "Verified scholar - old",
+      description: "Details about parameters of verified scholar",
+      category: "guides",
+      type: "pdf",
+      date: "2024-10-26",
+       size: "1.4 MB",
+      downloads: 200,
+      url: "https://drive.google.com/file/d/17gPzq_Yrf4TFcS7EiHxRUUAtm_oIlk16/view",
+    },
+    {
+      id: 18,
+      title: "SEP-700",
+      description: "All worldwide opportunities",
+      category: "guides",
+      type: "pdf",
+      date: "2024-10-26",
+       size: "0.7 MB",
+      downloads: 12350,
+      url: "https://drive.google.com/file/d/1EDxL9Lnw3MGP2mkj8qz-PAOzjXi8v55_/view",
+    },
+    {
+      id: 19,
+      title: "114 + Premium Kits",
+      description: "Access to 114+ premium kits",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+      size: "1.0 MB",
+      downloads: 400,
+      url: "https://drive.google.com/file/d/1b7GwH5iQ1rUd4Jq3bA-reXe9oASynRim/view?usp=drive_link",
+    },
+    {
+      id: 20,
+      title: "How to apply scholar Id",
+      description: "Video guide on how to apply for a scholar ID",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "2.0 MB",
+      downloads: 450,
+      url: "https://drive.google.com/file/d/15FvJTc-wB3Q4QGjcHby9TaLOA08hbFja/view?usp=drive_link",
+    },
+       {
+      id: 21,
+      title: "Onboarding",
+      description: "Onboarding document",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "2.5 MB",
+      downloads: 450,
+      url: "https://drive.google.com/file/d/1Ce7ekLK_npBvNkdgInyPiaMaytTTzgIK/view?usp=sharing",
+    },
+    {
+      id: 22,
+      title: "Social Internship",
+      description: "Social Internship details",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "1.9 MB",
+      downloads: 250,
+      url: "https://drive.google.com/file/d/1rCzSYaeaU7xe3IOjQnLEGgqZibbqLMcY/view?usp=sharing",
+    },
+    {
+      id: 23,
+      title: "Roadmap by Harvard Research",
+      description: "Roadmap by Harvard Research document",
+      category: "roadmaps",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "3.9 MB",
+      downloads: 350,
+      url: "https://drive.google.com/file/d/1keEvTRQcq0m-AESPCTulsoEGOOhbYwmT/view?usp=sharing",
+    },
+    {
+      id: 24,
+      title: "Uniford Council Recogn",
+      description: "Uniford council recognition document",
+      category: "certificates",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "2.2 MB",
+      downloads: 120,
+      url: "https://drive.google.com/file/d/1HH9TGmSirZiKxJpeKcFYeuwxt3BYHnDc/view?usp=sharing",
+    },
+    {
+      id: 25,
+      title: "ID card Policy & Application Process",
+      description: "ID card policy and application process document",
+      category: "guides",
+      type: "pdf",
+      date: "2023-10-26",
+       size: "1.7 MB",
+      downloads: 180,
+      url: "https://drive.google.com/file/d/18ZjrEWedABrYw6xyPwTnG_zKn-pjGvaA/view?usp=sharing",
     },
   ];
   
@@ -177,6 +353,7 @@ const OfficialDocuments = () => {
       category: "guides",
       type: "pdf",
       downloads: 8540,
+      url:"https://drive.google.com/file/d/1u3BCUWAl6DEujjgGIAc3t1n007ze8Bmc/view?usp=sharing",
     },
     {
       id: 2,
@@ -186,6 +363,7 @@ const OfficialDocuments = () => {
       category: "roadmaps",
       type: "pdf",
       downloads: 6320,
+       url:"https://drive.google.com/file/d/1rCzSYaeaU7xe3IOjQnLEGgqZibbqLMcY/view?usp=sharing",
     },
     {
       id: 3,
@@ -195,10 +373,21 @@ const OfficialDocuments = () => {
       category: "guides",
       type: "pdf",
       downloads: 5790,
+       url:"https://drive.google.com/file/d/1s-NkVi238UfZ9nPcR4ZLWClMpnrdKm60/view?usp=sharing",
     },
   ];
   
-  // Filter documents based on search query and selected filters
+   const openDocumentInNewTab = (url: string) => {
+    if (url) {
+      window.open(url, "_blank");
+    } else {
+      // Handle cases where the URL is not provided
+      alert("Document URL not available.");
+    }
+  };
+
+
+  // Filter documents based on search query and selected filters\
   const filteredDocuments = documents.filter((doc) => {
     const matchesSearch = doc.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           doc.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -218,6 +407,8 @@ const OfficialDocuments = () => {
         return <FileText className="h-5 w-5 text-orange-500" />;
       case "img":
         return <FileText className="h-5 w-5 text-green-500" />;
+        case "link":
+        return <FileText className="h-5 w-5 text-blue-500" />;
       default:
         return <FileText className="h-5 w-5 text-gray-500" />;
     }
@@ -233,6 +424,8 @@ const OfficialDocuments = () => {
         return <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200">PPT</Badge>;
       case "img":
         return <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">IMG</Badge>;
+        case "link":
+        return <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">LINK</Badge>;
       default:
         return <Badge variant="outline">Unknown</Badge>;
     }
@@ -289,7 +482,9 @@ const OfficialDocuments = () => {
                       <div className="text-sm text-gray-500">
                         Downloads: {doc.downloads.toLocaleString()}
                       </div>
-                      <Button size="sm" className="gap-2">
+                      <Button size="sm" className="gap-2" onClick={() =>
+                           openDocumentInNewTab(doc.url)
+                          }>
                         <Download className="h-4 w-4" /> Download
                       </Button>
                     </div>
@@ -400,7 +595,11 @@ const OfficialDocuments = () => {
                               <TableCell>{doc.size}</TableCell>
                               <TableCell>{doc.downloads.toLocaleString()}</TableCell>
                               <TableCell className="text-right">
-                                <Button size="sm" variant="outline" className="gap-1">
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="gap-1"
+                                  onClick={() => openDocumentInNewTab(doc.url)}>
                                   <Download className="h-4 w-4" /> Download
                                 </Button>
                               </TableCell>
@@ -437,7 +636,11 @@ const OfficialDocuments = () => {
                                 <div>Date: {new Date(doc.date).toLocaleDateString()}</div>
                                 <div>Downloads: {doc.downloads.toLocaleString()}</div>
                               </div>
-                              <Button size="sm" className="w-full gap-2">
+                              <Button
+                                size="sm"
+                                className="w-full gap-2"
+                                onClick={() => openDocumentInNewTab(doc.url)}
+                              >
                                 <Download className="h-4 w-4" /> Download
                               </Button>
                             </CardContent>
