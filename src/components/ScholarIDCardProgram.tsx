@@ -1,9 +1,10 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { useToast } from '@/hooks/use-toast';
+import { initializePayment } from '@/utils/razorpay';
 import { 
   CheckCircle, 
   GraduationCap, 
@@ -21,9 +22,28 @@ import {
 
 const ScholarIDCardProgram = () => {
   const [openSection, setOpenSection] = React.useState<number | null>(null);
+  const [paymentComplete, setPaymentComplete] = useState(false);
+  const { toast } = useToast();
 
-  const toggleSection = (index: number) => {
-    setOpenSection(openSection === index ? null : index);
+  const handlePayment = async () => {
+    try {
+      await initializePayment({
+        amount: 500,
+        onSuccess: (response) => {
+          setPaymentComplete(true);
+          toast({
+            title: "Payment Successful!",
+            description: "You can now proceed to fill the ID Card Form.",
+          });
+        }
+      });
+    } catch (error) {
+      toast({
+        title: "Payment Failed",
+        description: "Please try again or contact support.",
+        variant: "destructive"
+      });
+    }
   };
 
   const roadmapItems = [
@@ -264,7 +284,6 @@ const ScholarIDCardProgram = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Visual Timeline */}
           <div className="relative mb-16">
             <div className="absolute left-0 top-1/2 h-1 w-full bg-gray-200 -translate-y-1/2"></div>
             <div className="flex justify-between relative">
@@ -282,7 +301,6 @@ const ScholarIDCardProgram = () => {
             </div>
           </div>
 
-          {/* Content Cards */}
           <div className="space-y-6">
             {roadmapItems.map((item, index) => (
               <Card 
@@ -320,11 +338,30 @@ const ScholarIDCardProgram = () => {
             ))}
           </div>
           
-          <div className="text-center mt-12">
-            <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all">
-              Apply for Scholar ID Card
-              <ChevronsRight className="ml-2 h-5 w-5" />
-            </Button>
+          <div className="text-center mt-12 space-y-4">
+            {!paymentComplete ? (
+              <Button 
+                onClick={handlePayment}
+                className="bg-unifor-purple hover:bg-unifor-dark-purple text-white px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all"
+              >
+                Pay ₹500 for Scholar ID Card
+                <CreditCard className="ml-2 h-5 w-5" />
+              </Button>
+            ) : (
+              <div className="space-y-4">
+                <div className="flex items-center justify-center gap-2 text-green-600">
+                  <CheckCircle className="h-6 w-6" />
+                  <span className="font-medium">Payment Successful!</span>
+                </div>
+                <Button 
+                  className="bg-unifor-purple hover:bg-unifor-dark-purple"
+                  onClick={() => window.open('https://forms.google.com/your-form-url', '_blank')}
+                >
+                  Fill ID Card Form
+                  <ChevronsRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
