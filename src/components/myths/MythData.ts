@@ -11,19 +11,29 @@ import {
   Rocket, 
   School, 
   Target, 
-  Users 
+  Users,
+  AlertTriangle,
+  Clock,
+  File,
+  Info,
+  ScrollText,
+  Sparkles,
+  TimerOff,
+  UserCheck
 } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
-interface Myth {
+export interface MythData {
   id: number;
-  icon: LucideIcon;
+  icon: LucideIcon | string;
   title: string;
   myth: string;
   reality: string;
+  solution?: string;
+  bullets?: string[];
 }
 
-export const myths: Myth[] = [
+export const myths: MythData[] = [
   {
     id: 1,
     icon: School,
@@ -109,3 +119,15 @@ export const myths: Myth[] = [
     reality: "Career paths are flexible and can evolve with experience and skills"
   }
 ];
+
+// Add solutions and expanded information for the FAQ version
+export const mythsFAQData: MythData[] = myths.map(myth => ({
+  ...myth,
+  solution: "Engage in practical learning and skill-building activities outside the classroom to build a comprehensive profile.",
+  bullets: [
+    "Participate in industry projects and internships",
+    "Build a portfolio showcasing your practical skills",
+    "Network with professionals in your target industry",
+    "Pursue relevant certifications and workshops"
+  ]
+}));

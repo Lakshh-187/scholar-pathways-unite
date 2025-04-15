@@ -2,13 +2,13 @@
 import React from 'react';
 import { 
   Laptop, 
-  Flask, 
-  Robot, 
+  Beaker, 
+  Bot, 
   BookOpen, 
   Database,
   Store,
   Building,
-  PresentationScreen,
+  Presentation,
   Microscope
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -29,8 +29,8 @@ const UGIEPSection = () => {
       title: "Stage 2: Program Implementation",
       description: "Establishing educational programs and initiatives",
       features: [
-        { icon: <PresentationScreen className="h-6 w-6" />, text: "Uni-talks & Uni-pitch" },
-        { icon: <Flask className="h-6 w-6" />, text: "STEM Labs" },
+        { icon: <Presentation className="h-6 w-6" />, text: "Uni-talks & Uni-pitch" },
+        { icon: <Beaker className="h-6 w-6" />, text: "STEM Labs" },
         { icon: <Building className="h-6 w-6" />, text: "Training Programs" }
       ]
     },
@@ -38,7 +38,7 @@ const UGIEPSection = () => {
       title: "Stage 3: Advanced Infrastructure",
       description: "Creating specialized learning environments",
       features: [
-        { icon: <Robot className="h-6 w-6" />, text: "Robotics Labs" },
+        { icon: <Bot className="h-6 w-6" />, text: "Robotics Labs" },
         { icon: <Microscope className="h-6 w-6" />, text: "Innovation Labs" },
         { icon: <BookOpen className="h-6 w-6" />, text: "Modern Library" }
       ]
