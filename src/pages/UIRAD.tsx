@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,6 +11,8 @@ import UIRADParentsProfile from '@/components/UIRADParentsProfile';
 import { Book, Globe, Layers, Database, Award, Rocket, School, Check, ArrowRight, Building, BookOpen, GraduationCap, Network } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Network as NetworkIcon } from '@/components/ui/network-icon';
+import UCPISection from '@/components/UCPISection';
+import UGIEPSection from '@/components/UGIEPSection';
 
 const UIRAD = () => {
   const [activeTab, setActiveTab] = useState('intro');
@@ -119,6 +120,9 @@ const UIRAD = () => {
       </section>
       
       <div className="container mx-auto max-w-6xl px-4 py-10">
+        <UCPISection />
+        <UGIEPSection />
+        
         {/* New IEP-X Transformation Section */}
         <UIRADTransformation />
         
