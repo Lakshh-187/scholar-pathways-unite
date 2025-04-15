@@ -179,31 +179,6 @@ const ScholarIDCardProgram = () => {
       )
     },
     {
-      title: "Participation Benefits",
-      icon: <Award className="h-8 w-8 text-unifor-purple" />,
-      content: (
-        <div>
-          <p className="mb-4">Once you have your ID cards, you can:</p>
-          <div className="bg-unifor-light-purple/20 p-4 rounded-lg">
-            <ul className="space-y-2">
-              <li className="flex items-start gap-2">
-                <ChevronsRight className="h-5 w-5 text-unifor-purple mt-1 flex-shrink-0" />
-                <span>Apply freely for programs, platforms & portals</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <ChevronsRight className="h-5 w-5 text-unifor-purple mt-1 flex-shrink-0" />
-                <span>Join without individual fees</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <ChevronsRight className="h-5 w-5 text-unifor-purple mt-1 flex-shrink-0" />
-                <span>Get early access to premium opportunities</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      )
-    },
-    {
       title: "Time Aid Policy",
       icon: <Clock className="h-8 w-8 text-unifor-purple" />,
       content: (
