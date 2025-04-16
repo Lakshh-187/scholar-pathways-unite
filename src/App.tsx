@@ -13,6 +13,7 @@ import BackedByUniford from "./pages/BackedByUniford";
 import WhatMatters from "./pages/WhatMatters";
 import IDCard from "./pages/IDCard";
 import OfficialDocuments from "./pages/OfficialDocuments";
+import SocialInternship from "./pages/SocialInternship";
 import NotFound from "./pages/NotFound";
 import WhatsAppHelpDesk from "./components/WhatsAppHelpDesk";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/backed-by-uniford" element={<BackedByUniford />} />
           <Route path="/what-matters" element={<WhatMatters />} />
           <Route path="/id-card" element={<IDCard />} />
+          <Route path="/social-internship" element={<SocialInternship />} />
           <Route path="/official-documents" element={<OfficialDocuments />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

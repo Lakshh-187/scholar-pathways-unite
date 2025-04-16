@@ -6,6 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
 
 const faqs = [
   {
@@ -14,7 +17,7 @@ const faqs = [
   },
   {
     question: "How can I get my registration fee refunded?",
-    answer: "Complete a social internship and submit your certificate to info@uniford.org. Our team will verify and process your refund."
+    answer: "Complete a social internship and submit your certificate to info@uniford.org. Our team will verify and process your refund. You can find more details on our Social Internship page."
   },
   {
     question: "What is the Time Aid Policy?",
@@ -27,6 +30,14 @@ const faqs = [
   {
     question: "What are the eligibility criteria?",
     answer: "You need minimum 55% marks in your latest qualification and should be under 24 years of age (U-24)."
+  },
+  {
+    question: "What social internship options are available?",
+    answer: "We offer various options including Potential Hunter campaigns, Go Green initiatives, teaching opportunities, cancer patient support, blood donation drives, STEM kit donations, and innovation donations."
+  },
+  {
+    question: "How long does the Social Internship take to complete?",
+    answer: "The duration varies by task type, from as little as 1-5 days for blood donation to 15-30 days for mentoring programs."
   }
 ];
 
@@ -42,6 +53,18 @@ const ScholarFAQs = () => {
             </AccordionTrigger>
             <AccordionContent>
               {faq.answer}
+              {index === 1 && (
+                <Button 
+                  variant="link" 
+                  className="text-unifor-purple p-0 h-auto mt-2"
+                  asChild
+                >
+                  <Link to="/social-internship">
+                    Learn more about Social Internship
+                    <ExternalLink className="ml-1 h-3 w-3" />
+                  </Link>
+                </Button>
+              )}
             </AccordionContent>
           </AccordionItem>
         ))}
