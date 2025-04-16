@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { 
   BookOpen, 
@@ -42,6 +41,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import DocumentTypes from "@/components/documents/DocumentTypes";
+import DocumentFilters from "@/components/documents/DocumentFilters";
 
 const OfficialDocuments = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -386,8 +387,6 @@ const OfficialDocuments = () => {
     }
   };
 
-
-  // Filter documents based on search query and selected filters\
   const filteredDocuments = documents.filter((doc) => {
     const matchesSearch = doc.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           doc.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -459,6 +458,14 @@ const OfficialDocuments = () => {
           </div>
         </section>
 
+        {/* Document Types Section */}
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold mb-8">Document Types</h2>
+            <DocumentTypes />
+          </div>
+        </section>
+
         {/* Featured Documents */}
         <section className="py-12 bg-gray-50">
           <div className="container mx-auto px-4">
@@ -501,47 +508,14 @@ const OfficialDocuments = () => {
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl font-bold mb-8">Documents Library</h2>
               
-              {/* Filters */}
-              <div className="flex flex-col md:flex-row gap-4 mb-8">
-                <div className="flex-1 relative">
-                  <Input
-                    type="search"
-                    placeholder="Search documents..."
-                    className="w-full pl-10"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                </div>
-                
-                <div className="flex gap-4">
-                  <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {documentCategories.map((category) => (
-                        <SelectItem key={category.id} value={category.id}>
-                          {category.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  
-                  <Select value={selectedType} onValueChange={setSelectedType}>
-                    <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Document Type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {documentTypes.map((type) => (
-                        <SelectItem key={type.id} value={type.id}>
-                          {type.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
+              <DocumentFilters
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                selectedType={selectedType}
+                setSelectedType={setSelectedType}
+              />
               
               {/* Document Table */}
               <div className="bg-white rounded-lg shadow overflow-hidden">
