@@ -1,4 +1,3 @@
-
 import React from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -7,6 +6,7 @@ import StudentProblems from "@/components/scholar/StudentProblems";
 import RelatedPages from "@/components/scholar/RelatedPages";
 import IDCardBenefits from "@/components/IDCardBenefits";
 import WhatMattersPreview from "@/components/WhatMattersPreview";
+import ScholarImageCarousel from "@/components/ScholarImageCarousel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CreditCard, ExternalLink } from "lucide-react";
@@ -51,6 +51,9 @@ const IDCard = () => {
         
         {/* Benefits Section */}
         <IDCardBenefits />
+        
+        {/* Scholar Image Carousel */}
+        <ScholarImageCarousel />
         
         {/* What Matters Preview */}
         <WhatMattersPreview />

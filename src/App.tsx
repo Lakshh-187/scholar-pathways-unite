@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,6 +15,8 @@ import OfficialDocuments from "./pages/OfficialDocuments";
 import SocialInternship from "./pages/SocialInternship";
 import NotFound from "./pages/NotFound";
 import WhatsAppHelpDesk from "./components/WhatsAppHelpDesk";
+import LegalPolicy from "./pages/LegalPolicy";
+import PremiumStore from "./pages/PremiumStore";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,8 @@ const App = () => (
           <Route path="/id-card" element={<IDCard />} />
           <Route path="/social-internship" element={<SocialInternship />} />
           <Route path="/official-documents" element={<OfficialDocuments />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/legal-policy" element={<LegalPolicy />} />
+          <Route path="/premium-store" element={<PremiumStore />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
