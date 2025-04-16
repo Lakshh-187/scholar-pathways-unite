@@ -6,9 +6,11 @@ import ScholarIDProcess from "@/components/scholar/ScholarIDProcess";
 import StudentProblems from "@/components/scholar/StudentProblems";
 import RelatedPages from "@/components/scholar/RelatedPages";
 import IDCardBenefits from "@/components/IDCardBenefits";
+import WhatMattersPreview from "@/components/WhatMattersPreview";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CreditCard, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const IDCard = () => {
   return (
@@ -30,10 +32,12 @@ const IDCard = () => {
                   <CreditCard className="mr-2" />
                   Apply Now
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                  <ExternalLink className="mr-2" />
-                  Learn More
-                </Button>
+                <Link to="/#scholar-journey">
+                  <Button variant="outline" className="border-white text-white hover:bg-white/10 w-full">
+                    <ExternalLink className="mr-2" />
+                    View Scholar Journey
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -47,6 +51,9 @@ const IDCard = () => {
         
         {/* Benefits Section */}
         <IDCardBenefits />
+        
+        {/* What Matters Preview */}
+        <WhatMattersPreview />
         
         {/* Related Pages Navigation */}
         <RelatedPages />
