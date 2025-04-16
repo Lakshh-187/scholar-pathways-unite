@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AlertTriangle, Brain, School, DollarSign, Users, TrendingUp, GraduationCap, Building2, LineChart, Target } from 'lucide-react';
+import { AlertTriangle, Brain, School, DollarSign, Users, TrendingUp, GraduationCap, Building2, LineChart, Target, ClipboardCheck } from 'lucide-react';
 
 const StudentProblems = () => {
   const problems = [
@@ -52,7 +51,7 @@ const StudentProblems = () => {
     },
     {
       id: "caf",
-      icon: <FileCheck className="h-6 w-6 text-green-500" />,
+      icon: <ClipboardCheck className="h-6 w-6 text-green-500" />,
       title: "Common Application Form (CAF)",
       description: "One form for multiple opportunities"
     },
