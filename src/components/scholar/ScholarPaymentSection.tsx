@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { initializePayment } from '@/utils/razorpay';
-import { CreditCard, ExternalLink } from 'lucide-react';
+import { CreditCard, ExternalLink, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ScholarPaymentSection = () => {
   const [paymentComplete, setPaymentComplete] = useState(false);
@@ -60,6 +61,16 @@ const ScholarPaymentSection = () => {
                 >
                   Fill ID Card Form
                   <ExternalLink className="ml-2 h-5 w-5" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full mt-2 border-unifor-purple text-unifor-dark-purple"
+                  asChild
+                >
+                  <Link to="/social-internship">
+                    <Users className="mr-2 h-5 w-5" />
+                    Apply for Social Internship to Get Refund
+                  </Link>
                 </Button>
               </div>
             )}

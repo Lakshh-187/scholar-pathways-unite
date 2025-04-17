@@ -29,13 +29,13 @@ import { UniPitchJourney } from '@/components/UniPitchJourney';
 import {UniPitchCategories} from '@/components/UniPitchCategories';
 import { Network } from '@/components/ui/network-icon';
 import UniPitchGallery from '@/components/UniPitchGallery';
-
+import PitchburgInitiative from '@/components/PitchburgInitiative';
+import PitchburgPrograms from '@/components/PitchburgPrograms';
 
 const UniPitch = () => {
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
   const [activeHowItWorksStep, setActiveHowItWorksStep] = React.useState(0);
   
-  // Reference for smooth scrolling
   const galleryRef = React.useRef<HTMLDivElement>(null);
 
   const toggleFaq = (index: number) => {
@@ -244,6 +244,12 @@ const UniPitch = () => {
             </Button>
           </div>
         </section>
+        
+        {/* NEW: Pitchburg Initiative Section */}
+        <PitchburgInitiative />
+        
+        {/* NEW: Pitchburg Programs Section */}
+        <PitchburgPrograms />
         
         {/* Visual Journey */}
         <UniPitchJourney />

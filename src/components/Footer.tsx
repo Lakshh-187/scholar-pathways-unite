@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-unifor-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="h-8 w-8 rounded-md bg-unifor-purple"></div>
@@ -26,45 +26,80 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Programs</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Home
+                <Link to="/programs" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  All Programs
                 </Link>
               </li>
               <li>
-                <Link to="/programs" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Programs
+                <Link to="/uni-pitch" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Uni-Pitch
                 </Link>
               </li>
+              <li>
+                <Link to="/uirad" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UIRAD
+                </Link>
+              </li>
+              <li>
+                <Link to="/backed-by-uniford" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Backed By Uniford
+                </Link>
+              </li>
+              <li>
+                <Link to="/social-internship" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Social Internship
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <ul className="space-y-3">
               <li>
                 <Link to="/what-matters" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   What Matters
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Scholar Journey
-                </a>
+                <Link to="/official-documents" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Official Documents
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Talent Hunt Alliance
-                </a>
+                <Link to="/published" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Published Resources
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Alumni Network
-                </a>
+                <Link to="/premium-store" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Premium Store
+                </Link>
+              </li>
+              <li>
+                <Link to="/legal-policy" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Legal Policy
+                </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact & Apply</h3>
             <ul className="space-y-3">
-             
+              <li>
+                <Link to="/id-card" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  ID Card Application
+                </Link>
+              </li>
+              <li>
+                <Link to="/talent-hunt-alliance" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Talent Hunt Alliance
+                </Link>
+              </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-unifor-purple shrink-0" />
                 <a href="tel:+917347099610" className="text-gray-300 hover:text-white transition-colors">
@@ -75,7 +110,6 @@ const Footer = () => {
                 <Mail className="h-5 w-5 text-unifor-purple shrink-0" />
                 <a href="mailto:info@uniford.org" className="text-gray-300 hover:text-white transition-colors">
                   info@uniford.org
-                  
                 </a>
               </li>
             </ul>

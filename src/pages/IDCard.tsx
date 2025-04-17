@@ -1,33 +1,16 @@
-import React, { useState } from "react";
-import { 
-  BadgeCheck, 
-  BookOpen, 
-  Calendar, 
-  CreditCard, 
-  Download, 
-  GraduationCap, 
-  HelpCircle, 
-  Info, 
-  Link as LinkIcon, 
-  Mail, 
-  MessageCircle, 
-  Rocket, 
-  Sparkles, 
-  UserCheck
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import React from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import IDCardBenefits from "@/components/IDCardBenefits";
-import OfficialDocuments from "./OfficialDocuments";
-import NotFound from "./NotFound";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Separator } from "@/components/ui/separator";
 import ScholarIDProcess from "@/components/scholar/ScholarIDProcess";
+import StudentProblems from "@/components/scholar/StudentProblems";
+import RelatedPages from "@/components/scholar/RelatedPages";
+import IDCardBenefits from "@/components/IDCardBenefits";
+import WhatMattersPreview from "@/components/WhatMattersPreview";
+import ScholarImageCarousel from "@/components/ScholarImageCarousel";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { CreditCard, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const IDCard = () => {
   return (
@@ -46,41 +29,37 @@ const IDCard = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button className="bg-white text-unifor-purple hover:bg-gray-100">
+                  <CreditCard className="mr-2" />
                   Apply Now
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                  Learn More
-                </Button>
+                <Link to="/#scholar-journey">
+                  <Button variant="outline" className="border-white text-white hover:bg-white/10 w-full">
+                    <ExternalLink className="mr-2" />
+                    View Scholar Journey
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Main Content */}
+        {/* Current Problems & Solutions Section */}
+        <StudentProblems />
+        
+        {/* Scholar ID Process */}
         <ScholarIDProcess />
         
-        {/* Add the Benefits Component */}
+        {/* Benefits Section */}
         <IDCardBenefits />
         
-        {/* CTA Section */}
-        <section className="py-16 bg-unifor-light-purple/20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">Ready to Start Your Scholar Journey?</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Apply for your ID card today and begin accessing a world of opportunities.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-unifor-purple hover:bg-unifor-dark-purple" size="lg">
-                  Apply Now
-                </Button>
-                <Button variant="outline" size="lg">
-                  Learn About Social Internships
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Scholar Image Carousel */}
+        <ScholarImageCarousel />
+        
+        {/* What Matters Preview */}
+        <WhatMattersPreview />
+        
+        {/* Related Pages Navigation */}
+        <RelatedPages />
       </main>
       
       <Footer />

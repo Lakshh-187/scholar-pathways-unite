@@ -13,8 +13,12 @@ import BackedByUniford from "./pages/BackedByUniford";
 import WhatMatters from "./pages/WhatMatters";
 import IDCard from "./pages/IDCard";
 import OfficialDocuments from "./pages/OfficialDocuments";
+import SocialInternship from "./pages/SocialInternship";
 import NotFound from "./pages/NotFound";
 import WhatsAppHelpDesk from "./components/WhatsAppHelpDesk";
+import LegalPolicy from "./pages/LegalPolicy";
+import PremiumStore from "./pages/PremiumStore";
+import Published from "./pages/Published";
 
 const queryClient = new QueryClient();
 
@@ -33,8 +37,11 @@ const App = () => (
           <Route path="/backed-by-uniford" element={<BackedByUniford />} />
           <Route path="/what-matters" element={<WhatMatters />} />
           <Route path="/id-card" element={<IDCard />} />
+          <Route path="/social-internship" element={<SocialInternship />} />
           <Route path="/official-documents" element={<OfficialDocuments />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/legal-policy" element={<LegalPolicy />} />
+          <Route path="/premium-store" element={<PremiumStore />} />
+          <Route path="/published" element={<Published />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
