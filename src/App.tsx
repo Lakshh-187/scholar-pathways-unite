@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import WhatsAppHelpDesk from "./components/WhatsAppHelpDesk";
 import LegalPolicy from "./pages/LegalPolicy";
 import PremiumStore from "./pages/PremiumStore";
+import Published from "./pages/Published";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +41,7 @@ const App = () => (
           <Route path="/official-documents" element={<OfficialDocuments />} />
           <Route path="/legal-policy" element={<LegalPolicy />} />
           <Route path="/premium-store" element={<PremiumStore />} />
+          <Route path="/published" element={<Published />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />

@@ -12,6 +12,7 @@ import Opportunity from "@/components/Opportunity";
 import TalentHuntAlliance from "@/components/TalentHuntAlliance";
 import WhatMattersPreview from "@/components/WhatMattersPreview";
 import { HomePageMyths } from "@/components/HomePageMyths";
+import ImageGallery from "@/components/ImageGallery";
 
 const Index = () => {
   const opportunities = [
@@ -114,7 +115,10 @@ const Index = () => {
         
         <ScholarJourney />
         
-        {/* Career Myths Section - New! */}
+        {/* Image Gallery Section - New! */}
+        <ImageGallery />
+        
+        {/* Career Myths Section */}
         <HomePageMyths />
         
         {/* What Matters Section */}
