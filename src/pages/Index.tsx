@@ -14,6 +14,7 @@ import WhatMattersPreview from "@/components/WhatMattersPreview";
 import { HomePageMyths } from "@/components/HomePageMyths";
 import ImageGallery from "@/components/ImageGallery";
 import ScholarIDFeatures from "@/components/ScholarIDFeatures";
+import StudentProblems from "@/components/scholar/StudentProblems";
 
 const Index = () => {
   const opportunities = [
@@ -46,8 +47,11 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         
-        {/* Scholar ID Features Section - New! */}
+        {/* Scholar ID Features Section */}
         <ScholarIDFeatures />
+        
+        {/* Student Problems Section - New! */}
+        <StudentProblems />
         
         {/* About Section */}
         <section className="py-20">
