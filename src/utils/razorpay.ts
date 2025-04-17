@@ -1,5 +1,4 @@
-
-declare global {
+declare global {   
   interface Window {
     Razorpay: any;
   }
@@ -9,7 +8,10 @@ export const loadRazorpayScript = (): Promise<void> => {
   return new Promise((resolve) => {
     const script = document.createElement('script');
     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-    script.onload = () => resolve();
+    script.onload = () => {
+      console.log("Razorpay script loaded")
+      resolve();
+    };
     document.body.appendChild(script);
   });
 };
@@ -30,7 +32,7 @@ export const initializePayment = async ({
   await loadRazorpayScript();
 
   const options = {
-    key: "rzp_test_your_key_here", // Replace with your Razorpay test key
+    key: "rzp_test_Ysbma1ySF1JiMS", // Replace with your Razorpay test key
     amount: amount * 100, // Razorpay expects amount in paisa
     currency: "INR",
     name: "Uniford Scholar ID",
@@ -47,6 +49,8 @@ export const initializePayment = async ({
       color: "#9b87f5"
     }
   };
+
+  console.log('Razorpay options:', options)
 
   const razorpayInstance = new window.Razorpay(options);
   razorpayInstance.open();
