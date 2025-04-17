@@ -13,6 +13,7 @@ import TalentHuntAlliance from "@/components/TalentHuntAlliance";
 import WhatMattersPreview from "@/components/WhatMattersPreview";
 import { HomePageMyths } from "@/components/HomePageMyths";
 import ImageGallery from "@/components/ImageGallery";
+import ScholarIDFeatures from "@/components/ScholarIDFeatures";
 
 const Index = () => {
   const opportunities = [
@@ -44,6 +45,9 @@ const Index = () => {
       
       <main className="flex-grow">
         <HeroSection />
+        
+        {/* Scholar ID Features Section - New! */}
+        <ScholarIDFeatures />
         
         {/* About Section */}
         <section className="py-20">
@@ -115,7 +119,7 @@ const Index = () => {
         
         <ScholarJourney />
         
-        {/* Image Gallery Section - New! */}
+        {/* Image Gallery Section */}
         <ImageGallery />
         
         {/* Career Myths Section */}
