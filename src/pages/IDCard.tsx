@@ -42,6 +42,35 @@ const IDCard = () => {
             </div>
           </div>
         </section>
+        {/* Interactive Buttons Section */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfrxJ42yW6eJ1X4rUoUeR-bI-i78d8UjR_V0-G-x9Z8fXJ6w/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 px-6 py-3">
+                  <ExternalLink className="mr-2" />
+                  Submit Application
+                </Button>
+              </a>
+              <a href="#benefits">
+                <Button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:from-pink-600 hover:to-purple-600 px-6 py-3">
+                  <ExternalLink className="mr-2" />
+                  View Benefits
+                </Button>
+              </a>
+              <a href="#scholar-journey">
+                <Button className="bg-gradient-to-r from-blue-500 to-pink-500 text-white hover:from-blue-600 hover:to-pink-600 px-6 py-3">
+                  <ExternalLink className="mr-2" />
+                  Scholar Journey
+                </Button>
+              </a>
+            </div>
+          </div>
+        </section>
 
         {/* Current Problems & Solutions Section */}
         <StudentProblems />
