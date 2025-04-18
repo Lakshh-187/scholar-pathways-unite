@@ -34,12 +34,17 @@ const IDCard = () => {
                     Apply Now
                   </Button>
                 </a>
-                <Link to="/#scholar-journey" >
-                  <Button variant="outline" className="border-white text-white hover:bg-white/10 w-full">
+                <a href="https://forms.gle/ZgQnS2xBsdo4YX9L8">
+                  <Button variant="outline" className="border-white text-white :bg-white/10 w-full">
                     <ExternalLink className="mr-2" />
-                    View Scholar Journey
+                    Apply via Time AID
                   </Button>
-                </Link>
+                </a>
+                  <a href="#registration">
+                    <Button variant="outline" className="border-white text-white :bg-white/10 w-full">
+                      Go to Registration
+                    </Button>
+                  </a>
               </div>
             </div>
           </div>
@@ -48,28 +53,24 @@ const IDCard = () => {
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfrxJ42yW6eJ1X4rUoUeR-bI-i78d8UjR_V0-G-x9Z8fXJ6w/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 px-6 py-3">
-                  <ExternalLink className="mr-2" />
-                  Submit Application
-                </Button>
-              </a>
-              <a href="#benefits">
-                <Button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:from-pink-600 hover:to-purple-600 px-6 py-3">
-                  <ExternalLink className="mr-2" />
-                  View Benefits
-                </Button>
-              </a>
+             <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-gradient-to-r from-blue-500 to-purple-500 font-bold text-white hover:from-blue-600 hover:to-purple-600 px-6 py-3">
+              <ExternalLink className="mr-2" />
+              Fill ID card Form
+            </Button>
+          </a>
+          <a href="https://wa.me/7347099610?text=Hello!%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer">
+            <Button className="bg-gradient-to-r from-pink-500 to-purple-500 font-bold text-white hover:from-pink-600 hover:to-purple-600 px-6 py-3"><ExternalLink className="mr-2" /> Have Query - Connect</Button>
+          </a>
               <a href="#scholar-journey">
-                <Button className="bg-gradient-to-r from-blue-500 to-pink-500 text-white hover:from-blue-600 hover:to-pink-600 px-6 py-3">
+                <Button className="bg-gradient-to-r from-blue-500 to-pink-500 text-white hover:from-blue-600 hover:to-pink-600 px-6 py-3"
+                >
                   <ExternalLink className="mr-2" />
-                  Scholar Journey
+                  Appy via Time AID
                 </Button>
               </a>
+          
+                
             </div>
           </div>
         </section>

@@ -33,7 +33,7 @@ const ScholarPaymentSection = () => {
   };
 
   return (
-    <Card className="border-unifor-light-purple">
+    <Card id="registration" className="border-unifor-light-purple">
       <CardHeader>
         <CardTitle className="text-unifor-dark-purple">Scholar ID Card Registration</CardTitle>
       </CardHeader>
