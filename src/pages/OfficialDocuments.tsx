@@ -67,6 +67,18 @@ const OfficialDocuments = () => {
   ];
   
   const documents = [
+
+    {
+      id: 31,
+      title: " International parameter ",
+      description: "Outsources platforms & old curriculam   Program",
+      category: "Guide",
+      type: "pdf",
+      date: "2023-08-15",
+      size: "4.2 MB",
+      downloads: 3250,
+      url: "https://drive.google.com/file/d/1Tt3OYeXHbFsRRy1zyJGK4_ema1c7fyxA/view?usp=sharing",
+    },
     
     {
       id: 1,
@@ -343,11 +355,8 @@ const OfficialDocuments = () => {
       downloads: 180,
       url: "https://drive.google.com/file/d/18ZjrEWedABrYw6xyPwTnG_zKn-pjGvaA/view?usp=sharing",
     },
-  ];
-  
-  const featuredDocuments = [
     {
-      id: 1,
+      id: 26,
       title: "Complete Scholar Handbook",
       description: "Everything you need to know about the Uniford Scholar Program",
       icon: <BookOpen className="h-8 w-8 text-unifor-purple" />,
@@ -357,7 +366,7 @@ const OfficialDocuments = () => {
       url:"https://drive.google.com/file/d/1u3BCUWAl6DEujjgGIAc3t1n007ze8Bmc/view?usp=sharing",
     },
     {
-      id: 2,
+      id: 27,
       title: "Career Development Roadmap",
       description: "Strategic plan for career growth and development",
       icon: <GraduationCap className="h-8 w-8 text-unifor-purple" />,
@@ -367,7 +376,7 @@ const OfficialDocuments = () => {
        url:"https://drive.google.com/file/d/1rCzSYaeaU7xe3IOjQnLEGgqZibbqLMcY/view?usp=sharing",
     },
     {
-      id: 3,
+      id: 28,
       title: "Annual Scholar Calendar",
       description: "Calendar of all events, deadlines, and opportunities for the year",
       icon: <Calendar className="h-8 w-8 text-unifor-purple" />,
@@ -375,6 +384,59 @@ const OfficialDocuments = () => {
       type: "pdf",
       downloads: 5790,
        url:"https://drive.google.com/file/d/1s-NkVi238UfZ9nPcR4ZLWClMpnrdKm60/view?usp=sharing",
+    }
+  ];
+  
+  const featuredDocuments = [
+    {
+      id: 1,
+      title: "Campus to Corporate Program ",
+      description: "It have Internship , project expo , Uni-pitch",
+      icon: <BookOpen className="h-8 w-8 text-unifor-purple" />,
+      category: "guides",
+      type: "pdf",
+      downloads: 8540,
+      url:"https://drive.google.com/file/d/1A056-kajXK0QnUtViUSFc2jZo3bMu1FU/view?usp=sharing",
+    },
+    {
+      id: 2,
+      title: "Frontliner Program",
+      description: "Strategic plan for career growth and development",
+      icon: <GraduationCap className="h-8 w-8 text-unifor-purple" />,
+      category: "roadmaps",
+      type: "pdf",
+      downloads: 6320,
+       url:"https://drive.google.com/file/d/17lkRDQiIuSla4cWZZSPniIGpAtLBvgCP/view?usp=sharing",
+    },
+    {
+      id: 3,
+      title: "Mantech Campus to corporate Program ",
+      description: "management along with engineering designed as per WEF",
+      icon: <Calendar className="h-8 w-8 text-unifor-purple" />,
+      category: "guides",
+      type: "pdf",
+      downloads: 5790,
+       url:"https://drive.google.com/file/d/1UxDLxjWFCY8zXOUR-x8cZYCYE3d_zMs6/view?usp=sharing",
+    },
+    {
+      id: 4,
+      title: "International Standard portfolio ",
+      description: "standard parametric portfolio",
+      icon: <Calendar className="h-8 w-8 text-unifor-purple" />,
+      category: "guides",
+      type: "pdf",
+      downloads: 5790,
+       url:"https://drive.google.com/file/d/1nwjjNO70VFvpsHiMm1esYylzxs31kwBg/view?usp=sharing"
+    },
+    {
+      id: 5,
+      title: " Verified Badge & callender Journey ",
+      description: "stages , badge formats & journey",
+      icon: <Calendar className="h-8 w-8 text-unifor-purple" />,
+      category: "guides",
+      type: "pdf",
+      downloads: 5790,
+       url:""
     },
   ];
   
