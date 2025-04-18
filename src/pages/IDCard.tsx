@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import ScholarIDProcess from "@/components/scholar/ScholarIDProcess";
@@ -6,11 +6,11 @@ import StudentProblems from "@/components/scholar/StudentProblems";
 import RelatedPages from "@/components/scholar/RelatedPages";
 import IDCardBenefits from "@/components/IDCardBenefits";
 import WhatMattersPreview from "@/components/WhatMattersPreview";
+import ScholarFAQs from "@/components/scholar/ScholarFAQs";
 import ScholarImageCarousel from "@/components/ScholarImageCarousel";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { CreditCard, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Button, ButtonProps } from "@/components/ui/button";
+import { CreditCard, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";import { Link } from "react-router-dom";
 
 const IDCard = () => {
   return (
@@ -28,11 +28,13 @@ const IDCard = () => {
                 Your gateway to internships, resources, and opportunities without individual fees
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-white text-unifor-purple hover:bg-gray-100">
-                  <CreditCard className="mr-2" />
-                  Apply Now
-                </Button>
-                <Link to="/#scholar-journey">
+                <a href="https://www.uniford.org/donation" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-white text-unifor-purple hover:bg-gray-100">
+                    <CreditCard className="mr-2" />
+                    Apply Now
+                  </Button>
+                </a>
+                <Link to="/#scholar-journey" >
                   <Button variant="outline" className="border-white text-white hover:bg-white/10 w-full">
                     <ExternalLink className="mr-2" />
                     View Scholar Journey
@@ -89,6 +91,7 @@ const IDCard = () => {
         
         {/* Related Pages Navigation */}
         <RelatedPages />
+       
       </main>
       
       <Footer />
