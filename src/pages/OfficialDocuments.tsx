@@ -430,14 +430,25 @@ const OfficialDocuments = () => {
     },
     {
       id: 5,
-      title: " Verified Badge & callender Journey ",
+      title: " Verified Badge & curriculam",
       description: "stages , badge formats & journey",
       icon: <Calendar className="h-8 w-8 text-unifor-purple" />,
       category: "guides",
       type: "pdf",
       downloads: 5790,
-       url:""
+       url:"https://drive.google.com/file/d/16JEXc-NLrHSbVe2tFCv5oO3EwhTHYT2k/view?usp=sharing"
     },
+    {
+      id: 6,
+      title: " Curriculam & Callender",
+      description: "stages , badge formats & journey",
+      icon: <Calendar className="h-8 w-8 text-unifor-purple" />,
+      category: "guides",
+      type: "pdf",
+      downloads: 5790,
+       url:"https://drive.google.com/file/d/1SaD20qKsNpB7hEpP4UbPevx1sgbgjbHR/view?usp=sharing"
+    },
+    
   ];
   
    const openDocumentInNewTab = (url: string) => {
