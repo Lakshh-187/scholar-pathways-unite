@@ -32,7 +32,7 @@ export const initializePayment = async ({
   await loadRazorpayScript();
 
   const options = {
-    key: "rzp_test_Ysbma1ySF1JiMS", // Replace with your Razorpay test key
+    key: "rzp_live_rGbboVdZDemLJ0", // Replace with your Razorpay test key
     amount: amount * 100, // Razorpay expects amount in paisa
     currency: "INR",
     name: "Uniford Scholar ID",
