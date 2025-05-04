@@ -1,6 +1,6 @@
 
 import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target } from "lucide-react";
-import NavBar from "@/components/NavBar";
+import NavBar from '@/components/NavBar';
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
@@ -95,9 +95,11 @@ const Programs = () => {
                     </div>
                   </div>
                 </div>
-                <Link to="/id-card">
-                    <Button className="primary-btn">Apply for Program</Button>
-                </Link>
+
+                <a href="https://forms.gle/VJJCWM2wzcZjT8YK8">
+                  <Button className="primary-btn">Apply for Program</Button>
+                </a>
+
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -206,9 +208,10 @@ const Programs = () => {
                     </div>
                   </div>
                 </div>
-                 <Link to="/id-card">
+                <a href="https://forms.gle/VJJCWM2wzcZjT8YK8">
                   <Button className="primary-btn">Apply for Program</Button>
-                 </Link>
+                </a>
+
               </div>
             </div>
           </div>
@@ -223,11 +226,14 @@ const Programs = () => {
                 Apply for your scholar ID card and access a world of resources, opportunities, and connections.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/id-card">
-                    <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
-                        Apply for ID Card
-                    </Button>
-                </Link>
+                <a href="https://forms.gle/VJJCWM2wzcZjT8YK8">
+                  <Button
+                    size="lg"
+                    className="bg-white text-unifor-dark-purple hover:bg-gray-100"
+                  >
+                    Apply for ID Card
+                  </Button>
+                </a>
                 <Link to="/programs">
                     <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                         Learn More

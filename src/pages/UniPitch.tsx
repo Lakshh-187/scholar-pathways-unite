@@ -118,10 +118,12 @@ const UniPitch = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center mt-8">
-              <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group">
-                Submit Your Pitch
-                <Mic className="ml-2 h-5 w-5 group-hover:animate-pulse" />
-              </Button>
+              <a href="https://forms.gle/EhKHT9SffrJSP9Jh7" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group">
+                  Submit Your Pitch
+                  <Mic className="ml-2 h-5 w-5 group-hover:animate-pulse" />
+                </Button>
+              </a>
               <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-medium rounded-lg transition-all duration-300">
                 Learn More
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -159,6 +161,31 @@ const UniPitch = () => {
         </div>
       </section>
       
+      {/* Collaboration Partners Section */}
+      <section className="bg-white py-16 px-4 text-center">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-bold text-unifor-dark-purple mb-8">Our Collaboration Partners</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-4 border rounded-lg shadow-md">
+              <p className="font-bold">Youngburg</p>
+              {/* Add logo or more details here */}
+            </div>
+            <div className="p-4 border rounded-lg shadow-md">
+              <p className="font-bold">YLC</p>
+              {/* Add logo or more details here */}
+            </div>
+            <div className="p-4 border rounded-lg shadow-md">
+              <p className="font-bold">UIEC</p>
+              {/* Add logo or more details here */}
+            </div>
+          </div>
+          <a href="https://forms.gle/EhKHT9SffrJSP9Jh7" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl mt-8">
+              Submit Pitch
+            </Button>
+          </a>
+        </div>
+      </section>
       <div className="container mx-auto max-w-6xl px-4">
         {/* How Uni-Pitch Works */}
         <section className="my-20">
@@ -400,10 +427,12 @@ const UniPitch = () => {
             <p className="text-xl mb-8 max-w-2xl mx-auto">Join thousands of students who have already unlocked global opportunities through Uni-Pitch.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button className="bg-white text-unifor-dark-purple hover:bg-gray-100 font-medium px-8 py-6 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                <a href="https://forms.gle/EhKHT9SffrJSP9Jh7" target="_blank" rel="noopener noreferrer">
                 Submit Your Pitch Now
                 <Rocket className="ml-2 h-5 w-5" />
+                </a>
               </Button>
-              <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-medium px-8 py-6 rounded-lg text-lg transition-all duration-300">
+              <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-medium px-8 py-6 rounded-lg text-lg transition-all duration-300">              
                 Learn More
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

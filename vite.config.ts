@@ -7,27 +7,19 @@ import fs from 'fs'
 export default defineConfig(({ mode }) => ({
   server: {
     base:"/",
-    build: {
-      rollupOptions: {
-        output: {
-          entryFileNames: `assets/[name]-[hash].js`,
-          chunkFileNames: `assets/[name]-[hash].js`,
-          assetFileNames: `assets/[name]-[hash].[ext]`,
-        },
-      },
-    },
-  
-    
-    host: "::",    
-    
-    
-    port: 8080,
+       build: {
+         rollupOptions: {
+           output: {
+             entryFileNames: `assets/[name]-[hash].js`,
+             chunkFileNames: `assets/[name]-[hash].js`,
+             assetFileNames: `assets/[name]-[hash].[ext]`,
+           },
+         },
+       },    
+       host: "::",    
+       port: 8080,
   },
-  plugins: [
-    react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

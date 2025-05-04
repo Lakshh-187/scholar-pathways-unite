@@ -441,9 +441,11 @@ const IDCardBenefits = () => {
         </Tabs>
 
         <div className="text-center mt-12">
-          <Button className="bg-unifor-purple hover:bg-unifor-dark-purple" size="lg">
+          <Button
+            className="bg-unifor-purple hover:bg-unifor-dark-purple"
+            size="lg" asChild><a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
             Apply for Scholar ID Card
-          </Button>
+            </a></Button>
         </div>
       </div>
     </section>

@@ -58,9 +58,9 @@ const NavBar = () => {
               </Link>
             ))}
           </div>
-          <Link to={"/id-card"}>
+          <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
               <Button className="primary-btn">Apply Now</Button>
-            </Link>
+            </a>
         </div>       </div>
     
       
@@ -82,9 +82,9 @@ const NavBar = () => {
                 {link.name}
              </Link>
             ))}
-             <Link to={"/id-card"}>
+             <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
               <Button className="primary-btn w-full mt-2">Apply Now</Button>
-            </Link>
+            </a>
           </div>
         </div>
       )}

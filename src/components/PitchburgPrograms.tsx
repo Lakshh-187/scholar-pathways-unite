@@ -208,7 +208,9 @@ const PitchburgPrograms: React.FC = () => {
                       <Card className={`border-t-4 ${index % 2 === 0 ? 'border-blue-500' : 'border-purple-500'} shadow-md hover:shadow-lg transition-shadow`}>
                         <CardContent className="p-6">
                           <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                            <Rocket className="h-12 w-12 text-gray-400" />
+                          <img src="https://i.ibb.co/bMv73HqF/a-sharktank-like-platform-name-as-uni-pi-M9-H5b-N3-ER9-Ow-PUom-IPFPg-RZdl6w0c-Q46-O1-CH5e-P-j-Jg.jpg"
+                           alt="Featured Episode" className='w-full h-full object-cover rounded-lg'
+                           />
                           </div>
                           <div className="flex justify-between items-center">
                             <Badge variant="outline" className="bg-gray-100">Coming Soon</Badge>
