@@ -10,11 +10,19 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-20">
         <div className="absolute h-64 w-64 rounded-full bg-unifor-purple blur-3xl top-20 left-20 animate-pulse-soft"></div>
         <div className="absolute h-96 w-96 rounded-full bg-unifor-blue blur-3xl bottom-10 right-10 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
+        <img 
+          src="https://www.uniford.org/uniford-main/temp.jpg" 
+          alt="Background Scholar Pattern"
+          className="w-full h-full object-cover mix-blend-overlay opacity-30"
+        />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">
+            <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4 animate-pulse">
+              <span className="text-white font-semibold tracking-wider">Non-profit Organization</span>
+            </div>
             <h1 className="hero-text tracking-tight">
               Empowering <span className="text-unifor-purple">Scholars</span> For Tomorrow's World
             </h1>

@@ -4,8 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-
-
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -27,9 +25,12 @@ const NavBar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="font-bold text-2xl flex items-center">
-        <div className="flex items-center gap-2">
-           <div className="bg-unifor-purple h-5 w-5 rounded-sm"></div>
-            Uniford Council
+          <div className="flex items-center gap-2">
+            <div className="bg-unifor-purple h-5 w-5 rounded-sm"></div>
+            <div>
+              <span>Uniford Council</span>
+              <span className="block text-xs text-unifor-purple font-medium">Non-profit Organization</span>
+            </div>
           </div>
         </Link>
 
