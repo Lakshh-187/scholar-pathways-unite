@@ -15,6 +15,7 @@ import { HomePageMyths } from "@/components/HomePageMyths";
 import ImageGallery from "@/components/ImageGallery";
 import ScholarIDFeatures from "@/components/ScholarIDFeatures";
 import StudentProblems from "@/components/scholar/StudentProblems";
+import { cn } from "@/lib/utils";
 
 const Index = () => {
   const opportunities = [
@@ -45,12 +46,71 @@ const Index = () => {
       <NavBar />
       
       <main className="flex-grow">
-        <HeroSection />
-        
-        {/* Scholar ID Features Section */}
-        <ScholarIDFeatures />
-        
-        {/* Student Problems Section - New! */}
+      <HeroSection />
+
+      {/* Our Portals Section */}
+      <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
+                OUR PORTALS
+              </Badge>
+              <h2 className="section-title">Our Portals</h2>
+              <p className="text-gray-600 text-lg">Explore our diverse platforms</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card className="flex flex-col justify-between">
+                <CardContent className="space-y-4 flex flex-col justify-between">
+                  <div className="p-4 bg-blue-500 rounded-lg">
+                    <Lightbulb className="text-white h-8 w-8" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-medium">Uniford Council</h3>
+                    <p className="text-sm text-gray-600">
+                      Portal for Uniford Council
+                    </p>
+                  </div>
+                  <Link to="https://council.uniford.org/" target="_blank" className="primary-btn mt-auto">
+                      Visit
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </CardContent>
+              </Card>
+              <Card className="flex flex-col justify-between">
+                <CardContent className="space-y-4 flex flex-col justify-between">
+                  <div className="p-4 bg-orange-500 rounded-lg">
+                    <Trophy className="text-white h-8 w-8" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-medium">Uniford CAF</h3>
+                    <p className="text-sm text-gray-600">Portal for Uniford CAF</p>
+                  </div>
+                  <Link to="https://caf.uniford.org/" target="_blank" className="primary-btn mt-auto">
+                    Visit
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </CardContent>
+              </Card>
+              <Link to="https://www.uniford.org/" target="_blank" className={cn(" flex flex-col justify-between", "card")} >
+              <CardContent className="space-y-4 flex flex-col justify-between">
+                  <div className="p-4 bg-green-500 rounded-lg">
+                    <Building className="text-white h-8 w-8" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-medium">Uniford</h3>
+                    <p className="text-sm text-gray-600">Official Uniford Website</p>
+                  </div>
+                  <div className="primary-btn mt-auto">Visit<ArrowRight className="ml-2 h-4 w-4" /></div>
+                </CardContent>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+          {/* Scholar ID Features Section */}
+          <ScholarIDFeatures />
+
+          {/* Student Problems Section - New! */}
         <StudentProblems />
         
         {/* About Section */}
@@ -161,7 +221,7 @@ const Index = () => {
             
             <div className="mt-12 text-center">
               <Link to="/programs">
-                <Button size="lg" className="primary-btn">
+                  <Button size="lg" className="primary-btn">
                   Explore All Programs
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

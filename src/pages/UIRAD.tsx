@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Badge } from "@/components/ui/badge";
+import { Link } from 'react-router-dom';
+import { Badge } from '@/components/ui/badge';
 import { Button } from "@/components/ui/button";
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -13,6 +14,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Network as NetworkIcon } from '@/components/ui/network-icon';
 import UCPISection from '@/components/UCPISection';
 import UGIEPSection from '@/components/UGIEPSection';
+import { cn } from '@/lib/utils';
 
 const UIRAD = () => {
   const [activeTab, setActiveTab] = useState('intro');
@@ -119,6 +121,23 @@ const UIRAD = () => {
         </div>
       </section>
       
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-to-r from-unifor-dark-purple to-unifor-purple text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Become a Member of the Council</h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Join the Uniford council
+              </p>
+              <Link to="https://council.uniford.org/">
+                <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
+                  Join Council Now
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
       <div className="container mx-auto max-w-6xl px-4 py-10">
         <UCPISection />
         <UGIEPSection />
