@@ -16,27 +16,27 @@ interface TimelineStep {
 
 const timelineSteps: TimelineStep[] = [
   {
-    icon: <CreditCard className="h-6 w-6 text-unifor-purple" />,
+    icon: <CreditCard className="h-6 w-6 text-white" />,
     title: "Pay Membership Fee",
     description: "Pay ₹500 registration fee (refundable through social internship)",
   },
   {
-    icon: <FileText className="h-6 w-6 text-unifor-purple" />,
+    icon: <FileText className="h-6 w-6 text-white" />,
     title: "Fill ID Card Form",
     description: "Complete your Scholar ID Card application form",
   },
   {
-    icon: <Users className="h-6 w-6 text-unifor-purple" />,
+    icon: <Users className="h-6 w-6 text-white" />,
     title: "Complete Social Internship",
     description: "Participate in our social initiatives to get your fee refunded",
   },
   {
-    icon: <Clock className="h-6 w-6 text-unifor-purple" />,
+    icon: <Clock className="h-6 w-6 text-white" />,
     title: "Time Aid Policy",
     description: "Submit internship certificate or ₹500 within 3 days of receiving ID kit",
   },
   {
-    icon: <BadgeCheck className="h-6 w-6 text-unifor-purple" />,
+    icon: <BadgeCheck className="h-6 w-6 text-white" />,
     title: "Get Verified",
     description: "Receive your Scholar ID Card and become a verified member",
   },
@@ -49,7 +49,7 @@ const ScholarTimeline = () => {
       <div className="space-y-8">
         {timelineSteps.map((step, index) => (
           <div key={index} className="relative pl-12 ml-4">
-            <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-unifor-purple text-white flex items-center justify-center">
+            <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-unifor-purple text-white flex items-center justify-center">
               {step.icon}
             </div>
             <div>

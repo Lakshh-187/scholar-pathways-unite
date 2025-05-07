@@ -31,6 +31,7 @@ import { Network } from '@/components/ui/network-icon';
 import UniPitchGallery from '@/components/UniPitchGallery';
 import PitchburgInitiative from '@/components/PitchburgInitiative';
 import PitchburgPrograms from '@/components/PitchburgPrograms';
+import PitchburgBenefits from '@/components/PitchburgBenefits';
 
 const UniPitch = () => {
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
@@ -160,6 +161,9 @@ const UniPitch = () => {
           </div>
         </div>
       </section>
+      
+      {/* NEW: Pitchburg Benefits Section - Added right after Hero Section */}
+      <PitchburgBenefits />
       
       {/* Collaboration Partners Section */}
       <section className="bg-white py-16 px-4 text-center">
