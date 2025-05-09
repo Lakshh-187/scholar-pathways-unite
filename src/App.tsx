@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Programs from "./pages/Programs";
 import UniPitch from "./pages/UniPitch";
 import UIRAD from "./pages/UIRAD";
+import WeBacked from "./pages/WeBacked";
 import TalentHuntAlliance from "./pages/TalentHuntAlliance";
 import BackedByUniford from "./pages/BackedByUniford";
 import WhatMatters from "./pages/WhatMatters";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/programs" element={<Programs />} />
           <Route path="/uni-pitch" element={<UniPitch />} />
           <Route path="/uirad" element={<UIRAD />} />
+          <Route path="/we-backed" element={<WeBacked />} />
           <Route path="/talent-hunt-alliance" element={<TalentHuntAlliance />} />
           <Route path="/backed-by-uniford" element={<BackedByUniford />} />
           <Route path="/what-matters" element={<WhatMatters />} />
