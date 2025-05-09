@@ -10,6 +10,7 @@ import UniPitch from "./pages/UniPitch";
 import UIRAD from "./pages/UIRAD";
 import TalentHuntAlliance from "./pages/TalentHuntAlliance";
 import BackedByUniford from "./pages/BackedByUniford";
+import WeBacked from "./pages/WeBacked";
 import WhatMatters from "./pages/WhatMatters";
 import IDCard from "./pages/IDCard";
 import OfficialDocuments from "./pages/OfficialDocuments";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/uirad" element={<UIRAD />} />
           <Route path="/talent-hunt-alliance" element={<TalentHuntAlliance />} />
           <Route path="/backed-by-uniford" element={<BackedByUniford />} />
+          <Route path="/we-backed" element={<WeBacked />} />
           <Route path="/what-matters" element={<WhatMatters />} />
           <Route path="/id-card" element={<IDCard />} />
           <Route path="/social-internship" element={<SocialInternship />} />
