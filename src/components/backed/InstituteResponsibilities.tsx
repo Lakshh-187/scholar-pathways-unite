@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion';
-import { Calendar, FileText, User, FileCheck, Building, School } from 'lucide-react';
+import { Calendar, FileText, User, FileCheck, Building, School, Check } from 'lucide-react';
 
 const InstituteResponsibilities = () => {
   const responsibilities = [
