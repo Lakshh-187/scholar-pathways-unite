@@ -19,6 +19,7 @@ const NavBar = () => {
     { name: 'UIRAD', path: '/uirad' },
     { name: 'Talent Hunt Alliance', path: '/talent-hunt-alliance' },
     { name: 'Backed By Uniford', path: '/backed-by-uniford' },
+    { name: 'We Invite', path: '/we-invite' },
   ];
   
  return (
