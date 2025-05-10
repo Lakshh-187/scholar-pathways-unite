@@ -59,13 +59,45 @@ const IDCardApplicationForm: React.FC = () => {
   const onSubmit = (data: FormValues) => {
     console.log('ID Card Application Form submitted:', data);
     
-    // This would typically send the data to a backend service
-    toast({
-      title: "Application Submitted",
-      description: "Your ID card application has been submitted successfully.",
+    // Google Apps Script Web App URL for ID Card form
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxf61UJnNxLULbWv4-xA1vyZfTiHj9lYxNGjDCgbGWoMFsy6iSMhsuyxbGszbE4R4I/exec'; // Explicitly set the correct URL
+
+    // Prepare data in URL-encoded format
+    const formData = new URLSearchParams();
+    formData.append('email', data.email);
+    formData.append('name', data.name);
+    formData.append('latestExamGrade', data.latestExamGrade);
+    formData.append('stream', data.stream);
+    formData.append('classGrade', data.classGrade);
+    formData.append('contactNo', data.contactNo);
+    formData.append('idCardType', data.idCardType);
+    formData.append('photo', data.photo);
+    // 'termsAgreed' is handled on the frontend and not being sent to the sheet in this example
+
+    fetch(scriptUrl, {
+      method: 'POST',
+      mode: 'no-cors', // Required for sending data to Google Apps Script from frontend
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString(),
+    })
+    .then(response => {
+      console.log('Data sent to Google Sheet');
+      toast({
+        title: "Application Submitted",
+        description: "Your ID card application has been submitted successfully.",
+      });
+      form.reset();
+    })
+    .catch(error => {
+      console.error('Error sending data to Google Sheet:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again.",
+        variant: "destructive",
+      });
     });
-    
-    form.reset();
   };
 
   return (
