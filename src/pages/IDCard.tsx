@@ -8,6 +8,7 @@ import RelatedPages from "@/components/scholar/RelatedPages";
 import IDCardBenefits from "@/components/IDCardBenefits";
 import WhatMattersPreview from "@/components/WhatMattersPreview";
 import ScholarFAQs from "@/components/scholar/ScholarFAQs";
+import IDCardApplicationForm from "@/components/idcard/IDCardApplicationForm";
 import { Badge } from "@/components/ui/badge";
 import { Button, ButtonProps } from "@/components/ui/button";
 import { CreditCard, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
@@ -112,6 +113,9 @@ const IDCard = () => {
         <RelatedPages />
        
       </main>
+
+      {/* ID Card Application Form Section */}
+      <IDCardApplicationForm />
       
       <Footer />
     </div>

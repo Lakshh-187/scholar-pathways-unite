@@ -66,6 +66,33 @@ const BackedAgreementForm = () => {
 
   const onSubmit = (data: FormValues) => {
     console.log('Form submitted:', data);
+
+    // Google Apps Script Web App URL for "We Backed" form
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycby40ItKeNDmz2TJcn6rOy5eT2Jrt15zOMoE9OaBo_ytNdCrJHnVtoHWl37OMQu-h3E2JQ/exec';
+
+    // Prepare data in URL-encoded format
+    const formData = new URLSearchParams();
+    formData.append('instituteName', data.instituteName);
+    formData.append('contactPerson', data.contactPerson);
+    formData.append('designation', data.designation);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('instituteType', data.instituteType);
+    formData.append('instituteAddress', data.address); // Note: Using 'address' from form, mapping to 'instituteAddress' in sheet
+    formData.append('instituteWebsite', data.website); // Note: Using 'website' from form, mapping to 'instituteWebsite' in sheet
+    formData.append('specificInterests', data.specificInterests);
+    formData.append('termsAgreed', data.termsAgreed.toString());
+    // For signature, we are just sending a placeholder for now, as actual file upload needs a different approach
+    formData.append('signature', data.signature ? 'Signature Uploaded' : '');
+
+    fetch(scriptUrl, {
+      method: 'POST',
+      mode: 'no-cors', // Required for sending data to Google Apps Script from frontend
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString(),
+    });
     
     toast({
       title: "Application Submitted",
@@ -323,7 +350,7 @@ const BackedAgreementForm = () => {
               <div>
                 <h4 className="font-medium mb-3">Schedule a Meeting</h4>
                 <a 
-                  href="https://calendly.com" 
+                  href="https://calendly.com/event_types/user/me" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 p-3 bg-[#2A2F3C] rounded-lg hover:bg-[#3A3F4C] transition-colors"
@@ -337,19 +364,27 @@ const BackedAgreementForm = () => {
                 <h4 className="font-medium mb-3">Direct Contact</h4>
                 <div className="space-y-2">
                   <a 
-                    href="tel:+1234567890" 
+                    href="tel:+917347099610" 
                     className="flex items-center space-x-3 p-3 bg-[#2A2F3C] rounded-lg hover:bg-[#3A3F4C] transition-colors"
-                  >
-                    <Phone className="h-5 w-5 text-[#9b87f5]" />
-                    <span>+1 (234) 567-890</span>
+                    >
+ <Phone className="h-5 w-5 text-[#9b87f5]" />
+                    <span>+917347099610</span>
                   </a>
                   
                   <a 
                     href="mailto:backed@uniford.org" 
                     className="flex items-center space-x-3 p-3 bg-[#2A2F3C] rounded-lg hover:bg-[#3A3F4C] transition-colors"
                   >
-                    <Mail className="h-5 w-5 text-[#9b87f5]" />
-                    <span>backed@uniford.org</span>
+                    <Phone className="h-5 w-5 text-[#9b87f5]" />
+                    <span>+917347099610</span>
+                  </a>
+                  
+                  <a 
+                    href="mailto:info@uniford.org" 
+                    className="flex items-center space-x-3 p-3 bg-[#2A2F3C] rounded-lg hover:bg-[#3A3F4C] transition-colors"
+                    >
+ <Mail className="h-5 w-5 text-[#9b87f5]" />
+                    <span>info@uniford.org</span>
                   </a>
                 </div>
               </div>
@@ -357,7 +392,7 @@ const BackedAgreementForm = () => {
               <div>
                 <h4 className="font-medium mb-3">WhatsApp Support</h4>
                 <a 
-                  href="https://wa.me/1234567890" 
+                  href="https://web.whatsapp.com/send/?phone=7347099610&text=Hello%21+I+have+a+question.&type=phone_number&app_absent=0" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center space-x-3 p-3 bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
@@ -371,7 +406,7 @@ const BackedAgreementForm = () => {
               
               <div className="pt-4 border-t border-[#3A3F4C]">
                 <a 
-                  href="https://forms.gle/exampleFormLink" 
+                  href="https://forms.gle/RZGDwW3iNwPHPH7E8" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="block w-full bg-[#9b87f5] text-white p-3 rounded-lg text-center font-medium hover:bg-[#7E69AB] transition-colors"

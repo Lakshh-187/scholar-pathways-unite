@@ -7,8 +7,8 @@ const Footer = () => {
     <footer className="bg-unifor-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
+ <div className="col-span-1">
+ <div className="flex items-center gap-2 mb-4">
               <div className="h-8 w-8 rounded-md bg-unifor-purple"></div>
               <span className="text-xl font-bold">Unifor Scholar</span>
             </div>
@@ -53,6 +53,12 @@ const Footer = () => {
                   Social Internship
                 </Link>
               </li>
+            </ul>
+            <h3 className="text-lg font-semibold mb-4 mt-6">Partnerships</h3>
+            <ul className="space-y-3">
+ <li>
+ <Link to="/we-backed" className="text-gray-300 hover:text-white hover:underline transition-colors">We Backed</Link>
+ </li>
             </ul>
           </div>
           
@@ -115,7 +121,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Unifor Scholar. All rights reserved.</p>
         </div>
