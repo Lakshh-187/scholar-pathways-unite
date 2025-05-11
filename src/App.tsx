@@ -23,6 +23,7 @@ import Published from "./pages/Published";
 import WeInvite from "./pages/WeInvite";
 import FAQUpdates from "./pages/FAQUpdates";
 import H1BScholar from "./pages/H1BScholar";
+import Career from "./pages/Career";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/we-invite" element={<WeInvite />} />
           <Route path="/faq-updates" element={<FAQUpdates />} />
           <Route path="/h1b-scholar" element={<H1BScholar />} />
+          <Route path="/career" element={<Career />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
