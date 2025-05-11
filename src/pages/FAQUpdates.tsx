@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import FAQAccordion from '@/components/faq/FAQAccordion';
