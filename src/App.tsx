@@ -21,6 +21,7 @@ import LegalPolicy from "./pages/LegalPolicy";
 import PremiumStore from "./pages/PremiumStore";
 import Published from "./pages/Published";
 import WeInvite from "./pages/WeInvite";
+import FAQUpdates from "./pages/FAQUpdates";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/premium-store" element={<PremiumStore />} />
           <Route path="/published" element={<Published />} />
           <Route path="/we-invite" element={<WeInvite />} />
+          <Route path="/faq-updates" element={<FAQUpdates />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
