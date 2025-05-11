@@ -19,6 +19,10 @@ export default defineConfig(({ mode }) => ({
        host: "::",    
        port: 8080,
   },
+  hmr: {
+    clientPort: 443,
+    ws: true,
+  },
   plugins: [react()],
   resolve: {
     alias: {

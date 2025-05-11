@@ -76,6 +76,36 @@ const Footer = () => {
           </div>
           
           <div>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/h1b-scholar" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  H1B
+                </Link>
+              </li>
+              <li>
+                <Link to="/career" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Career
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq-updates" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  FAQ Updates
+                </Link>
+              </li>
+              <li>
+                <Link to="/leaders" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Leaders
+                </Link>
+              </li>
+              <li>
+                <Link to="/memories" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Memories
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-3">
               <li>
