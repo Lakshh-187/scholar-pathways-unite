@@ -33,7 +33,7 @@ const announcements = [
   {
     id: 1,
     title: 'New Partnership Program',
-    message: 'We've partnered with 5 new companies for internship opportunities.',
+    message: 'We have partnered with 5 new companies for internship opportunities.',
     date: '2025-05-10',
     isNew: true,
   },
