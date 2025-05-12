@@ -46,7 +46,7 @@ interface ProjectFiltersProps {
     impactAreas: ImpactArea[];
     institution: string[];
   };
-  onFilterChange: (filterType: keyof typeof activeFilters, values: any[]) => void;
+  onFilterChange: (filterType: keyof ProjectFiltersProps['activeFilters'], values: any[]) => void;
 }
 
 const ProjectFilters: React.FC<ProjectFiltersProps> = ({
@@ -54,7 +54,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
   onFilterChange,
 }) => {
   const toggleFilter = (
-    filterType: keyof typeof activeFilters.constructor,
+    filterType: keyof ProjectFiltersProps['activeFilters'],
     value: string
   ) => {
     const isActive = activeFilters[filterType].includes(value as never);
