@@ -63,6 +63,11 @@ const Footer = () => {
                   Career
                 </Link>
               </li>
+              <li>
+                <Link to="/s700" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  S-700 Projects
+                </Link>
+              </li>
             </ul>
             <h3 className="text-lg font-semibold mb-4 mt-6">Partnerships</h3>
             <ul className="space-y-3">
