@@ -54,7 +54,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
   onFilterChange,
 }) => {
   const toggleFilter = (
-    filterType: keyof typeof activeFilters,
+    filterType: keyof typeof activeFilters.constructor,
     value: string
   ) => {
     const isActive = activeFilters[filterType].includes(value as never);
