@@ -169,12 +169,12 @@ const BackedRoadmap = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="bg-[#9b87f5]/10 text-[#7E69AB] px-3 py-1.5 text-sm mb-4">
-            OUR JOURNEY
+          Transforming Institutes to International Standards
           </Badge>
-          <h2 className="text-4xl font-bold mb-6 text-[#1A1F2C]">Transformative Roadmap</h2>
+          <h2 className="text-4xl font-bold mb-6 text-[#1A1F2C]">We Backed </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Our comprehensive approach to transforming educational institutions through funding, 
-            technology, and academic empowerment - creating future-ready centers of innovation.
+          
+          The collaboration of Uni-Pitch, SEP-700, and UIRAD creates a powerful ecosystem that connects students and institutes with world-class opportunities, research, and platforms, making institutes globally recognized.
           </p>
         </div>
 

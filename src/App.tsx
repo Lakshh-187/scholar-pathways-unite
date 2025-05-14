@@ -28,6 +28,7 @@ import Leaders from "./pages/Leaders";
 import Memories from "./pages/Memories";
 import S700 from "./pages/S700";
 import LetterOfClearance from "./pages/LetterOfClearance";
+import NotificationBanner from "./components/NotificationBanner"; // Import the banner component
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <NotificationBanner /> {/* Add the banner component here */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
