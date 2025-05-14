@@ -108,6 +108,11 @@ const Footer = () => {
                   Memories
                 </Link>
               </li>
+              <li>
+                <Link to="/letter-of-clearance" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Letter of Clearance
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -157,6 +162,11 @@ const Footer = () => {
               <li>
                 <Link to="/talent-hunt-alliance" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   Talent Hunt Alliance
+                </Link>
+              </li>
+              <li>
+                <Link to="/letter-of-clearance" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Letter of Clearance
                 </Link>
               </li>
               <li className="flex items-center gap-3">

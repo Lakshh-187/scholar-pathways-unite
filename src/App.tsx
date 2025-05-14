@@ -27,6 +27,7 @@ import Career from "./pages/Career";
 import Leaders from "./pages/Leaders";
 import Memories from "./pages/Memories";
 import S700 from "./pages/S700";
+import LetterOfClearance from "./pages/LetterOfClearance";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/leaders" element={<Leaders />} />
           <Route path="/memories" element={<Memories />} />
           <Route path="/s700" element={<S700 />} />
+          <Route path="/letter-of-clearance" element={<LetterOfClearance />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
