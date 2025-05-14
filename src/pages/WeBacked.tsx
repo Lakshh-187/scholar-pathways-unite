@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import BackedHeroSection from '@/components/backed/BackedHeroSection';
+import BackedRoadmap from '@/components/backed/BackedRoadmap';
 import InstituteTransformation from '@/components/backed/InstituteTransformation';
 import BackedOfferings from '@/components/backed/BackedOfferings';
 import InstituteResponsibilities from '@/components/backed/InstituteResponsibilities';
@@ -23,6 +24,7 @@ const WeBacked = () => {
       
       <main className="flex-grow pt-16">
         <BackedHeroSection />
+        <BackedRoadmap />
         <InstituteTransformation />
         <BackedOfferings />
         <InstituteResponsibilities />
