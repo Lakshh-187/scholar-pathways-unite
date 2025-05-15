@@ -4,6 +4,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import ScholarIDProcess from "@/components/scholar/ScholarIDProcess";
 import StudentProblems from "@/components/scholar/StudentProblems";
+import ProblemsSolutions from "@/components/scholar/ProblemsSolutions";
 import RelatedPages from "@/components/scholar/RelatedPages";
 import IDCardBenefits from "@/components/IDCardBenefits";
 import ScholarFAQs from "@/components/scholar/ScholarFAQs";
@@ -89,6 +90,9 @@ const IDCard = () => {
 
         {/* Current Problems & Solutions Section */}
         <StudentProblems />
+        
+        {/* Problems vs Solutions Comparison */}
+        <ProblemsSolutions />
         
         {/* Scholar ID Process */}
         <ScholarIDProcess />
