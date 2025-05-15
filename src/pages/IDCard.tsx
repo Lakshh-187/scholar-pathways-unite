@@ -11,6 +11,7 @@ import IDCardBenefits from "@/components/IDCardBenefits";
 import ScholarFAQs from "@/components/scholar/ScholarFAQs";
 import IDCardApplicationForm from "@/components/idcard/IDCardApplicationForm";
 import ScholarIDFeatures from "@/components/ScholarIDFeatures";
+import ScholarRoadmap from "@/components/scholar/ScholarRoadmap";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CreditCard, ExternalLink } from "lucide-react";
@@ -98,6 +99,9 @@ const IDCard = () => {
         
         {/* Scholar Types Section - NEW */}
         <ScholarTypes />
+        
+        {/* Scholar Roadmap Section - NEW */}
+        <ScholarRoadmap />
         
         {/* Scholar ID Process */}
         <ScholarIDProcess />
