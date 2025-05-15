@@ -3,7 +3,7 @@ import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
-import { GraduationCap, Rocket, Landmark, Users, PaintBrush } from 'lucide-react';
+import { GraduationCap, Rocket, Landmark, Users, Paintbrush } from 'lucide-react';
 
 interface ScholarTypeProps {
   title: string;
@@ -71,7 +71,7 @@ const ScholarTypes: React.FC = () => {
     {
       title: 'Austin Scholar',
       description: '🎨 Tailored for creators, bookpreneurs, AI designers, and creative innovators.',
-      icon: <PaintBrush className="h-6 w-6" />,
+      icon: <Paintbrush className="h-6 w-6" />,
       color: 'border-pink-500',
       delay: 4
     }
