@@ -28,6 +28,7 @@ import Leaders from "./pages/Leaders";
 import Memories from "./pages/Memories";
 import S700 from "./pages/S700";
 import LetterOfClearance from "./pages/LetterOfClearance";
+import Apply from "./pages/Apply";
 import NotificationBanner from "./components/NotificationBanner"; // Import the banner component
 
 const queryClient = new QueryClient();
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/memories" element={<Memories />} />
           <Route path="/s700" element={<S700 />} />
           <Route path="/letter-of-clearance" element={<LetterOfClearance />} />
+          <Route path="/apply" element={<Apply />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
