@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { Check, X, Book, Briefcase, Laptop, GraduationCap, FileMinusIcon, FilePlusIcon, Toolbox } from 'lucide-react';
+import { Check, X, Book, Briefcase, Laptop, GraduationCap, FileMinusIcon, FilePlusIcon, Wrench } from 'lucide-react';
 
 interface ComparisonItem {
   problem: string;
@@ -41,7 +41,7 @@ const ProblemsSolutions = () => {
     {
       problem: "Career resources, tools, and platforms are scattered and unorganized.",
       solution: "Everything integrated into one RPO (Resource + Platform + Opportunity) model.",
-      icon: <Toolbox className="h-6 w-6" />
+      icon: <Wrench className="h-6 w-6" />
     },
     {
       problem: "Students pay high fees for software, tools, kits, and courses.",

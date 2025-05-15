@@ -4,13 +4,17 @@ import { X } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 
-const NotificationBanner = () => {
+interface NotificationBannerProps {
+  className?: string;
+}
+
+const NotificationBanner: React.FC<NotificationBannerProps> = ({ className }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   if (!isVisible) return null;
 
   return (
-    <div className="bg-[#a344f8] fixed top-0 left-0 z-[1000] w-full py-3 px-4 md:px-6 shadow-md">
+    <div className={cn("bg-[#a344f8] fixed top-0 left-0 z-[1000] w-full py-3 px-4 md:px-6 shadow-md", className)}>
       <div className="container mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-4">
         <div className="flex items-center gap-3 flex-grow">
           <p className="text-white text-sm md:text-base font-medium">
