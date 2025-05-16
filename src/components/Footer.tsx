@@ -155,6 +155,11 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact & Apply</h3>
             <ul className="space-y-3">
               <li>
+ <Link to="/apply" className="text-gray-300 hover:text-white hover:underline transition-colors">
+ Apply for Programs
+ </Link>
+ </li>
+              <li>
                 <Link to="/id-card" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   ID Card Application
                 </Link>

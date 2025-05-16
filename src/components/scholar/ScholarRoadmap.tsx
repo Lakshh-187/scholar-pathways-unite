@@ -72,12 +72,18 @@ const ScholarRoadmap = () => {
                       <h5 className="font-medium">🔍 Evaluation</h5>
                       <p className="text-sm text-gray-600">December</p>
                     </div>
-                  </div>
-                  <Button variant="outline" className="w-full mt-2 border-blue-500 text-blue-600 hover:bg-blue-50">
-                    <Link className="mr-2 h-4 w-4" />
-                    Apply for Winter Cycle
-                  </Button>
-                </div>
+                    </div>
+  <a
+    href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="outline" className="w-full mt-2 border-blue-500 text-blue-600 hover:bg-blue-50">
+      Apply for Winter Cycle
+    </Button>
+  </a>
+</div>
+
               </CardContent>
             </Card>
             
@@ -119,12 +125,18 @@ const ScholarRoadmap = () => {
                       <h5 className="font-medium">🔍 Evaluation</h5>
                       <p className="text-sm text-gray-600">June</p>
                     </div>
-                  </div>
-                  <Button variant="outline" className="w-full mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
-                    <Link className="mr-2 h-4 w-4" />
-                    Apply for Summer Cycle
-                  </Button>
-                </div>
+                    </div>
+  <a
+    href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="outline" className="w-full mt-2 border-blue-500 text-blue-600 hover:bg-blue-50">
+      Apply for Summer Cycle
+    </Button>
+  </a>
+</div>
+
               </CardContent>
             </Card>
           </div>
