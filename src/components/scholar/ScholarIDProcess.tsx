@@ -113,9 +113,14 @@ const ScholarIDProcess = () => {
                           <p className="text-gray-600 mb-4">
                             Pay ₹500 within 3 days of receiving your ID kit.
                           </p>
-                          <Button variant="outline" className="w-full">
+                          <a
+  href="https://id.uniford.org/donation"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+                          <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
                             Pay Fee
-                          </Button>
+                          </Button></a>
                         </div>
                       </div>
                     </div>

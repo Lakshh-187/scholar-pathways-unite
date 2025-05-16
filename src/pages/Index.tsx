@@ -55,7 +55,7 @@ const Index = () => {
               <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-400/20 rounded-full blur-xl"></div>
               <div className="relative z-10 bg-white p-4 rounded-xl shadow-2xl">
                 <img 
-                  src="https://www.uniford.org/uniford-main/uniford1.jpg" 
+                  src="https://i.ibb.co/Lzm5hQPn/a-professional-photo-of-a-young-woman-wearing-a-un-MYMPk0-FYS9u-Ryz-X-ksf-Di-Q-rz2-Fq-R4s-Qgm-Tdu5-H.jpg" 
                   alt="Students at Uniford"
                   className="w-full h-auto rounded-lg"
                 />
@@ -184,7 +184,7 @@ const Index = () => {
             <div className="order-1 lg:order-2 relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://www.uniford.org/uniford-main/transformation.jpg" 
+                  src="https://i.ibb.co/d48n7Y5n/a-photo-of-a-spacious-school-auditorium-with-a-bri-VH1z-VAR4-Teu-Akjbdzzb2-Cg-Nx5-JNYwx-RLy-XAUu7-Cb.jpg" 
                   alt="Educational Transformation"
                   className="w-full h-auto"
                   onError={(e) => {
@@ -380,7 +380,7 @@ const Index = () => {
               
               <div className="relative h-64 lg:h-auto">
                 <img 
-                  src="https://www.uniford.org/uniford-main/vision2030.jpg" 
+                  src="https://i.ibb.co/Z6TrqkS0/a-confrence-hall-having-three-young-proffesors-con-TGMWs3-Ma-TPKpk-L6-Qug-Ph-Og-cfv9yv2-OQNC9-UNZ1-G.jpg" 
                   alt="Vision 2030" 
                   className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => {

@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="absolute h-64 w-64 rounded-full bg-unifor-purple blur-3xl top-20 left-20 animate-pulse-soft"></div>
         <div className="absolute h-96 w-96 rounded-full bg-unifor-blue blur-3xl bottom-10 right-10 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
         <img 
-          src="https://www.uniford.org/uniford-main/temp.jpg" 
+          src="https://id.uniford.org/uniford-main/temp.jpg" 
           alt="Background Scholar Pattern"
           className="w-full h-full object-cover mix-blend-overlay opacity-30"
         />
@@ -56,7 +56,7 @@ const HeroSection = () => {
           <div className="relative animate-fade-in-right">
             <div className="relative mx-auto">
               <img 
-                src="https://www.uniford.org/uniford-main/temp.jpg" 
+                src="https://id.uniford.org/uniford-main/temp.jpg" 
                 alt="Uniford Scholars" 
                 className="w-full h-auto object-cover rounded-2xl shadow-lg"
                 />

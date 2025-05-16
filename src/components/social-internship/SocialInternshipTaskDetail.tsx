@@ -184,11 +184,19 @@ const SocialInternshipTaskDetail = ({ task, open, onClose }: SocialInternshipTas
         </DialogDescription>
         
         <DialogFooter className="sm:justify-between">
-          <Button variant="outline" onClick={onClose}>Close</Button>
-          <Button className="bg-unifor-purple hover:bg-unifor-dark-purple" onClick={handleApply}>
-            Apply Now
-            <ExternalLink className="ml-2 h-4 w-4" />
-          </Button>
+        <Button variant="outline" onClick={onClose}>Close</Button>
+
+<a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button className="bg-unifor-purple hover:bg-unifor-dark-purple">
+    Apply Now
+    <ExternalLink className="ml-2 h-4 w-4" />
+  </Button>
+</a>
+
         </DialogFooter>
       </DialogContent>
     </Dialog>
