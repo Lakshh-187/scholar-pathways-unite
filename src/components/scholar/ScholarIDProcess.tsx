@@ -96,9 +96,17 @@ const ScholarIDProcess = () => {
                           <p className="text-gray-600 mb-4">
                             Submit your social internship certificate within 3 days of receiving your ID kit.
                           </p>
-                          <Button variant="outline" className="w-full">
-                            Submit Certificate
-                          </Button>
+                          <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+   
+    Apply Now
+  </Button>
+</a>
+
                         </div>
                         <div className="bg-white p-6 rounded-lg shadow-md">
                           <h4 className="font-medium mb-3">Option 2: Pay Fee</h4>

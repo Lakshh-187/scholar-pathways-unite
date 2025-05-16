@@ -172,9 +172,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Gain real-world experience and skills</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -186,9 +194,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Pitch innovations to panels and build credibility</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -200,9 +216,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Institute-level platform for showcasing projects</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -214,9 +238,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Display projects for recognition and feedback</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -228,9 +260,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Adds authenticity and unlocks elite opportunities</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -242,9 +282,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Skill-building and development initiatives</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -256,9 +304,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Compile activities and achievements</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                   <TableRow>
@@ -270,9 +326,17 @@ const ScholarRoadmap = () => {
                     </TableCell>
                     <TableCell>Leadership roles and competitions</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" className="text-unifor-purple hover:text-unifor-dark-purple hover:bg-unifor-light-purple/20">
-                        <Link className="h-4 w-4" />
-                      </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                     </TableCell>
                   </TableRow>
                 </TableBody>
@@ -307,10 +371,17 @@ const ScholarRoadmap = () => {
                     <div className="absolute left-0 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-amber-300"></div>
                     <h5 className="font-semibold text-amber-700 mb-2">Feb–Mar: Application Phase</h5>
                     <p className="text-gray-600">Apply for internships, Uni-Pitch, YLC, programs; enroll in Project Expo & Pitchburg</p>
-                    <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
-                      <Calendar className="mr-2 h-4 w-4" />
-                      Apply Now
-                    </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                   </div>
                   
                   <div className="relative pl-8 pb-6 border-l-2 border-amber-200">
@@ -344,10 +415,17 @@ const ScholarRoadmap = () => {
                     <div className="absolute left-0 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-300"></div>
                     <h5 className="font-semibold text-blue-700 mb-2">Sept–Oct: Application Phase</h5>
                     <p className="text-gray-600">Applications open; join new programs and events</p>
-                    <Button variant="outline" size="sm" className="mt-2 border-blue-500 text-blue-600 hover:bg-blue-50">
-                      <Calendar className="mr-2 h-4 w-4" />
-                      Apply Now
-                    </Button>
+                    <a
+  href="https://9000-idx-scholar-pathways-unitegit-1744946568054.cluster-ubrd2huk7jh6otbgyei4h62ope.cloudworkstations.dev/apply"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="outline" size="sm" className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50">
+    <Calendar className="mr-2 h-4 w-4" />
+    Apply Now
+  </Button>
+</a>
+
                   </div>
                   
                   <div className="relative pl-8 pb-6 border-l-2 border-blue-200">

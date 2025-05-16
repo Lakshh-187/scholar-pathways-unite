@@ -172,9 +172,9 @@ const StudentProblems = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
-            THE CHALLENGE & SOLUTION
+            Problem we Solved
           </Badge>
-          <h2 className="section-title">Problems Faced by Students & Our Approach</h2>
+          <h2 className="section-title">Uniford Scholar ID card Solved ...</h2>
           <p className="text-gray-600 text-lg">
             Understanding the challenges in education and how Uniford Foundation is addressing them through systematic innovation.
           </p>
@@ -192,13 +192,13 @@ const StudentProblems = () => {
                 value="problems"
                 className="text-sm md:text-base py-3 data-[state=active]:bg-white data-[state=active]:text-unifor-dark-purple"
               >
-                Current Challenges
+                Uniford Solved using Id Card
               </TabsTrigger>
               <TabsTrigger 
                 value="solutions"
                 className="text-sm md:text-base py-3 data-[state=active]:bg-white data-[state=active]:text-unifor-dark-purple"
               >
-                Our Solutions
+                Our Model
               </TabsTrigger>
               <TabsTrigger 
                 value="goals"
