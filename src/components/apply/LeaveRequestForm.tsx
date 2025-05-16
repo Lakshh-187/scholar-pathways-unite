@@ -42,45 +42,64 @@ const LeaveRequestForm = () => {
           <li>Supporting documents should be shared via links wherever applicable</li>
           <li>Leave requests are typically processed within 2 business days</li>
         </ul>
-      </FormGuideCard>
-      
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <Label htmlFor="fullName">
-              Full Name <span className="text-red-500">*</span>
-            </Label>
-            <Input
-              id="fullName"
-              placeholder="Enter your full name"
-              {...register("fullName", { required: "Full name is required" })}
-            />
-            {errors.fullName && (
-              <p className="text-sm text-red-500">{errors.fullName.message as string}</p>
-            )}
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="email">
-              Email Address <span className="text-red-500">*</span>
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="your.email@example.com"
-              {...register("email", {
-                required: "Email is required",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Invalid email address",
-                },
-              })}
-            />
-            {errors.email && (
-              <p className="text-sm text-red-500">{errors.email.message as string}</p>
-            )}
-          </div>
-        </div>
+        </FormGuideCard>
+
+<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {/* Full Name */}
+    <div className="space-y-2">
+      <Label htmlFor="fullName">
+        Full Name <span className="text-red-500">*</span>
+      </Label>
+      <Input
+        id="fullName"
+        placeholder="Enter your full name"
+        {...register("fullName", { required: "Full name is required" })}
+      />
+      {errors.fullName && (
+        <p className="text-sm text-red-500">{errors.fullName.message as string}</p>
+      )}
+    </div>
+
+    {/* Email Address */}
+    <div className="space-y-2">
+      <Label htmlFor="email">
+        Email Address <span className="text-red-500">*</span>
+      </Label>
+      <Input
+        id="email"
+        type="email"
+        placeholder="your.email@example.com"
+        {...register("email", {
+          required: "Email is required",
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "Invalid email address",
+          },
+        })}
+      />
+      {errors.email && (
+        <p className="text-sm text-red-500">{errors.email.message as string}</p>
+      )}
+    </div>
+
+    {/* Scholar ID */}
+    <div className="space-y-2">
+      <Label htmlFor="scholarId">
+        Scholar ID <span className="text-red-500">*</span>
+      </Label>
+      <Input
+        id="scholarId"
+        placeholder="Enter your Scholar ID"
+        {...register("scholarId", { required: "Scholar ID is required" })}
+      />
+      {errors.scholarId && (
+        <p className="text-sm text-red-500">{errors.scholarId.message as string}</p>
+      )}
+    </div>
+  </div>
+
+
         
         <div className="space-y-2">
           <Label htmlFor="requestType">
