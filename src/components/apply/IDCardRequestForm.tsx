@@ -122,7 +122,7 @@ const IDCardRequestForm = () => {
         
         <div className="space-y-2">
           <Label htmlFor="address">
-            Mailing Address <span className="text-red-500">*</span>
+            Do you have Social Internship certificate or Payment receipt ? <span className="text-red-500">*</span>
           </Label>
           <Textarea
             id="address"
@@ -144,13 +144,13 @@ const IDCardRequestForm = () => {
         
         <ShareLinkField 
           id="idProofLink"
-          label="ID Proof Link"
+          label="ID Proof Link ( Linkedin ect.."
           required={true}
           helpText="Share a link to your government-issued ID proof"
         />
         
         <div className="space-y-2">
-          <Label htmlFor="specialRequirements">Special Requirements</Label>
+          <Label htmlFor="specialRequirements">Query / Note / Emergency / Request ...</Label>
           <Textarea
             id="specialRequirements"
             placeholder="Any special requirements for your ID card..."
