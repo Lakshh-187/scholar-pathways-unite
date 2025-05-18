@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="h-8 w-8 rounded-md bg-unifor-purple"></div>
-              <span className="text-xl font-bold">Unifor Scholar</span>
+              <span className="text-xl font-bold">Uniford Foundation</span>
             </div>
             <p className="text-gray-300 mb-6">
               Empowering scholars through resources, platforms, and opportunities.
@@ -191,7 +191,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Unifor Scholar. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Uniford Foundation. All rights reserved.</p>
         </div>
       </div>
     </footer>
