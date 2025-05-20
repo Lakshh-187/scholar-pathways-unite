@@ -27,10 +27,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <Badge className="bg-white text-unifor-dark-purple px-4 py-1.5">
+              <Badge className="bg-white text-unifor-dark light-purple  px-4 py-1.5">
                 TRANSFORMING EDUCATION
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold white ">
                 Transforming Students & Institutes Through <span className="text-yellow-300">CSR Grants</span>
               </h1>
               <p className="text-xl text-gray-200">
@@ -44,7 +44,7 @@ const Index = () => {
                   </Button>
                 </Link>
                 <Link to="/programs">
-                  <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-6 py-6">
+                  <Button variant="outline" className="border-white text-white :bg-white/10 text-lg px-6 py-6">
                     Explore Programs
                   </Button>
                 </Link>

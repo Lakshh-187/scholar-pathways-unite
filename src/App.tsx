@@ -27,6 +27,7 @@ import Career from "./pages/Career";
 import Leaders from "./pages/Leaders";
 import Memories from "./pages/Memories";
 import S700 from "./pages/S700";
+import LetterOfAcceptance from "./pages/LetterOfAcceptance";
 import LetterOfClearance from "./pages/LetterOfClearance";
 import Apply from "./pages/Apply";
 import NotificationBanner from "./components/NotificationBanner"; // Import the banner component
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/memories" element={<Memories />} />
           <Route path="/s700" element={<S700 />} />
           <Route path="/letter-of-clearance" element={<LetterOfClearance />} />
+ <Route path="/letter-of-acceptance" element={<LetterOfAcceptance />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -109,6 +109,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/letter-of-acceptance" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Letter of Acceptance
+                </Link>
+              </li>
+              <li>
                 <Link to="/letter-of-clearance" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   Letter of Clearance
                 </Link>

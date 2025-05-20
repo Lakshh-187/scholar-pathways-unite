@@ -125,10 +125,12 @@ const UniPitch = () => {
                   <Mic className="ml-2 h-5 w-5 group-hover:animate-pulse" />
                 </Button>
               </a>
+              <a href="https://pitchburg.uniford.org/" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-medium rounded-lg transition-all duration-300">
                 Learn More
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
+              </a>
             </div>
           </div>
           
