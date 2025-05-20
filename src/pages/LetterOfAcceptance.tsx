@@ -116,83 +116,55 @@ const LetterOfAcceptance = () => {
                 </div>
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
-                    Congratulations on Your Acceptance!
+                  A Message from the Uniford Foundation
                   </h2>
                   <div className="space-y-4 text-gray-600">
                     <p className="text-lg">
-                      Dear Accepted Applicant,
+                      Dear Students ,
                     </p>
                     <p>
-                      We are thrilled to inform you that you have been accepted into the program! This is a testament to your hard work, dedication, and potential.
+                    At Uniford Foundation, we believe no student should miss an opportunity because of fees, forms, or lack of guidance..
                     </p>
                     <p className="font-medium text-gray-800">
-                      🎯 This page serves as your official confirmation of acceptance and outlines the next steps.
+                      🎯 Every student deserves access to platforms, resources, exposure, and recognition — without unnecessary hurdles like registration fees, paid internships, or manual applications.
+                    </p>
+                    <p className="text-lg">
+                    Over the past few weeks, our volunteers, help desk, and outreach heads have worked tirelessly to inform You...
                     </p>
                     <div className="py-3 border-l-4 border-green-600 pl-4 my-6">
                       <p className="text-lg font-medium text-gray-800">
-                        Please complete the form below to formally accept your offer and begin your journey with us.
+                      Uni-Pitch – A place where you can pitch your challenges and tell us exactly what kind of resources, mentorship, or opportunities you need.
                       </p>
+
+                      <p className="font-medium text-gray-800">
+                      -
+                    </p>
+                      <p className="font-medium text-gray-800">
+                      Pitchburg – A stage to showcase your talent, innovations, or ideas through Uni-Talks, Pitches, Projects, and more — with certificates, awards, goodies, and media recognition.
+                    </p>
+                    <p className="font-medium text-gray-800">
+                      -
+                    </p>
+                    <p className="font-medium text-gray-800">
+                    CAF (Common Application Form) – A modern tool that lets you apply once and reach multiple internships, programs, and events.
+                    </p>
+                    <p className="font-medium text-gray-800">
+                     -
+                    </p>
+                    <p className="font-medium text-gray-800">
+                    THA (Talent Hunt Alliance) – Our AI-powered system that scans your profile, offers referrals, recommendations, and lists you for partner opportunities.
+                    </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <Card className="border-green-100 shadow-md hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-green-50">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-green-600">
-                    <CheckCircle2 className="h-5 w-5" />
-                    What Happens Next
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                      <span>Submit this form to accept your offer</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                      <span>Receive a confirmation email with further instructions</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                      <span>Access your scholar portal and resources</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                      <span>Connect with other accepted students</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="border-green-100 shadow-md hover:shadow-lg transition-shadow bg-gradient-to-br from-white to-green-50">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-green-600">
-                    <Award className="h-5 w-5" />
-                    Your Commitment
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <p>By submitting this form, you are confirming:</p>
-                    <div className="bg-white/80 border border-green-100 p-4 rounded-lg italic text-gray-700">
-                      "Yes, I accept the offer of admission to this program. I have read and agree to the terms and conditions."
-                    </div>
-                    <p className="text-sm text-gray-600">
-                      This helps us confirm your place in the program and allocate resources effectively.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
 
             <div className="bg-green-800 text-white rounded-xl p-6 md:p-8 mb-16 shadow-lg relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-700 to-green-800 opacity-50"></div>
-              <div className="absolute top-0 right-0 w-64 h-64 bg-green-600 rounded-full filter blur-3xl opacity-20 -mt-32 -mr-32"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-600 rounded-full filter blur-3xl opacity-20 -mb-32 -ml-32"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-green-700 to-purple-800 opacity-50"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-20 -mt-32 -mr-32"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-20 -mb-32 -ml-32"></div>
 
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
@@ -201,8 +173,9 @@ const LetterOfAcceptance = () => {
                 </h2>
                 <div className="space-y-4">
                   <p>
-                    Please review the terms and conditions carefully before submitting your acceptance.
-                    Your acceptance is a commitment to participate in the program and adhere to its guidelines.
+                  As a non-profit, we operate on goodwill, clarity, and shared impact. We've done our part. Now, it's your turn — either to apply, engage, or simply acknowledge that you've been empowered with the right knowledge.
+
+Let this be a moment of mutual respect — an appreciation of communication done right
                   </p>
                   <p className="font-medium">
                     We look forward to welcoming you to our community!
@@ -220,9 +193,9 @@ const LetterOfAcceptance = () => {
             <div className="inline-block p-2 bg-green-600/10 rounded-full mb-3">
               <FileCheck className="h-8 w-8 text-green-600" />
             </div>
-            <h2 className="text-3xl font-bold mb-3">Acceptance Confirmation Form</h2>
+            <h2 className="text-3xl font-bold mb-3">Letter of Clearance & Appreciation</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Please complete the form below to formally accept your offer of admission.
+             Thankyou
             </p>
           </div>
 
@@ -245,7 +218,7 @@ const LetterOfAcceptance = () => {
                       name="studentName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Full Name</FormLabel>
+                          <FormLabel>Institute Name</FormLabel>
                           <FormControl>
                             <Input placeholder="Enter your full name" {...field} />
                           </FormControl>
@@ -258,7 +231,7 @@ const LetterOfAcceptance = () => {
                       name="instituteName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Institute Name (if applicable)</FormLabel>
+                          <FormLabel> Representative Name </FormLabel>
                           <FormControl>
                             <Input placeholder="Enter institute name" {...field} />
                           </FormControl>
@@ -287,7 +260,7 @@ const LetterOfAcceptance = () => {
                       name="programAccepted"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Program Accepted Into</FormLabel>
+                          <FormLabel>Phone Number</FormLabel>
                           <FormControl>
                             <Input placeholder="Enter program name" {...field} />
                           </FormControl>
@@ -314,7 +287,7 @@ const LetterOfAcceptance = () => {
                             </FormControl>
                             <div className="space-y-1 leading-none">
                               <FormLabel>
-                                I confirm that I accept the offer of admission to the program mentioned above.
+                              I hereby confirm that I have received complete and clear information regarding all programs, platforms, and opportunities provided by Uniford Scholar.
                               </FormLabel>
                               <FormMessage />
                             </div>
@@ -335,13 +308,14 @@ const LetterOfAcceptance = () => {
                             </FormControl>
                             <div className="space-y-1 leading-none">
                               <FormLabel>
-                                I have read and agree to the terms and conditions of the program.
+                              I acknowledge that a representative — whether a volunteer, relation head, or help desk — has fulfilled their responsibility in guiding and informing me about the available initiatives.
                               </FormLabel>
                               <FormMessage />
                             </div>
                           </FormItem>
                         )}
                       />
+                      
                     </div>
                   </div>
 
@@ -374,13 +348,13 @@ const LetterOfAcceptance = () => {
               <div className="flex items-start gap-2">
                 <FileText className="h-4 w-4 text-green-600 shrink-0 mt-1" />
                 <p>
-                  If you have any questions or need further clarification, please contact our admissions office at{" "}
-                  <a href="mailto:admissions@example.com" className="text-green-600 hover:underline">
-                    admissions@example.com
+                  If you have any questions or need mail at  {" "}
+                  <a href="mailt:info@uniford.org" className="text-green-600 hover:underline">
+                    info@uniford.org
                   </a>{" "}
-                  or call us at{" "}
+                  or Whatsapp us{" "}
                   <a href="tel:+1234567890" className="text-green-600 hover:underline">
-                    +1234567890
+                    +917347099610
                   </a>
                 </p>
               </div>
