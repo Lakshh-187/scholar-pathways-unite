@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -268,6 +267,236 @@ const CAF = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Instant Internship Results</h3>
               <p className="text-gray-600">Get matched with multiple internship opportunities within 24-48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Campus to Corporate Program */}
+      <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <Badge variant="outline" className="bg-blue-600 text-white border-blue-600 px-6 py-2 mb-4 text-lg">
+                CAMPUS TO CORPORATE PROGRAM
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">
+                Bridge the Gap from Campus to Corporate World
+              </h2>
+              <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+                Our Campus to Corporate program is designed to transform students into industry-ready professionals 
+                through structured internships and corporate exposure.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="bg-white shadow-xl border-l-4 border-blue-600">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-12 w-12 bg-blue-600 rounded-full flex items-center justify-center">
+                      <Briefcase className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-blue-800">Corporate Readiness Training</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Professional Communication Skills</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Corporate Etiquette & Work Culture</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Industry-Specific Skill Development</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Resume Building & Interview Preparation</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white shadow-xl border-l-4 border-indigo-600">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-12 w-12 bg-indigo-600 rounded-full flex items-center justify-center">
+                      <Target className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-indigo-800">Internship Placement Support</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Direct Corporate Partnerships</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Mentorship from Industry Professionals</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Performance Tracking & Feedback</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
+                      <span className="text-gray-700">Job Placement Assistance</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Frontliner Program */}
+      <section className="py-16 bg-gradient-to-r from-purple-50 to-pink-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <Badge variant="outline" className="bg-purple-600 text-white border-purple-600 px-6 py-2 mb-4 text-lg">
+                FRONTLINER PROGRAM
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-purple-900">
+                Shape Future Leaders and Innovators
+              </h2>
+              <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+                The Frontliner program is designed to identify and nurture students with leadership potential, 
+                preparing them to become innovators, entrepreneurs, and change-makers of tomorrow.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-t-4 border-purple-600">
+                <CardHeader className="text-center">
+                  <div className="h-16 w-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Rocket className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-purple-800">Startup Incubation</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-center mb-4">
+                    Get hands-on experience in building and scaling startups with mentor guidance.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Lightbulb className="h-4 w-4 text-yellow-500" />
+                      <span className="text-sm text-gray-700">Idea Validation & Market Research</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="h-4 w-4 text-blue-500" />
+                      <span className="text-sm text-gray-700">Team Building & Leadership</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Target className="h-4 w-4 text-green-500" />
+                      <span className="text-sm text-gray-700">Business Model Development</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-t-4 border-pink-600">
+                <CardHeader className="text-center">
+                  <div className="h-16 w-16 bg-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-pink-800">Innovation Labs</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-center mb-4">
+                    Work on cutting-edge projects and develop innovative solutions for real-world problems.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Brain className="h-4 w-4 text-purple-500" />
+                      <span className="text-sm text-gray-700">AI & Technology Research</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Globe className="h-4 w-4 text-blue-500" />
+                      <span className="text-sm text-gray-700">Global Impact Projects</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Zap className="h-4 w-4 text-yellow-500" />
+                      <span className="text-sm text-gray-700">Rapid Prototyping</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-t-4 border-indigo-600">
+                <CardHeader className="text-center">
+                  <div className="h-16 w-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <GraduationCap className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-indigo-800">Leadership Development</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-center mb-4">
+                    Develop essential leadership skills and prepare for future organizational roles.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Shield className="h-4 w-4 text-green-500" />
+                      <span className="text-sm text-gray-700">Strategic Thinking</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="h-4 w-4 text-blue-500" />
+                      <span className="text-sm text-gray-700">Team Management</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Target className="h-4 w-4 text-orange-500" />
+                      <span className="text-sm text-gray-700">Decision Making</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-center mb-6 text-purple-900">
+                Frontliner Program Benefits
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Star className="h-5 w-5 text-yellow-500 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Exclusive Networking</h4>
+                      <p className="text-gray-600 text-sm">Connect with industry leaders, successful entrepreneurs, and fellow innovators.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Award className="h-5 w-5 text-blue-500 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Recognition & Certification</h4>
+                      <p className="text-gray-600 text-sm">Receive official Frontliner certification and public recognition for achievements.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Rocket className="h-5 w-5 text-purple-500 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Fast-Track Opportunities</h4>
+                      <p className="text-gray-600 text-sm">Priority access to advanced programs, scholarships, and career opportunities.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Globe className="h-5 w-5 text-green-500 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Global Exposure</h4>
+                      <p className="text-gray-600 text-sm">Participate in international conferences, competitions, and exchange programs.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
