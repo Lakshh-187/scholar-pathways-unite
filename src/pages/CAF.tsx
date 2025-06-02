@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -26,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import ProgramCard from "@/components/ProgramCard";
 
 const CAF = () => {
   const internshipDomains = [
@@ -290,67 +292,28 @@ const CAF = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="bg-white shadow-xl border-l-4 border-blue-600">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="h-12 w-12 bg-blue-600 rounded-full flex items-center justify-center">
-                      <Briefcase className="h-6 w-6 text-white" />
-                    </div>
-                    <CardTitle className="text-blue-800">Corporate Readiness Training</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Professional Communication Skills</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Corporate Etiquette & Work Culture</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Industry-Specific Skill Development</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Resume Building & Interview Preparation</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+              <ProgramCard 
+                title="Internship Program"
+                description="Gain practical experience through structured internships with industry partners."
+                features={["Industry mentorship", "Real-world projects", "Professional feedback", "Portfolio building"]}
+                icon={<Briefcase className="h-8 w-8 text-unifor-purple" />}
+                badgeText="Popular"
+              />
+              
+              <ProgramCard 
+                title="Project Expo"
+                description="Showcase your innovative projects to industry leaders and potential employers."
+                features={["Expert panels", "Innovation funding", "Media coverage", "Networking events"]}
+                icon={<Rocket className="h-8 w-8 text-unifor-purple" />}
+              />
+            </div>
 
-              <Card className="bg-white shadow-xl border-l-4 border-indigo-600">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="h-12 w-12 bg-indigo-600 rounded-full flex items-center justify-center">
-                      <Target className="h-6 w-6 text-white" />
-                    </div>
-                    <CardTitle className="text-indigo-800">Internship Placement Support</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Direct Corporate Partnerships</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Mentorship from Industry Professionals</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Performance Tracking & Feedback</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-gray-700">Job Placement Assistance</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+            <div className="text-center mt-8">
+              <Link to="/programs">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg">
+                  Explore Campus to Corporate Program <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -373,130 +336,29 @@ const CAF = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-t-4 border-purple-600">
-                <CardHeader className="text-center">
-                  <div className="h-16 w-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Rocket className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-purple-800">Startup Incubation</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-center mb-4">
-                    Get hands-on experience in building and scaling startups with mentor guidance.
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Lightbulb className="h-4 w-4 text-yellow-500" />
-                      <span className="text-sm text-gray-700">Idea Validation & Market Research</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Users className="h-4 w-4 text-blue-500" />
-                      <span className="text-sm text-gray-700">Team Building & Leadership</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Target className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-gray-700">Business Model Development</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-t-4 border-pink-600">
-                <CardHeader className="text-center">
-                  <div className="h-16 w-16 bg-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-pink-800">Innovation Labs</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-center mb-4">
-                    Work on cutting-edge projects and develop innovative solutions for real-world problems.
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Brain className="h-4 w-4 text-purple-500" />
-                      <span className="text-sm text-gray-700">AI & Technology Research</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Globe className="h-4 w-4 text-blue-500" />
-                      <span className="text-sm text-gray-700">Global Impact Projects</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Zap className="h-4 w-4 text-yellow-500" />
-                      <span className="text-sm text-gray-700">Rapid Prototyping</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow border-t-4 border-indigo-600">
-                <CardHeader className="text-center">
-                  <div className="h-16 w-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <GraduationCap className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-indigo-800">Leadership Development</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-center mb-4">
-                    Develop essential leadership skills and prepare for future organizational roles.
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Shield className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-gray-700">Strategic Thinking</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Users className="h-4 w-4 text-blue-500" />
-                      <span className="text-sm text-gray-700">Team Management</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Target className="h-4 w-4 text-orange-500" />
-                      <span className="text-sm text-gray-700">Decision Making</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <ProgramCard 
+                title="Leadership Development"
+                description="Comprehensive training to develop your leadership skills and abilities."
+                features={["Leadership workshops", "Mentorship", "Case studies", "Leadership challenges"]}
+                icon={<Award className="h-8 w-8 text-unifor-purple" />}
+                badgeText="Featured"
+              />
+              
+              <ProgramCard 
+                title="Entrepreneurship"
+                description="Support and resources for scholars interested in launching their own ventures."
+                features={["Business mentoring", "Startup funding", "Pitch training", "Incubation support"]}
+                icon={<Lightbulb className="h-8 w-8 text-unifor-purple" />}
+              />
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-center mb-6 text-purple-900">
-                Frontliner Program Benefits
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Star className="h-5 w-5 text-yellow-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Exclusive Networking</h4>
-                      <p className="text-gray-600 text-sm">Connect with industry leaders, successful entrepreneurs, and fellow innovators.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Award className="h-5 w-5 text-blue-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Recognition & Certification</h4>
-                      <p className="text-gray-600 text-sm">Receive official Frontliner certification and public recognition for achievements.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Rocket className="h-5 w-5 text-purple-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Fast-Track Opportunities</h4>
-                      <p className="text-gray-600 text-sm">Priority access to advanced programs, scholarships, and career opportunities.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Globe className="h-5 w-5 text-green-500 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Global Exposure</h4>
-                      <p className="text-gray-600 text-sm">Participate in international conferences, competitions, and exchange programs.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="text-center mt-8">
+              <Link to="/programs">
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg">
+                  Explore Frontliner Program <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -544,84 +406,8 @@ const CAF = () => {
         </div>
       </section>
 
-      {/* Special Internship Programs */}
-      <section className="py-16 bg-gradient-to-r from-unifor-light-purple to-purple-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-unifor-dark-purple">
-              Special Internship Programs
-            </h2>
-            <p className="text-gray-700 text-lg">
-              Unique internship opportunities designed to shape future leaders and innovators.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-white shadow-lg">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <Rocket className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-indigo-600">Frontliner Internship Program</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Prepare students for future leadership roles through startup, innovation, and entrepreneurship internships.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Lightbulb className="h-4 w-4 text-yellow-500" />
-                    <span className="text-sm">Innovation & Startup Internships</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-blue-500" />
-                    <span className="text-sm">Author & Content Creation Internships</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">Leadership Development Internships</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white shadow-lg">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center">
-                    <Briefcase className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-purple-600">Management Role Internships</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Specialized internships in various management and coordination roles.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Users className="h-4 w-4 text-blue-500" />
-                    <span className="text-sm">Relation Manager Internship</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Target className="h-4 w-4 text-green-500" />
-                    <span className="text-sm">Business Manager Internship</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Shield className="h-4 w-4 text-orange-500" />
-                    <span className="text-sm">Invigilator & Managing Head Internships</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Application Process */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -673,7 +459,7 @@ const CAF = () => {
       </section>
 
       {/* Benefits & Commitment */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -719,7 +505,7 @@ const CAF = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
