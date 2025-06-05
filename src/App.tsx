@@ -31,6 +31,7 @@ import LetterOfAcceptance from "./pages/LetterOfAcceptance";
 import LetterOfClearance from "./pages/LetterOfClearance";
 import Apply from "./pages/Apply";
 import CAF from "./pages/CAF";
+import FranciscoScholars from "./pages/FranciscoScholars";
 import NotificationBanner from "./components/NotificationBanner";
 
 const queryClient = new QueryClient();
@@ -68,6 +69,7 @@ const App = () => (
           <Route path="/letter-of-acceptance" element={<LetterOfAcceptance />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/caf" element={<CAF />} />
+          <Route path="/francisco-scholars" element={<FranciscoScholars />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
