@@ -30,8 +30,7 @@ import S700 from "./pages/S700";
 import LetterOfAcceptance from "./pages/LetterOfAcceptance";
 import LetterOfClearance from "./pages/LetterOfClearance";
 import Apply from "./pages/Apply";
-import CAF from "./pages/CAF";
-import FranciscoScholars from "./pages/FranciscoScholars";
+import UTHA from "./pages/UTHA";
 import NotificationBanner from "./components/NotificationBanner";
 
 const queryClient = new QueryClient();
@@ -64,12 +63,11 @@ const App = () => (
           <Route path="/career" element={<Career />} />
           <Route path="/leaders" element={<Leaders />} />
           <Route path="/memories" element={<Memories />} />
-          <Route path="/s700" element={<S700 />} />
+          <Route path="/s700" element={<S700/>} />
           <Route path="/letter-of-clearance" element={<LetterOfClearance />} />
           <Route path="/letter-of-acceptance" element={<LetterOfAcceptance />} />
           <Route path="/apply" element={<Apply />} />
-          <Route path="/caf" element={<CAF />} />
-          <Route path="/francisco-scholars" element={<FranciscoScholars />} />
+          <Route path="/utha" element={<UTHA />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
