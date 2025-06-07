@@ -1,13 +1,13 @@
 
-import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target } from "lucide-react";
+import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target, Badge as BadgeIcon, Globe, Award, User, Code, Palette, Store } from "lucide-react";
 import NavBar from '@/components/NavBar';
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
 import ProgramJourney from "@/components/ProgramJourney";
-import ScholarIDCardProgram from "@/components/ScholarIDCardProgram";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Programs = () => {
   const campusToCorporateFeatures = [
@@ -46,10 +46,140 @@ const Programs = () => {
           </div>
         </section>
         
-        {/* Scholar ID Card Program */}
-        <Link to='/id-card'>
-          <ScholarIDCardProgram />
-        </Link>
+        {/* Uniford Badge Program */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
+                UNIFORD BADGE PROGRAM
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-unifor-dark-purple">
+                Uniford Badge Program
+              </h2>
+              <p className="text-lg text-gray-600">
+                Organization offers Badge to Students with a personal portfolio website and tasks to perform and complete your Profile
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              {/* Three Phases */}
+              <div className="mb-16">
+                <h3 className="text-2xl font-bold text-center mb-8 text-unifor-dark-purple">Three Phase Program</h3>
+                <div className="grid md:grid-cols-3 gap-8">
+                  <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-unifor-purple">
+                    <CardHeader>
+                      <div className="w-12 h-12 rounded-full bg-unifor-light-purple flex items-center justify-center mb-4">
+                        <User className="h-6 w-6 text-unifor-purple" />
+                      </div>
+                      <CardTitle className="text-xl text-unifor-dark-purple">Phase 1</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 mb-4">Create profile in diverse socials than attach in website & Edit Details on Portfolio Website using Guide</p>
+                      <ul className="space-y-2 text-sm text-gray-600">
+                        <li>• Create social media profiles</li>
+                        <li>• Link to portfolio website</li>
+                        <li>• Follow guided editing process</li>
+                        <li>• Complete profile details</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-unifor-purple">
+                    <CardHeader>
+                      <div className="w-12 h-12 rounded-full bg-unifor-light-purple flex items-center justify-center mb-4">
+                        <Users className="h-6 w-6 text-unifor-purple" />
+                      </div>
+                      <CardTitle className="text-xl text-unifor-dark-purple">Phase 2</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 mb-4">Participate, enroll & initiate and attach in portfolio</p>
+                      <ul className="space-y-2 text-sm text-gray-600">
+                        <li>• Join programs and events</li>
+                        <li>• Enroll in courses</li>
+                        <li>• Initiate projects</li>
+                        <li>• Document participation</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-unifor-purple">
+                    <CardHeader>
+                      <div className="w-12 h-12 rounded-full bg-unifor-light-purple flex items-center justify-center mb-4">
+                        <Code className="h-6 w-6 text-unifor-purple" />
+                      </div>
+                      <CardTitle className="text-xl text-unifor-dark-purple">Phase 3</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 mb-4">Design, develop & create and list on your store & Blog page on portfolio</p>
+                      <ul className="space-y-2 text-sm text-gray-600">
+                        <li>• Design creative projects</li>
+                        <li>• Develop solutions</li>
+                        <li>• Create portfolio store</li>
+                        <li>• Write blog posts</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Certification Info */}
+              <div className="bg-gradient-to-r from-unifor-light-purple/20 to-unifor-purple/20 rounded-2xl p-8 mb-16 text-center">
+                <BadgeIcon className="h-16 w-16 text-unifor-purple mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-unifor-dark-purple mb-4">Get Certified & Rewarded</h3>
+                <p className="text-lg text-gray-700 mb-6">
+                  You have to submit only Phase-1 and you get certification & goodies
+                </p>
+                <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white px-8 py-3 text-lg">
+                  Start Phase 1
+                </Button>
+              </div>
+
+              {/* Impact on Future */}
+              <div className="text-center mb-12">
+                <h3 className="text-2xl font-bold text-unifor-dark-purple mb-6">Impact on Your Future</h3>
+                <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-unifor-light-purple">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                    "Every opportunity whether your marriage, placement, funding, awards, invitation, profile screening, application etc everywhere the only thing matter is how credible & impressive profile you have as more participation more achievements & practical exposure more maturity more opportunity that all a interrelated circle"
+                  </p>
+                  
+                  <div className="grid md:grid-cols-4 gap-6 mt-8">
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
+                        <Trophy className="h-8 w-8 text-unifor-purple" />
+                      </div>
+                      <h4 className="font-semibold text-unifor-dark-purple">More Participation</h4>
+                      <p className="text-sm text-gray-600">Increased engagement</p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
+                        <Award className="h-8 w-8 text-unifor-purple" />
+                      </div>
+                      <h4 className="font-semibold text-unifor-dark-purple">More Achievements</h4>
+                      <p className="text-sm text-gray-600">Recognition & awards</p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
+                        <GraduationCap className="h-8 w-8 text-unifor-purple" />
+                      </div>
+                      <h4 className="font-semibold text-unifor-dark-purple">Practical Exposure</h4>
+                      <p className="text-sm text-gray-600">Real-world experience</p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
+                        <Globe className="h-8 w-8 text-unifor-purple" />
+                      </div>
+                      <h4 className="font-semibold text-unifor-dark-purple">More Opportunities</h4>
+                      <p className="text-sm text-gray-600">Endless possibilities</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Program Journey */}
         <ProgramJourney />
