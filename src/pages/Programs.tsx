@@ -1,5 +1,4 @@
-
-import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target, Badge as BadgeIcon, Globe, Award, User, Code, Palette, Store } from "lucide-react";
+import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target, Badge as BadgeIcon, Globe, Award, User, Code, Palette, Store, Lock, ArrowRight, CheckCircle, Star, TrendingUp, Heart, Building, DollarSign, Medal, UserCheck } from "lucide-react";
 import NavBar from '@/components/NavBar';
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
@@ -61,69 +60,140 @@ const Programs = () => {
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              {/* Three Phases */}
-              <div className="mb-16">
-                <h3 className="text-2xl font-bold text-center mb-8 text-unifor-dark-purple">Three Phase Program</h3>
+            <div className="max-w-6xl mx-auto">
+              {/* Three Phases - Enhanced Design */}
+              <div className="mb-20">
+                <h3 className="text-2xl font-bold text-center mb-12 text-unifor-dark-purple">Three Phase Program</h3>
                 <div className="grid md:grid-cols-3 gap-8">
-                  <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-unifor-purple">
-                    <CardHeader>
-                      <div className="w-12 h-12 rounded-full bg-unifor-light-purple flex items-center justify-center mb-4">
-                        <User className="h-6 w-6 text-unifor-purple" />
+                  {/* Phase 1 - Accessible */}
+                  <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-unifor-purple relative overflow-hidden bg-gradient-to-br from-white to-unifor-light-purple/10">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-unifor-purple to-unifor-light-purple"></div>
+                    <CardHeader className="relative">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-unifor-purple to-unifor-light-purple flex items-center justify-center mb-4 shadow-lg">
+                        <User className="h-8 w-8 text-white" />
                       </div>
-                      <CardTitle className="text-xl text-unifor-dark-purple">Phase 1</CardTitle>
+                      <div className="flex items-center justify-between mb-2">
+                        <CardTitle className="text-2xl text-unifor-dark-purple">Phase 1</CardTitle>
+                        <CheckCircle className="h-6 w-6 text-green-500" />
+                      </div>
+                      <Badge className="bg-green-100 text-green-700 border-green-200 w-fit">Available</Badge>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600 mb-4">Create profile in diverse socials than attach in website & Edit Details on Portfolio Website using Guide</p>
-                      <ul className="space-y-2 text-sm text-gray-600">
-                        <li>• Create social media profiles</li>
-                        <li>• Link to portfolio website</li>
-                        <li>• Follow guided editing process</li>
-                        <li>• Complete profile details</li>
+                      <p className="text-gray-700 mb-6 font-medium">Create profile in diverse socials than attach in website & Edit Details on Portfolio Website using Guide</p>
+                      <ul className="space-y-3 mb-6">
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-unifor-purple"></div>
+                          <span className="text-sm text-gray-600">Create social media profiles</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-unifor-purple"></div>
+                          <span className="text-sm text-gray-600">Link to portfolio website</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-unifor-purple"></div>
+                          <span className="text-sm text-gray-600">Follow guided editing process</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-unifor-purple"></div>
+                          <span className="text-sm text-gray-600">Complete profile details</span>
+                        </li>
                       </ul>
+                      <Button className="w-full bg-unifor-purple hover:bg-unifor-dark-purple text-white group-hover:scale-105 transition-transform">
+                        Start Phase 1 <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
                     </CardContent>
                   </Card>
 
-                  <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-unifor-purple">
-                    <CardHeader>
-                      <div className="w-12 h-12 rounded-full bg-unifor-light-purple flex items-center justify-center mb-4">
-                        <Users className="h-6 w-6 text-unifor-purple" />
+                  {/* Phase 2 - Restricted */}
+                  <Card className="group transition-all duration-500 border-2 border-gray-200 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 opacity-60">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gray-300"></div>
+                    <div className="absolute inset-0 bg-white/50 backdrop-blur-sm z-10"></div>
+                    <CardHeader className="relative z-20">
+                      <div className="w-16 h-16 rounded-full bg-gray-300 flex items-center justify-center mb-4">
+                        <Users className="h-8 w-8 text-gray-500" />
                       </div>
-                      <CardTitle className="text-xl text-unifor-dark-purple">Phase 2</CardTitle>
+                      <div className="flex items-center justify-between mb-2">
+                        <CardTitle className="text-2xl text-gray-500">Phase 2</CardTitle>
+                        <Lock className="h-6 w-6 text-gray-400" />
+                      </div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <BadgeIcon className="h-4 w-4 text-unifor-purple" />
+                        <Badge className="bg-unifor-light-purple text-unifor-purple border-unifor-purple/30">Only For Uniford Scholar</Badge>
+                      </div>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 mb-4">Participate, enroll & initiate and attach in portfolio</p>
-                      <ul className="space-y-2 text-sm text-gray-600">
-                        <li>• Join programs and events</li>
-                        <li>• Enroll in courses</li>
-                        <li>• Initiate projects</li>
-                        <li>• Document participation</li>
+                    <CardContent className="relative z-20">
+                      <p className="text-gray-600 mb-6">Participate, enroll & initiate and attach in portfolio</p>
+                      <ul className="space-y-3 mb-6">
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Join programs and events</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Enroll in courses</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Initiate projects</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Document participation</span>
+                        </li>
                       </ul>
+                      <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed">
+                        Scholar Access Required <Lock className="ml-2 h-4 w-4" />
+                      </Button>
                     </CardContent>
                   </Card>
 
-                  <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-unifor-purple">
-                    <CardHeader>
-                      <div className="w-12 h-12 rounded-full bg-unifor-light-purple flex items-center justify-center mb-4">
-                        <Code className="h-6 w-6 text-unifor-purple" />
+                  {/* Phase 3 - Restricted */}
+                  <Card className="group transition-all duration-500 border-2 border-gray-200 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 opacity-60">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gray-300"></div>
+                    <div className="absolute inset-0 bg-white/50 backdrop-blur-sm z-10"></div>
+                    <CardHeader className="relative z-20">
+                      <div className="w-16 h-16 rounded-full bg-gray-300 flex items-center justify-center mb-4">
+                        <Code className="h-8 w-8 text-gray-500" />
                       </div>
-                      <CardTitle className="text-xl text-unifor-dark-purple">Phase 3</CardTitle>
+                      <div className="flex items-center justify-between mb-2">
+                        <CardTitle className="text-2xl text-gray-500">Phase 3</CardTitle>
+                        <Lock className="h-6 w-6 text-gray-400" />
+                      </div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <BadgeIcon className="h-4 w-4 text-unifor-purple" />
+                        <Badge className="bg-unifor-light-purple text-unifor-purple border-unifor-purple/30">Only For Uniford Scholar</Badge>
+                      </div>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 mb-4">Design, develop & create and list on your store & Blog page on portfolio</p>
-                      <ul className="space-y-2 text-sm text-gray-600">
-                        <li>• Design creative projects</li>
-                        <li>• Develop solutions</li>
-                        <li>• Create portfolio store</li>
-                        <li>• Write blog posts</li>
+                    <CardContent className="relative z-20">
+                      <p className="text-gray-600 mb-6">Design, develop & create and list on your store & Blog page on portfolio</p>
+                      <ul className="space-y-3 mb-6">
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Design creative projects</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Develop solutions</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Create portfolio store</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                          <span className="text-sm text-gray-500">Write blog posts</span>
+                        </li>
                       </ul>
+                      <Button disabled className="w-full bg-gray-300 text-gray-500 cursor-not-allowed">
+                        Scholar Access Required <Lock className="ml-2 h-4 w-4" />
+                      </Button>
                     </CardContent>
                   </Card>
                 </div>
               </div>
 
               {/* Certification Info */}
-              <div className="bg-gradient-to-r from-unifor-light-purple/20 to-unifor-purple/20 rounded-2xl p-8 mb-16 text-center">
+              <div className="bg-gradient-to-r from-unifor-light-purple/20 to-unifor-purple/20 rounded-2xl p-8 mb-20 text-center">
                 <BadgeIcon className="h-16 w-16 text-unifor-purple mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-unifor-dark-purple mb-4">Get Certified & Rewarded</h3>
                 <p className="text-lg text-gray-700 mb-6">
@@ -134,46 +204,88 @@ const Programs = () => {
                 </Button>
               </div>
 
-              {/* Impact on Future */}
-              <div className="text-center mb-12">
-                <h3 className="text-2xl font-bold text-unifor-dark-purple mb-6">Impact on Your Future</h3>
-                <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-unifor-light-purple">
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    "Every opportunity whether your marriage, placement, funding, awards, invitation, profile screening, application etc everywhere the only thing matter is how credible & impressive profile you have as more participation more achievements & practical exposure more maturity more opportunity that all a interrelated circle"
-                  </p>
+              {/* Enhanced Impact on Future Section */}
+              <div className="mb-12">
+                <h3 className="text-3xl font-bold text-center text-unifor-dark-purple mb-6">Impact on Your Future</h3>
+                <div className="bg-gradient-to-r from-unifor-dark-purple/5 to-unifor-purple/5 rounded-3xl p-8 md:p-12 shadow-xl border border-unifor-purple/20">
+                  <div className="text-center mb-10">
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-unifor-purple to-unifor-light-purple mb-6 shadow-lg">
+                      <TrendingUp className="h-10 w-10 text-white" />
+                    </div>
+                    <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
+                      "Every opportunity whether your marriage, placement, funding, awards, invitation, profile screening, application etc everywhere the only thing matter is how credible & impressive profile you have as more participation more achievements & practical exposure more maturity more opportunity that all a interrelated circle"
+                    </p>
+                  </div>
                   
-                  <div className="grid md:grid-cols-4 gap-6 mt-8">
-                    <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
-                        <Trophy className="h-8 w-8 text-unifor-purple" />
+                  {/* Visual Flow of Impact */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                    <div className="text-center group">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <Users className="h-10 w-10 text-white" />
                       </div>
-                      <h4 className="font-semibold text-unifor-dark-purple">More Participation</h4>
-                      <p className="text-sm text-gray-600">Increased engagement</p>
+                      <h4 className="font-bold text-unifor-dark-purple text-lg mb-2">More Participation</h4>
+                      <p className="text-sm text-gray-600">Active engagement in programs, events, and initiatives</p>
                     </div>
                     
-                    <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
-                        <Award className="h-8 w-8 text-unifor-purple" />
+                    <div className="text-center group">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <Medal className="h-10 w-10 text-white" />
                       </div>
-                      <h4 className="font-semibold text-unifor-dark-purple">More Achievements</h4>
-                      <p className="text-sm text-gray-600">Recognition & awards</p>
+                      <h4 className="font-bold text-unifor-dark-purple text-lg mb-2">More Achievements</h4>
+                      <p className="text-sm text-gray-600">Recognition, awards, and certifications</p>
                     </div>
                     
-                    <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
-                        <GraduationCap className="h-8 w-8 text-unifor-purple" />
+                    <div className="text-center group">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <Briefcase className="h-10 w-10 text-white" />
                       </div>
-                      <h4 className="font-semibold text-unifor-dark-purple">Practical Exposure</h4>
-                      <p className="text-sm text-gray-600">Real-world experience</p>
+                      <h4 className="font-bold text-unifor-dark-purple text-lg mb-2">Practical Exposure</h4>
+                      <p className="text-sm text-gray-600">Real-world experience and skill development</p>
                     </div>
                     
-                    <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-unifor-light-purple flex items-center justify-center mx-auto mb-3">
-                        <Globe className="h-8 w-8 text-unifor-purple" />
+                    <div className="text-center group">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <Rocket className="h-10 w-10 text-white" />
                       </div>
-                      <h4 className="font-semibold text-unifor-dark-purple">More Opportunities</h4>
-                      <p className="text-sm text-gray-600">Endless possibilities</p>
+                      <h4 className="font-bold text-unifor-dark-purple text-lg mb-2">More Opportunities</h4>
+                      <p className="text-sm text-gray-600">Endless possibilities and pathways</p>
                     </div>
+                  </div>
+
+                  {/* Opportunity Categories */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                      <Heart className="h-8 w-8 text-red-500 mb-3" />
+                      <h5 className="font-semibold text-gray-800 mb-2">Personal Life</h5>
+                      <p className="text-sm text-gray-600">Marriage, relationships, social standing</p>
+                    </div>
+                    
+                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                      <Building className="h-8 w-8 text-blue-500 mb-3" />
+                      <h5 className="font-semibold text-gray-800 mb-2">Career</h5>
+                      <p className="text-sm text-gray-600">Placements, promotions, job opportunities</p>
+                    </div>
+                    
+                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                      <DollarSign className="h-8 w-8 text-green-500 mb-3" />
+                      <h5 className="font-semibold text-gray-800 mb-2">Financial</h5>
+                      <p className="text-sm text-gray-600">Funding, investments, scholarships</p>
+                    </div>
+                    
+                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+                      <UserCheck className="h-8 w-8 text-purple-500 mb-3" />
+                      <h5 className="font-semibold text-gray-800 mb-2">Recognition</h5>
+                      <p className="text-sm text-gray-600">Awards, invitations, profile screening</p>
+                    </div>
+                  </div>
+
+                  {/* Call to Action */}
+                  <div className="text-center mt-12">
+                    <div className="inline-flex items-center gap-2 bg-unifor-purple/10 px-6 py-3 rounded-full mb-4">
+                      <Star className="h-5 w-5 text-unifor-purple" />
+                      <span className="text-unifor-purple font-semibold">Start Building Your Profile Today</span>
+                    </div>
+                    <p className="text-gray-600 text-sm">Every step you take in Phase 1 builds toward your future success</p>
                   </div>
                 </div>
               </div>
