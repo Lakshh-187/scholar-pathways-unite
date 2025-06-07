@@ -6,6 +6,7 @@ import ProgramCard from "@/components/ProgramCard";
 import ProgramJourney from "@/components/ProgramJourney";
 import UniffordScholarApplication from "@/components/UniffordScholarApplication";
 import UniffordCareerOpportunities from "@/components/UniffordCareerOpportunities";
+import UniffordScholarBenefits from "@/components/UniffordScholarBenefits";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -295,8 +296,8 @@ const Programs = () => {
           </div>
         </section>
         
-        {/* Uniford Scholar Application */}
-        <UniffordScholarApplication />
+        {/* Uniford Scholar Benefits */}
+        <UniffordScholarBenefits />
         
         {/* Uniford Career Opportunities */}
         <UniffordCareerOpportunities />
