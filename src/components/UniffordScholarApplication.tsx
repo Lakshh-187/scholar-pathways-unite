@@ -9,18 +9,18 @@ import {
 
 const UniffordScholarApplication = () => {
   const opportunities = [
-    { icon: <Lightbulb className="h-6 w-6" />, title: "Initiatives", description: "Lead innovative projects and initiatives" },
-    { icon: <Users className="h-6 w-6" />, title: "Participations", description: "Engage in diverse programs and events" },
-    { icon: <Trophy className="h-6 w-6" />, title: "Achievements", description: "Earn recognition and awards" },
-    { icon: <Target className="h-6 w-6" />, title: "Projects", description: "Work on impactful real-world projects" },
-    { icon: <Handshake className="h-6 w-6" />, title: "Collaborations", description: "Partner with peers and organizations" },
-    { icon: <Award className="h-6 w-6" />, title: "Innovations", description: "Problem-solving and creative solutions" },
-    { icon: <Medal className="h-6 w-6" />, title: "Certification", description: "Health and medical literacy programs" },
-    { icon: <BookOpen className="h-6 w-6" />, title: "Books Writing", description: "Author program and publications" },
-    { icon: <Rocket className="h-6 w-6" />, title: "My Startup", description: "Entrepreneurship support and incubation" },
-    { icon: <Heart className="h-6 w-6" />, title: "Social Welfare", description: "Community impact initiatives" },
-    { icon: <Trophy className="h-6 w-6" />, title: "Sports Participation", description: "Athletic programs and competitions" },
-    { icon: <Briefcase className="h-6 w-6" />, title: "Internships", description: "AI, Domain-specific, Management, Social welfare" }
+    { icon: <Lightbulb className="h-5 w-5" />, title: "Initiatives" },
+    { icon: <Users className="h-5 w-5" />, title: "Participations" },
+    { icon: <Trophy className="h-5 w-5" />, title: "Achievements" },
+    { icon: <Target className="h-5 w-5" />, title: "Projects" },
+    { icon: <Handshake className="h-5 w-5" />, title: "Collaborations" },
+    { icon: <Award className="h-5 w-5" />, title: "Innovations" },
+    { icon: <Medal className="h-5 w-5" />, title: "Certification" },
+    { icon: <BookOpen className="h-5 w-5" />, title: "Books Writing" },
+    { icon: <Rocket className="h-5 w-5" />, title: "My Startup" },
+    { icon: <Heart className="h-5 w-5" />, title: "Social Welfare" },
+    { icon: <Trophy className="h-5 w-5" />, title: "Sports" },
+    { icon: <Briefcase className="h-5 w-5" />, title: "Internships" }
   ];
 
   return (
@@ -65,29 +65,45 @@ const UniffordScholarApplication = () => {
           </div>
         </div>
 
-        {/* Organization Responsibility */}
+        {/* Compact Organization Responsibility */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-center text-unifor-dark-purple mb-8">
             Organization's Responsibility: Connect & Provide Opportunities
           </h3>
-          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+          <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
             It's our responsibility to connect and provide platforms and opportunities so that scholars can achieve their full potential
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {opportunities.map((opportunity, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 hover:border-unifor-purple/30">
-                <CardHeader className="text-center pb-3">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-unifor-purple to-unifor-light-purple flex items-center justify-center mx-auto mb-3 text-white group-hover:scale-110 transition-transform">
+          {/* Compact Grid Display */}
+          <div className="bg-gradient-to-r from-unifor-dark-purple/5 to-unifor-purple/5 rounded-3xl p-8 border border-unifor-purple/20">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+              {opportunities.map((opportunity, index) => (
+                <div key={index} className="group text-center p-4 bg-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 border border-gray-100">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-unifor-purple to-unifor-light-purple flex items-center justify-center mx-auto mb-3 text-white shadow-md group-hover:scale-110 transition-transform">
                     {opportunity.icon}
                   </div>
-                  <CardTitle className="text-lg text-unifor-dark-purple">{opportunity.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center pt-0">
-                  <p className="text-sm text-gray-600">{opportunity.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+                  <h4 className="text-sm font-semibold text-unifor-dark-purple group-hover:text-unifor-purple transition-colors">
+                    {opportunity.title}
+                  </h4>
+                </div>
+              ))}
+            </div>
+            
+            {/* Highlighted Features */}
+            <div className="mt-8 grid md:grid-cols-3 gap-4 text-center">
+              <div className="bg-white/70 rounded-xl p-4">
+                <Award className="h-6 w-6 text-unifor-purple mx-auto mb-2" />
+                <p className="text-sm text-gray-700"><strong>Problem-solving</strong> & creative solutions</p>
+              </div>
+              <div className="bg-white/70 rounded-xl p-4">
+                <Medal className="h-6 w-6 text-unifor-purple mx-auto mb-2" />
+                <p className="text-sm text-gray-700"><strong>Health & medical</strong> literacy programs</p>
+              </div>
+              <div className="bg-white/70 rounded-xl p-4">
+                <Briefcase className="h-6 w-6 text-unifor-purple mx-auto mb-2" />
+                <p className="text-sm text-gray-700"><strong>AI, Domain-specific,</strong> Management, Social welfare</p>
+              </div>
+            </div>
           </div>
         </div>
 

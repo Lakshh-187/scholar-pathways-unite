@@ -9,42 +9,12 @@ import {
 
 const UniffordCareerOpportunities = () => {
   const opportunities = [
-    {
-      icon: <Briefcase className="h-8 w-8" />,
-      title: "Paid Internships",
-      description: "Access to exclusive paid internship opportunities with leading companies",
-      color: "from-blue-500 to-blue-600"
-    },
-    {
-      icon: <GraduationCap className="h-8 w-8" />,
-      title: "Scholarships",
-      description: "Merit-based scholarships for further education and skill development",
-      color: "from-green-500 to-green-600"
-    },
-    {
-      icon: <DollarSign className="h-8 w-8" />,
-      title: "Grants",
-      description: "Financial grants for innovative projects and research initiatives",
-      color: "from-purple-500 to-purple-600"
-    },
-    {
-      icon: <Mail className="h-8 w-8" />,
-      title: "Invitations",
-      description: "Exclusive invitations to industry events, conferences, and networking sessions",
-      color: "from-orange-500 to-orange-600"
-    },
-    {
-      icon: <Building className="h-8 w-8" />,
-      title: "Placements",
-      description: "Direct placement opportunities with top-tier companies and organizations",
-      color: "from-red-500 to-red-600"
-    },
-    {
-      icon: <Search className="h-8 w-8" />,
-      title: "Profile Screening",
-      description: "Professional profile evaluation and enhancement through our alliance",
-      color: "from-teal-500 to-teal-600"
-    }
+    { icon: <Briefcase className="h-5 w-5" />, title: "Paid Internships", color: "from-blue-500 to-blue-600" },
+    { icon: <GraduationCap className="h-5 w-5" />, title: "Scholarships", color: "from-green-500 to-green-600" },
+    { icon: <DollarSign className="h-5 w-5" />, title: "Grants", color: "from-purple-500 to-purple-600" },
+    { icon: <Mail className="h-5 w-5" />, title: "Invitations", color: "from-orange-500 to-orange-600" },
+    { icon: <Building className="h-5 w-5" />, title: "Placements", color: "from-red-500 to-red-600" },
+    { icon: <Search className="h-5 w-5" />, title: "Profile Screening", color: "from-teal-500 to-teal-600" }
   ];
 
   return (
@@ -72,32 +42,27 @@ const UniffordCareerOpportunities = () => {
             <h3 className="text-2xl font-bold text-unifor-dark-purple mb-4">
               Uniford Talent Hunt Alliance
             </h3>
-            <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
               Our specialized talent screening process evaluates and matches scholars with the right opportunities 
-              based on their skills, achievements, and career aspirations. Every scholar's profile is carefully 
-              reviewed to ensure the best fit for available positions.
+              based on their skills, achievements, and career aspirations.
             </p>
+            
+            {/* Compact Opportunities Display */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                {opportunities.map((opportunity, index) => (
+                  <div key={index} className="group text-center p-3 bg-gray-50 rounded-xl hover:shadow-md transition-all duration-300 hover:scale-105">
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${opportunity.color} flex items-center justify-center mx-auto mb-2 text-white shadow-md group-hover:scale-110 transition-transform`}>
+                      {opportunity.icon}
+                    </div>
+                    <h4 className="text-sm font-semibold text-gray-800 group-hover:text-unifor-purple transition-colors">
+                      {opportunity.title}
+                    </h4>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-
-        {/* Opportunities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {opportunities.map((opportunity, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-2 hover:border-unifor-purple/50 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-unifor-purple to-unifor-light-purple"></div>
-              <CardHeader className="text-center">
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${opportunity.color} flex items-center justify-center mx-auto mb-4 text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                  {opportunity.icon}
-                </div>
-                <CardTitle className="text-xl text-unifor-dark-purple group-hover:text-unifor-purple transition-colors">
-                  {opportunity.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-gray-600 leading-relaxed">{opportunity.description}</p>
-              </CardContent>
-            </Card>
-          ))}
         </div>
 
         {/* Process Flow */}
