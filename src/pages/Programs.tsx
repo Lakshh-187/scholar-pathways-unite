@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
 import ProgramJourney from "@/components/ProgramJourney";
+import UniffordScholarApplication from "@/components/UniffordScholarApplication";
+import UniffordCareerOpportunities from "@/components/UniffordCareerOpportunities";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -292,6 +294,12 @@ const Programs = () => {
             </div>
           </div>
         </section>
+        
+        {/* Uniford Scholar Application */}
+        <UniffordScholarApplication />
+        
+        {/* Uniford Career Opportunities */}
+        <UniffordCareerOpportunities />
         
         {/* Program Journey */}
         <ProgramJourney />
