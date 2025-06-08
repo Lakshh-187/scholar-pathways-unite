@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone, Briefcase } from 'lucide-react';
+import { Mail, MapPin, Phone, Briefcase, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Footer = () => {

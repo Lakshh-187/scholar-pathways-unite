@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +12,7 @@ import TalentHuntAlliance from "./pages/TalentHuntAlliance";
 import BackedByUniford from "./pages/BackedByUniford";
 import WhatMatters from "./pages/WhatMatters";
 import IDCard from "./pages/IDCard";
+import IDCardServices from "./pages/IDCardServices";
 import OfficialDocuments from "./pages/OfficialDocuments";
 import SocialInternship from "./pages/SocialInternship";
 import NotFound from "./pages/NotFound";
@@ -52,6 +52,7 @@ const App = () => (
           <Route path="/backed-by-uniford" element={<BackedByUniford />} />
           <Route path="/what-matters" element={<WhatMatters />} />
           <Route path="/id-card" element={<IDCard />} />
+          <Route path="/id-card-services" element={<IDCardServices />} />
           <Route path="/social-internship" element={<SocialInternship />} />
           <Route path="/official-documents" element={<OfficialDocuments />} />
           <Route path="/legal-policy" element={<LegalPolicy />} />
