@@ -13,12 +13,12 @@ const NavBar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
-    { name: 'ID Card', path: '/id-card' },
-    { name: 'Official Documents', path: '/official-documents' },
+    { name: 'Orientation', path: '/id-card' },
+    { name: 'Docs', path: '/official-documents' },
     { name: 'Pitchburg', path: '/uni-pitch' },
     { name: 'UIRAD', path: '/uirad' },
-    { name: 'Talent Hunt Alliance', path: '/talent-hunt-alliance' },
-    { name: 'Backed By Uniford', path: '/backed-by-uniford' },
+    { name: 'UTHA', path: '/talent-hunt-alliance' },
+    { name: 'iBacked', path: '/backed-by-uniford' },
     { name: 'We Invite', path: '/we-invite' },
   ];
   

@@ -1,10 +1,29 @@
+
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Briefcase } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   return (
     <footer className="bg-unifor-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
+        {/* Highlighted Social Internship Section */}
+        <div className="bg-gradient-to-r from-unifor-purple to-unifor-blue rounded-2xl p-8 mb-12 text-center">
+          <div className="flex items-center justify-center mb-4">
+            <Briefcase className="h-8 w-8 mr-3" />
+            <h3 className="text-2xl font-bold">Make a Difference Today</h3>
+          </div>
+          <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
+            Join our Social Internship program and contribute to meaningful projects that create positive impact in communities worldwide.
+          </p>
+          <Link to="/social-internship">
+            <Button className="bg-white text-unifor-purple hover:bg-gray-100 font-semibold px-8 py-3 text-lg rounded-xl transition-all shadow-lg hover:shadow-xl">
+              Join Social Internship
+              <Briefcase className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1">
             <div className="flex items-center gap-2 mb-4">

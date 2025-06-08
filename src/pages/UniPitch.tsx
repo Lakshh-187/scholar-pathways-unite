@@ -32,6 +32,7 @@ import UniPitchGallery from '@/components/UniPitchGallery';
 import PitchburgInitiative from '@/components/PitchburgInitiative';
 import PitchburgPrograms from '@/components/PitchburgPrograms';
 import PitchburgBenefits from '@/components/PitchburgBenefits';
+import StanburgAward from '@/components/StanburgAward';
 
 const UniPitch = () => {
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
@@ -283,6 +284,9 @@ const UniPitch = () => {
         
         {/* NEW: Pitchburg Programs Section */}
         <PitchburgPrograms />
+        
+        {/* NEW: Stanburg Award Section */}
+        <StanburgAward />
         
         {/* Visual Journey */}
         <UniPitchJourney />
