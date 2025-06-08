@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
 import ProgramJourney from "@/components/ProgramJourney";
-import UniffordScholarApplication from "@/components/UniffordScholarApplication";
-import UniffordCareerOpportunities from "@/components/UniffordCareerOpportunities";
-import UniffordScholarBenefits from "@/components/UniffordScholarBenefits";
+import ProgramPortfolioGuide from "@/components/ProgramPortfolioGuide";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -47,6 +45,9 @@ const Programs = () => {
             </div>
           </div>
         </section>
+
+        {/* Portfolio Instructions Guide */}
+        <ProgramPortfolioGuide />
         
         {/* Uniford Badge Program */}
         <section className="py-16 bg-white">
@@ -295,12 +296,6 @@ const Programs = () => {
             </div>
           </div>
         </section>
-        
-        {/* Uniford Scholar Benefits */}
-        <UniffordScholarBenefits />
-        
-        {/* Uniford Career Opportunities */}
-        <UniffordCareerOpportunities />
         
         {/* Program Journey */}
         <ProgramJourney />
