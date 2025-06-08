@@ -1,124 +1,111 @@
-
-import React from "react";
+import React from 'react';
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import ScholarIDProcess from "@/components/scholar/ScholarIDProcess";
-import StudentProblems from "@/components/scholar/StudentProblems";
-import ProblemsSolutions from "@/components/scholar/ProblemsSolutions";
-import ScholarTypes from "@/components/scholar/ScholarTypes";
-import RelatedPages from "@/components/scholar/RelatedPages";
-import IDCardBenefits from "@/components/IDCardBenefits";
-import ScholarFAQs from "@/components/scholar/ScholarFAQs";
-import IDCardApplicationForm from "@/components/idcard/IDCardApplicationForm";
+import HeroSection from "@/components/HeroSection";
 import ScholarIDFeatures from "@/components/ScholarIDFeatures";
-import ScholarRoadmap from "@/components/scholar/ScholarRoadmap";
-import { Badge } from "@/components/ui/badge";
+import IDCardBenefits from "@/components/IDCardBenefits";
+import ScholarIDCardProgram from "@/components/ScholarIDCardProgram";
+import ScholarPaymentSection from "@/components/scholar/ScholarPaymentSection";
 import { Button } from "@/components/ui/button";
-import { CreditCard, ExternalLink } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Users, ExternalLink, CreditCard } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const IDCard = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen">
       <NavBar />
       
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-unifor-dark-purple to-unifor-purple text-white py-16 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <img 
-              src="https://www.uniford.org/uniford-main/uniford1.jpg"
-              alt="Students collaborating" 
-              className="w-full h-full object-cover"
-            />
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-unifor-dark-purple to-unifor-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="bg-white text-unifor-purple mb-4">SCHOLAR ORIENTATION</Badge>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get Your Scholar ID Card</h1>
+            <p className="text-lg md:text-xl mb-8">
+              Your gateway to exclusive opportunities and resources
+            </p>
           </div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full mb-4 animate-pulse">
-                <span className="text-white font-medium tracking-wider text-sm">Non-profit Organization</span>
-              </div>
-              <Badge className="bg-white text-unifor-purple mb-4">ACCESS KEY</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Uniford Scholar ID Card</h1>
-              <p className="text-lg md:text-xl mb-8">
-                Your gateway to internships, resources, and opportunities without individual fees
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#registration">
-                  <Button className="bg-white text-unifor-purple hover:bg-gray-100">
-                    <CreditCard className="mr-2" />
-                    Apply Now
+        </div>
+      </section>
+
+      {/* Scholar ID Card Registration Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <ScholarPaymentSection />
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Actions Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Quick Actions</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="bg-gradient-to-br from-unifor-purple to-unifor-dark-purple text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <Users className="h-6 w-6" />
+                    Social Internship Program
+                  </CardTitle>
+                  <CardDescription className="text-white/90">
+                    Complete meaningful social work and get your ₹500 registration fee refunded
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-6 text-white/80">
+                    Join our Social Internship program to make a positive impact while earning your fee refund through community service.
+                  </p>
+                  <Button 
+                    className="w-full bg-white text-unifor-purple hover:bg-gray-100 font-semibold"
+                    asChild
+                  >
+                    <Link to="/social-internship">
+                      Join Social Internship
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
-                </a>
-                <a 
-                  href="https://forms.gle/VJJCWM2wzcZjT8YK8" 
-                  target="_blank" 
-                  rel="noopener noreferrer">
-                  <Button variant="outline" className="border-white text-white hover:bg-white/10 w-full">
-                    <ExternalLink className="mr-2" />
-                    Apply via Time AID
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-unifor-blue to-unifor-purple text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <CreditCard className="h-6 w-6" />
+                    Apply for Programs
+                  </CardTitle>
+                  <CardDescription className="text-white/90">
+                    Explore and apply for various Uniford programs and opportunities
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-6 text-white/80">
+                    Discover amazing opportunities including research programs, career development, and more.
+                  </p>
+                  <Button 
+                    className="w-full bg-white text-unifor-blue hover:bg-gray-100 font-semibold"
+                    asChild
+                  >
+                    <Link to="/apply">
+                      Explore Applications
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
-                </a>
-              </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
-        </section>
-        
-        {/* Interactive Buttons Section */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="#registration">
-                <Button 
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 font-bold text-white hover:from-blue-600 hover:to-purple-600 px-6 py-3">
-                  <CreditCard className="mr-2" />
-                  Fill ID card Form
-                </Button>
-              </a>
-              <a href="https://wa.me/7347099610?text=Hello!%20I%20have%20a%20question." 
-                target="_blank" 
-                rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-r from-pink-500 to-purple-500 font-bold text-white hover:from-pink-600 hover:to-purple-600 px-6 py-3">
-                    <ExternalLink className="mr-2" /> Have Query - Connect
-                  </Button>
-              </a>
-              <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-gradient-to-r from-blue-500 to-pink-500 text-white hover:from-blue-600 hover:to-pink-600 px-6 py-3"
-                >
-                  <ExternalLink className="mr-2" />
-                  Appy via Time AID
-                </Button>
-              </a>
-            </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Current Problems & Solutions Section */}
-        <StudentProblems />
-        
-        {/* Problems vs Solutions Comparison */}
-        <ProblemsSolutions />
-        
-        {/* Scholar Types Section - NEW */}
-        <ScholarTypes />
-        
-        {/* Scholar Roadmap Section - NEW */}
-        <ScholarRoadmap />
-        
-        {/* Scholar ID Process */}
-        <ScholarIDProcess />
-        
-        {/* New Scholar ID Features Section */}
-        <ScholarIDFeatures />
-        
-        {/* Benefits Section */}
-        <IDCardBenefits />
-        
-        {/* Related Pages Navigation */}
-        <RelatedPages />
-       
-        {/* ID Card Application Form Section */}
-        <IDCardApplicationForm />
-      </main>
-
+      {/* Existing Components */}
+      <ScholarIDFeatures />
+      <IDCardBenefits />
+      <ScholarIDCardProgram />
+      
       <Footer />
     </div>
   );

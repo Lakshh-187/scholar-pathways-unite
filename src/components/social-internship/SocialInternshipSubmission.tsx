@@ -64,10 +64,30 @@ const SocialInternshipSubmission = () => {
               <MessageCircle className="h-5 w-5 text-unifor-purple shrink-0 mt-0.5" />
               <span>Be available for a verification call if required by our team</span>
             </li>
+            <li className="flex items-start gap-3">
+              <FileText className="h-5 w-5 text-orange-600 shrink-0 mt-0.5" />
+              <span className="font-medium text-orange-700">
+                <strong>Important:</strong> Submit your Social Internship Certificate with the Certificate ID mentioned on it for verification
+              </span>
+            </li>
           </ul>
         </div>
         
         <Separator />
+        
+        {/* Certificate ID Requirement Alert */}
+        <div className="bg-orange-50 border border-orange-200 p-4 rounded-lg">
+          <div className="flex items-start gap-3">
+            <FileText className="h-5 w-5 text-orange-600 shrink-0 mt-0.5" />
+            <div>
+              <h4 className="font-medium text-orange-800 mb-2">Certificate ID Requirement</h4>
+              <p className="text-orange-700 text-sm">
+                When submitting your Social Internship Certificate, ensure that the Certificate ID is clearly visible and mentioned. 
+                This unique ID is essential for verification and fee refund processing.
+              </p>
+            </div>
+          </div>
+        </div>
         
         <Tabs defaultValue="talent-hunter">
           <TabsList className="grid grid-cols-3 md:grid-cols-4 mb-4">
