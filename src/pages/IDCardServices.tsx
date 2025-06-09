@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -10,6 +10,9 @@ import { useToast } from '@/hooks/use-toast';
 import { initializePayment } from '@/utils/razorpay';
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import ScholarTimeline from "@/components/scholar/ScholarTimeline";
+import ScholarPaymentSection from "@/components/scholar/ScholarPaymentSection";
+import ScholarFAQs from "@/components/scholar/ScholarFAQs";
 import { 
   CreditCard, 
   Upload, 
@@ -20,8 +23,12 @@ import {
   Users,
   Award,
   Shield,
-  Coins
+  Coins,
+  FileText,
+  HelpCircle,
+  ExternalLink
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const IDCardServices = () => {
   const [activeTab, setActiveTab] = useState("id-card");
@@ -122,7 +129,7 @@ const IDCardServices = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Badge className="bg-white text-unifor-purple mb-4">COMPREHENSIVE SERVICES</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">ID Card & Membership Services</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Scholar ID Card & Services</h1>
               <p className="text-lg md:text-xl mb-8">
                 Complete platform for Scholar ID Cards, Donations, and Institutional Memberships
               </p>
@@ -130,7 +137,7 @@ const IDCardServices = () => {
           </div>
         </section>
 
-        {/* Main Content */}
+        {/* Main Content - 3 in 1 Services */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <Tabs defaultValue="id-card" className="max-w-6xl mx-auto" onValueChange={setActiveTab}>
@@ -151,87 +158,174 @@ const IDCardServices = () => {
 
               {/* Scholar ID Card Tab */}
               <TabsContent value="id-card" className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CreditCard className="h-6 w-6 text-unifor-purple" />
-                        Pay Registration Fee
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="bg-unifor-light-purple/10 p-4 rounded-lg">
-                        <h3 className="font-semibold mb-2">Registration Fee: ₹500</h3>
-                        <p className="text-gray-600 mb-4">
-                          Pay after receiving your ID card kit. This fee is refundable through social internship.
-                        </p>
-                        {!paymentComplete ? (
+                {/* Scholar ID Process Tabs */}
+                <Tabs defaultValue="process" className="space-y-8">
+                  <TabsList className="grid grid-cols-4 w-full">
+                    <TabsTrigger value="process" className="flex items-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      <span>Process</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="internship" className="flex items-center gap-2">
+                      <Users className="h-4 w-4" />
+                      <span>Social Internship</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="timeaid" className="flex items-center gap-2">
+                      <Clock className="h-4 w-4" />
+                      <span>Time Aid</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="faq" className="flex items-center gap-2">
+                      <HelpCircle className="h-4 w-4" />
+                      <span>FAQs</span>
+                    </TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="process" className="space-y-8">
+                    <ScholarTimeline />
+                    <ScholarPaymentSection />
+                    
+                    {/* Quick Actions Section */}
+                    <div className="grid md:grid-cols-2 gap-8 mt-8">
+                      <Card className="bg-gradient-to-br from-unifor-purple to-unifor-dark-purple text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <CardHeader>
+                          <CardTitle className="flex items-center gap-3">
+                            <Users className="h-6 w-6" />
+                            Social Internship Program
+                          </CardTitle>
+                          <CardDescription className="text-white/90">
+                            Complete meaningful social work and get your ₹500 registration fee refunded
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="mb-6 text-white/80">
+                            Join our Social Internship program to make a positive impact while earning your fee refund through community service.
+                          </p>
                           <Button 
-                            onClick={handleIDCardPayment}
-                            className="w-full bg-unifor-purple hover:bg-unifor-dark-purple"
+                            className="w-full bg-white text-unifor-purple hover:bg-gray-100 font-semibold"
+                            asChild
                           >
-                            Pay ₹500 Registration Fee
+                            <Link to="/social-internship">
+                              Join Social Internship
+                              <ExternalLink className="ml-2 h-4 w-4" />
+                            </Link>
                           </Button>
-                        ) : (
-                          <div className="text-center">
-                            <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-2" />
-                            <p className="text-green-600 font-medium">Payment Successful!</p>
-                          </div>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                        </CardContent>
+                      </Card>
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Upload className="h-6 w-6 text-green-600" />
-                        Submit Internship Certificate
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="bg-green-50 p-4 rounded-lg">
-                        <h3 className="font-semibold mb-2">Alternative: Social Internship</h3>
-                        <p className="text-gray-600 mb-4">
-                          Submit your Uniford Social Internship certificate to waive the ₹500 fee.
-                        </p>
-                        <Input type="file" accept=".pdf,.jpg,.png" className="mb-4" />
-                        <Button className="w-full bg-green-600 hover:bg-green-700">
-                          Submit Certificate
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                {/* Time Aid Policy */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Clock className="h-6 w-6 text-amber-600" />
-                      Time Aid Policy
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="bg-amber-50 p-6 rounded-lg">
-                      <h3 className="text-lg font-semibold mb-4">Important Timeline</h3>
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3">
-                          <Badge variant="outline" className="bg-amber-100">Step 1</Badge>
-                          <p>Receive your Scholar ID card kit</p>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <Badge variant="outline" className="bg-amber-100">Step 2</Badge>
-                          <p>Within 3 days: Either pay ₹500 OR submit social internship certificate</p>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <Badge variant="outline" className="bg-amber-100">Step 3</Badge>
-                          <p>Your Scholar ID becomes active and ready to use</p>
-                        </div>
-                      </div>
+                      <Card className="bg-gradient-to-br from-unifor-blue to-unifor-purple text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <CardHeader>
+                          <CardTitle className="flex items-center gap-3">
+                            <CreditCard className="h-6 w-6" />
+                            Apply for Programs
+                          </CardTitle>
+                          <CardDescription className="text-white/90">
+                            Explore and apply for various Uniford programs and opportunities
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="mb-6 text-white/80">
+                            Discover amazing opportunities including research programs, career development, and more.
+                          </p>
+                          <Button 
+                            className="w-full bg-white text-unifor-blue hover:bg-gray-100 font-semibold"
+                            asChild
+                          >
+                            <Link to="/apply">
+                              Explore Applications
+                              <ExternalLink className="ml-2 h-4 w-4" />
+                            </Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
                     </div>
-                  </CardContent>
-                </Card>
+                  </TabsContent>
+
+                  <TabsContent value="internship">
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-6">
+                          <h2 className="text-2xl font-semibold mb-4">Social Internship Program</h2>
+                          <p className="text-gray-600">
+                            Complete a social internship to get your registration fee refunded and gain valuable experience.
+                          </p>
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div className="bg-white p-6 rounded-lg shadow-md">
+                              <h3 className="text-lg font-medium mb-3">Benefits</h3>
+                              <ul className="space-y-2 text-gray-600">
+                                <li>• Get your ₹500 registration fee refunded</li>
+                                <li>• Gain practical experience</li>
+                                <li>• Earn a valuable certificate with Certificate ID</li>
+                                <li>• Build your network</li>
+                              </ul>
+                            </div>
+                            <div className="bg-white p-6 rounded-lg shadow-md">
+                              <h3 className="text-lg font-medium mb-3">How to Apply</h3>
+                              <p className="text-gray-600 mb-4">
+                                Apply for social internship opportunities through our platform.
+                              </p>
+                              <Button 
+                                className="w-full bg-unifor-purple hover:bg-unifor-dark-purple"
+                                asChild
+                              >
+                                <Link to="/social-internship">
+                                  View Internship Opportunities
+                                </Link>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="timeaid">
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-6">
+                          <h2 className="text-2xl font-semibold mb-4">Time Aid Policy</h2>
+                          <div className="bg-unifor-light-purple/10 p-6 rounded-lg">
+                            <h3 className="text-lg font-medium mb-4">Choose Your Path</h3>
+                            <div className="grid md:grid-cols-2 gap-6">
+                              <div className="bg-white p-6 rounded-lg shadow-md">
+                                <h4 className="font-medium mb-3">Option 1: Submit Certificate</h4>
+                                <p className="text-gray-600 mb-4">
+                                  Submit your social internship certificate with Certificate ID within 3 days of receiving your ID kit.
+                                </p>
+                                <Button 
+                                  variant="outline" 
+                                  size="sm" 
+                                  className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50"
+                                  asChild
+                                >
+                                  <Link to="/apply">
+                                    Apply Now
+                                  </Link>
+                                </Button>
+                              </div>
+                              <div className="bg-white p-6 rounded-lg shadow-md">
+                                <h4 className="font-medium mb-3">Option 2: Pay Fee</h4>
+                                <p className="text-gray-600 mb-4">
+                                  Pay ₹500 within 3 days of receiving your ID kit.
+                                </p>
+                                <Button 
+                                  variant="outline" 
+                                  size="sm" 
+                                  className="mt-2 border-amber-500 text-amber-600 hover:bg-amber-50"
+                                  onClick={handleIDCardPayment}
+                                >
+                                  Pay Fee
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="faq">
+                    <ScholarFAQs />
+                  </TabsContent>
+                </Tabs>
               </TabsContent>
 
               {/* Donation Tab */}
