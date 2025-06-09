@@ -1,3 +1,4 @@
+
 import React from 'react';
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -7,6 +8,7 @@ import ScholarIDCardProgram from "@/components/ScholarIDCardProgram";
 import ScholarPaymentSection from "@/components/scholar/ScholarPaymentSection";
 import ScholarTimeline from "@/components/scholar/ScholarTimeline";
 import ScholarFAQs from "@/components/scholar/ScholarFAQs";
+import ScholarIDProcess from "@/components/scholar/ScholarIDProcess";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -35,27 +37,8 @@ const IDCard = () => {
         </div>
       </section>
 
-      {/* Process Timeline */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-unifor-dark-purple mb-4">How to Get Your Scholar ID</h2>
-              <p className="text-gray-600">Follow these simple steps to become a verified Uniford Scholar</p>
-            </div>
-            <ScholarTimeline />
-          </div>
-        </div>
-      </section>
-
-      {/* Payment Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <ScholarPaymentSection />
-          </div>
-        </div>
-      </section>
+      {/* Scholar ID Process Section */}
+      <ScholarIDProcess />
 
       {/* Quick Actions Section */}
       <section className="py-16">
@@ -123,16 +106,7 @@ const IDCard = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <ScholarFAQs />
-          </div>
-        </div>
-      </section>
-
-      {/* Existing Components */}
+      {/* All Original Components */}
       <ScholarIDFeatures />
       <IDCardBenefits />
       <ScholarIDCardProgram />
