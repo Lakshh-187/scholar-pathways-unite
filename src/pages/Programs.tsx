@@ -297,6 +297,204 @@ const Programs = () => {
           </div>
         </section>
         
+        {/* Why Uniford Scholars Stand Out - NEW SECTION */}
+        <section className="py-20 bg-gradient-to-br from-unifor-dark-purple/5 to-unifor-purple/5">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-4xl mx-auto mb-16">
+              <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
+                BREAKING THE CYCLE
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-unifor-dark-purple">
+                Why Uniford Scholars Stand Out Among Students
+              </h2>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                <span className="font-semibold text-unifor-dark-purple">Traditional Model:</span> Students stuck in textbooks and exam stress with no real opportunities.<br />
+                <span className="font-semibold text-unifor-dark-purple">Uniford Model:</span> Students equipped with practical skills, global connections, and unlimited opportunities.
+              </p>
+              
+              {/* Visual Transformation */}
+              <div className="grid md:grid-cols-2 gap-8 mb-12 text-left">
+                {/* Traditional Model - Left Side */}
+                <div className="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-lg">
+                  <h3 className="text-xl font-bold text-red-700 mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🚫</span>
+                    Traditional Educational Model
+                  </h3>
+                  <ul className="space-y-2 text-red-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 mt-1">❌</span>
+                      <span>Limited to classroom learning only</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 mt-1">❌</span>
+                      <span>No practical industry exposure</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 mt-1">❌</span>
+                      <span>Exam-focused, not skill-focused</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 mt-1">❌</span>
+                      <span>No global opportunities or connections</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 mt-1">❌</span>
+                      <span>Graduates with degrees but no experience</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Uniford Model - Right Side */}
+                <div className="bg-green-50 border-l-4 border-green-400 p-6 rounded-r-lg">
+                  <h3 className="text-xl font-bold text-green-700 mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🚀</span>
+                    Uniford Scholar Model
+                  </h3>
+                  <ul className="space-y-2 text-green-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-500 mt-1">✅</span>
+                      <span>Practical exposure through internships</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-500 mt-1">✅</span>
+                      <span>AI-based Career Fit Analysis (CFA)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-500 mt-1">✅</span>
+                      <span>Portfolio website & special badge</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-500 mt-1">✅</span>
+                      <span>Global opportunities through profile screening</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-green-500 mt-1">✅</span>
+                      <span>Ready-to-work professionals</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* The Uniford Advantage */}
+            <div className="max-w-6xl mx-auto">
+              <h3 className="text-2xl font-bold text-center mb-12 text-unifor-dark-purple">
+                How Uniford Foundation Transforms Students
+              </h3>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Unconditional Opportunities */}
+                <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-unifor-purple">
+                  <div className="w-16 h-16 bg-gradient-to-r from-unifor-purple to-unifor-light-purple rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Globe className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-unifor-dark-purple">Unconditional Opportunities</h4>
+                  <p className="text-gray-600 mb-4">
+                    We don't wait for students to be "ready" - we provide platforms and backing immediately, believing every student has potential.
+                  </p>
+                  <div className="text-sm text-unifor-purple font-medium">
+                    🎯 Platform + Backing = Success
+                  </div>
+                </div>
+
+                {/* Special Badge & Portfolio */}
+                <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-unifor-purple">
+                  <div className="w-16 h-16 bg-gradient-to-r from-unifor-purple to-unifor-light-purple rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Award className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-unifor-dark-purple">Special Badge + Portfolio</h4>
+                  <p className="text-gray-600 mb-4">
+                    Every scholar gets a verified badge and professional portfolio website - your digital identity that opens doors globally.
+                  </p>
+                  <div className="text-sm text-unifor-purple font-medium">
+                    🏆 Recognition + Professional Presence
+                  </div>
+                </div>
+
+                {/* AI-Based CFA */}
+                <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-unifor-purple">
+                  <div className="w-16 h-16 bg-gradient-to-r from-unifor-purple to-unifor-light-purple rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Target className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-unifor-dark-purple">Modern AI-Based CFA</h4>
+                  <p className="text-gray-600 mb-4">
+                    Career Fit Analysis using AI technology matches you with perfect internships and opportunities based on your skills and interests.
+                  </p>
+                  <div className="text-sm text-unifor-purple font-medium">
+                    🤖 AI-Powered Career Matching
+                  </div>
+                </div>
+
+                {/* RPO Model */}
+                <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-unifor-purple">
+                  <div className="w-16 h-16 bg-gradient-to-r from-unifor-purple to-unifor-light-purple rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Rocket className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-unifor-dark-purple">RPO Model</h4>
+                  <p className="text-gray-600 mb-4">
+                    <strong>Resources</strong> to Learn → <strong>Platform</strong> to Perform → <strong>Opportunities</strong> based on Profile
+                  </p>
+                  <div className="text-sm text-unifor-purple font-medium">
+                    📚 → 🎯 → 🚀 Complete Development Cycle
+                  </div>
+                </div>
+
+                {/* Profile Screening */}
+                <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-unifor-purple">
+                  <div className="w-16 h-16 bg-gradient-to-r from-unifor-purple to-unifor-light-purple rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Users className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-unifor-dark-purple">Global Profile Screening</h4>
+                  <p className="text-gray-600 mb-4">
+                    We connect students with worldwide opportunities through referrals, Letters of Recommendation, and profile recommendations.
+                  </p>
+                  <div className="text-sm text-unifor-purple font-medium">
+                    🌍 Global Network + Recommendations
+                  </div>
+                </div>
+
+                {/* Initiative & Participation */}
+                <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-unifor-purple">
+                  <div className="w-16 h-16 bg-gradient-to-r from-unifor-purple to-unifor-light-purple rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <TrendingUp className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-unifor-dark-purple">Initiative & High Participation</h4>
+                  <p className="text-gray-600 mb-4">
+                    Every student develops initiatives and participates actively in internships, competitions, and real-world projects.
+                  </p>
+                  <div className="text-sm text-unifor-purple font-medium">
+                    🎯 Active Learning + Real Impact
+                  </div>
+                </div>
+              </div>
+
+              {/* Call to Action */}
+              <div className="text-center mt-16">
+                <div className="bg-gradient-to-r from-unifor-dark-purple to-unifor-purple text-white rounded-2xl p-8 md:p-12">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Ready to Break Free from the Traditional Model?
+                  </h3>
+                  <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Join thousands of Uniford Scholars who have transformed their careers through practical exposure, global opportunities, and unconditional support.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <a href="https://forms.gle/VJJCWM2wzcZjT8YK8">
+                      <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
+                        <Award className="mr-2 h-5 w-5" />
+                        Become a Uniford Scholar
+                      </Button>
+                    </a>
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                      <ExternalLink className="mr-2 h-5 w-5" />
+                      Explore Programs
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Program Journey */}
         <ProgramJourney />
         
