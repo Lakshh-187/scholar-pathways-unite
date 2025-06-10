@@ -1,4 +1,4 @@
-import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target, Badge as BadgeIcon, Globe, Award, User, Code, Palette, Store, Lock, ArrowRight, CheckCircle, Star, TrendingUp, Heart, Building, DollarSign, Medal, UserCheck } from "lucide-react";
+import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target, Badge as BadgeIcon, Globe, Award, User, Code, Palette, Store, Lock, ArrowRight, CheckCircle, Star, TrendingUp, Heart, Building, DollarSign, Medal, UserCheck, ExternalLink } from "lucide-react";
 import NavBar from '@/components/NavBar';
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
