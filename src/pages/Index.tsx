@@ -13,7 +13,10 @@ import {
   Rocket, 
   Users,
   Milestone,
-  Cpu
+  Cpu,
+  Target,
+  Lightbulb,
+  TrendingUp
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -65,64 +68,216 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Core Values Section */}
+      {/* Organization Message Section */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <Card className="border-0 shadow-2xl bg-gradient-to-r from-red-50 to-orange-50">
+              <CardContent className="p-8 md:p-12">
+                <div className="text-center mb-8">
+                  <Badge variant="outline" className="bg-red-100 text-red-700 px-4 py-2 mb-4 text-lg">
+                    THE HARD TRUTH
+                  </Badge>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                    Breaking the Privilege Cycle Trap
+                  </h2>
+                </div>
+                
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                  <p className="text-lg md:text-xl mb-6 font-medium text-center">
+                    Brain drain, potential drain, 67% youths are unemployed, not credible, crime rates high, depression, procrastination are the terms we heard daily. You know why?
+                  </p>
+                  
+                  <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+                    <p className="text-lg mb-4 font-semibold text-gray-800">Listen -</p>
+                    <p className="text-base mb-4">
+                      🚪 One student walks into rooms filled with mentors, hackathons, internships, and open opportunities.
+                    </p>
+                    <p className="text-base mb-4">
+                      Another stands outside a locked door, armed only with textbooks and exam stress.
+                    </p>
+                    <p className="text-base mb-4">
+                      💔 Not because they aren't bright — but because the system never handed them the key.
+                    </p>
+                    <p className="text-base mb-4 font-semibold text-red-600">
+                      🔐 That's the Privilege Cycle Trap.
+                    </p>
+                    <p className="text-lg font-bold text-center text-gray-800">
+                      It's not just about what you know — it's about who lets you in
+                    </p>
+                  </div>
+                  
+                  <div className="text-right">
+                    <p className="text-sm text-gray-600 italic">
+                      by - LC Kahleer (Director)
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Six Main Programs Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
-              OUR CORE VALUES
+              OUR INITIATIVES
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Drives Our Educational Transformation
+              Transformative Programs Breaking Barriers
             </h2>
             <p className="text-gray-600 text-lg">
-              Our mission is centered around six core principles that guide all our initiatives and programs.
+              Six powerful initiatives designed to unlock potential and create opportunities for every student.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Award className="h-8 w-8 text-blue-600" />,
-                title: "International Standards",
-                description: "Bringing global educational standards to local institutions through proven frameworks and partnerships."
-              },
-              {
-                icon: <DollarSign className="h-8 w-8 text-green-600" />,
-                title: "Affordability",
-                description: "Making quality education accessible without financial barriers through CSR funding and donations."
-              },
-              {
-                icon: <Users className="h-8 w-8 text-purple-600" />,
-                title: "Connect & Aware",
-                description: "Building bridges between students, institutions, and industry to create meaningful opportunities."
-              },
-              {
-                icon: <Heart className="h-8 w-8 text-red-600" />,
-                title: "Life Impact",
-                description: "Creating transformative educational experiences that change lives and communities."
-              },
-              {
-                icon: <Globe className="h-8 w-8 text-teal-600" />,
-                title: "International Outlook",
-                description: "Fostering a global perspective through cross-border collaborations and international recognition."
-              },
-              {
-                icon: <GraduationCap className="h-8 w-8 text-amber-600" />,
-                title: "Education Centric",
-                description: "Putting quality education at the center of everything we do, prioritizing learning outcomes."
-              }
-            ].map((value, index) => (
-              <Card key={index} className="border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="h-16 w-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
-                    {value.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="space-y-16">
+            {/* Uniford Scholar */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <Badge className="bg-blue-100 text-blue-700 mb-4">SCHOLAR PROGRAM</Badge>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Uniford Scholar</h3>
+                <p className="text-gray-600 text-lg mb-6">
+                  Adopt students as scholars and connect them with worldwide opportunities using programs like Frontliner Program, Campus to Corporate Program and many more.
+                </p>
+                <Link to="/id-card">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3">
+                    Become a Scholar <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" 
+                    alt="Uniford Scholar Program"
+                    className="w-full h-80 object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* UIEP */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop" 
+                  alt="UIEP Institute Transformation"
+                  className="w-full h-80 object-cover"
+                />
+              </div>
+              <div>
+                <Badge className="bg-green-100 text-green-700 mb-4">INSTITUTE TRANSFORMATION</Badge>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">UIEP</h3>
+                <p className="text-gray-600 text-lg mb-6">
+                  Transform Institutes to international standards using UIRAD, CSR & Venture funds along with Uniford Billion funds & Scholar Programs.
+                </p>
+                <Link to="/backed-by-uniford">
+                  <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3">
+                    Transform Your Institute <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Frontliner */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <Badge className="bg-purple-100 text-purple-700 mb-4">LEADERSHIP DEVELOPMENT</Badge>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Frontliner</h3>
+                <p className="text-gray-600 text-lg mb-6">
+                  Every student becomes an initiator having an initiative that makes them a good leader, with personality, exposure & a mindset with positive attitude.
+                </p>
+                <Link to="/programs">
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3">
+                    Start Your Initiative <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" 
+                    alt="Frontliner Leadership Program"
+                    className="w-full h-80 object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Pitchburg */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop" 
+                  alt="Pitchburg Innovation Platform"
+                  className="w-full h-80 object-cover"
+                />
+              </div>
+              <div>
+                <Badge className="bg-orange-100 text-orange-700 mb-4">INNOVATION PLATFORM</Badge>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Pitchburg</h3>
+                <p className="text-gray-600 text-lg mb-6">
+                  A platform where innovators, initiators, achievers pitch and a youth-oriented "Stanburg" award along with career opportunities, grants & invitations are there.
+                </p>
+                <Link to="/uni-pitch">
+                  <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3">
+                    Pitch Your Idea <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* UIRAD */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <Badge className="bg-teal-100 text-teal-700 mb-4">RESEARCH & DEVELOPMENT</Badge>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">UIRAD</h3>
+                <p className="text-gray-600 text-lg mb-6">
+                  (Uniford International Research & Development) Implement innovation, solve real-life challenges, initiate new activities & establishments.
+                </p>
+                <Link to="/uirad">
+                  <Button className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3">
+                    Join Research <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" 
+                    alt="UIRAD Research Program"
+                    className="w-full h-80 object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* We Backed */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop" 
+                  alt="We Backed Transformation"
+                  className="w-full h-80 object-cover"
+                />
+              </div>
+              <div>
+                <Badge className="bg-indigo-100 text-indigo-700 mb-4">INSTITUTIONAL BACKING</Badge>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">We Backed</h3>
+                <p className="text-gray-600 text-lg mb-6">
+                  Transform & standardize by connecting CSR & Venture Funds, Programs, projects & establishments.
+                </p>
+                <Link to="/we-backed">
+                  <Button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3">
+                    Get Backed <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
