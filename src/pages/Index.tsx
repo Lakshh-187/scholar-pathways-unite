@@ -140,11 +140,24 @@ const Index = () => {
               <div className="order-2 lg:order-1">
                 <Badge className="bg-blue-100 text-blue-700 mb-4">SCHOLAR PROGRAM</Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Uniford Scholar</h3>
-                <p className="text-gray-600 text-lg mb-6">
-                  Adopt students as scholars and connect them with worldwide opportunities using programs like Frontliner Program, Campus to Corporate Program and many more.
-                </p>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg font-medium">🎯 The Reality:</p>
+                  <p>Traditional education leaves students with degrees but no direction. They graduate knowing theory but lack practical exposure to real opportunities.</p>
+                  
+                  <p className="text-lg font-medium text-blue-700">💡 Our Solution:</p>
+                  <p>We adopt students as scholars and connect them with worldwide opportunities through:</p>
+                  
+                  <ul className="list-disc ml-6 space-y-2">
+                    <li><strong>Frontliner Program</strong> - Leadership development through real initiatives</li>
+                    <li><strong>Campus to Corporate Program</strong> - Bridge the gap between academics and industry</li>
+                    <li><strong>Global Opportunities Network</strong> - Access to internships, mentorships worldwide</li>
+                    <li><strong>Skill Enhancement Modules</strong> - Beyond textbooks, real-world capabilities</li>
+                  </ul>
+                  
+                  <p className="text-sm italic text-gray-500">Breaking the cycle of unemployed graduates</p>
+                </div>
                 <Link to="/id-card">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 mt-6">
                     Become a Scholar <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -172,11 +185,24 @@ const Index = () => {
               <div>
                 <Badge className="bg-green-100 text-green-700 mb-4">INSTITUTE TRANSFORMATION</Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">UIEP</h3>
-                <p className="text-gray-600 text-lg mb-6">
-                  Transform Institutes to international standards using UIRAD, CSR & Venture funds along with Uniford Billion funds & Scholar Programs.
-                </p>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg font-medium">🏫 The Challenge:</p>
+                  <p>Most institutes operate with outdated infrastructure, limited resources, and no international exposure - keeping students trapped in mediocrity.</p>
+                  
+                  <p className="text-lg font-medium text-green-700">🚀 Our Transformation:</p>
+                  <p>We transform institutes to international standards using:</p>
+                  
+                  <ul className="list-disc ml-6 space-y-2">
+                    <li><strong>UIRAD Integration</strong> - Research & development capabilities</li>
+                    <li><strong>CSR & Venture Funds</strong> - Financial backing for infrastructure</li>
+                    <li><strong>Uniford Billion Funds</strong> - Large-scale transformation projects</li>
+                    <li><strong>Scholar Programs</strong> - Student-centric development initiatives</li>
+                  </ul>
+                  
+                  <p className="text-sm italic text-gray-500">From local colleges to global standards</p>
+                </div>
                 <Link to="/backed-by-uniford">
-                  <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3">
+                  <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 mt-6">
                     Transform Your Institute <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -188,11 +214,24 @@ const Index = () => {
               <div className="order-2 lg:order-1">
                 <Badge className="bg-purple-100 text-purple-700 mb-4">LEADERSHIP DEVELOPMENT</Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Frontliner</h3>
-                <p className="text-gray-600 text-lg mb-6">
-                  Every student becomes an initiator having an initiative that makes them a good leader, with personality, exposure & a mindset with positive attitude.
-                </p>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg font-medium">😔 The Problem:</p>
+                  <p>Students become followers, not leaders. They wait for opportunities instead of creating them. Depression and procrastination become their companions.</p>
+                  
+                  <p className="text-lg font-medium text-purple-700">⚡ Our Approach:</p>
+                  <p>Every student becomes an initiator with their own initiative that develops:</p>
+                  
+                  <ul className="list-disc ml-6 space-y-2">
+                    <li><strong>Leadership Mindset</strong> - From follower to frontrunner</li>
+                    <li><strong>Personality Development</strong> - Confidence, communication, charisma</li>
+                    <li><strong>Global Exposure</strong> - International perspectives and networks</li>
+                    <li><strong>Positive Attitude</strong> - Solution-focused thinking patterns</li>
+                  </ul>
+                  
+                  <p className="text-sm italic text-gray-500">Creating leaders, not just graduates</p>
+                </div>
                 <Link to="/programs">
-                  <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3">
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 mt-6">
                     Start Your Initiative <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -220,11 +259,25 @@ const Index = () => {
               <div>
                 <Badge className="bg-orange-100 text-orange-700 mb-4">INNOVATION PLATFORM</Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Pitchburg</h3>
-                <p className="text-gray-600 text-lg mb-6">
-                  A platform where innovators, initiators, achievers pitch and a youth-oriented "Stanburg" award along with career opportunities, grants & invitations are there.
-                </p>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg font-medium">💡 The Gap:</p>
+                  <p>Brilliant ideas die in notebooks. Young innovators lack platforms to showcase their potential and connect with industry leaders.</p>
+                  
+                  <p className="text-lg font-medium text-orange-700">🎯 Our Platform:</p>
+                  <p>A revolutionary space where innovators, initiators, and achievers converge:</p>
+                  
+                  <ul className="list-disc ml-6 space-y-2">
+                    <li><strong>Pitch Competitions</strong> - Present ideas to industry experts</li>
+                    <li><strong>Stanburg Award</strong> - Youth-oriented recognition program</li>
+                    <li><strong>Career Opportunities</strong> - Direct pathways to employment</li>
+                    <li><strong>Grants & Funding</strong> - Financial support for promising ideas</li>
+                    <li><strong>Exclusive Invitations</strong> - Access to elite networking events</li>
+                  </ul>
+                  
+                  <p className="text-sm italic text-gray-500">Where ideas meet opportunities</p>
+                </div>
                 <Link to="/uni-pitch">
-                  <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3">
+                  <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 mt-6">
                     Pitch Your Idea <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -236,11 +289,25 @@ const Index = () => {
               <div className="order-2 lg:order-1">
                 <Badge className="bg-teal-100 text-teal-700 mb-4">RESEARCH & DEVELOPMENT</Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">UIRAD</h3>
-                <p className="text-gray-600 text-lg mb-6">
-                  (Uniford International Research & Development) Implement innovation, solve real-life challenges, initiate new activities & establishments.
-                </p>
+                <p className="text-lg text-gray-500 mb-4">(Uniford International Research & Development)</p>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg font-medium">🔬 The Issue:</p>
+                  <p>Academic research remains in papers. Real-world problems persist unsolved while students study theoretical solutions.</p>
+                  
+                  <p className="text-lg font-medium text-teal-700">🛠️ Our Mission:</p>
+                  <p>Bridge the gap between research and real-world impact through:</p>
+                  
+                  <ul className="list-disc ml-6 space-y-2">
+                    <li><strong>Innovation Implementation</strong> - Turn ideas into reality</li>
+                    <li><strong>Real-life Challenge Solutions</strong> - Address actual industry problems</li>
+                    <li><strong>New Activity Initiation</strong> - Pioneer fresh approaches</li>
+                    <li><strong>Strategic Establishments</strong> - Create lasting institutional changes</li>
+                  </ul>
+                  
+                  <p className="text-sm italic text-gray-500">Research that changes lives</p>
+                </div>
                 <Link to="/uirad">
-                  <Button className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3">
+                  <Button className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 mt-6">
                     Join Research <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -268,11 +335,25 @@ const Index = () => {
               <div>
                 <Badge className="bg-indigo-100 text-indigo-700 mb-4">INSTITUTIONAL BACKING</Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">We Backed</h3>
-                <p className="text-gray-600 text-lg mb-6">
-                  Transform & standardize by connecting CSR & Venture Funds, Programs, projects & establishments.
-                </p>
+                <div className="space-y-4 text-gray-600">
+                  <p className="text-lg font-medium">💸 The Reality:</p>
+                  <p>Promising initiatives fail due to lack of funding. Great ideas remain dreams because institutions can't access proper financial support.</p>
+                  
+                  <p className="text-lg font-medium text-indigo-700">🤝 Our Support:</p>
+                  <p>Transform and standardize institutions by connecting them with:</p>
+                  
+                  <ul className="list-disc ml-6 space-y-2">
+                    <li><strong>CSR Funds</strong> - Corporate social responsibility backing</li>
+                    <li><strong>Venture Capital</strong> - Investment for growth initiatives</li>
+                    <li><strong>Program Development</strong> - Structured educational improvements</li>
+                    <li><strong>Project Implementation</strong> - End-to-end execution support</li>
+                    <li><strong>Strategic Establishments</strong> - Long-term institutional partnerships</li>
+                  </ul>
+                  
+                  <p className="text-sm italic text-gray-500">Funding dreams, building futures</p>
+                </div>
                 <Link to="/we-backed">
-                  <Button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3">
+                  <Button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 mt-6">
                     Get Backed <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
