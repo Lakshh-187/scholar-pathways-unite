@@ -1,10 +1,12 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from "@/components/ui/button";
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import UNCIFHero from '@/components/UNCIFHero';
+import UIRADMidSection from '@/components/UIRADMidSection';
+import GFTSection from '@/components/GFTSection';
 import { UIRADIntro } from '@/components/UIRADIntro';
 import { UIRADInterrelation } from '@/components/UIRADInterrelation';
 import { UIRADImpact } from '@/components/UIRADImpact';
@@ -61,98 +63,38 @@ const UIRAD = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "UIRAD & We Backed - Uniford Council";
+    document.title = "UNCIF & We Backed - Uniford Council";
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <NavBar />
       
-      <section className="py-16 px-4 bg-gradient-to-br from-unifor-dark to-black text-white relative overflow-hidden">
-        {/* Background elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute h-64 w-64 rounded-full bg-unifor-purple blur-3xl top-20 left-20 animate-pulse-soft"></div>
-          <div className="absolute h-80 w-80 rounded-full bg-unifor-blue blur-3xl bottom-10 right-10 animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
-        </div>
-        
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
-              UIRAD
-            </Badge>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight">
-              <span className="font-bold">Uniford</span> International Research & Academic Development
-            </h1>
-            <p className="text-xl md:text-xl text-gray-300 max-w-3xl mx-auto">
-              Research-driven academic innovation hub that <span className="font-bold">transforms</span> institutes to <span className="font-bold">international standards</span>, 
-              empowering students through <span className="font-bold">free opportunities</span>.
+      {/* New UNCIF Hero Section */}
+      <UNCIFHero />
+      
+      {/* Redesigned UIRAD Mid Section */}
+      <UIRADMidSection />
+      
+      {/* New GFT Section */}
+      <GFTSection />
+      
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-unifor-dark-purple to-unifor-purple text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Become a Member of the Council</h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Join the Uniford council
             </p>
-            
-            <div className="flex flex-wrap gap-4 justify-center mt-8">
-              <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group">
-                Partner With UIRAD
-                <Building className="ml-2 h-5 w-5 group-hover:animate-pulse" />
+            <Link to="https://council.uniford.org/">
+              <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
+                Join Council Now
               </Button>
-              <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-medium rounded-lg transition-all duration-300">
-                Learn More
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-          </div>
-          
-          {/* Key Stats */}
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-xl max-w-4xl mx-auto mb-10 animate-fade-in">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">Transforming Education Globally</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-unifor-purple/30 flex items-center justify-center mb-3">
-                  <Building className="h-8 w-8 text-white" />
-                </div>
-                <p className="text-3xl font-bold text-white">50+</p>
-                <p className="text-gray-300">Partner Institutes</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-unifor-purple/30 flex items-center justify-center mb-3">
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <p className="text-3xl font-bold text-white">18</p>
-                <p className="text-gray-300">Countries</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-unifor-purple/30 flex items-center justify-center mb-3">
-                  <GraduationCap className="h-8 w-8 text-white" />
-                </div>
-                <p className="text-3xl font-bold text-white">25k+</p>
-                <p className="text-gray-300">Students Impacted</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-unifor-purple/30 flex items-center justify-center mb-3">
-                  <BookOpen className="h-8 w-8 text-white" />
-                </div>
-                <p className="text-3xl font-bold text-white">120+</p>
-                <p className="text-gray-300">Research Publications</p>
-              </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
-      
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-unifor-dark-purple to-unifor-purple text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Become a Member of the Council</h2>
-              <p className="text-xl text-gray-300 mb-8">
-                Join the Uniford council
-              </p>
-              <Link to="https://council.uniford.org/">
-                <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
-                  Join Council Now
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
 
       <div className="container mx-auto max-w-6xl px-4 py-10">
         {/* Navigation Tabs */}
