@@ -7,6 +7,7 @@ import CategoryFunding from '@/components/gft/CategoryFunding';
 import UNCIFCertification from '@/components/gft/UNCIFCertification';
 import FundingExamples from '@/components/gft/FundingExamples';
 import PartnerNetwork from '@/components/gft/PartnerNetwork';
+import ProjectShowcase from '@/components/gft/ProjectShowcase';
 import ApplicationProcess from '@/components/gft/ApplicationProcess';
 
 const GFT = () => {
@@ -17,6 +18,7 @@ const GFT = () => {
         <GFTModel />
         <CategoryFunding />
         <FundingExamples />
+        <ProjectShowcase />
         <UNCIFCertification />
         <PartnerNetwork />
         <ApplicationProcess />
