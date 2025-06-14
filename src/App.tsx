@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -31,6 +32,7 @@ import LetterOfAcceptance from "./pages/LetterOfAcceptance";
 import LetterOfClearance from "./pages/LetterOfClearance";
 import Apply from "./pages/Apply";
 import UTHA from "./pages/UTHA";
+import GFT from "./pages/GFT";
 import NotificationBanner from "./components/NotificationBanner";
 
 const queryClient = new QueryClient();
@@ -69,6 +71,7 @@ const App = () => (
           <Route path="/letter-of-acceptance" element={<LetterOfAcceptance />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/utha" element={<UTHA />} />
+          <Route path="/gft" element={<GFT />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />

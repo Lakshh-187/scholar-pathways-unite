@@ -20,11 +20,12 @@ const NavBar = () => {
     { name: 'UIRAD', path: '/uirad' },
     { name: 'UTHA', path: '/talent-hunt-alliance' },
     { name: 'iBacked', path: '/backed-by-uniford' },
+    { name: 'GFT', path: '/gft' },
     { name: 'We Invite', path: '/we-invite' },
   ];
   
   return (
-    <nav className="sticky top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
+    <nav className="sticky top-12 left-0 right-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="font-bold text-2xl flex items-center">
           <div className="flex items-center gap-2">
