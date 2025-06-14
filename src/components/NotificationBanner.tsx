@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 
 interface NotificationBannerProps {
@@ -14,20 +13,37 @@ const NotificationBanner: React.FC<NotificationBannerProps> = ({ className }) =>
   if (!isVisible) return null;
 
   return (
-    <div className={cn("bg-[#a344f8] fixed top-0 left-0 z-[1000] w-full py-3 px-4 md:px-6 shadow-md", className)}>
-      <div className="container mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-4">
-        <div className="flex items-center gap-3 flex-grow">
-          <p className="text-white text-sm md:text-base font-medium">
-            Important Notice: Students with Uniford Memberships or ID Cards can now access premium content, scholar portals, and services at
-            <a href="https://id.uniford.org" className="text-white underline">....id.uniford.org</a>.
+    <div className={cn(
+      "bg-[#a349f3] fixed top-0 left-0 z-[1000] w-full h-12 flex items-center justify-center shadow-md transition-all duration-300 ease-in-out",
+      className
+    )}>
+      <div className="container mx-auto flex items-center justify-between px-4">
+        {/* Main content - centered */}
+        <div className="flex-1 flex items-center justify-center">
+          <p className="text-white text-sm font-medium text-center">
+            Students with Uniford ID Cards can access premium services at{' '}
+            <a href="https://id.uniford.org" className="text-white underline hover:no-underline">
+              id.uniford.org
+            </a>
           </p>
         </div>
-        <div className={cn("flex items-center gap-3", "md:ml-4")}>
-          <a href="https://id.uniford.org" className="bg-white text-[#a344f8] px-4 py-2 rounded-md no-underline font-semibold" target="_blank" rel="noopener noreferrer">
+        
+        {/* Right side controls */}
+        <div className="flex items-center gap-3 ml-4">
+          <a 
+            href="https://id.uniford.org" 
+            className="bg-white text-[#a349f3] px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
             Go to Portal
           </a>
-          <button onClick={() => setIsVisible(false)} className="text-white/80 hover:text-white transition-colors" aria-label="Close notification">
-            <X size={18} />
+          <button 
+            onClick={() => setIsVisible(false)} 
+            className="text-white/80 hover:text-white transition-colors p-1" 
+            aria-label="Close notification"
+          >
+            <X size={16} />
           </button>
         </div>
       </div>
