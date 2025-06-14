@@ -1,6 +1,5 @@
-
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone, Briefcase, CreditCard } from 'lucide-react';
+import { Mail, MapPin, Phone, Briefcase, CreditCard, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Footer = () => {
@@ -20,6 +19,23 @@ const Footer = () => {
             <Button className="bg-white text-unifor-purple hover:bg-gray-100 font-semibold px-8 py-3 text-lg rounded-xl transition-all shadow-lg hover:shadow-xl">
               Join Social Internship
               <Briefcase className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+
+        {/* We Invite Partnership Section */}
+        <div className="bg-gradient-to-r from-unifor-blue to-unifor-purple rounded-2xl p-8 mb-12 text-center">
+          <div className="flex items-center justify-center mb-4">
+            <Users className="h-8 w-8 mr-3" />
+            <h3 className="text-2xl font-bold">Partner With Us</h3>
+          </div>
+          <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
+            Join our partnership program and collaborate with us to create meaningful opportunities for scholars worldwide.
+          </p>
+          <Link to="/we-invite">
+            <Button className="bg-white text-unifor-blue hover:bg-gray-100 font-semibold px-8 py-3 text-lg rounded-xl transition-all shadow-lg hover:shadow-xl">
+              We Invite Partners
+              <Users className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>

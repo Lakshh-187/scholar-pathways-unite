@@ -14,14 +14,13 @@ const NavBar = () => {
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
     { name: 'Orientation', path: '/id-card' },
-    { name: 'ID Services', path: '/id-card-services' },
+    { name: 'ID', path: '/id-card-services' },
     { name: 'Docs', path: '/official-documents' },
     { name: 'Pitchburg', path: '/uni-pitch' },
-    { name: 'UIRAD', path: '/uirad' },
+    { name: 'UNCIF', path: '/uirad' },
     { name: 'UTHA', path: '/talent-hunt-alliance' },
     { name: 'iBacked', path: '/backed-by-uniford' },
     { name: 'GFT', path: '/gft' },
-    { name: 'We Invite', path: '/we-invite' },
   ];
   
   return (
