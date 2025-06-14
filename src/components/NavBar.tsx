@@ -26,17 +26,17 @@ const NavBar = () => {
   return (
     <nav className="sticky top-12 left-0 right-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="font-bold text-2xl flex items-center">
-          <div className="flex items-center gap-3">
+        <Link to="/" className="font-bold text-xl flex items-center">
+          <div className="flex items-center gap-2">
             <div className="relative">
-              <div className="bg-gradient-to-br from-unifor-purple to-unifor-dark-purple h-10 w-10 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">U</span>
+              <div className="bg-gradient-to-br from-unifor-purple to-unifor-dark-purple h-8 w-8 rounded-lg flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">U</span>
               </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full"></div>
+              <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
             </div>
-            <div>
-              <span>Uniford Foundation</span>
-              <span className="block text-xs text-unifor-purple font-medium">Non-profit Organization</span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold">Uniford Foundation</span>
+              <span className="text-xs text-unifor-purple font-medium -mt-1">Non-profit Organization</span>
             </div>
           </div>
         </Link>
