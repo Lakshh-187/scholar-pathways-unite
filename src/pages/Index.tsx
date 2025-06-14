@@ -1,7 +1,7 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import UNCIFSection from "@/components/UNCIFSection";
 import { 
   ArrowRight, 
   Award, 
@@ -67,6 +67,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* New UNCIF Section */}
+      <UNCIFSection />
 
       {/* Organization Message Section */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
