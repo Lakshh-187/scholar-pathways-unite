@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Download, CreditCard, Mail, User, Building2, Shield, Star, Award, Sparkles } from 'lucide-react';
+import { Download, CreditCard, Mail, User, Building2, Shield, Star, Award, Sparkles, Info, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -64,10 +64,14 @@ const BadgeID = () => {
     const uid = generateUID();
     setGeneratedUID(uid);
     setShowCredentials(true);
-    toast({
-      title: `${applicationType === 'badge' ? 'Badge' : 'ID Card'} Generated`,
-      description: `Your digital ${applicationType === 'badge' ? 'badge' : 'ID card'} has been generated successfully`,
-    });
+    
+    // Show verification guidelines toast
+    setTimeout(() => {
+      toast({
+        title: "Credential Generated Successfully",
+        description: `Your ${applicationType === 'badge' ? 'badge' : 'ID card'} has been generated. Please check the verification guidelines below.`,
+      });
+    }, 500);
   };
 
   const downloadAs = async (format: 'pdf' | 'png' | 'jpg') => {
@@ -319,6 +323,29 @@ const BadgeID = () => {
             ) : (
               /* Credentials Display */
               <div className="space-y-8">
+                {/* Verification Guidelines Alert */}
+                <Alert className="border-blue-400 bg-blue-50">
+                  <Info className="h-4 w-4 text-blue-600" />
+                  <AlertDescription className="text-blue-800">
+                    <div className="space-y-3">
+                      <p className="font-bold text-lg">📋 Verification Guidelines & Policy</p>
+                      <div className="space-y-2 text-sm">
+                        <p><strong>✅ Step 1:</strong> Download your generated {applicationType === 'badge' ? 'badge' : 'ID card'} using the buttons below</p>
+                        <p><strong>📧 Step 2:</strong> Email your credential to <strong>info@uniford.org</strong> with subject "Credential Verification - {generatedUID}"</p>
+                        <p><strong>📝 Step 3:</strong> Complete all assigned tasks and submit your work as per program guidelines</p>
+                        <p><strong>⏳ Step 4:</strong> After task completion and verification, the department will authenticate your credential</p>
+                        <p><strong>🔐 Step 5:</strong> Once verified, an official authentication stamp will be applied to your credential</p>
+                      </div>
+                      <div className="bg-blue-100 p-3 rounded-lg mt-3">
+                        <p className="text-blue-900 font-semibold text-sm">
+                          ⚠️ <strong>Important:</strong> Credentials are only considered official and verified after stamp authentication by the department. 
+                          Unverified credentials cannot be used for official purposes.
+                        </p>
+                      </div>
+                    </div>
+                  </AlertDescription>
+                </Alert>
+
                 {/* Control Buttons */}
                 <div className="flex justify-center gap-4 print:hidden">
                   <div className="flex gap-2">
@@ -358,10 +385,17 @@ const BadgeID = () => {
                 </div>
 
                 {applicationType === 'badge' ? (
-                  /* Enhanced Digital Badge with Stamp Area */
+                  /* Enhanced Digital Badge with Small Stamp in Top Right */
                   <div className="flex justify-center mb-8">
                     <div id="digital-badge" className="bg-white p-8 rounded-lg shadow-lg relative">
-                      <Card className="w-96 h-96 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden shadow-2xl border-0">
+                      <Card className="w-[450px] h-[450px] bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden shadow-2xl border-0">
+                        {/* Small Authentication Stamp in Top Right Corner */}
+                        <div className="absolute top-4 right-4 z-20">
+                          <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg border-2 border-white">
+                            <AuthenticationStamp stampType="uniford" size="small" applied={false} />
+                          </div>
+                        </div>
+
                         {/* Background Graphics */}
                         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
                         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
@@ -371,9 +405,6 @@ const BadgeID = () => {
                         <div className="absolute top-4 left-4">
                           <Star className="h-4 w-4 text-yellow-300" />
                         </div>
-                        <div className="absolute top-4 right-4">
-                          <Star className="h-4 w-4 text-yellow-300" />
-                        </div>
                         <div className="absolute bottom-4 left-4">
                           <Star className="h-4 w-4 text-yellow-300" />
                         </div>
@@ -381,9 +412,9 @@ const BadgeID = () => {
                           <Star className="h-4 w-4 text-yellow-300" />
                         </div>
 
-                        <CardContent className="p-6 h-full flex flex-col justify-between relative z-10">
+                        <CardContent className="p-8 h-full flex flex-col justify-between relative z-10">
                           {/* Header */}
-                          <div className="text-center">
+                          <div className="text-center mt-8">
                             <div className="flex items-center justify-center mb-2">
                               <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 mr-2">
                                 <Shield className="h-6 w-6 text-yellow-300" />
@@ -396,10 +427,10 @@ const BadgeID = () => {
                           </div>
 
                           {/* Main Content */}
-                          <div className="text-center space-y-3 flex-grow flex flex-col justify-center">
-                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                              <div className="text-2xl font-bold text-yellow-300 mb-2">{getCategoryTitle()}</div>
-                              <div className="text-lg font-semibold">{formData.name}</div>
+                          <div className="text-center space-y-4 flex-grow flex flex-col justify-center">
+                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
+                              <div className="text-3xl font-bold text-yellow-300 mb-3">{getCategoryTitle()}</div>
+                              <div className="text-xl font-semibold mb-2">{formData.name}</div>
                               <div className="text-sm opacity-90 mt-2">{formData.domain}</div>
                               <div className="text-sm opacity-90">{formData.university}</div>
                             </div>
@@ -407,42 +438,27 @@ const BadgeID = () => {
 
                           {/* Footer */}
                           <div className="text-center">
-                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 mb-2">
-                              <div className="text-xs font-semibold">Badge ID: {generatedUID}</div>
+                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 mb-2">
+                              <div className="text-sm font-semibold">Badge ID: {generatedUID}</div>
                             </div>
-                            <div className="text-xs opacity-90">EST. 2024 • VERIFIED</div>
+                            <div className="text-xs opacity-90">EST. 2024 • PENDING VERIFICATION</div>
                           </div>
                         </CardContent>
                       </Card>
-                      
-                      {/* Enhanced Authentication Stamp Area for Badge */}
-                      <div className="absolute -bottom-6 -right-6 transform hover:scale-105 transition-transform duration-300">
-                        <div className="bg-white p-4 rounded-2xl shadow-2xl border-4 border-gray-100 relative">
-                          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl"></div>
-                          <div className="relative z-10">
-                            <p className="text-xs text-gray-600 text-center mb-3 font-semibold uppercase tracking-wider">
-                              Authentication Seal
-                            </p>
-                            <AuthenticationStamp stampType="uniford" size="large" applied={false} />
-                            <div className="mt-3 text-center">
-                              <p className="text-xs text-gray-500 font-medium">Verification Status</p>
-                              <p className="text-xs text-orange-600 font-semibold">Pending Authentication</p>
-                              <div className="mt-2 flex justify-center space-x-1">
-                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.3s'}}></div>
-                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.6s'}}></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 ) : (
-                  /* Enhanced ID Card with Stamp Area */
+                  /* Enhanced ID Card with Small Stamp in Top Right */
                   <div className="flex justify-center mb-8">
                     <div id="digital-id-card" className="bg-white p-8 rounded-lg shadow-lg relative">
-                      <Card className="max-w-4xl mx-auto shadow-2xl bg-gradient-to-r from-slate-900 to-blue-900 text-white border-0 overflow-hidden">
+                      <Card className="w-[600px] mx-auto shadow-2xl bg-gradient-to-r from-slate-900 to-blue-900 text-white border-0 overflow-hidden relative">
+                        {/* Small Authentication Stamp in Top Right Corner */}
+                        <div className="absolute top-4 right-4 z-20">
+                          <div className="bg-white/95 backdrop-blur-sm p-2 rounded-full shadow-lg border-2 border-white">
+                            <AuthenticationStamp stampType="scholar" size="small" applied={false} />
+                          </div>
+                        </div>
+
                         {/* Header Strip */}
                         <div className="h-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
                         
@@ -502,21 +518,21 @@ const BadgeID = () => {
                               </div>
                               
                               <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-lg p-6">
-                                <p className="text-orange-400 font-semibold mb-2 text-lg">VERIFIED SCHOLAR</p>
+                                <p className="text-orange-400 font-semibold mb-2 text-lg">PENDING VERIFICATION</p>
                                 <p className="text-sm text-gray-300 mb-4">
-                                  Official Uniford Scholar Identification Card with verified credentials
+                                  Submit tasks and complete verification process for official authentication
                                 </p>
                                 
                                 <div className="flex justify-center space-x-2 mb-4">
-                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
                                 </div>
                                 
                                 <div className="text-xs text-gray-400">
                                   <p>Issued: {new Date().toLocaleDateString()}</p>
                                   <p>Valid for academic year 2024-25</p>
-                                  <p className="mt-2 text-green-400">✓ Verified Credential</p>
+                                  <p className="mt-2 text-orange-400">⚠️ Awaiting Authentication</p>
                                 </div>
                               </div>
                             </div>
@@ -526,43 +542,17 @@ const BadgeID = () => {
                         {/* Footer Strip */}
                         <div className="h-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400"></div>
                       </Card>
-                      
-                      {/* Enhanced Authentication Stamp Area for ID Card */}
-                      <div className="absolute -bottom-8 -right-8 transform hover:scale-105 transition-transform duration-300">
-                        <div className="bg-white p-6 rounded-2xl shadow-2xl border-4 border-gray-100 relative">
-                          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl"></div>
-                          <div className="relative z-10">
-                            <p className="text-sm text-gray-700 text-center mb-4 font-bold uppercase tracking-wider">
-                              Official Verification
-                            </p>
-                            <AuthenticationStamp stampType="scholar" size="large" applied={false} />
-                            <div className="mt-4 text-center">
-                              <p className="text-xs text-gray-600 font-semibold mb-1">Authentication Status</p>
-                              <div className="bg-orange-50 border border-orange-200 rounded-lg p-2">
-                                <p className="text-xs text-orange-700 font-bold">AWAITING VERIFICATION</p>
-                                <p className="text-xs text-gray-500 mt-1">Submit to info@uniford.org</p>
-                              </div>
-                              <div className="mt-3 flex justify-center space-x-1">
-                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.8s'}}></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 )}
 
-                {/* Instructions */}
-                <Alert className="border-orange-400 bg-orange-50 print:hidden">
-                  <Mail className="h-4 w-4 text-orange-600" />
+                {/* Final Verification Status */}
+                <Alert className="border-orange-400 bg-orange-50">
+                  <CheckCircle className="h-4 w-4 text-orange-600" />
                   <AlertDescription className="text-orange-800">
-                    <strong>Next Steps:</strong> Please email your downloaded credentials to{' '}
-                    <strong>info@uniford.org</strong> with the subject line{' '}
-                    "Digital Credentials Verification - {generatedUID}". The organization will verify your details{' '}
-                    and activate your credentials with official authentication stamps.
+                    <strong>Next Steps:</strong> Your {applicationType === 'badge' ? 'digital badge' : 'ID card'} has been generated successfully. 
+                    Please download it and follow the verification guidelines above. The stamp area (top-right corner) will show official 
+                    authentication once your tasks are completed and verified by the department.
                   </AlertDescription>
                 </Alert>
               </div>
