@@ -6,17 +6,21 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Download, FileText, Shield, AlertTriangle, CheckCircle, User, Calendar, MapPin, Mail } from 'lucide-react';
+import { Download, FileText, Mail, Calendar, MapPin, User, Building2, GraduationCap, Tag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const OfferLetter = () => {
   const [formData, setFormData] = useState({
     name: '',
+    university: '',
+    domain: '',
+    category: '',
+    uid: '',
     email: '',
-    scholarId: '',
-    program: '',
-    location: ''
+    phone: '',
+    address: ''
   });
   const [showOffer, setShowOffer] = useState(false);
   const { toast } = useToast();
@@ -29,19 +33,26 @@ const OfferLetter = () => {
     }));
   };
 
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   const generateOfferLetter = () => {
-    // Validate Scholar ID format
-    if (!formData.scholarId.startsWith('UNF')) {
+    // Validate UID format
+    if (!formData.uid.startsWith('UNF')) {
       toast({
-        title: "Invalid Scholar ID",
-        description: "Scholar ID must start with 'UNF' followed by numbers",
+        title: "Invalid UID",
+        description: "UID must start with 'UNF' followed by numbers",
         variant: "destructive"
       });
       return;
     }
 
-    // Validate all fields are filled
-    if (!formData.name || !formData.email || !formData.scholarId || !formData.program || !formData.location) {
+    // Validate all required fields
+    if (!formData.name || !formData.university || !formData.domain || !formData.category || !formData.uid || !formData.email) {
       toast({
         title: "Incomplete Form",
         description: "Please fill in all required fields",
@@ -53,28 +64,46 @@ const OfferLetter = () => {
     setShowOffer(true);
     toast({
       title: "Offer Letter Generated",
-      description: "Your offer letter has been generated successfully",
+      description: "Your internship offer letter has been generated successfully",
     });
   };
 
   const downloadOfferLetter = () => {
-    // This would typically generate and download a PDF
-    console.log('Downloading offer letter PDF...');
+    window.print();
     toast({
       title: "Download Started",
-      description: "Your offer letter PDF is being downloaded",
+      description: "Your offer letter is ready for download",
     });
   };
 
   const resetForm = () => {
     setFormData({
       name: '',
+      university: '',
+      domain: '',
+      category: '',
+      uid: '',
       email: '',
-      scholarId: '',
-      program: '',
-      location: ''
+      phone: '',
+      address: ''
     });
     setShowOffer(false);
+  };
+
+  const getCurrentDate = () => {
+    return new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const getReferenceNumber = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `SI/HR/${year}-${month}/${day}/${Math.floor(Math.random() * 1000)}`;
   };
 
   return (
@@ -88,11 +117,11 @@ const OfferLetter = () => {
               AUTOMATED OFFER SYSTEM
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Instant <span className="text-yellow-300">Offer Letter</span><br />
-              <span className="text-unifor-blue">Generation</span>
+              Internship <span className="text-yellow-300">Offer Letter</span><br />
+              <span className="text-unifor-blue">Generator</span>
             </h1>
             <p className="text-xl text-purple-100 max-w-4xl mx-auto mb-8">
-              Generate your offer letter instantly by filling in your scholar details below
+              Generate your official internship offer letter instantly
             </p>
           </div>
         </div>
@@ -101,7 +130,7 @@ const OfferLetter = () => {
       {/* Main Application Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             {!showOffer ? (
               <Card className="shadow-xl">
                 <CardHeader className="text-center pb-8">
@@ -128,6 +157,65 @@ const OfferLetter = () => {
                     </div>
                     
                     <div className="space-y-2">
+                      <Label htmlFor="university">University/School *</Label>
+                      <Input
+                        id="university"
+                        name="university"
+                        type="text"
+                        placeholder="Enter your university/school name"
+                        value={formData.university}
+                        onChange={handleInputChange}
+                        className="text-lg py-3"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="domain">Domain *</Label>
+                      <Select onValueChange={(value) => handleSelectChange('domain', value)}>
+                        <SelectTrigger className="text-lg py-3">
+                          <SelectValue placeholder="Select your domain" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="video-editing">Video Editor</SelectItem>
+                          <SelectItem value="content-writing">Content Writer</SelectItem>
+                          <SelectItem value="graphic-design">Graphic Designer</SelectItem>
+                          <SelectItem value="web-development">Web Developer</SelectItem>
+                          <SelectItem value="marketing">Digital Marketing</SelectItem>
+                          <SelectItem value="research">Research Analyst</SelectItem>
+                          <SelectItem value="social-media">Social Media Manager</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="category">Category *</Label>
+                      <Select onValueChange={(value) => handleSelectChange('category', value)}>
+                        <SelectTrigger className="text-lg py-3">
+                          <SelectValue placeholder="Select category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="internship">Internship</SelectItem>
+                          <SelectItem value="fellowship">Fellowship</SelectItem>
+                          <SelectItem value="project">Project Based</SelectItem>
+                          <SelectItem value="research">Research Program</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="uid">Scholar UID *</Label>
+                      <Input
+                        id="uid"
+                        name="uid"
+                        type="text"
+                        placeholder="Enter your UID (e.g., UNF001)"
+                        value={formData.uid}
+                        onChange={handleInputChange}
+                        className="text-lg py-3"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
                       <Label htmlFor="email">Email Address *</Label>
                       <Input
                         id="email"
@@ -141,39 +229,26 @@ const OfferLetter = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="scholarId">Scholar ID *</Label>
+                      <Label htmlFor="phone">Phone Number</Label>
                       <Input
-                        id="scholarId"
-                        name="scholarId"
-                        type="text"
-                        placeholder="Enter your Scholar ID (e.g., UNF001)"
-                        value={formData.scholarId}
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Enter your phone number"
+                        value={formData.phone}
                         onChange={handleInputChange}
                         className="text-lg py-3"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="program">Program *</Label>
+                      <Label htmlFor="address">Address</Label>
                       <Input
-                        id="program"
-                        name="program"
+                        id="address"
+                        name="address"
                         type="text"
-                        placeholder="Enter your program (e.g., Campus to Corporate Track)"
-                        value={formData.program}
-                        onChange={handleInputChange}
-                        className="text-lg py-3"
-                      />
-                    </div>
-
-                    <div className="space-y-2 md:col-span-2">
-                      <Label htmlFor="location">Location *</Label>
-                      <Input
-                        id="location"
-                        name="location"
-                        type="text"
-                        placeholder="Enter your location (e.g., New York, USA)"
-                        value={formData.location}
+                        placeholder="Enter your address"
+                        value={formData.address}
                         onChange={handleInputChange}
                         className="text-lg py-3"
                       />
@@ -184,179 +259,165 @@ const OfferLetter = () => {
                     onClick={generateOfferLetter}
                     className="w-full bg-unifor-purple hover:bg-unifor-dark-purple text-white py-3 text-lg"
                   >
-                    <CheckCircle className="mr-2 h-5 w-5" />
+                    <FileText className="mr-2 h-5 w-5" />
                     Generate Offer Letter
                   </Button>
-
-                  {/* Important Notice */}
-                  <Alert className="border-yellow-400 bg-yellow-50">
-                    <AlertTriangle className="h-4 w-4 text-yellow-600" />
-                    <AlertDescription className="text-yellow-800">
-                      <strong>Important:</strong> After downloading your offer letter, please email it to the organization 
-                      for verification. All details will be verified during your application review process.
-                    </AlertDescription>
-                  </Alert>
                 </CardContent>
               </Card>
             ) : (
-              /* Offer Letter Display */
+              /* Offer Letter Template */
               <div className="space-y-8">
-                <Card className="shadow-xl border-green-200">
-                  <CardHeader className="bg-gradient-to-r from-green-50 to-blue-50">
-                    <div className="flex items-center justify-between">
+                {/* Control Buttons */}
+                <div className="flex justify-center gap-4 print:hidden">
+                  <Button 
+                    onClick={downloadOfferLetter}
+                    className="bg-unifor-purple hover:bg-unifor-dark-purple text-white px-8 py-3"
+                  >
+                    <Download className="mr-2 h-5 w-5" />
+                    Download PDF
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    onClick={resetForm}
+                    className="px-8 py-3"
+                  >
+                    Generate Another
+                  </Button>
+                </div>
+
+                {/* Offer Letter Document */}
+                <Card className="shadow-2xl bg-white max-w-4xl mx-auto" id="offer-letter">
+                  <CardContent className="p-12">
+                    {/* Header */}
+                    <div className="flex justify-between items-start mb-8">
                       <div>
-                        <CardTitle className="text-2xl font-bold text-gray-800 flex items-center">
-                          <FileText className="mr-3 h-8 w-8 text-unifor-purple" />
-                          Offer Letter Generated
-                        </CardTitle>
-                        <p className="text-gray-600 mt-2">Your offer letter is ready for download</p>
+                        <h1 className="text-3xl font-bold text-green-600 mb-2">Internship</h1>
+                        <h2 className="text-3xl font-bold text-green-600">Offer Letter</h2>
                       </div>
-                      <Badge className="bg-green-100 text-green-800 px-4 py-2">
-                        GENERATED
-                      </Badge>
+                      <div className="text-right">
+                        <h2 className="text-2xl font-bold text-gray-800">UNIFORD</h2>
+                        <p className="text-lg text-gray-600">FOUNDATION</p>
+                      </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="p-8">
-                    <div className="grid md:grid-cols-2 gap-6 mb-8">
-                      <div className="space-y-4">
-                        <div className="flex items-center">
-                          <User className="h-5 w-5 text-unifor-purple mr-3" />
-                          <div>
-                            <p className="text-sm text-gray-600">Scholar Name</p>
-                            <p className="font-semibold">{formData.name}</p>
-                          </div>
+
+                    {/* Reference and Date */}
+                    <div className="flex justify-between mb-8">
+                      <div>
+                        <p className="text-sm text-gray-600">Reference No - {getReferenceNumber()}</p>
+                        <p className="text-sm text-gray-600">{getCurrentDate()}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-gray-600">Private & confidential</p>
+                      </div>
+                    </div>
+
+                    {/* Addressee */}
+                    <div className="mb-8">
+                      <p className="text-gray-800">To,</p>
+                      <p className="font-semibold text-gray-800">{formData.name}</p>
+                      <p className="text-gray-800">{formData.university}</p>
+                    </div>
+
+                    {/* Main Content */}
+                    <div className="space-y-4 mb-8 text-gray-800 leading-relaxed">
+                      <p>
+                        We are pleased to appoint you to our organization as a <strong>{formData.domain}</strong>{' '}
+                        Intern with effect from <strong>{getCurrentDate()}</strong>. You will be based out of{' '}
+                        {formData.university} , India 140301.
+                      </p>
+                      
+                      <p className="italic">
+                        Your employment with us will be governed by the Terms & Conditions as{' '}
+                        detailed in the <strong>Employment Agreement</strong>.
+                      </p>
+                      
+                      <p>
+                        Your offer has been made based on the information you gave me.{' '}
+                        However, if there is a discrepancy in the copies of documents or{' '}
+                        certificates you gave as proof of the above, we retain the right to revoke{' '}
+                        our offer of employment.
+                      </p>
+                      
+                      <p className="italic">
+                        Please sign and return a physical copy of this letter as a token of your{' '}
+                        acceptance.
+                      </p>
+                      
+                      <p>
+                        We congratulate you on your appointment and wish you a long and{' '}
+                        successful career with us. We are confident that your contribution will{' '}
+                        take us further in our journey towards the joy of learning in every child in{' '}
+                        India. We would like to assure you of our continued support for your professional{' '}
+                        development and growth.
+                      </p>
+                    </div>
+
+                    {/* Closing */}
+                    <div className="mb-12">
+                      <p className="text-gray-800">Sincerely,</p>
+                      <p className="text-gray-800">For and on behalf of the Uniford Foundation,</p>
+                    </div>
+
+                    {/* Contact Information */}
+                    <div className="grid md:grid-cols-2 gap-8 mb-12">
+                      <div className="space-y-2">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <MapPin className="h-4 w-4 mr-2 text-green-600" />
+                          Galgotias College, United States
                         </div>
-                        <div className="flex items-center">
-                          <Mail className="h-5 w-5 text-unifor-blue mr-3" />
-                          <div>
-                            <p className="text-sm text-gray-600">Email</p>
-                            <p className="font-semibold">{formData.email}</p>
-                          </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Mail className="h-4 w-4 mr-2 text-green-600" />
+                          +91 62398-15892
                         </div>
-                        <div className="flex items-center">
-                          <FileText className="h-5 w-5 text-green-600 mr-3" />
-                          <div>
-                            <p className="text-sm text-gray-600">Program</p>
-                            <p className="font-semibold">{formData.program}</p>
-                          </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Mail className="h-4 w-4 mr-2 text-green-600" />
+                          hrmanager@uniford.org
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <FileText className="h-4 w-4 mr-2 text-green-600" />
+                          www.uniford.org
                         </div>
                       </div>
-                      <div className="space-y-4">
-                        <div className="flex items-center">
-                          <MapPin className="h-5 w-5 text-red-500 mr-3" />
-                          <div>
-                            <p className="text-sm text-gray-600">Location</p>
-                            <p className="font-semibold">{formData.location}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center">
-                          <Shield className="h-5 w-5 text-purple-600 mr-3" />
-                          <div>
-                            <p className="text-sm text-gray-600">Scholar ID</p>
-                            <p className="font-semibold">{formData.scholarId}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center">
-                          <Calendar className="h-5 w-5 text-orange-600 mr-3" />
-                          <div>
-                            <p className="text-sm text-gray-600">Generated On</p>
-                            <p className="font-semibold">{new Date().toLocaleDateString()}</p>
-                          </div>
+                      
+                      <div className="text-right">
+                        <p className="text-gray-800">Sincerely,</p>
+                        <div className="mt-8">
+                          <p className="font-bold text-gray-800">Priyanka Sharma</p>
+                          <p className="text-sm text-gray-600 italic">HR Manager</p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4 justify-center">
-                      <Button 
-                        onClick={downloadOfferLetter}
-                        className="bg-unifor-purple hover:bg-unifor-dark-purple text-white px-8 py-3 text-lg"
-                      >
-                        <Download className="mr-2 h-5 w-5" />
-                        Download Offer Letter PDF
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        onClick={resetForm}
-                        className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 text-lg"
-                      >
-                        Generate Another Letter
-                      </Button>
+                    {/* Agreement Acceptance */}
+                    <div className="border-t pt-6">
+                      <p className="text-sm text-gray-600 italic mb-6">
+                        "I hereby accept this offer and I Confirm that I agree with the privacy policies & employee agreement."
+                      </p>
+                      
+                      <div className="flex justify-between">
+                        <div>
+                          <p className="text-sm text-gray-600">Signature: _______________</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-gray-600">Date: ___________</p>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Email Instructions */}
-                <Alert className="border-blue-400 bg-blue-50">
+                {/* Instructions */}
+                <Alert className="border-blue-400 bg-blue-50 print:hidden">
                   <Mail className="h-4 w-4 text-blue-600" />
                   <AlertDescription className="text-blue-800">
-                    <strong>Next Steps:</strong> Please email your downloaded offer letter to <strong>verification@uniford.org</strong> 
-                    with the subject line "Offer Letter Verification - {formData.scholarId}". The organization will verify your details 
+                    <strong>Next Steps:</strong> Please email your downloaded offer letter to{' '}
+                    <strong>verification@uniford.org</strong> with the subject line{' '}
+                    "Offer Letter Verification - {formData.uid}". The organization will verify your details{' '}
                     and contact you with further instructions.
                   </AlertDescription>
                 </Alert>
               </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Guidelines & Policy Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Guidelines & Policy</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <FileText className="mr-3 h-6 w-6 text-unifor-purple" />
-                    Document Verification
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start">
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      All offer letters are verified by the organization
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Information must be accurate and verifiable
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Email verification is mandatory for processing
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Shield className="mr-3 h-6 w-6 text-unifor-blue" />
-                    Important Notes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start">
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Offer letter is an invitation to proceed
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Final verification by organization required
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Follow email format for submission
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
