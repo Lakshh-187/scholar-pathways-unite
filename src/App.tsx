@@ -37,6 +37,7 @@ import UNSIP from "./pages/UNSIP";
 import NotificationBanner from "./components/NotificationBanner";
 import OfferLetter from "./pages/OfferLetter";
 import BadgeID from "./pages/BadgeID";
+import CertificateGenerator from "./pages/CertificateGenerator";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => (
           <Route path="/unsip" element={<UNSIP />} />
           <Route path="/offer-letter" element={<OfferLetter />} />
           <Route path="/badge-id" element={<BadgeID />} />
+          <Route path="/certificate-generator" element={<CertificateGenerator />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
