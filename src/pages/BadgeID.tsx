@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -5,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Download, CreditCard, Mail, User, Building2, QrCode, Shield, Star, Award, Sparkles } from 'lucide-react';
+import { Download, CreditCard, Mail, User, Building2, Shield, Star, Award, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -467,16 +468,20 @@ const BadgeID = () => {
                             </div>
                           </div>
 
-                          {/* Right Side - QR Code & Verification */}
+                          {/* Right Side - Scholar Image & Verification */}
                           <div className="text-center space-y-6">
                             <div className="bg-white p-6 rounded-xl shadow-lg inline-block">
-                              <QrCode className="h-32 w-32 text-gray-800" />
+                              <img 
+                                src="https://id.uniford.org/uniford-main/temp.jpg" 
+                                alt="Scholar Profile" 
+                                className="h-32 w-32 object-cover rounded-lg"
+                              />
                             </div>
                             
                             <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-lg p-6">
-                              <p className="text-orange-400 font-semibold mb-2 text-lg">SCAN FOR VERIFICATION</p>
+                              <p className="text-orange-400 font-semibold mb-2 text-lg">VERIFIED SCHOLAR</p>
                               <p className="text-sm text-gray-300 mb-4">
-                                Scan to verify scholar credentials and access digital portfolio
+                                Official Uniford Scholar Identification Card with verified credentials
                               </p>
                               
                               <div className="flex justify-center space-x-2 mb-4">
