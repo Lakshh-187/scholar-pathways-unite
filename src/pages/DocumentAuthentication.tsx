@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -10,6 +9,7 @@ import { Upload, Shield, Stamp, Mail, CheckCircle, Lock, Star, FileCheck, Downlo
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const DocumentAuthentication = () => {
   const [accessKey, setAccessKey] = useState('');
@@ -21,7 +21,29 @@ const DocumentAuthentication = () => {
   const [emailMessage, setEmailMessage] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [selectedStamp, setSelectedStamp] = useState('');
   const { toast } = useToast();
+
+  const stampOptions = [
+    {
+      id: 'uniford',
+      name: 'Uniford Foundation',
+      details: 'U85500HR2024NPL120586',
+      description: 'Official Uniford Foundation Authentication'
+    },
+    {
+      id: 'uncif',
+      name: 'UNCIF',
+      details: 'UNCIF-AUTH-2024',
+      description: 'UNCIF Department Verification'
+    },
+    {
+      id: 'scholar',
+      name: 'Scholar Department',
+      details: 'SCHOLAR-DEPT-VERIFIED',
+      description: 'Scholar Department Authentication'
+    }
+  ];
 
   const handleAccessKeySubmit = () => {
     if (accessKey === 'UNF10188') {
@@ -62,15 +84,25 @@ const DocumentAuthentication = () => {
       return;
     }
 
+    if (!selectedStamp) {
+      toast({
+        title: "No Stamp Selected",
+        description: "Please select an authentication stamp",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsProcessing(true);
     
     // Simulate authentication process
     setTimeout(() => {
       setIsAuthenticated(true);
       setIsProcessing(false);
+      const selectedStampData = stampOptions.find(stamp => stamp.id === selectedStamp);
       toast({
         title: "Document Authenticated",
-        description: "Authentication stamp has been applied successfully",
+        description: `${selectedStampData?.name} authentication stamp has been applied successfully`,
       });
     }, 2000);
   };
@@ -267,11 +299,40 @@ const DocumentAuthentication = () => {
                     )}
                   </div>
 
+                  {/* Stamp Selection */}
+                  <div className="space-y-4">
+                    <Label className="text-lg font-semibold text-gray-800">Select Authentication Stamp</Label>
+                    <Select value={selectedStamp} onValueChange={setSelectedStamp}>
+                      <SelectTrigger className="h-12 text-base">
+                        <SelectValue placeholder="Choose authentication stamp" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {stampOptions.map((stamp) => (
+                          <SelectItem key={stamp.id} value={stamp.id}>
+                            <div className="flex flex-col">
+                              <span className="font-semibold">{stamp.name}</span>
+                              <span className="text-sm text-gray-500">{stamp.details}</span>
+                            </div>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    
+                    {selectedStamp && (
+                      <Alert className="border-blue-400 bg-blue-50">
+                        <Stamp className="h-4 w-4 text-blue-600" />
+                        <AlertDescription className="text-blue-800">
+                          <strong>Selected Stamp:</strong> {stampOptions.find(s => s.id === selectedStamp)?.description}
+                        </AlertDescription>
+                      </Alert>
+                    )}
+                  </div>
+
                   {/* Authentication Button */}
                   <div className="space-y-4">
                     <Button
                       onClick={authenticateDocument}
-                      disabled={!uploadedFile || isAuthenticated || isProcessing}
+                      disabled={!uploadedFile || !selectedStamp || isAuthenticated || isProcessing}
                       className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-4 text-lg disabled:opacity-50"
                     >
                       {isProcessing ? (
@@ -296,7 +357,7 @@ const DocumentAuthentication = () => {
                       <Alert className="border-green-400 bg-green-50">
                         <Shield className="h-4 w-4 text-green-600" />
                         <AlertDescription className="text-green-800">
-                          <strong>Authentication Complete:</strong> Document has been verified and stamped with UNIFORD authentication seal.
+                          <strong>Authentication Complete:</strong> Document has been verified and stamped with {stampOptions.find(s => s.id === selectedStamp)?.name} authentication seal.
                         </AlertDescription>
                       </Alert>
                     )}
@@ -305,7 +366,10 @@ const DocumentAuthentication = () => {
                   {/* Reset Button */}
                   <Button
                     variant="outline"
-                    onClick={resetForm}
+                    onClick={() => {
+                      resetForm();
+                      setSelectedStamp('');
+                    }}
                     className="w-full border-2 border-gray-300 hover:border-gray-400"
                   >
                     Reset & Upload New Document
