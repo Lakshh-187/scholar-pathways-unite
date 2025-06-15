@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import AuthenticationStamp from '@/components/AuthenticationStamp';
 
 const DocumentAuthentication = () => {
   const [accessKey, setAccessKey] = useState('');
@@ -308,7 +309,7 @@ Uniford Foundation Authentication Portal`);
                     )}
                   </div>
 
-                  {/* Stamp Selection */}
+                  {/* Stamp Selection with Preview */}
                   <div className="space-y-4">
                     <Label className="text-lg font-semibold text-gray-800">Select Authentication Stamp</Label>
                     <Select value={selectedStamp} onValueChange={setSelectedStamp}>
@@ -318,9 +319,12 @@ Uniford Foundation Authentication Portal`);
                       <SelectContent>
                         {stampOptions.map((stamp) => (
                           <SelectItem key={stamp.id} value={stamp.id}>
-                            <div className="flex flex-col">
-                              <span className="font-semibold">{stamp.name}</span>
-                              <span className="text-sm text-gray-500">{stamp.details}</span>
+                            <div className="flex items-center gap-3">
+                              <AuthenticationStamp stampType={stamp.id as any} size="small" applied={true} />
+                              <div className="flex flex-col">
+                                <span className="font-semibold">{stamp.name}</span>
+                                <span className="text-sm text-gray-500">{stamp.details}</span>
+                              </div>
                             </div>
                           </SelectItem>
                         ))}
@@ -328,12 +332,17 @@ Uniford Foundation Authentication Portal`);
                     </Select>
                     
                     {selectedStamp && (
-                      <Alert className="border-blue-400 bg-blue-50">
-                        <Stamp className="h-4 w-4 text-blue-600" />
-                        <AlertDescription className="text-blue-800">
-                          <strong>Selected Stamp:</strong> {stampOptions.find(s => s.id === selectedStamp)?.description}
-                        </AlertDescription>
-                      </Alert>
+                      <div className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl border border-blue-200">
+                        <AuthenticationStamp stampType={selectedStamp as any} size="medium" applied={true} />
+                        <div>
+                          <Alert className="border-blue-400 bg-transparent border-0 p-0">
+                            <Stamp className="h-4 w-4 text-blue-600" />
+                            <AlertDescription className="text-blue-800">
+                              <strong>Selected Stamp:</strong> {stampOptions.find(s => s.id === selectedStamp)?.description}
+                            </AlertDescription>
+                          </Alert>
+                        </div>
+                      </div>
                     )}
                   </div>
 
@@ -456,11 +465,11 @@ Uniford Foundation Authentication Portal`);
                     )}
                   </div>
 
-                  {/* Document Preview */}
+                  {/* Document Preview with Stamp */}
                   {previewUrl && (
                     <div className="space-y-2">
                       <Label className="text-lg font-semibold text-gray-800">Document Preview</Label>
-                      <div className="border rounded-lg p-4 bg-gray-50">
+                      <div className="border rounded-lg p-4 bg-gray-50 relative">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <FileCheck className="h-8 w-8 text-blue-600" />
@@ -471,9 +480,9 @@ Uniford Foundation Authentication Portal`);
                               </p>
                             </div>
                           </div>
-                          {isAuthenticated && (
+                          {isAuthenticated && selectedStamp && (
                             <div className="flex items-center gap-2">
-                              <Shield className="h-5 w-5 text-green-600" />
+                              <AuthenticationStamp stampType={selectedStamp as any} size="small" applied={true} />
                               <Badge className="bg-green-100 text-green-800">
                                 Verified
                               </Badge>
@@ -487,7 +496,7 @@ Uniford Foundation Authentication Portal`);
               </Card>
             </div>
 
-            {/* Document Preview Section */}
+            {/* Document Preview Section with Before/After */}
             {uploadedFile && (
               <Card className="mt-8 shadow-2xl border-0 bg-white">
                 <CardHeader className="bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-t-lg">
@@ -512,14 +521,19 @@ Uniford Foundation Authentication Portal`);
                             <p className="text-sm text-red-600">Unverified Document</p>
                           </div>
                         </div>
-                        <div className="bg-white p-4 rounded-lg border border-red-200">
+                        <div className="bg-white p-4 rounded-lg border border-red-200 relative">
                           <p className="text-sm text-gray-600 mb-2">Status:</p>
                           <Badge variant="destructive" className="mb-3">
                             NOT AUTHENTICATED
                           </Badge>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-500 mb-4">
                             This document has not been verified by any official authority and may not be accepted for official purposes.
                           </p>
+                          
+                          {/* Empty stamp area */}
+                          <div className="absolute bottom-4 right-4">
+                            <AuthenticationStamp stampType="uniford" size="small" applied={false} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -547,7 +561,7 @@ Uniford Foundation Authentication Portal`);
                             </p>
                           </div>
                         </div>
-                        <div className={`p-4 rounded-lg border ${isAuthenticated ? 'bg-white border-green-200' : 'bg-gray-100 border-gray-200'}`}>
+                        <div className={`p-4 rounded-lg border relative ${isAuthenticated ? 'bg-white border-green-200' : 'bg-gray-100 border-gray-200'}`}>
                           <p className="text-sm text-gray-600 mb-2">Status:</p>
                           <Badge className={isAuthenticated ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'}>
                             {isAuthenticated ? 'AUTHENTICATED' : 'PENDING'}
@@ -572,6 +586,15 @@ Uniford Foundation Authentication Portal`);
                               : 'Document authentication is pending. Please complete the authentication process.'
                             }
                           </p>
+                          
+                          {/* Authentication stamp in bottom right */}
+                          <div className="absolute bottom-4 right-4">
+                            <AuthenticationStamp 
+                              stampType={selectedStamp as any || 'uniford'} 
+                              size="small" 
+                              applied={isAuthenticated} 
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>

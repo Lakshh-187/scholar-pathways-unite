@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { downloadBadgeAsImage, downloadBadgeAsPDF } from '@/utils/downloadUtils';
+import AuthenticationStamp from '@/components/AuthenticationStamp';
 
 const OfferLetter = () => {
   const [formData, setFormData] = useState({
@@ -339,6 +339,15 @@ const OfferLetter = () => {
             </div>
           </div>
         </div>
+
+        {/* Authentication Stamp Area */}
+        <div className="absolute bottom-8 right-8">
+          <div className="bg-white/80 p-2 rounded-lg border border-gray-200 shadow-sm">
+            <p className="text-xs text-gray-500 text-center mb-2">Verification Stamp</p>
+            <AuthenticationStamp stampType="uniford" size="medium" applied={false} />
+            <p className="text-xs text-gray-400 text-center mt-1">Awaiting Authentication</p>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
@@ -533,8 +542,18 @@ const OfferLetter = () => {
               </div>
             </div>
           </div>
-        </div>
-      </CardContent>
+
+          {/* Authentication Stamp Area for Detailed Format */}
+          <div className="absolute bottom-8 right-8">
+            <div className="bg-white p-3 rounded-lg border-2 border-gray-200 shadow-lg">
+              <p className="text-xs text-gray-600 text-center mb-2 font-semibold">OFFICIAL VERIFICATION</p>
+              <AuthenticationStamp stampType="uniford" size="large" applied={false} />
+              <p className="text-xs text-gray-500 text-center mt-2">For Authentication Contact:</p>
+              <p className="text-xs text-blue-600 text-center font-mono">info@uniford.org</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </Card>
   );
 
