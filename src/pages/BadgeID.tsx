@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { downloadBadgeAsImage, downloadBadgeAsPDF } from '@/utils/downloadUtils';
+import AuthenticationStamp from '@/components/AuthenticationStamp';
 
 const BadgeID = () => {
   const [applicationType, setApplicationType] = useState<'badge' | 'id'>('badge');
@@ -358,9 +358,9 @@ const BadgeID = () => {
                 </div>
 
                 {applicationType === 'badge' ? (
-                  /* Enhanced Digital Badge */
+                  /* Enhanced Digital Badge with Stamp Area */
                   <div className="flex justify-center mb-8">
-                    <div id="digital-badge" className="bg-white p-8 rounded-lg shadow-lg">
+                    <div id="digital-badge" className="bg-white p-8 rounded-lg shadow-lg relative">
                       <Card className="w-96 h-96 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden shadow-2xl border-0">
                         {/* Background Graphics */}
                         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
@@ -414,95 +414,144 @@ const BadgeID = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    </div>
-                  </div>
-                ) : (
-                  /* Enhanced ID Card */
-                  <div id="digital-id-card" className="bg-white p-8 rounded-lg shadow-lg">
-                    <Card className="max-w-4xl mx-auto shadow-2xl bg-gradient-to-r from-slate-900 to-blue-900 text-white border-0 overflow-hidden">
-                      {/* Header Strip */}
-                      <div className="h-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
                       
-                      <CardContent className="p-8">
-                        <div className="grid md:grid-cols-2 gap-8 items-center">
-                          {/* Left Side - Scholar Info */}
-                          <div className="space-y-6">
-                            <div className="flex items-center mb-6">
-                              <div className="bg-gradient-to-br from-orange-500 to-red-500 p-3 rounded-lg mr-4 shadow-lg">
-                                <Shield className="h-8 w-8 text-white" />
-                              </div>
-                              <div>
-                                <h2 className="text-3xl font-bold text-orange-400">UNIFORD</h2>
-                                <p className="text-sm text-gray-300">Scholar Identification Card</p>
-                              </div>
-                            </div>
-
-                            {/* Info Grid */}
-                            <div className="grid grid-cols-1 gap-4">
-                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                                <p className="text-sm text-gray-400 mb-1">Full Name</p>
-                                <p className="text-xl font-semibold">{formData.name}</p>
-                              </div>
-                              
-                              <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                                  <p className="text-sm text-gray-400 mb-1">Scholar ID</p>
-                                  <p className="text-lg font-bold text-orange-400">{generatedUID}</p>
-                                </div>
-                                
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                                  <p className="text-sm text-gray-400 mb-1">Category</p>
-                                  <p className="text-lg">{getCategoryTitle()}</p>
-                                </div>
-                              </div>
-                              
-                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                                <p className="text-sm text-gray-400 mb-1">Domain</p>
-                                <p className="text-lg">{formData.domain}</p>
-                              </div>
-                              
-                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                                <p className="text-sm text-gray-400 mb-1">Institution</p>
-                                <p className="text-lg">{formData.university}</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Right Side - Scholar Image & Verification */}
-                          <div className="text-center space-y-6">
-                            <div className="bg-white p-6 rounded-xl shadow-lg inline-block">
-                              <img 
-                                src="https://id.uniford.org/uniford-main/temp.jpg" 
-                                alt="Scholar Profile" 
-                                className="h-32 w-32 object-cover rounded-lg"
-                              />
-                            </div>
-                            
-                            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-lg p-6">
-                              <p className="text-orange-400 font-semibold mb-2 text-lg">VERIFIED SCHOLAR</p>
-                              <p className="text-sm text-gray-300 mb-4">
-                                Official Uniford Scholar Identification Card with verified credentials
-                              </p>
-                              
-                              <div className="flex justify-center space-x-2 mb-4">
-                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                              </div>
-                              
-                              <div className="text-xs text-gray-400">
-                                <p>Issued: {new Date().toLocaleDateString()}</p>
-                                <p>Valid for academic year 2024-25</p>
-                                <p className="mt-2 text-green-400">✓ Verified Credential</p>
+                      {/* Enhanced Authentication Stamp Area for Badge */}
+                      <div className="absolute -bottom-6 -right-6 transform hover:scale-105 transition-transform duration-300">
+                        <div className="bg-white p-4 rounded-2xl shadow-2xl border-4 border-gray-100 relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl"></div>
+                          <div className="relative z-10">
+                            <p className="text-xs text-gray-600 text-center mb-3 font-semibold uppercase tracking-wider">
+                              Authentication Seal
+                            </p>
+                            <AuthenticationStamp stampType="uniford" size="large" applied={false} />
+                            <div className="mt-3 text-center">
+                              <p className="text-xs text-gray-500 font-medium">Verification Status</p>
+                              <p className="text-xs text-orange-600 font-semibold">Pending Authentication</p>
+                              <div className="mt-2 flex justify-center space-x-1">
+                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.3s'}}></div>
+                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.6s'}}></div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </CardContent>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Enhanced ID Card with Stamp Area */
+                  <div className="flex justify-center mb-8">
+                    <div id="digital-id-card" className="bg-white p-8 rounded-lg shadow-lg relative">
+                      <Card className="max-w-4xl mx-auto shadow-2xl bg-gradient-to-r from-slate-900 to-blue-900 text-white border-0 overflow-hidden">
+                        {/* Header Strip */}
+                        <div className="h-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
+                        
+                        <CardContent className="p-8">
+                          <div className="grid md:grid-cols-2 gap-8 items-center">
+                            {/* Left Side - Scholar Info */}
+                            <div className="space-y-6">
+                              <div className="flex items-center mb-6">
+                                <div className="bg-gradient-to-br from-orange-500 to-red-500 p-3 rounded-lg mr-4 shadow-lg">
+                                  <Shield className="h-8 w-8 text-white" />
+                                </div>
+                                <div>
+                                  <h2 className="text-3xl font-bold text-orange-400">UNIFORD</h2>
+                                  <p className="text-sm text-gray-300">Scholar Identification Card</p>
+                                </div>
+                              </div>
+
+                              {/* Info Grid */}
+                              <div className="grid grid-cols-1 gap-4">
+                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                  <p className="text-sm text-gray-400 mb-1">Full Name</p>
+                                  <p className="text-xl font-semibold">{formData.name}</p>
+                                </div>
+                                
+                                <div className="grid grid-cols-2 gap-4">
+                                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                    <p className="text-sm text-gray-400 mb-1">Scholar ID</p>
+                                    <p className="text-lg font-bold text-orange-400">{generatedUID}</p>
+                                  </div>
+                                  
+                                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                    <p className="text-sm text-gray-400 mb-1">Category</p>
+                                    <p className="text-lg">{getCategoryTitle()}</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                  <p className="text-sm text-gray-400 mb-1">Domain</p>
+                                  <p className="text-lg">{formData.domain}</p>
+                                </div>
+                                
+                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                  <p className="text-sm text-gray-400 mb-1">Institution</p>
+                                  <p className="text-lg">{formData.university}</p>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Right Side - Scholar Image & Verification */}
+                            <div className="text-center space-y-6">
+                              <div className="bg-white p-6 rounded-xl shadow-lg inline-block">
+                                <img 
+                                  src="https://id.uniford.org/uniford-main/temp.jpg" 
+                                  alt="Scholar Profile" 
+                                  className="h-32 w-32 object-cover rounded-lg"
+                                />
+                              </div>
+                              
+                              <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-lg p-6">
+                                <p className="text-orange-400 font-semibold mb-2 text-lg">VERIFIED SCHOLAR</p>
+                                <p className="text-sm text-gray-300 mb-4">
+                                  Official Uniford Scholar Identification Card with verified credentials
+                                </p>
+                                
+                                <div className="flex justify-center space-x-2 mb-4">
+                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                                </div>
+                                
+                                <div className="text-xs text-gray-400">
+                                  <p>Issued: {new Date().toLocaleDateString()}</p>
+                                  <p>Valid for academic year 2024-25</p>
+                                  <p className="mt-2 text-green-400">✓ Verified Credential</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                        
+                        {/* Footer Strip */}
+                        <div className="h-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400"></div>
+                      </Card>
                       
-                      {/* Footer Strip */}
-                      <div className="h-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400"></div>
-                    </Card>
+                      {/* Enhanced Authentication Stamp Area for ID Card */}
+                      <div className="absolute -bottom-8 -right-8 transform hover:scale-105 transition-transform duration-300">
+                        <div className="bg-white p-6 rounded-2xl shadow-2xl border-4 border-gray-100 relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl"></div>
+                          <div className="relative z-10">
+                            <p className="text-sm text-gray-700 text-center mb-4 font-bold uppercase tracking-wider">
+                              Official Verification
+                            </p>
+                            <AuthenticationStamp stampType="scholar" size="large" applied={false} />
+                            <div className="mt-4 text-center">
+                              <p className="text-xs text-gray-600 font-semibold mb-1">Authentication Status</p>
+                              <div className="bg-orange-50 border border-orange-200 rounded-lg p-2">
+                                <p className="text-xs text-orange-700 font-bold">AWAITING VERIFICATION</p>
+                                <p className="text-xs text-gray-500 mt-1">Submit to info@uniford.org</p>
+                              </div>
+                              <div className="mt-3 flex justify-center space-x-1">
+                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                                <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{animationDelay: '0.8s'}}></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -513,7 +562,7 @@ const BadgeID = () => {
                     <strong>Next Steps:</strong> Please email your downloaded credentials to{' '}
                     <strong>info@uniford.org</strong> with the subject line{' '}
                     "Digital Credentials Verification - {generatedUID}". The organization will verify your details{' '}
-                    and activate your credentials.
+                    and activate your credentials with official authentication stamps.
                   </AlertDescription>
                 </Alert>
               </div>
