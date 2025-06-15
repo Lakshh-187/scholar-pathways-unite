@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Briefcase, CreditCard, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -102,6 +103,11 @@ const Footer = () => {
                   S-700 Projects
                 </Link>
               </li>
+              <li>
+                <Link to="/unsip" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UNSIP
+                </Link>
+              </li>
             </ul>
             <h3 className="text-lg font-semibold mb-4 mt-6">Partnerships</h3>
             <ul className="space-y-3">
@@ -115,7 +121,20 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Internships</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/social-internship" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Social Internship
+                </Link>
+              </li>
+              <li>
+                <Link to="/unsip" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UNSIP Program
+                </Link>
+              </li>
+            </ul>
+            <h3 className="text-lg font-semibold mb-4 mt-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/h1b-scholar" className="text-gray-300 hover:text-white hover:underline transition-colors">

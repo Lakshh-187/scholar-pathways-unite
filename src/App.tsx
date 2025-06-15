@@ -33,6 +33,7 @@ import LetterOfClearance from "./pages/LetterOfClearance";
 import Apply from "./pages/Apply";
 import UTHA from "./pages/UTHA";
 import GFT from "./pages/GFT";
+import UNSIP from "./pages/UNSIP";
 import NotificationBanner from "./components/NotificationBanner";
 
 const queryClient = new QueryClient();
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/apply" element={<Apply />} />
           <Route path="/utha" element={<UTHA />} />
           <Route path="/gft" element={<GFT />} />
+          <Route path="/unsip" element={<UNSIP />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
