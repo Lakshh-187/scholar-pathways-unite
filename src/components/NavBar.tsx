@@ -19,8 +19,6 @@ const NavBar = () => {
     { name: 'UNCIF', path: '/uirad' },
     { name: 'UTHA', path: '/talent-hunt-alliance' },
     { name: 'iBacked', path: '/backed-by-uniford' },
-    { name: 'Offer', path: '/offer-letter' },
-    { name: 'Badge', path: '/badge-id' },
   ];
   
   return (
