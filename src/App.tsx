@@ -38,6 +38,7 @@ import NotificationBanner from "./components/NotificationBanner";
 import OfferLetter from "./pages/OfferLetter";
 import BadgeID from "./pages/BadgeID";
 import CertificateGenerator from "./pages/CertificateGenerator";
+import DocumentAuthentication from "./pages/DocumentAuthentication";
 
 const queryClient = new QueryClient();
 
@@ -80,6 +81,7 @@ const App = () => (
           <Route path="/offer-letter" element={<OfferLetter />} />
           <Route path="/badge-id" element={<BadgeID />} />
           <Route path="/certificate-generator" element={<CertificateGenerator />} />
+          <Route path="/document-authentication" element={<DocumentAuthentication />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
