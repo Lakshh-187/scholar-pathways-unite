@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Badge } from '@/components/ui/badge';
@@ -128,6 +127,12 @@ const UNSIP = () => {
     }
   ];
 
+  const handleDownloadPDF = (type: string) => {
+    // This would typically download from a real URL
+    console.log(`Downloading ${type} PDF...`);
+    // Placeholder for actual PDF download functionality
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -166,6 +171,26 @@ const UNSIP = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Complete Roadmap</h2>
             <p className="text-lg text-gray-600">From Application to Certification</p>
+            
+            {/* PDF Downloads for Roadmap */}
+            <div className="flex flex-wrap gap-4 justify-center mt-6">
+              <Button 
+                variant="outline" 
+                className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple hover:text-white"
+                onClick={() => handleDownloadPDF('roadmap-guide')}
+              >
+                <FileText className="mr-2 h-4 w-4" />
+                Download Detailed Guide PDF
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-unifor-blue text-unifor-blue hover:bg-unifor-blue hover:text-white"
+                onClick={() => handleDownloadPDF('roadmap-faq')}
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download FAQ PDF
+              </Button>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-5 gap-4 max-w-6xl mx-auto">
@@ -271,6 +296,26 @@ const UNSIP = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Submission Guidelines</h2>
             <p className="text-lg text-gray-600">Follow these guidelines for successful submission</p>
+            
+            {/* PDF Downloads for Submission Guidelines */}
+            <div className="flex flex-wrap gap-4 justify-center mt-6">
+              <Button 
+                variant="outline" 
+                className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple hover:text-white"
+                onClick={() => handleDownloadPDF('submission-guide')}
+              >
+                <FileText className="mr-2 h-4 w-4" />
+                Download Submission Guide PDF
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-unifor-blue text-unifor-blue hover:bg-unifor-blue hover:text-white"
+                onClick={() => handleDownloadPDF('submission-faq')}
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download FAQ PDF
+              </Button>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
