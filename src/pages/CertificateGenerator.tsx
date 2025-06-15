@@ -204,14 +204,30 @@ const CertificateGenerator = () => {
                 <div className="w-24 h-1 bg-red-700 mx-auto"></div>
               </div>
               
-              <div className="max-w-3xl mx-auto mb-8 bg-white p-6 rounded-xl border border-red-200 shadow-lg">
-                <p className="text-lg leading-relaxed text-gray-700">
+              <div className="max-w-3xl mx-auto mb-6 bg-white p-6 rounded-xl border border-red-200 shadow-lg">
+                <p className="text-lg leading-relaxed text-gray-700 mb-4">
                   In recognition of outstanding achievement and exceptional performance in completing the{' '}
                   <strong className="text-red-900">{formData.category}</strong> program in{' '}
                   <strong className="text-red-900">{formData.domain}</strong>, demonstrating{' '}
                   <strong className="text-red-900">{formData.performanceLevel.toLowerCase()}</strong> excellence, 
                   dedication, and professional competence throughout the program duration.
                 </p>
+                
+                {/* Appreciation lines with program context */}
+                <div className="border-t border-red-100 pt-4 space-y-2">
+                  <p className="text-base text-red-800 italic leading-relaxed">
+                    "Your commitment to excellence in the {formData.domain} field through this {formData.category} reflects 
+                    the highest standards of academic and professional achievement that UNIFORD Foundation champions."
+                  </p>
+                  <p className="text-base text-red-800 italic leading-relaxed">
+                    "This certificate stands as a testament to your unwavering dedication, innovative thinking, and 
+                    the transformative impact you've made throughout your journey with us."
+                  </p>
+                  <p className="text-base text-red-800 italic leading-relaxed">
+                    "May this achievement serve as a stepping stone to greater heights in your professional endeavors 
+                    and continue to inspire others in the {formData.domain} community."
+                  </p>
+                </div>
               </div>
               
               <div className="flex justify-center items-center gap-12 mb-8">
@@ -354,14 +370,30 @@ const CertificateGenerator = () => {
                   <div className="w-32 h-1 bg-red-800 mx-auto"></div>
                 </div>
                 
-                <div className="max-w-3xl mx-auto text-center mb-8">
-                  <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                <div className="max-w-3xl mx-auto text-center mb-6">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     In appreciation of your dedication and commitment to excellence in completing the{' '}
                     <strong className="text-red-900">{formData.category}</strong> program in{' '}
                     <strong className="text-red-900">{formData.domain}</strong>. Your perseverance and 
                     professional growth throughout this journey exemplify the highest standards of academic 
                     and professional achievement.
                   </p>
+                  
+                  {/* Appreciation lines with program context */}
+                  <div className="bg-red-50 p-6 rounded-xl border border-red-200 mb-6 space-y-3">
+                    <p className="text-base text-red-800 italic leading-relaxed">
+                      "Your successful completion of this {formData.category} in {formData.domain} demonstrates not only 
+                      your technical competence but also your commitment to continuous learning and professional excellence."
+                    </p>
+                    <p className="text-base text-red-800 italic leading-relaxed">
+                      "This achievement reflects your ability to adapt, innovate, and contribute meaningfully to the 
+                      {formData.domain} field, setting a benchmark for future participants."
+                    </p>
+                    <p className="text-base text-red-800 italic leading-relaxed">
+                      "We celebrate your accomplishment and look forward to witnessing the positive impact you will 
+                      continue to make in your professional journey and the broader {formData.domain} community."
+                    </p>
+                  </div>
                   
                   <div className="grid md:grid-cols-3 gap-6 text-sm">
                     <div className="bg-red-50 p-4 rounded-xl border border-red-200">
