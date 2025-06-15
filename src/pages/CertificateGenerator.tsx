@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Download, Award, Shield, Calendar, User, Building2, CheckCircle, Lock, Star } from 'lucide-react';
+import { Download, Award, Shield, Calendar, User, Building2, CheckCircle, Lock, Star, Medal } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -131,87 +131,135 @@ const CertificateGenerator = () => {
   };
 
   const renderAchievementCertificate = () => (
-    <Card className="max-w-4xl mx-auto bg-white border-0 shadow-none overflow-hidden" id="certificate-achievement">
+    <Card className="max-w-4xl mx-auto bg-white border-8 border-red-900 shadow-2xl overflow-hidden" id="certificate-achievement">
       <CardContent className="p-0 relative">
-        {/* Elegant curved background with gold accents */}
-        <div className="relative h-[600px] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 overflow-hidden">
-          {/* Decorative curves */}
-          <div className="absolute inset-0">
-            <svg viewBox="0 0 800 600" className="absolute inset-0 w-full h-full">
-              <path d="M0,0 Q200,100 400,50 T800,0 L800,200 Q600,150 400,200 T0,200 Z" fill="rgba(255,215,0,0.1)" />
-              <path d="M0,400 Q200,350 400,400 T800,400 L800,600 L0,600 Z" fill="rgba(255,215,0,0.05)" />
-            </svg>
+        {/* Elegant wine and white design */}
+        <div className="relative h-[700px] bg-white overflow-hidden">
+          {/* Decorative wine border pattern */}
+          <div className="absolute inset-0 border-8 border-red-900">
+            <div className="absolute inset-4 border-2 border-red-700"></div>
+            <div className="absolute inset-8 border border-red-500"></div>
           </div>
           
+          {/* Corner ornaments */}
+          <div className="absolute top-4 left-4 w-16 h-16 bg-red-900 transform rotate-45"></div>
+          <div className="absolute top-4 right-4 w-16 h-16 bg-red-900 transform rotate-45"></div>
+          <div className="absolute bottom-4 left-4 w-16 h-16 bg-red-900 transform rotate-45"></div>
+          <div className="absolute bottom-4 right-4 w-16 h-16 bg-red-900 transform rotate-45"></div>
+          
           {/* Certificate content */}
-          <div className="relative z-10 p-12 h-full flex flex-col">
-            {/* Header with logo and title */}
+          <div className="relative z-10 p-16 h-full flex flex-col">
+            {/* Header with prestigious logo */}
             <div className="flex justify-between items-start mb-8">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-6">
                 <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg">
-                    <Award className="h-8 w-8 text-white" />
+                  <div className="w-24 h-24 bg-gradient-to-br from-red-800 to-red-900 rounded-full flex items-center justify-center shadow-2xl border-4 border-yellow-400">
+                    <Medal className="h-12 w-12 text-yellow-300" />
                   </div>
-                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-yellow-300 rounded-full flex items-center justify-center">
-                    <Star className="h-3 w-3 text-yellow-700" />
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-white">
+                    <Star className="h-4 w-4 text-red-900" />
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-white text-xl font-bold">UNIFORD</h1>
-                  <p className="text-blue-200 text-sm">FOUNDATION</p>
+                  <h1 className="text-red-900 text-3xl font-bold tracking-wider">UNIFORD</h1>
+                  <p className="text-red-700 text-lg font-semibold">FOUNDATION</p>
+                  <p className="text-red-600 text-sm italic">Excellence in Education</p>
                 </div>
               </div>
-              <div className="text-right text-white">
-                <p className="text-sm opacity-80">Certificate No.</p>
-                <p className="font-mono text-lg">{formData.certificateNumber}</p>
+              <div className="text-right text-red-900 bg-red-50 p-4 rounded-lg border-2 border-red-200">
+                <p className="text-sm font-semibold opacity-80">Certificate No.</p>
+                <p className="font-mono text-xl font-bold">{formData.certificateNumber}</p>
+                <div className="flex items-center justify-end mt-2 gap-1">
+                  <Shield className="h-4 w-4 text-red-700" />
+                  <p className="text-xs">Verified</p>
+                </div>
               </div>
             </div>
 
             {/* Main certificate content */}
-            <div className="flex-1 flex flex-col justify-center text-center text-white">
-              <h2 className="text-5xl font-bold mb-2 tracking-wider">CERTIFICATE</h2>
-              <p className="text-xl text-blue-200 mb-8 tracking-wide">OF ACHIEVEMENT</p>
+            <div className="flex-1 flex flex-col justify-center text-center">
+              {/* Decorative medal at top */}
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-full flex items-center justify-center shadow-xl border-4 border-red-900">
+                    <Award className="h-10 w-10 text-red-900" />
+                  </div>
+                  <div className="absolute inset-0 rounded-full border-2 border-yellow-300 animate-pulse"></div>
+                </div>
+              </div>
               
-              <p className="text-lg mb-4 text-blue-100">PROUDLY PRESENTED TO</p>
+              <h2 className="text-6xl font-bold mb-3 tracking-wider text-red-900" style={{ fontFamily: 'serif' }}>
+                CERTIFICATE
+              </h2>
+              <p className="text-2xl text-red-700 mb-8 tracking-wide font-semibold">OF ACHIEVEMENT</p>
               
-              <h3 className="text-4xl font-bold mb-8 text-yellow-300" style={{ fontFamily: 'serif' }}>
-                {formData.participantName}
-              </h3>
+              <div className="w-32 h-1 bg-gradient-to-r from-red-900 via-yellow-500 to-red-900 mx-auto mb-8"></div>
               
-              <div className="max-w-2xl mx-auto mb-8">
-                <p className="text-lg leading-relaxed text-blue-100">
-                  for successfully completing an {formData.category.toLowerCase()} in {formData.domain} and 
-                  demonstrating {formData.performanceLevel.toLowerCase()} performance, dedication, and 
-                  professional excellence throughout the program duration.
+              <p className="text-xl mb-6 text-red-800 font-medium">PROUDLY PRESENTED TO</p>
+              
+              <div className="bg-red-50 p-6 rounded-2xl border-2 border-red-200 mb-8 mx-8">
+                <h3 className="text-5xl font-bold text-red-900 mb-2" style={{ fontFamily: 'serif' }}>
+                  {formData.participantName}
+                </h3>
+                <div className="w-24 h-1 bg-red-700 mx-auto"></div>
+              </div>
+              
+              <div className="max-w-3xl mx-auto mb-8 bg-white p-6 rounded-xl border border-red-200 shadow-lg">
+                <p className="text-lg leading-relaxed text-gray-700">
+                  In recognition of outstanding achievement and exceptional performance in completing the{' '}
+                  <strong className="text-red-900">{formData.category}</strong> program in{' '}
+                  <strong className="text-red-900">{formData.domain}</strong>, demonstrating{' '}
+                  <strong className="text-red-900">{formData.performanceLevel.toLowerCase()}</strong> excellence, 
+                  dedication, and professional competence throughout the program duration.
                 </p>
               </div>
               
-              <div className="flex justify-center items-center gap-8 mb-6">
-                <div className="text-center">
-                  <p className="text-sm text-blue-200">Date of Completion</p>
-                  <p className="font-semibold">{getCurrentDate()}</p>
+              <div className="flex justify-center items-center gap-12 mb-8">
+                <div className="text-center bg-red-50 p-4 rounded-lg border border-red-200">
+                  <Calendar className="h-6 w-6 text-red-700 mx-auto mb-2" />
+                  <p className="text-sm text-red-600 font-semibold">Date of Completion</p>
+                  <p className="font-bold text-red-900">{getCurrentDate()}</p>
                 </div>
-                <div className="w-px h-8 bg-blue-400"></div>
-                <div className="text-center">
-                  <p className="text-sm text-blue-200">Performance Level</p>
-                  <p className="font-semibold text-yellow-300">{formData.performanceLevel}</p>
+                <div className="w-px h-16 bg-red-300"></div>
+                <div className="text-center bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                  <Star className="h-6 w-6 text-yellow-600 mx-auto mb-2" />
+                  <p className="text-sm text-yellow-700 font-semibold">Performance Level</p>
+                  <p className="font-bold text-yellow-800">{formData.performanceLevel}</p>
                 </div>
               </div>
             </div>
 
-            {/* Footer with signature */}
+            {/* Footer with signature and seals */}
             <div className="flex justify-between items-end">
-              <div className="text-left text-sm text-blue-200">
-                <p>For certificate authentication</p>
-                <p className="font-mono">{formData.certificateNumber}</p>
-              </div>
-              <div className="text-right">
-                <div className="mb-2">
-                  <div className="w-32 h-px bg-blue-300 mb-1"></div>
-                  <p className="text-sm text-blue-200">Authorized Signature</p>
+              <div className="text-left">
+                <div className="flex items-center gap-2 mb-2">
+                  <Shield className="h-5 w-5 text-red-700" />
+                  <p className="text-sm text-red-600 font-semibold">Certificate Authentication</p>
                 </div>
-                <p className="text-white font-semibold">VC Kahleer</p>
-                <p className="text-blue-200 text-sm">Managing Director</p>
+                <p className="font-mono text-red-900 font-bold">{formData.certificateNumber}</p>
+                <p className="text-xs text-red-500">24UNF1002</p>
+              </div>
+              
+              {/* Official seal */}
+              <div className="text-center">
+                <div className="w-24 h-24 bg-red-900 rounded-full flex items-center justify-center mb-2 mx-auto border-4 border-yellow-400">
+                  <div className="text-yellow-300 text-center">
+                    <Building2 className="h-8 w-8 mx-auto mb-1" />
+                    <p className="text-xs font-bold">OFFICIAL</p>
+                  </div>
+                </div>
+                <p className="text-xs text-red-600">Institutional Seal</p>
+              </div>
+              
+              <div className="text-right">
+                <div className="mb-3">
+                  <div className="w-40 h-px bg-red-700 mb-2"></div>
+                  <div className="text-right">
+                    <p className="font-bold text-red-900 text-lg">VC Kahleer</p>
+                    <p className="text-red-700 font-semibold">Managing Director</p>
+                    <p className="text-red-600 text-sm">UNIFORD Foundation</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -221,79 +269,115 @@ const CertificateGenerator = () => {
   );
 
   const renderCompletionCertificate = () => (
-    <Card className="max-w-4xl mx-auto bg-white border-0 shadow-none overflow-hidden" id="certificate-completion">
+    <Card className="max-w-4xl mx-auto bg-white border-4 border-gray-300 shadow-2xl overflow-hidden" id="certificate-completion">
       <CardContent className="p-0 relative">
-        {/* Modern geometric design with gold ribbon */}
-        <div className="relative h-[600px] bg-gradient-to-r from-gray-50 to-gray-100 overflow-hidden">
+        {/* Modern wine accent design */}
+        <div className="relative h-[700px] bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+          {/* Wine ribbon accent */}
+          <div className="absolute left-0 top-0 w-3 h-full bg-gradient-to-b from-red-800 via-red-900 to-red-800"></div>
+          <div className="absolute right-0 top-0 w-3 h-full bg-gradient-to-b from-red-800 via-red-900 to-red-800"></div>
+          
           {/* Decorative elements */}
-          <div className="absolute inset-0">
-            <svg viewBox="0 0 800 600" className="absolute inset-0 w-full h-full opacity-10">
-              <circle cx="100" cy="100" r="50" fill="#f59e0b" />
-              <circle cx="700" cy="500" r="80" fill="#3b82f6" />
-              <polygon points="650,50 750,50 700,150" fill="#8b5cf6" />
+          <div className="absolute inset-0 opacity-5">
+            <svg viewBox="0 0 800 700" className="absolute inset-0 w-full h-full">
+              <circle cx="150" cy="150" r="80" fill="#7f1d1d" />
+              <circle cx="650" cy="550" r="100" fill="#7f1d1d" />
+              <polygon points="700,100 780,100 740,180" fill="#7f1d1d" />
+              <polygon points="100,500 180,500 140,580" fill="#7f1d1d" />
             </svg>
           </div>
           
-          {/* Gold ribbon accent */}
-          <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-yellow-400 via-yellow-500 to-yellow-600"></div>
-          
-          <div className="relative z-10 p-12 h-full flex flex-col">
+          <div className="relative z-10 p-16 h-full flex flex-col">
             {/* Header */}
-            <div className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-4">
+            <div className="flex justify-between items-center mb-10">
+              <div className="flex items-center gap-6">
                 <div className="relative">
-                  <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-full flex items-center justify-center shadow-xl">
-                    <span className="text-white font-bold text-2xl">U</span>
+                  <div className="w-28 h-28 bg-gradient-to-br from-red-800 via-red-900 to-red-800 rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
+                    <div className="text-center text-white">
+                      <Medal className="h-10 w-10 mx-auto mb-1" />
+                      <p className="text-xs font-bold">UNIFORD</p>
+                    </div>
                   </div>
-                  <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <CheckCircle className="h-4 w-4 text-white" />
+                  <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-white">
+                    <CheckCircle className="h-5 w-5 text-red-900" />
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-800">Uniwave</h1>
-                  <p className="text-gray-600">Professional Certification</p>
+                  <h1 className="text-3xl font-bold text-red-900 tracking-wider">Uniwave</h1>
+                  <p className="text-red-700 text-lg font-semibold">Professional Certification</p>
+                  <p className="text-red-600 font-medium">Excellence • Innovation • Growth</p>
                 </div>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500">Certificate ID</p>
-                <p className="font-mono text-lg text-gray-800">{formData.certificateNumber}</p>
-                <p className="text-xs text-gray-500 mt-1">For certificate authentication</p>
+              <div className="text-right bg-red-50 p-6 rounded-xl border-2 border-red-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <Award className="h-5 w-5 text-red-700" />
+                  <p className="text-sm font-semibold text-red-700">Certificate ID</p>
+                </div>
+                <p className="font-mono text-2xl text-red-900 font-bold">{formData.certificateNumber}</p>
+                <div className="flex items-center justify-end mt-3 gap-1">
+                  <Shield className="h-4 w-4 text-red-600" />
+                  <p className="text-xs text-red-600 font-medium">Authenticated</p>
+                </div>
               </div>
             </div>
 
             {/* Main content */}
             <div className="flex-1 flex flex-col justify-center">
-              <div className="text-center mb-8">
-                <h2 className="text-6xl font-bold text-gray-800 mb-3">CERTIFICATE</h2>
-                <p className="text-2xl text-gray-600 tracking-wider">OF COMPLETION</p>
+              <div className="text-center mb-10">
+                {/* Decorative medal cluster */}
+                <div className="flex justify-center items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-red-900">
+                    <Star className="h-6 w-6 text-red-900" />
+                  </div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-800 to-red-900 rounded-full flex items-center justify-center border-4 border-yellow-400">
+                    <Medal className="h-8 w-8 text-yellow-300" />
+                  </div>
+                  <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-red-900">
+                    <Award className="h-6 w-6 text-red-900" />
+                  </div>
+                </div>
+                
+                <h2 className="text-6xl font-bold text-red-900 mb-4 tracking-wider" style={{ fontFamily: 'serif' }}>
+                  CERTIFICATE
+                </h2>
+                <p className="text-3xl text-red-700 tracking-wider font-semibold">OF COMPLETION</p>
+                <div className="w-40 h-1 bg-gradient-to-r from-red-900 via-yellow-500 to-red-900 mx-auto mt-4"></div>
               </div>
               
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 mb-8">
-                <p className="text-lg text-gray-600 mb-4 text-center">This Certificate is Awarded to</p>
+              <div className="bg-white p-10 rounded-3xl shadow-2xl border-2 border-red-100 mb-10 mx-4">
+                <p className="text-xl text-red-800 mb-6 text-center font-medium">This Certificate is Awarded to</p>
                 
-                <h3 className="text-4xl font-bold text-center mb-6 text-gray-800" style={{ fontFamily: 'serif' }}>
-                  {formData.participantName}
-                </h3>
+                <div className="bg-red-50 p-6 rounded-2xl border border-red-200 mb-8">
+                  <h3 className="text-5xl font-bold text-center text-red-900 mb-4" style={{ fontFamily: 'serif' }}>
+                    {formData.participantName}
+                  </h3>
+                  <div className="w-32 h-1 bg-red-800 mx-auto"></div>
+                </div>
                 
-                <div className="max-w-2xl mx-auto text-center">
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Thank you for your dedication and hard work in completing the{' '}
-                    <strong>{formData.category}</strong> program in <strong>{formData.domain}</strong>.
-                    Your commitment to excellence and professional growth has been exemplary.
+                <div className="max-w-3xl mx-auto text-center mb-8">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                    In appreciation of your dedication and commitment to excellence in completing the{' '}
+                    <strong className="text-red-900">{formData.category}</strong> program in{' '}
+                    <strong className="text-red-900">{formData.domain}</strong>. Your perseverance and 
+                    professional growth throughout this journey exemplify the highest standards of academic 
+                    and professional achievement.
                   </p>
                   
-                  <div className="grid md:grid-cols-3 gap-4 text-sm">
-                    <div className="bg-blue-50 p-3 rounded-lg">
-                      <p className="text-blue-600 font-semibold">Program</p>
-                      <p className="text-gray-700">{formData.category}</p>
+                  <div className="grid md:grid-cols-3 gap-6 text-sm">
+                    <div className="bg-red-50 p-4 rounded-xl border border-red-200">
+                      <Award className="h-6 w-6 text-red-700 mx-auto mb-2" />
+                      <p className="text-red-700 font-bold">Program</p>
+                      <p className="text-red-900 font-semibold">{formData.category}</p>
                     </div>
-                    <div className="bg-purple-50 p-3 rounded-lg">
-                      <p className="text-purple-600 font-semibold">Domain</p>
-                      <p className="text-gray-700">{formData.domain}</p>
+                    <div className="bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+                      <Building2 className="h-6 w-6 text-yellow-700 mx-auto mb-2" />
+                      <p className="text-yellow-700 font-bold">Domain</p>
+                      <p className="text-yellow-900 font-semibold">{formData.domain}</p>
                     </div>
-                    <div className="bg-green-50 p-3 rounded-lg">
-                      <p className="text-green-600 font-semibold">Duration</p>
-                      <p className="text-gray-700">{formData.duration || 'As per program'}</p>
+                    <div className="bg-green-50 p-4 rounded-xl border border-green-200">
+                      <Calendar className="h-6 w-6 text-green-700 mx-auto mb-2" />
+                      <p className="text-green-700 font-bold">Duration</p>
+                      <p className="text-green-900 font-semibold">{formData.duration || 'As per program'}</p>
                     </div>
                   </div>
                 </div>
@@ -303,15 +387,31 @@ const CertificateGenerator = () => {
             {/* Footer */}
             <div className="flex justify-between items-end">
               <div className="text-left">
-                <p className="text-sm text-gray-500 mb-1">Issued on {getCurrentDate()}</p>
-                <p className="text-xs text-gray-400">24UNF1002</p>
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="h-5 w-5 text-red-700" />
+                  <p className="text-red-700 font-semibold">Issued on {getCurrentDate()}</p>
+                </div>
+                <p className="text-red-600 font-mono text-sm">Ref: 24UNF1002</p>
               </div>
+              
+              {/* Institutional seal */}
+              <div className="text-center">
+                <div className="w-20 h-20 bg-red-900 rounded-full flex items-center justify-center mb-2 mx-auto border-3 border-yellow-400">
+                  <div className="text-yellow-300 text-center">
+                    <Shield className="h-6 w-6 mx-auto mb-1" />
+                    <p className="text-xs font-bold">SEAL</p>
+                  </div>
+                </div>
+                <p className="text-xs text-red-600 font-medium">Official Seal</p>
+              </div>
+              
               <div className="text-right">
-                <div className="mb-3">
-                  <div className="w-36 h-px bg-gray-400 mb-2"></div>
+                <div className="mb-4">
+                  <div className="w-44 h-px bg-red-700 mb-3"></div>
                   <div className="text-right">
-                    <p className="font-bold text-gray-800">VC Kahleer</p>
-                    <p className="text-sm text-gray-600">Secretary</p>
+                    <p className="font-bold text-red-900 text-xl">VC Kahleer</p>
+                    <p className="text-red-700 font-semibold">Secretary</p>
+                    <p className="text-red-600">UNIFORD Foundation</p>
                   </div>
                 </div>
               </div>
