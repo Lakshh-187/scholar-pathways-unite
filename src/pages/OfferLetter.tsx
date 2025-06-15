@@ -378,13 +378,10 @@ const OfferLetter = () => {
             </div>
           </div>
 
-          {/* Recipient */}
-          <div className="mb-6">
-            <p className="text-lg text-gray-700">Dear <strong>{formData.name}</strong>,</p>
-          </div>
-
           {/* Main Content */}
           <div className="space-y-6 text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700">Dear <strong>{formData.name}</strong>,</p>
+            
             <p>
               On behalf of <strong>Uniford Foundation</strong>, I am delighted to extend this formal offer for your participation in our esteemed 
               <strong> {getCategoryTitle()}</strong> program. This offer represents our confidence in your potential and commitment to academic 
@@ -552,8 +549,8 @@ const OfferLetter = () => {
               <p className="text-xs text-blue-600 text-center font-mono">info@uniford.org</p>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </CardContent>
     </Card>
   );
 
