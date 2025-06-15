@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -351,7 +352,7 @@ const OfferLetter = () => {
             background: 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%)',
           }}></div>
           <div className="absolute top-4 right-6 text-right text-white">
-            <h2 className="text-2xl font-bold">Offer Letter</h2>
+            <h2 className="text-2xl font-bold">Official Offer Letter</h2>
             <p className="text-sm opacity-90">{getCurrentDate()}</p>
           </div>
         </div>
@@ -360,129 +361,174 @@ const OfferLetter = () => {
           {/* Company Header */}
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-gray-800 mb-2">Uniford Foundation</h1>
-            <p className="text-lg text-gray-600 font-medium">The Research & Development Company</p>
+            <p className="text-lg text-gray-600 font-medium">Excellence in Research, Innovation & Development</p>
             <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
               <span>Ref: {getReferenceNumber()}</span>
-              <span>Guy Manuel Davidson</span>
-              <span>44 Stonecast Drive, Atlanta</span>
+              <span>VC Kahleer, Managing Head</span>
+              <span>info@uniford.org | +91 73470-99610</span>
             </div>
           </div>
 
           {/* Recipient */}
           <div className="mb-6">
-            <p className="text-lg text-gray-700">Dear {formData.name},</p>
+            <p className="text-lg text-gray-700">Dear <strong>{formData.name}</strong>,</p>
           </div>
 
           {/* Main Content */}
           <div className="space-y-6 text-gray-700 leading-relaxed">
             <p>
-              It is my pleasure to extend the following offer of employment to you on behalf of <strong>UNIFORD FOUNDATION</strong>. This offer is contingent upon your 
-              passing our mandatory background check, our receipt of your acceptance, and any other contingencies you may wish to discuss.
+              On behalf of <strong>Uniford Foundation</strong>, I am delighted to extend this formal offer for your participation in our esteemed 
+              <strong> {getCategoryTitle()}</strong> program. This offer represents our confidence in your potential and commitment to academic 
+              and professional excellence.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Position Details */}
-              <div className="space-y-4">
+            <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 my-6">
+              <h3 className="font-bold text-blue-800 text-lg mb-3 flex items-center gap-2">
+                <Award className="h-5 w-5" />
+                Program Details & Appointment
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <Briefcase className="h-5 w-5 text-blue-600" />
-                    Your Title: {getPositionTitle()}
-                  </h3>
+                  <p className="mb-2"><strong>Position:</strong> {getPositionTitle()}</p>
+                  <p className="mb-2"><strong>Program Type:</strong> {getCategoryTitle()}</p>
+                  <p className="mb-2"><strong>Domain Focus:</strong> {formData.domain}</p>
+                  <p className="mb-2"><strong>Scholar ID:</strong> {formData.uid}</p>
                 </div>
-
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <Building2 className="h-5 w-5 text-purple-600" />
-                    Reporting Relationship
-                  </h3>
-                  <p className="text-sm">The position will report to Task Expert, Research Department.</p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <GraduationCap className="h-5 w-5 text-green-600" />
-                    The Position
-                  </h3>
-                  <p className="text-sm">Base Salary: Annual salary of $45,000 USD, subject to deductions for taxes and other withholdings as required by law or the policies of the company.</p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <FileText className="h-5 w-5 text-orange-600" />
-                    Non-Compete Agreement
-                  </h3>
-                  <p className="text-sm">Our standard non-compete agreement must be signed and on file before your first day.</p>
-                </div>
-              </div>
-
-              {/* Benefits & Details */}
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <Award className="h-5 w-5 text-blue-600" />
-                    Benefits
-                  </h3>
-                  <p className="text-sm">The current standard company health, life, disability, and dental insurance coverage are generally supported for full-time employees. Training courses, certifications, and tuition reimbursement will generally take place per company policy. Employee contribution to the payment of benefit plans is determined annually.</p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-purple-600" />
-                    Vacation and Personal Emergency Time Off
-                  </h3>
-                  <p className="text-sm">Vacation is accrued at x.xx hours per pay period, which is generally two weeks per an annual basis. Personal days are generally accrued at the company policy.</p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <DollarSign className="h-5 w-5 text-green-600" />
-                    Business/Travel Reimbursement
-                  </h3>
-                  <p className="text-sm">Normal and reasonable expenses will be reimbursed on a monthly basis per company policy. Filing of the appropriate expense request form.</p>
+                  <p className="mb-2"><strong>Commencement Date:</strong> {formatApplicationDate()}</p>
+                  <p className="mb-2"><strong>Institution:</strong> {formData.university}</p>
+                  <p className="mb-2"><strong>Program Duration:</strong> As per category guidelines</p>
+                  <p className="mb-2"><strong>Status:</strong> Active Scholar</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 my-6">
-              <p className="text-blue-800">
-                <strong>Your employment with [Company Name] is at-will and either party can terminate the relationship at any time with or without cause 
-                and with or without notice.</strong> You acknowledge that this letter supersedes, cancel, and the final form of any referenced document(s), represents 
-                the entire agreement between you and [Company Name] as to the specified terms and does not modify any verbal or written agreements, promises or representations that 
-                are not specifically stated in this offer letter and are controlled by your Compensation Terms.
+            <div className="space-y-4">
+              <h3 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
+                <Briefcase className="h-5 w-5 text-blue-600" />
+                Terms of Engagement
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                    <h4 className="font-semibold text-green-800 mb-2">Program Benefits</h4>
+                    <ul className="text-sm space-y-1 text-green-700">
+                      <li>• Official certification and credentials</li>
+                      <li>• Access to exclusive resources and mentorship</li>
+                      <li>• Professional networking opportunities</li>
+                      <li>• Skill development and training programs</li>
+                      <li>• Portfolio enhancement support</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                    <h4 className="font-semibold text-purple-800 mb-2">Learning & Development</h4>
+                    <ul className="text-sm space-y-1 text-purple-700">
+                      <li>• Industry-standard project assignments</li>
+                      <li>• Regular feedback and evaluation sessions</li>
+                      <li>• Access to digital learning platforms</li>
+                      <li>• Participation in webinars and workshops</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                    <h4 className="font-semibold text-orange-800 mb-2">Scholar Responsibilities</h4>
+                    <ul className="text-sm space-y-1 text-orange-700">
+                      <li>• Maintain high standards of professionalism</li>
+                      <li>• Complete assigned tasks within deadlines</li>
+                      <li>• Participate actively in program activities</li>
+                      <li>• Adhere to organizational policies and ethics</li>
+                      <li>• Contribute positively to team objectives</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h4 className="font-semibold text-blue-800 mb-2">Support & Resources</h4>
+                    <ul className="text-sm space-y-1 text-blue-700">
+                      <li>• Dedicated program coordinator assistance</li>
+                      <li>• Technical support and guidance</li>
+                      <li>• Regular progress monitoring</li>
+                      <li>• Career counseling and placement support</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 p-6 rounded-xl border border-yellow-200 my-6">
+              <h3 className="font-semibold text-yellow-800 text-lg mb-3 flex items-center gap-2">
+                <FileText className="h-5 w-5" />
+                Important Terms & Conditions
+              </h3>
+              <div className="text-sm text-yellow-800 space-y-2">
+                <p>• This appointment is subject to satisfactory completion of program requirements and adherence to organizational policies.</p>
+                <p>• All intellectual property created during the program belongs to Uniford Foundation unless otherwise specified.</p>
+                <p>• Participants must maintain confidentiality regarding internal processes and sensitive information.</p>
+                <p>• The organization reserves the right to modify program structure based on industry requirements and organizational needs.</p>
+                <p>• Successful completion will result in official certification and may lead to extended opportunities within our network.</p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold text-gray-800 text-lg">Program Commencement & Next Steps</h3>
+              <p>
+                Your program is scheduled to commence on <strong>{formatApplicationDate()}</strong>. Prior to your start date, you will receive 
+                detailed program guidelines, access credentials, and orientation materials via your registered email address.
+              </p>
+              <p>
+                We encourage you to prepare by familiarizing yourself with industry trends in <strong>{formData.domain}</strong> and reviewing 
+                any preparatory materials that will be shared with you.
               </p>
             </div>
 
-            <p>
-              <strong>If you are in agreement with the above stated information, please sign below. This offer expires in 10 business days.</strong>
-            </p>
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-xl my-6">
+              <p className="text-center font-medium">
+                <strong>Acceptance Deadline:</strong> Please confirm your acceptance within 10 business days from the date of this letter. 
+                Failure to respond within the stipulated timeframe may result in the offer being withdrawn.
+              </p>
+            </div>
 
-            <p>
-              We are excited to have you join our team and look forward to working with you!
+            <p className="text-center text-lg font-medium text-gray-800">
+              We are excited to welcome you to the Uniford Foundation family and look forward to your valuable contributions 
+              to our mission of fostering innovation and excellence.
             </p>
 
             <div className="mt-12 pt-8 border-t border-gray-200">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <div className="mb-8">
+                    <p className="text-sm text-gray-600 mb-4">Scholar Acceptance:</p>
                     <div className="border-b-2 border-gray-300 w-48 mb-2"></div>
-                    <p className="text-sm text-gray-600">Candidate's Name</p>
+                    <p className="text-sm text-gray-600">Signature</p>
                     <p className="font-semibold">{formData.name}</p>
+                    <p className="text-sm text-gray-500 mt-2">Scholar ID: {formData.uid}</p>
                   </div>
                 </div>
                 <div>
                   <div className="mb-8">
+                    <p className="text-sm text-gray-600 mb-4">Date of Acceptance:</p>
                     <div className="border-b-2 border-gray-300 w-32 mb-2"></div>
-                    <p className="text-sm text-gray-600">Date</p>
+                    <p className="text-sm text-gray-600">DD/MM/YYYY</p>
                   </div>
                 </div>
               </div>
               
               <div className="text-right mt-8">
-                <p className="font-semibold">Sincerely,</p>
-                <div className="mt-4 p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white inline-block">
-                  <p className="font-bold text-lg">VC Kahleer</p>
-                  <p className="text-sm text-blue-100">Managing Head</p>
-                  <p className="text-xs text-blue-200">Uniford Foundation</p>
+                <p className="font-semibold text-gray-700 mb-4">Warm Regards,</p>
+                <div className="inline-block">
+                  <div className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white text-center">
+                    <p className="font-bold text-lg">VC Kahleer</p>
+                    <p className="text-sm text-blue-100">Managing Head</p>
+                    <p className="text-xs text-blue-200">Uniford Foundation</p>
+                  </div>
+                  <div className="mt-4 text-center text-sm text-gray-600">
+                    <p>Email: info@uniford.org</p>
+                    <p>Phone: +91 73470-99610</p>
+                    <p>Website: www.uniford.org</p>
+                  </div>
                 </div>
               </div>
             </div>
