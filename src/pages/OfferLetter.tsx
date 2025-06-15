@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Download, FileText, Mail, Calendar, MapPin, User, Building2, GraduationCap, Tag, Award, CheckCircle } from 'lucide-react';
+import { Download, FileText, Mail, Calendar, MapPin, User, Building2, GraduationCap, Tag, Award, CheckCircle, Briefcase, Clock, DollarSign } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -24,6 +24,7 @@ const OfferLetter = () => {
     applicationDate: ''
   });
   const [showOffer, setShowOffer] = useState(false);
+  const [offerFormat, setOfferFormat] = useState<'compact' | 'detailed'>('compact');
   const [isDownloading, setIsDownloading] = useState(false);
   const { toast } = useToast();
 
@@ -74,8 +75,8 @@ const OfferLetter = () => {
     if (!showOffer) return;
     
     setIsDownloading(true);
-    const filename = `uniford-offer-letter-${formData.uid}`;
-    const elementId = 'offer-letter';
+    const filename = `uniford-offer-letter-${offerFormat}-${formData.uid}`;
+    const elementId = `offer-letter-${offerFormat}`;
     
     try {
       if (format === 'pdf') {
@@ -86,7 +87,7 @@ const OfferLetter = () => {
       
       toast({
         title: "Download Successful",
-        description: `Your offer letter has been downloaded as ${format.toUpperCase()}`,
+        description: `Your ${offerFormat} offer letter has been downloaded as ${format.toUpperCase()}`,
       });
     } catch (error) {
       console.error('Download error:', error);
@@ -181,6 +182,315 @@ const OfferLetter = () => {
     }
     return `${formData.domain} ${categoryTitle} Participant`;
   };
+
+  const renderCompactOfferLetter = () => (
+    <Card className="max-w-4xl mx-auto bg-gradient-to-br from-slate-50 to-blue-50 border-0 shadow-none overflow-hidden" id="offer-letter-compact">
+      <CardContent className="p-8 relative">
+        {/* Modern Header with Gradient Background */}
+        <div className="relative mb-8 p-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 rounded-2xl text-white overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="relative z-10 flex justify-between items-center">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Award className="h-8 w-8 text-yellow-300" />
+                <h1 className="text-3xl font-bold">{getCategoryTitle()}</h1>
+              </div>
+              <h2 className="text-2xl font-semibold text-blue-100">OFFER LETTER</h2>
+            </div>
+            <div className="text-right">
+              <h2 className="text-3xl font-bold tracking-wider">UNIFORD</h2>
+              <p className="text-lg text-blue-100 font-medium">FOUNDATION</p>
+              <div className="mt-2 px-3 py-1 bg-white/20 rounded-full text-sm">
+                Est. 2024
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Reference Info in Modern Cards */}
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+            <div className="flex items-center gap-2 text-gray-600 text-sm">
+              <FileText className="h-4 w-4 text-blue-600" />
+              <span>Ref: {getReferenceNumber()}</span>
+            </div>
+          </div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+            <div className="flex items-center gap-2 text-gray-600 text-sm">
+              <Calendar className="h-4 w-4 text-purple-600" />
+              <span>{getCurrentDate()}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Scholar Info Card */}
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+              {formData.name.charAt(0)}
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-gray-800 mb-1">{formData.name}</h3>
+              <div className="flex items-center gap-2 text-gray-600 mb-1">
+                <Building2 className="h-4 w-4" />
+                <span className="text-sm">{formData.university}</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <Tag className="h-4 w-4" />
+                <span className="text-sm font-medium text-blue-600">{formData.uid}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="space-y-4 mb-6 text-gray-700">
+          <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-xl">
+            <p className="font-semibold text-green-800 flex items-center gap-2">
+              <CheckCircle className="h-5 w-5" />
+              Congratulations! You've been selected for {getPositionTitle()}
+            </p>
+          </div>
+          
+          <p className="text-gray-700 leading-relaxed">
+            We're excited to welcome you to <strong>Uniford Foundation</strong> as our new <strong>{getPositionTitle()}</strong>. 
+            Your journey begins on <strong>{formatApplicationDate()}</strong>, and we believe your skills will make a significant impact.
+          </p>
+          
+          {/* Program Details in Modern Grid */}
+          <div className="grid md:grid-cols-2 gap-4 my-6">
+            <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
+              <div className="flex items-center gap-2 mb-2">
+                <GraduationCap className="h-5 w-5 text-blue-600" />
+                <span className="font-semibold text-blue-800">Position</span>
+              </div>
+              <p className="text-gray-700">{getPositionTitle()}</p>
+            </div>
+            <div className="bg-purple-50 p-4 rounded-xl border border-purple-100">
+              <div className="flex items-center gap-2 mb-2">
+                <Tag className="h-5 w-5 text-purple-600" />
+                <span className="font-semibold text-purple-800">Domain</span>
+              </div>
+              <p className="text-gray-700">{formData.domain}</p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-xl border border-green-100">
+              <div className="flex items-center gap-2 mb-2">
+                <Calendar className="h-5 w-5 text-green-600" />
+                <span className="font-semibold text-green-800">Start Date</span>
+              </div>
+              <p className="text-gray-700">{formatApplicationDate()}</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-xl border border-orange-100">
+              <div className="flex items-center gap-2 mb-2">
+                <User className="h-5 w-5 text-orange-600" />
+                <span className="font-semibold text-orange-800">Scholar ID</span>
+              </div>
+              <p className="text-gray-700">{formData.uid}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer with Contact and Signature */}
+        <div className="grid md:grid-cols-2 gap-6 mt-8 pt-6 border-t border-gray-200">
+          <div className="space-y-3">
+            <h4 className="font-semibold text-gray-800 mb-3">Contact Information</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2 text-gray-600">
+                <Mail className="h-4 w-4 text-blue-600" />
+                <span>+91 73470-99610</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <Mail className="h-4 w-4 text-blue-600" />
+                <span>info@uniford.org</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                <FileText className="h-4 w-4 text-blue-600" />
+                <span>www.uniford.org</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-right">
+            <div className="mb-4">
+              <p className="text-gray-700 font-medium">Best Regards,</p>
+              <div className="mt-6 p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white text-center">
+                <p className="font-bold text-lg">VC Kahleer</p>
+                <p className="text-sm text-blue-100">Managing Head</p>
+                <p className="text-xs text-blue-200 mt-1">Uniford Foundation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Acceptance Section */}
+        <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200">
+          <p className="text-sm text-gray-600 mb-4 italic text-center">
+            "I accept this offer and agree to the terms, privacy policies, and program guidelines of Uniford Foundation."
+          </p>
+          <div className="flex justify-between items-center">
+            <div className="text-center">
+              <div className="border-b-2 border-gray-300 w-32 mb-1"></div>
+              <p className="text-xs text-gray-500">Signature</p>
+            </div>
+            <div className="text-center">
+              <div className="border-b-2 border-gray-300 w-24 mb-1"></div>
+              <p className="text-xs text-gray-500">Date</p>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+  const renderDetailedOfferLetter = () => (
+    <Card className="max-w-4xl mx-auto bg-white border-0 shadow-none overflow-hidden" id="offer-letter-detailed">
+      <CardContent className="p-0 relative">
+        {/* Modern Colorful Header inspired by reference */}
+        <div className="relative h-32 bg-gradient-to-r from-yellow-400 via-pink-500 via-purple-500 to-blue-500 overflow-hidden">
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%)',
+          }}></div>
+          <div className="absolute top-4 right-6 text-right text-white">
+            <h2 className="text-2xl font-bold">Offer Letter</h2>
+            <p className="text-sm opacity-90">{getCurrentDate()}</p>
+          </div>
+        </div>
+
+        <div className="p-8">
+          {/* Company Header */}
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">Uniford Foundation</h1>
+            <p className="text-lg text-gray-600 font-medium">The Research & Development Company</p>
+            <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
+              <span>Ref: {getReferenceNumber()}</span>
+              <span>Guy Manuel Davidson</span>
+              <span>44 Stonecast Drive, Atlanta</span>
+            </div>
+          </div>
+
+          {/* Recipient */}
+          <div className="mb-6">
+            <p className="text-lg text-gray-700">Dear {formData.name},</p>
+          </div>
+
+          {/* Main Content */}
+          <div className="space-y-6 text-gray-700 leading-relaxed">
+            <p>
+              It is my pleasure to extend the following offer of employment to you on behalf of <strong>UNIFORD FOUNDATION</strong>. This offer is contingent upon your 
+              passing our mandatory background check, our receipt of your acceptance, and any other contingencies you may wish to discuss.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Position Details */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <Briefcase className="h-5 w-5 text-blue-600" />
+                    Your Title: {getPositionTitle()}
+                  </h3>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <Building2 className="h-5 w-5 text-purple-600" />
+                    Reporting Relationship
+                  </h3>
+                  <p className="text-sm">The position will report to Task Expert, Research Department.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <GraduationCap className="h-5 w-5 text-green-600" />
+                    The Position
+                  </h3>
+                  <p className="text-sm">Base Salary: Annual salary of $45,000 USD, subject to deductions for taxes and other withholdings as required by law or the policies of the company.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <FileText className="h-5 w-5 text-orange-600" />
+                    Non-Compete Agreement
+                  </h3>
+                  <p className="text-sm">Our standard non-compete agreement must be signed and on file before your first day.</p>
+                </div>
+              </div>
+
+              {/* Benefits & Details */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <Award className="h-5 w-5 text-blue-600" />
+                    Benefits
+                  </h3>
+                  <p className="text-sm">The current standard company health, life, disability, and dental insurance coverage are generally supported for full-time employees. Training courses, certifications, and tuition reimbursement will generally take place per company policy. Employee contribution to the payment of benefit plans is determined annually.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-purple-600" />
+                    Vacation and Personal Emergency Time Off
+                  </h3>
+                  <p className="text-sm">Vacation is accrued at x.xx hours per pay period, which is generally two weeks per an annual basis. Personal days are generally accrued at the company policy.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                    <DollarSign className="h-5 w-5 text-green-600" />
+                    Business/Travel Reimbursement
+                  </h3>
+                  <p className="text-sm">Normal and reasonable expenses will be reimbursed on a monthly basis per company policy. Filing of the appropriate expense request form.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 my-6">
+              <p className="text-blue-800">
+                <strong>Your employment with [Company Name] is at-will and either party can terminate the relationship at any time with or without cause 
+                and with or without notice.</strong> You acknowledge that this letter supersedes, cancel, and the final form of any referenced document(s), represents 
+                the entire agreement between you and [Company Name] as to the specified terms and does not modify any verbal or written agreements, promises or representations that 
+                are not specifically stated in this offer letter and are controlled by your Compensation Terms.
+              </p>
+            </div>
+
+            <p>
+              <strong>If you are in agreement with the above stated information, please sign below. This offer expires in 10 business days.</strong>
+            </p>
+
+            <p>
+              We are excited to have you join our team and look forward to working with you!
+            </p>
+
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <div className="mb-8">
+                    <div className="border-b-2 border-gray-300 w-48 mb-2"></div>
+                    <p className="text-sm text-gray-600">Candidate's Name</p>
+                    <p className="font-semibold">{formData.name}</p>
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-8">
+                    <div className="border-b-2 border-gray-300 w-32 mb-2"></div>
+                    <p className="text-sm text-gray-600">Date</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-right mt-8">
+                <p className="font-semibold">Sincerely,</p>
+                <div className="mt-4 p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white inline-block">
+                  <p className="font-bold text-lg">VC Kahleer</p>
+                  <p className="text-sm text-blue-100">Managing Head</p>
+                  <p className="text-xs text-blue-200">Uniford Foundation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
 
   return (
     <Layout>
@@ -361,8 +671,27 @@ const OfferLetter = () => {
                 </CardContent>
               </Card>
             ) : (
-              /* Modern Redesigned Offer Letter */
               <div className="space-y-8">
+                {/* Format Selection */}
+                <div className="flex justify-center gap-4 print:hidden">
+                  <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
+                    <Button 
+                      onClick={() => setOfferFormat('compact')}
+                      variant={offerFormat === 'compact' ? 'default' : 'ghost'}
+                      className="px-6"
+                    >
+                      Compact Format
+                    </Button>
+                    <Button 
+                      onClick={() => setOfferFormat('detailed')}
+                      variant={offerFormat === 'detailed' ? 'default' : 'ghost'}
+                      className="px-6"
+                    >
+                      Detailed Format
+                    </Button>
+                  </div>
+                </div>
+
                 {/* Control Buttons */}
                 <div className="flex justify-center gap-4 print:hidden">
                   <div className="flex gap-2">
@@ -401,170 +730,10 @@ const OfferLetter = () => {
                   </Button>
                 </div>
 
-                {/* Modern Offer Letter Document */}
+                {/* Offer Letter Document */}
                 <div className="flex justify-center">
                   <div className="bg-white p-4 rounded-xl shadow-2xl">
-                    <Card className="max-w-4xl mx-auto bg-gradient-to-br from-slate-50 to-blue-50 border-0 shadow-none overflow-hidden" id="offer-letter">
-                      <CardContent className="p-8 relative">
-                        {/* Modern Header with Gradient Background */}
-                        <div className="relative mb-8 p-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 rounded-2xl text-white overflow-hidden">
-                          <div className="absolute inset-0 bg-black/10"></div>
-                          <div className="relative z-10 flex justify-between items-center">
-                            <div>
-                              <div className="flex items-center gap-2 mb-2">
-                                <Award className="h-8 w-8 text-yellow-300" />
-                                <h1 className="text-3xl font-bold">{getCategoryTitle()}</h1>
-                              </div>
-                              <h2 className="text-2xl font-semibold text-blue-100">OFFER LETTER</h2>
-                            </div>
-                            <div className="text-right">
-                              <h2 className="text-3xl font-bold tracking-wider">UNIFORD</h2>
-                              <p className="text-lg text-blue-100 font-medium">FOUNDATION</p>
-                              <div className="mt-2 px-3 py-1 bg-white/20 rounded-full text-sm">
-                                Est. 2024
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Reference Info in Modern Cards */}
-                        <div className="grid md:grid-cols-2 gap-4 mb-6">
-                          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                            <div className="flex items-center gap-2 text-gray-600 text-sm">
-                              <FileText className="h-4 w-4 text-blue-600" />
-                              <span>Ref: {getReferenceNumber()}</span>
-                            </div>
-                          </div>
-                          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                            <div className="flex items-center gap-2 text-gray-600 text-sm">
-                              <Calendar className="h-4 w-4 text-purple-600" />
-                              <span>{getCurrentDate()}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Scholar Info Card */}
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-6">
-                          <div className="flex items-start gap-4">
-                            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                              {formData.name.charAt(0)}
-                            </div>
-                            <div className="flex-1">
-                              <h3 className="text-xl font-bold text-gray-800 mb-1">{formData.name}</h3>
-                              <div className="flex items-center gap-2 text-gray-600 mb-1">
-                                <Building2 className="h-4 w-4" />
-                                <span className="text-sm">{formData.university}</span>
-                              </div>
-                              <div className="flex items-center gap-2 text-gray-600">
-                                <Tag className="h-4 w-4" />
-                                <span className="text-sm font-medium text-blue-600">{formData.uid}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Main Content */}
-                        <div className="space-y-4 mb-6 text-gray-700">
-                          <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-xl">
-                            <p className="font-semibold text-green-800 flex items-center gap-2">
-                              <CheckCircle className="h-5 w-5" />
-                              Congratulations! You've been selected for {getPositionTitle()}
-                            </p>
-                          </div>
-                          
-                          <p className="text-gray-700 leading-relaxed">
-                            We're excited to welcome you to <strong>Uniford Foundation</strong> as our new <strong>{getPositionTitle()}</strong>. 
-                            Your journey begins on <strong>{formatApplicationDate()}</strong>, and we believe your skills will make a significant impact.
-                          </p>
-                          
-                          {/* Program Details in Modern Grid */}
-                          <div className="grid md:grid-cols-2 gap-4 my-6">
-                            <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
-                              <div className="flex items-center gap-2 mb-2">
-                                <GraduationCap className="h-5 w-5 text-blue-600" />
-                                <span className="font-semibold text-blue-800">Position</span>
-                              </div>
-                              <p className="text-gray-700">{getPositionTitle()}</p>
-                            </div>
-                            <div className="bg-purple-50 p-4 rounded-xl border border-purple-100">
-                              <div className="flex items-center gap-2 mb-2">
-                                <Tag className="h-5 w-5 text-purple-600" />
-                                <span className="font-semibold text-purple-800">Domain</span>
-                              </div>
-                              <p className="text-gray-700">{formData.domain}</p>
-                            </div>
-                            <div className="bg-green-50 p-4 rounded-xl border border-green-100">
-                              <div className="flex items-center gap-2 mb-2">
-                                <Calendar className="h-5 w-5 text-green-600" />
-                                <span className="font-semibold text-green-800">Start Date</span>
-                              </div>
-                              <p className="text-gray-700">{formatApplicationDate()}</p>
-                            </div>
-                            <div className="bg-orange-50 p-4 rounded-xl border border-orange-100">
-                              <div className="flex items-center gap-2 mb-2">
-                                <User className="h-5 w-5 text-orange-600" />
-                                <span className="font-semibold text-orange-800">Scholar ID</span>
-                              </div>
-                              <p className="text-gray-700">{formData.uid}</p>
-                            </div>
-                          </div>
-                          
-                          <p className="text-gray-700 leading-relaxed">
-                            This opportunity will provide hands-on experience, professional development, and meaningful contribution 
-                            to our mission of empowering scholars globally. Please confirm your acceptance by replying to this offer.
-                          </p>
-                        </div>
-
-                        {/* Footer with Contact and Signature */}
-                        <div className="grid md:grid-cols-2 gap-6 mt-8 pt-6 border-t border-gray-200">
-                          <div className="space-y-3">
-                            <h4 className="font-semibold text-gray-800 mb-3">Contact Information</h4>
-                            <div className="space-y-2 text-sm">
-                              <div className="flex items-center gap-2 text-gray-600">
-                                <Mail className="h-4 w-4 text-blue-600" />
-                                <span>+91 73470-99610</span>
-                              </div>
-                              <div className="flex items-center gap-2 text-gray-600">
-                                <Mail className="h-4 w-4 text-blue-600" />
-                                <span>info@uniford.org</span>
-                              </div>
-                              <div className="flex items-center gap-2 text-gray-600">
-                                <FileText className="h-4 w-4 text-blue-600" />
-                                <span>www.uniford.org</span>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="text-right">
-                            <div className="mb-4">
-                              <p className="text-gray-700 font-medium">Best Regards,</p>
-                              <div className="mt-6 p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white text-center">
-                                <p className="font-bold text-lg">VC Kahleer</p>
-                                <p className="text-sm text-blue-100">Managing Head</p>
-                                <p className="text-xs text-blue-200 mt-1">Uniford Foundation</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Acceptance Section */}
-                        <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200">
-                          <p className="text-sm text-gray-600 mb-4 italic text-center">
-                            "I accept this offer and agree to the terms, privacy policies, and program guidelines of Uniford Foundation."
-                          </p>
-                          <div className="flex justify-between items-center">
-                            <div className="text-center">
-                              <div className="border-b-2 border-gray-300 w-32 mb-1"></div>
-                              <p className="text-xs text-gray-500">Signature</p>
-                            </div>
-                            <div className="text-center">
-                              <div className="border-b-2 border-gray-300 w-24 mb-1"></div>
-                              <p className="text-xs text-gray-500">Date</p>
-                            </div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    {offerFormat === 'compact' ? renderCompactOfferLetter() : renderDetailedOfferLetter()}
                   </div>
                 </div>
 
