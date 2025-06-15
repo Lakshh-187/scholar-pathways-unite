@@ -20,7 +20,8 @@ const OfferLetter = () => {
     uid: '',
     email: '',
     phone: '',
-    address: ''
+    address: '',
+    applicationDate: ''
   });
   const [showOffer, setShowOffer] = useState(false);
   const { toast } = useToast();
@@ -52,7 +53,7 @@ const OfferLetter = () => {
     }
 
     // Validate all required fields
-    if (!formData.name || !formData.university || !formData.domain || !formData.category || !formData.uid || !formData.email) {
+    if (!formData.name || !formData.university || !formData.domain || !formData.category || !formData.uid || !formData.email || !formData.applicationDate) {
       toast({
         title: "Incomplete Form",
         description: "Please fill in all required fields",
@@ -85,13 +86,24 @@ const OfferLetter = () => {
       uid: '',
       email: '',
       phone: '',
-      address: ''
+      address: '',
+      applicationDate: ''
     });
     setShowOffer(false);
   };
 
   const getCurrentDate = () => {
     return new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const formatApplicationDate = () => {
+    if (!formData.applicationDate) return '';
+    const date = new Date(formData.applicationDate);
+    return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -229,6 +241,18 @@ const OfferLetter = () => {
                     </div>
 
                     <div className="space-y-2">
+                      <Label htmlFor="applicationDate">Date of Application *</Label>
+                      <Input
+                        id="applicationDate"
+                        name="applicationDate"
+                        type="date"
+                        value={formData.applicationDate}
+                        onChange={handleInputChange}
+                        className="text-lg py-3"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
                       <Input
                         id="phone"
@@ -241,7 +265,7 @@ const OfferLetter = () => {
                       />
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 md:col-span-2">
                       <Label htmlFor="address">Address</Label>
                       <Input
                         id="address"
@@ -322,13 +346,8 @@ const OfferLetter = () => {
                     <div className="space-y-4 mb-8 text-gray-800 leading-relaxed">
                       <p>
                         We are pleased to appoint you to our organization as a <strong>{formData.domain}</strong>{' '}
-                        Intern with effect from <strong>{getCurrentDate()}</strong>. You will be based out of{' '}
-                        {formData.university} , India 140301.
-                      </p>
-                      
-                      <p className="italic">
-                        Your employment with us will be governed by the Terms & Conditions as{' '}
-                        detailed in the <strong>Employment Agreement</strong>.
+                        Intern with effect from <strong>{formatApplicationDate()}</strong>. You will be based out of{' '}
+                        {formData.university}, India.
                       </p>
                       
                       <p>
@@ -362,16 +381,12 @@ const OfferLetter = () => {
                     <div className="grid md:grid-cols-2 gap-8 mb-12">
                       <div className="space-y-2">
                         <div className="flex items-center text-sm text-gray-600">
-                          <MapPin className="h-4 w-4 mr-2 text-green-600" />
-                          Galgotias College, United States
+                          <Mail className="h-4 w-4 mr-2 text-green-600" />
+                          +91 73470-99610
                         </div>
                         <div className="flex items-center text-sm text-gray-600">
                           <Mail className="h-4 w-4 mr-2 text-green-600" />
-                          +91 62398-15892
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600">
-                          <Mail className="h-4 w-4 mr-2 text-green-600" />
-                          hrmanager@uniford.org
+                          info@uniford.org
                         </div>
                         <div className="flex items-center text-sm text-gray-600">
                           <FileText className="h-4 w-4 mr-2 text-green-600" />
@@ -382,8 +397,8 @@ const OfferLetter = () => {
                       <div className="text-right">
                         <p className="text-gray-800">Sincerely,</p>
                         <div className="mt-8">
-                          <p className="font-bold text-gray-800">Priyanka Sharma</p>
-                          <p className="text-sm text-gray-600 italic">HR Manager</p>
+                          <p className="font-bold text-gray-800">VC Kahleer</p>
+                          <p className="text-sm text-gray-600 italic">(Managing Head)</p>
                         </div>
                       </div>
                     </div>
@@ -411,7 +426,7 @@ const OfferLetter = () => {
                   <Mail className="h-4 w-4 text-blue-600" />
                   <AlertDescription className="text-blue-800">
                     <strong>Next Steps:</strong> Please email your downloaded offer letter to{' '}
-                    <strong>verification@uniford.org</strong> with the subject line{' '}
+                    <strong>info@uniford.org</strong> with the subject line{' '}
                     "Offer Letter Verification - {formData.uid}". The organization will verify your details{' '}
                     and contact you with further instructions.
                   </AlertDescription>
