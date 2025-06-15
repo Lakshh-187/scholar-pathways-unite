@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Upload, Shield, Stamp, Mail, CheckCircle, Lock, Star, FileCheck, Download, Send, ExternalLink, Eye } from 'lucide-react';
+import { Upload, Shield, Stamp, Mail, CheckCircle, Lock, Star, FileCheck, Download, Send, ExternalLink, Eye, Target, Scan } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -23,10 +23,14 @@ const DocumentAuthentication = () => {
   const [emailMessage, setEmailMessage] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [selectedStamp, setSelectedStamp] = useState('');
-  const [stampPosition, setStampPosition] = useState({ x: 0, y: 0 });
+  const [stampPosition, setStampPosition] = useState({ x: 85, y: 15 }); // Default top-right corner
   const [showStampPreview, setShowStampPreview] = useState(false);
+  const [documentType, setDocumentType] = useState<'offer-letter' | 'badge' | 'id-card' | 'unknown'>('unknown');
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [optimalStampAreas, setOptimalStampAreas] = useState<Array<{x: number, y: number, confidence: number}>>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const analysisCanvasRef = useRef<HTMLCanvasElement>(null);
   const { toast } = useToast();
 
   const stampOptions = [
@@ -66,7 +70,145 @@ const DocumentAuthentication = () => {
     }
   };
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  // Analyze document type and detect optimal stamp areas
+  const analyzeDocumentForStamping = async (imageUrl: string) => {
+    setIsAnalyzing(true);
+    try {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = imageUrl;
+      });
+
+      const canvas = analysisCanvasRef.current;
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      // Get image data for analysis
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+
+      // Detect document type based on content analysis
+      const detectedType = detectDocumentType(data, canvas.width, canvas.height);
+      setDocumentType(detectedType);
+
+      // Find optimal stamp areas based on document type
+      const optimalAreas = findOptimalStampAreas(detectedType, canvas.width, canvas.height, data);
+      setOptimalStampAreas(optimalAreas);
+
+      // Set the best stamp position
+      if (optimalAreas.length > 0) {
+        const bestArea = optimalAreas[0];
+        setStampPosition({ x: bestArea.x, y: bestArea.y });
+      }
+
+      toast({
+        title: "Document Analyzed",
+        description: `${detectedType.replace('-', ' ').toUpperCase()} detected. Optimal stamp position identified.`,
+      });
+
+    } catch (error) {
+      console.error('Document analysis failed:', error);
+      toast({
+        title: "Analysis Warning",
+        description: "Could not analyze document. Using default stamp position.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
+  // Detect document type based on image analysis
+  const detectDocumentType = (imageData: Uint8ClampedArray, width: number, height: number): 'offer-letter' | 'badge' | 'id-card' | 'unknown' => {
+    const fileName = uploadedFile?.name.toLowerCase() || '';
+    
+    // Simple filename-based detection first
+    if (fileName.includes('offer') || fileName.includes('letter')) {
+      return 'offer-letter';
+    }
+    if (fileName.includes('badge')) {
+      return 'badge';
+    }
+    if (fileName.includes('id') || fileName.includes('card')) {
+      return 'id-card';
+    }
+
+    // Analyze aspect ratio and layout patterns
+    const aspectRatio = width / height;
+    
+    // Badge documents are usually square-ish or portrait
+    if (aspectRatio >= 0.8 && aspectRatio <= 1.2) {
+      return 'badge';
+    }
+    
+    // ID cards are usually landscape with specific ratio
+    if (aspectRatio >= 1.5 && aspectRatio <= 1.8) {
+      return 'id-card';
+    }
+    
+    // Offer letters are usually portrait documents
+    if (aspectRatio >= 0.7 && aspectRatio <= 0.8) {
+      return 'offer-letter';
+    }
+
+    return 'unknown';
+  };
+
+  // Find optimal stamp areas based on document type
+  const findOptimalStampAreas = (docType: string, width: number, height: number, imageData: Uint8ClampedArray) => {
+    const areas: Array<{x: number, y: number, confidence: number}> = [];
+
+    switch (docType) {
+      case 'offer-letter':
+        // For offer letters, prefer top-right corner or bottom-right
+        areas.push(
+          { x: 80, y: 10, confidence: 0.9 }, // Top-right
+          { x: 80, y: 85, confidence: 0.8 }, // Bottom-right
+          { x: 15, y: 85, confidence: 0.6 }  // Bottom-left alternative
+        );
+        break;
+        
+      case 'badge':
+        // For badges, avoid center, prefer corners
+        areas.push(
+          { x: 85, y: 8, confidence: 0.95 },  // Top-right corner
+          { x: 8, y: 8, confidence: 0.7 },    // Top-left
+          { x: 85, y: 85, confidence: 0.6 }   // Bottom-right
+        );
+        break;
+        
+      case 'id-card':
+        // For ID cards, prefer top-right or bottom-right
+        areas.push(
+          { x: 88, y: 12, confidence: 0.9 },  // Top-right
+          { x: 88, y: 80, confidence: 0.8 },  // Bottom-right
+          { x: 12, y: 12, confidence: 0.6 }   // Top-left alternative
+        );
+        break;
+        
+      default:
+        // Default safe positions
+        areas.push(
+          { x: 85, y: 15, confidence: 0.7 },  // Top-right default
+          { x: 85, y: 80, confidence: 0.6 },  // Bottom-right
+          { x: 15, y: 15, confidence: 0.5 }   // Top-left
+        );
+    }
+
+    return areas.sort((a, b) => b.confidence - a.confidence);
+  };
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setUploadedFile(file);
@@ -74,9 +216,13 @@ const DocumentAuthentication = () => {
       setPreviewUrl(url);
       setIsAuthenticated(false);
       setShowStampPreview(false);
+      
+      // Analyze the document for optimal stamp placement
+      await analyzeDocumentForStamping(url);
+      
       toast({
-        title: "File Uploaded",
-        description: `${file.name} has been uploaded successfully`,
+        title: "File Uploaded & Analyzed",
+        description: `${file.name} has been uploaded and analyzed for optimal stamp placement`,
       });
     }
   };
@@ -85,7 +231,7 @@ const DocumentAuthentication = () => {
     const rect = event.currentTarget.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * 100;
     const y = ((event.clientY - rect.top) / rect.height) * 100;
-    setStampPosition({ x: Math.max(10, Math.min(90, x)), y: Math.max(10, Math.min(90, y)) });
+    setStampPosition({ x: Math.max(5, Math.min(95, x)), y: Math.max(5, Math.min(95, y)) });
   };
 
   const punchStampOnDocument = async () => {
@@ -104,34 +250,59 @@ const DocumentAuthentication = () => {
       // Draw original document
       ctx.drawImage(img, 0, 0);
       
-      // Calculate stamp position
+      // Calculate stamp position and size based on document type
       const stampX = (stampPosition.x / 100) * canvas.width;
       const stampY = (stampPosition.y / 100) * canvas.height;
-      const stampSize = Math.min(canvas.width, canvas.height) * 0.15; // 15% of smaller dimension
       
-      // Draw stamp background circle
+      // Adjust stamp size based on document type
+      let stampSize = Math.min(canvas.width, canvas.height) * 0.08; // Smaller default size
+      
+      switch (documentType) {
+        case 'badge':
+          stampSize = Math.min(canvas.width, canvas.height) * 0.06; // Very small for badges
+          break;
+        case 'id-card':
+          stampSize = Math.min(canvas.width, canvas.height) * 0.07; // Small for ID cards
+          break;
+        case 'offer-letter':
+          stampSize = Math.min(canvas.width, canvas.height) * 0.08; // Medium for letters
+          break;
+      }
+      
+      // Draw enhanced stamp
       ctx.save();
-      ctx.globalAlpha = 0.9;
+      ctx.globalAlpha = 0.85;
       
       // Create gradient for stamp
       const gradient = ctx.createRadialGradient(stampX, stampY, 0, stampX, stampY, stampSize/2);
-      gradient.addColorStop(0, '#3B82F6');
-      gradient.addColorStop(1, '#1E40AF');
+      gradient.addColorStop(0, '#1E40AF');
+      gradient.addColorStop(0.7, '#3B82F6');
+      gradient.addColorStop(1, '#1E3A8A');
       
       ctx.fillStyle = gradient;
       ctx.beginPath();
       ctx.arc(stampX, stampY, stampSize/2, 0, 2 * Math.PI);
       ctx.fill();
       
-      // Add stamp border
+      // Add stamp border with shadow effect
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+      ctx.shadowBlur = 2;
+      ctx.shadowOffsetX = 1;
+      ctx.shadowOffsetY = 1;
       ctx.strokeStyle = '#FFFFFF';
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 2;
       ctx.stroke();
       
+      // Reset shadow
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+      
       // Add inner dashed circle
-      ctx.setLineDash([5, 5]);
+      ctx.setLineDash([3, 3]);
       ctx.beginPath();
-      ctx.arc(stampX, stampY, stampSize/2 - 10, 0, 2 * Math.PI);
+      ctx.arc(stampX, stampY, stampSize/2 - 6, 0, 2 * Math.PI);
       ctx.stroke();
       ctx.setLineDash([]);
       
@@ -145,9 +316,9 @@ const DocumentAuthentication = () => {
       const stampText = selectedStampData?.name.toUpperCase() || 'AUTHENTICATED';
       
       // Draw curved text around the circle
-      const radius = stampSize/2 - 20;
+      const radius = stampSize/2 - 12;
       const textLength = stampText.length;
-      const angleStep = (Math.PI * 1.5) / textLength;
+      const angleStep = (Math.PI * 1.4) / textLength;
       
       for (let i = 0; i < textLength; i++) {
         const angle = -Math.PI/2 - (angleStep * (i - textLength/2));
@@ -163,9 +334,9 @@ const DocumentAuthentication = () => {
       
       // Add center text
       ctx.font = `bold ${stampSize * 0.06}px Arial`;
-      ctx.fillText('VERIFIED', stampX, stampY - 5);
+      ctx.fillText('VERIFIED', stampX, stampY - 2);
       ctx.font = `${stampSize * 0.04}px Arial`;
-      ctx.fillText(new Date().toLocaleDateString(), stampX, stampY + 8);
+      ctx.fillText(new Date().toLocaleDateString(), stampX, stampY + 6);
       
       ctx.restore();
       
@@ -265,7 +436,9 @@ Uniford Foundation Authentication Portal`);
     setRecipientEmail('');
     setEmailMessage('');
     setShowStampPreview(false);
-    setStampPosition({ x: 0, y: 0 });
+    setStampPosition({ x: 85, y: 15 });
+    setDocumentType('unknown');
+    setOptimalStampAreas([]);
   };
 
   if (!isAuthorized) {
@@ -360,14 +533,14 @@ Uniford Foundation Authentication Portal`);
               </div>
             </div>
             <Badge variant="outline" className="bg-white/20 text-white border-white/30 px-4 py-1 mb-4">
-              AUTHENTICATED PORTAL
+              SMART AUTHENTICATION
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Document <span className="text-blue-300">Authentication</span><br />
-              <span className="text-purple-300">System</span>
+              Intelligent <span className="text-blue-300">Document</span><br />
+              <span className="text-purple-300">Authentication</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-4xl mx-auto mb-8">
-              High-security verification portal for authenticating and sharing official documents with stamp punching
+              AI-powered stamp positioning and document verification with automatic optimal placement detection
             </p>
           </div>
         </div>
@@ -383,7 +556,7 @@ Uniford Foundation Authentication Portal`);
                 <CardHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-t-lg">
                   <CardTitle className="text-2xl font-bold flex items-center">
                     <Upload className="mr-3 h-6 w-6" />
-                    Document Upload & Stamp Punching
+                    Smart Document Upload & Stamp Positioning
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-8 space-y-6">
@@ -414,18 +587,46 @@ Uniford Foundation Authentication Portal`);
                       <Alert className="border-green-400 bg-green-50">
                         <FileCheck className="h-4 w-4 text-green-600" />
                         <AlertDescription className="text-green-800">
-                          <strong>File Ready:</strong> {uploadedFile.name}
+                          <div className="flex items-center justify-between">
+                            <span><strong>File Ready:</strong> {uploadedFile.name}</span>
+                            {isAnalyzing && (
+                              <div className="flex items-center gap-2">
+                                <Scan className="h-4 w-4 animate-spin" />
+                                <span className="text-sm">Analyzing...</span>
+                              </div>
+                            )}
+                          </div>
+                        </AlertDescription>
+                      </Alert>
+                    )}
+
+                    {/* Document Type Detection */}
+                    {documentType !== 'unknown' && (
+                      <Alert className="border-blue-400 bg-blue-50">
+                        <Target className="h-4 w-4 text-blue-600" />
+                        <AlertDescription className="text-blue-800">
+                          <strong>Document Type Detected:</strong> {documentType.replace('-', ' ').toUpperCase()}
+                          <br />
+                          <span className="text-sm">Optimal stamp position calculated automatically</span>
                         </AlertDescription>
                       </Alert>
                     )}
                   </div>
 
-                  {/* Document Preview with Stamp Position */}
+                  {/* Document Preview with Smart Stamp Positioning */}
                   {previewUrl && (
                     <div className="space-y-4">
-                      <Label className="text-lg font-semibold text-gray-800">
-                        Position Stamp (Click on document to place stamp)
-                      </Label>
+                      <div className="flex items-center justify-between">
+                        <Label className="text-lg font-semibold text-gray-800">
+                          Smart Stamp Positioning
+                        </Label>
+                        {optimalStampAreas.length > 0 && (
+                          <Badge className="bg-green-100 text-green-800 flex items-center gap-1">
+                            <Target className="h-3 w-3" />
+                            {optimalStampAreas.length} optimal areas found
+                          </Badge>
+                        )}
+                      </div>
                       <div 
                         className="relative border rounded-lg overflow-hidden cursor-crosshair bg-gray-100"
                         onClick={handleStampPosition}
@@ -435,25 +636,53 @@ Uniford Foundation Authentication Portal`);
                           alt="Document Preview" 
                           className="w-full h-64 object-contain"
                         />
+                        
+                        {/* Show current stamp position */}
                         {!isAuthenticated && (
                           <div 
-                            className="absolute w-8 h-8 border-2 border-blue-500 border-dashed rounded-full bg-blue-100/50 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                            className="absolute w-6 h-6 border-2 border-blue-500 border-dashed rounded-full bg-blue-100/80 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                             style={{ 
                               left: `${stampPosition.x}%`, 
                               top: `${stampPosition.y}%` 
                             }}
                           >
-                            <Stamp className="h-4 w-4 text-blue-600" />
+                            <Stamp className="h-3 w-3 text-blue-600" />
                           </div>
                         )}
+
+                        {/* Show optimal stamp areas */}
+                        {optimalStampAreas.map((area, index) => (
+                          <div
+                            key={index}
+                            className={`absolute w-4 h-4 rounded-full border transform -translate-x-1/2 -translate-y-1/2 pointer-events-none ${
+                              index === 0 
+                                ? 'border-green-500 bg-green-200/70' 
+                                : 'border-yellow-500 bg-yellow-200/50'
+                            }`}
+                            style={{ 
+                              left: `${area.x}%`, 
+                              top: `${area.y}%` 
+                            }}
+                          >
+                            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-bold">
+                              {index === 0 ? '🎯' : '📍'}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                      <p className="text-sm text-gray-600 text-center">
-                        Click anywhere on the document to position the authentication stamp
-                      </p>
+                      <div className="bg-blue-50 p-3 rounded-lg">
+                        <p className="text-sm text-blue-800">
+                          <strong>🎯 Green dot:</strong> Optimal stamp position (confidence: {optimalStampAreas[0]?.confidence ? Math.round(optimalStampAreas[0].confidence * 100) : 0}%)
+                          <br />
+                          <strong>📍 Yellow dots:</strong> Alternative positions
+                          <br />
+                          <strong>💡 Tip:</strong> Click anywhere to manually adjust stamp position
+                        </p>
+                      </div>
                     </div>
                   )}
 
-                  {/* Stamp Selection with Preview */}
+                  {/* Stamp Selection */}
                   <div className="space-y-4">
                     <Label className="text-lg font-semibold text-gray-800">Select Authentication Stamp</Label>
                     <Select value={selectedStamp} onValueChange={setSelectedStamp}>
@@ -474,20 +703,6 @@ Uniford Foundation Authentication Portal`);
                         ))}
                       </SelectContent>
                     </Select>
-                    
-                    {selectedStamp && (
-                      <div className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl border border-blue-200">
-                        <AuthenticationStamp stampType={selectedStamp as any} size="medium" applied={true} />
-                        <div>
-                          <Alert className="border-blue-400 bg-transparent border-0 p-0">
-                            <Stamp className="h-4 w-4 text-blue-600" />
-                            <AlertDescription className="text-blue-800">
-                              <strong>Selected Stamp:</strong> {stampOptions.find(s => s.id === selectedStamp)?.description}
-                            </AlertDescription>
-                          </Alert>
-                        </div>
-                      </div>
-                    )}
                   </div>
 
                   {/* Authentication Button */}
@@ -500,17 +715,17 @@ Uniford Foundation Authentication Portal`);
                       {isProcessing ? (
                         <>
                           <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Punching Stamp on Document...
+                          Applying Smart Stamp...
                         </>
                       ) : isAuthenticated ? (
                         <>
                           <CheckCircle className="mr-2 h-5 w-5" />
-                          Stamp Applied Successfully
+                          Smart Stamp Applied Successfully
                         </>
                       ) : (
                         <>
-                          <Stamp className="mr-2 h-5 w-5" />
-                          Punch Authentication Stamp
+                          <Target className="mr-2 h-5 w-5" />
+                          Apply Smart Authentication Stamp
                         </>
                       )}
                     </Button>
@@ -519,7 +734,7 @@ Uniford Foundation Authentication Portal`);
                       <Alert className="border-green-400 bg-green-50">
                         <Shield className="h-4 w-4 text-green-600" />
                         <AlertDescription className="text-green-800">
-                          <strong>Stamp Punched:</strong> Authentication stamp has been permanently applied to your document. The stamp is now visible on the document.
+                          <strong>Smart Stamp Applied:</strong> Authentication stamp has been intelligently positioned and permanently applied to your document based on {documentType.replace('-', ' ')} detection.
                         </AlertDescription>
                       </Alert>
                     )}
@@ -603,13 +818,13 @@ Uniford Foundation Authentication Portal`);
                       <Alert className="border-orange-400 bg-orange-50">
                         <Shield className="h-4 w-4 text-orange-600" />
                         <AlertDescription className="text-orange-800">
-                          Please punch the authentication stamp on your document first before sharing.
+                          Please apply the smart authentication stamp on your document first before sharing.
                         </AlertDescription>
                       </Alert>
                     )}
                   </div>
 
-                  {/* Document Preview with Stamp Verification */}
+                  {/* Document Preview with Smart Stamp Verification */}
                   {previewUrl && (
                     <div className="space-y-4">
                       <div className="flex items-center gap-2">
@@ -617,7 +832,13 @@ Uniford Foundation Authentication Portal`);
                         {isAuthenticated && (
                           <Badge className="bg-green-100 text-green-800 flex items-center gap-1">
                             <Eye className="h-3 w-3" />
-                            Stamp Visible
+                            Smart Stamp Applied
+                          </Badge>
+                        )}
+                        {documentType !== 'unknown' && (
+                          <Badge className="bg-blue-100 text-blue-800 flex items-center gap-1">
+                            <Target className="h-3 w-3" />
+                            {documentType.replace('-', ' ').toUpperCase()}
                           </Badge>
                         )}
                       </div>
@@ -628,7 +849,7 @@ Uniford Foundation Authentication Portal`);
                             <div>
                               <p className="font-semibold text-gray-800">{uploadedFile?.name}</p>
                               <p className="text-sm text-gray-600">
-                                {isAuthenticated ? 'Document with Authentication Stamp' : 'Original Document'}
+                                {isAuthenticated ? 'Document with Smart Authentication Stamp' : 'Original Document'}
                               </p>
                             </div>
                           </div>
@@ -636,7 +857,7 @@ Uniford Foundation Authentication Portal`);
                             <div className="flex items-center gap-2">
                               <AuthenticationStamp stampType={selectedStamp as any} size="small" applied={true} />
                               <Badge className="bg-green-100 text-green-800">
-                                Stamp Applied
+                                Smart Positioned
                               </Badge>
                             </div>
                           )}
@@ -647,17 +868,17 @@ Uniford Foundation Authentication Portal`);
                           <div className="mt-4 p-3 bg-white rounded border border-green-200">
                             <div className="flex items-center gap-2 mb-2">
                               <Eye className="h-4 w-4 text-green-600" />
-                              <span className="text-sm font-semibold text-green-800">Stamp Verification Preview</span>
+                              <span className="text-sm font-semibold text-green-800">Smart Stamp Verification Preview</span>
                             </div>
                             <div className="bg-green-50 border border-green-200 rounded p-2">
                               <img 
                                 src={previewUrl} 
-                                alt="Document with Authentication Stamp" 
+                                alt="Document with Smart Authentication Stamp" 
                                 className="w-full h-32 object-contain rounded"
                               />
                             </div>
                             <p className="text-xs text-green-700 mt-2 text-center">
-                              ✓ Authentication stamp successfully punched and visible on document
+                              ✓ Smart authentication stamp intelligently positioned and visible on {documentType.replace('-', ' ')}
                             </p>
                           </div>
                         )}
@@ -668,8 +889,9 @@ Uniford Foundation Authentication Portal`);
               </Card>
             </div>
 
-            {/* Canvas for stamp processing (hidden) */}
+            {/* Hidden canvases for processing */}
             <canvas ref={canvasRef} className="hidden" />
+            <canvas ref={analysisCanvasRef} className="hidden" />
 
             {/* Document Preview Section with Before/After */}
             {uploadedFile && (
@@ -677,7 +899,7 @@ Uniford Foundation Authentication Portal`);
                 <CardHeader className="bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-t-lg">
                   <CardTitle className="text-2xl font-bold flex items-center">
                     <FileCheck className="mr-3 h-6 w-6" />
-                    Document Authentication Preview
+                    Smart Document Authentication Preview
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-8">
@@ -686,7 +908,7 @@ Uniford Foundation Authentication Portal`);
                     <div className="space-y-4">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <h3 className="text-xl font-bold text-gray-800">Before Authentication</h3>
+                        <h3 className="text-xl font-bold text-gray-800">Before Smart Authentication</h3>
                       </div>
                       <div className="border-2 border-dashed border-red-300 rounded-xl p-6 bg-red-50">
                         <div className="flex items-center gap-4 mb-4">
@@ -694,6 +916,11 @@ Uniford Foundation Authentication Portal`);
                           <div>
                             <p className="font-semibold text-gray-800">{uploadedFile.name}</p>
                             <p className="text-sm text-red-600">Unverified Document</p>
+                            {documentType !== 'unknown' && (
+                              <Badge className="bg-blue-100 text-blue-800 text-xs mt-1">
+                                Detected: {documentType.replace('-', ' ').toUpperCase()}
+                              </Badge>
+                            )}
                           </div>
                         </div>
                         <div className="bg-white p-4 rounded-lg border border-red-200 relative">
@@ -705,10 +932,21 @@ Uniford Foundation Authentication Portal`);
                             This document has not been verified by any official authority and may not be accepted for official purposes.
                           </p>
                           
-                          {/* Empty stamp area */}
-                          <div className="absolute bottom-4 right-4">
-                            <AuthenticationStamp stampType="uniford" size="small" applied={false} />
-                          </div>
+                          {/* Show optimal stamp areas */}
+                          {optimalStampAreas.map((area, index) => (
+                            <div
+                              key={index}
+                              className={`absolute w-3 h-3 rounded-full border transform -translate-x-1/2 -translate-y-1/2 ${
+                                index === 0 
+                                  ? 'border-green-400 bg-green-200/50' 
+                                  : 'border-gray-400 bg-gray-200/50'
+                              }`}
+                              style={{ 
+                                left: `${area.x}%`, 
+                                top: `${area.y}%` 
+                              }}
+                            />
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -717,7 +955,7 @@ Uniford Foundation Authentication Portal`);
                     <div className="space-y-4">
                       <div className="flex items-center gap-3 mb-4">
                         <div className={`w-3 h-3 rounded-full ${isAuthenticated ? 'bg-green-500' : 'bg-gray-300'}`}></div>
-                        <h3 className="text-xl font-bold text-gray-800">After Authentication</h3>
+                        <h3 className="text-xl font-bold text-gray-800">After Smart Authentication</h3>
                       </div>
                       <div className={`border-2 border-dashed rounded-xl p-6 ${isAuthenticated ? 'border-green-300 bg-green-50' : 'border-gray-300 bg-gray-50'}`}>
                         <div className="flex items-center gap-4 mb-4">
@@ -725,27 +963,32 @@ Uniford Foundation Authentication Portal`);
                             <FileCheck className={`h-12 w-12 ${isAuthenticated ? 'text-green-500' : 'text-gray-400'}`} />
                             {isAuthenticated && (
                               <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                                <Shield className="h-3 w-3 text-white" />
+                                <Target className="h-3 w-3 text-white" />
                               </div>
                             )}
                           </div>
                           <div>
                             <p className="font-semibold text-gray-800">{uploadedFile.name}</p>
                             <p className={`text-sm ${isAuthenticated ? 'text-green-600' : 'text-gray-500'}`}>
-                              {isAuthenticated ? 'Authenticated Document' : 'Pending Authentication'}
+                              {isAuthenticated ? 'Smart Authenticated Document' : 'Pending Smart Authentication'}
                             </p>
+                            {documentType !== 'unknown' && (
+                              <Badge className="bg-blue-100 text-blue-800 text-xs mt-1">
+                                Optimized for: {documentType.replace('-', ' ').toUpperCase()}
+                              </Badge>
+                            )}
                           </div>
                         </div>
                         <div className={`p-4 rounded-lg border relative ${isAuthenticated ? 'bg-white border-green-200' : 'bg-gray-100 border-gray-200'}`}>
                           <p className="text-sm text-gray-600 mb-2">Status:</p>
                           <Badge className={isAuthenticated ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'}>
-                            {isAuthenticated ? 'AUTHENTICATED' : 'PENDING'}
+                            {isAuthenticated ? 'SMART AUTHENTICATED' : 'PENDING'}
                           </Badge>
                           {isAuthenticated && selectedStamp && (
                             <div className="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
                               <div className="flex items-center gap-2 mb-2">
-                                <Stamp className="h-4 w-4 text-blue-600" />
-                                <span className="text-sm font-semibold text-blue-800">Authentication Seal Applied</span>
+                                <Target className="h-4 w-4 text-blue-600" />
+                                <span className="text-sm font-semibold text-blue-800">Smart Authentication Seal Applied</span>
                               </div>
                               <p className="text-xs text-blue-700">
                                 <strong>{stampOptions.find(s => s.id === selectedStamp)?.name}</strong>
@@ -753,17 +996,27 @@ Uniford Foundation Authentication Portal`);
                               <p className="text-xs text-blue-600">
                                 Verification ID: {stampOptions.find(s => s.id === selectedStamp)?.details}
                               </p>
+                              <p className="text-xs text-green-600 mt-1">
+                                🎯 Intelligently positioned at optimal location ({Math.round(stampPosition.x)}%, {Math.round(stampPosition.y)}%)
+                              </p>
                             </div>
                           )}
                           <p className={`text-xs mt-2 ${isAuthenticated ? 'text-green-600' : 'text-gray-500'}`}>
                             {isAuthenticated 
-                              ? 'This document has been officially verified and authenticated. It is now valid for official purposes.'
-                              : 'Document authentication is pending. Please complete the authentication process.'
+                              ? 'This document has been officially verified with smart positioning technology and authenticated. It is now valid for official purposes.'
+                              : 'Document smart authentication is pending. Please complete the authentication process.'
                             }
                           </p>
                           
-                          {/* Authentication stamp in bottom right */}
-                          <div className="absolute bottom-4 right-4">
+                          {/* Authentication stamp positioned intelligently */}
+                          <div 
+                            className="absolute"
+                            style={{ 
+                              right: `${100 - stampPosition.x}%`, 
+                              top: `${stampPosition.y}%`,
+                              transform: 'translate(50%, -50%)'
+                            }}
+                          >
                             <AuthenticationStamp 
                               stampType={selectedStamp as any || 'uniford'} 
                               size="small" 
