@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Upload, Shield, Stamp, Mail, CheckCircle, Lock, Star, FileCheck, Download, Send } from 'lucide-react';
+import { Upload, Shield, Stamp, Mail, CheckCircle, Lock, Star, FileCheck, Download, Send, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -18,9 +18,9 @@ const DocumentAuthentication = () => {
   const [previewUrl, setPreviewUrl] = useState<string>('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [recipientEmail, setRecipientEmail] = useState('');
+  const [senderEmail, setSenderEmail] = useState('info@uniford.org');
   const [emailMessage, setEmailMessage] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [isSending, setIsSending] = useState(false);
   const [selectedStamp, setSelectedStamp] = useState('');
   const { toast } = useToast();
 
@@ -107,7 +107,7 @@ const DocumentAuthentication = () => {
     }, 2000);
   };
 
-  const sendEmail = () => {
+  const openEmailClient = () => {
     if (!recipientEmail) {
       toast({
         title: "Email Required",
@@ -126,18 +126,27 @@ const DocumentAuthentication = () => {
       return;
     }
 
-    setIsSending(true);
+    const selectedStampData = stampOptions.find(s => s.id === selectedStamp);
+    const subject = encodeURIComponent(`Authenticated Document - ${uploadedFile?.name}`);
+    const body = encodeURIComponent(`Dear Recipient,
+
+Please find attached the authenticated document: ${uploadedFile?.name}
+
+This document has been verified and authenticated with ${selectedStampData?.name} authentication seal (${selectedStampData?.details}).
+
+${emailMessage ? `\nMessage: ${emailMessage}` : ''}
+
+Best regards,
+Uniford Foundation Authentication Portal`);
+
+    const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}&from=${senderEmail}`;
     
-    // Simulate email sending
-    setTimeout(() => {
-      setIsSending(false);
-      toast({
-        title: "Email Sent Successfully",
-        description: `Authenticated document sent to ${recipientEmail}`,
-      });
-      setRecipientEmail('');
-      setEmailMessage('');
-    }, 1500);
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "Email Client Opened",
+      description: `Email draft created for ${recipientEmail}`,
+    });
   };
 
   const resetForm = () => {
@@ -388,8 +397,22 @@ const DocumentAuthentication = () => {
                 <CardContent className="p-8 space-y-6">
                   <div className="space-y-4">
                     <div className="space-y-2">
+                      <Label htmlFor="senderEmail" className="text-lg font-semibold text-gray-800">
+                        From (Sender Email)
+                      </Label>
+                      <Input
+                        id="senderEmail"
+                        type="email"
+                        value={senderEmail}
+                        onChange={(e) => setSenderEmail(e.target.value)}
+                        className="text-lg py-3 bg-gray-50"
+                        readOnly
+                      />
+                    </div>
+
+                    <div className="space-y-2">
                       <Label htmlFor="recipientEmail" className="text-lg font-semibold text-gray-800">
-                        Recipient Email Address
+                        To (Recipient Email Address)
                       </Label>
                       <Input
                         id="recipientEmail"
@@ -415,21 +438,12 @@ const DocumentAuthentication = () => {
                     </div>
 
                     <Button
-                      onClick={sendEmail}
-                      disabled={!isAuthenticated || !recipientEmail || isSending}
+                      onClick={openEmailClient}
+                      disabled={!isAuthenticated || !recipientEmail}
                       className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-4 text-lg disabled:opacity-50"
                     >
-                      {isSending ? (
-                        <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Sending Email...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-5 w-5" />
-                          Send Authenticated Document
-                        </>
-                      )}
+                      <ExternalLink className="mr-2 h-5 w-5" />
+                      Open Email Client
                     </Button>
 
                     {!isAuthenticated && (
@@ -472,6 +486,99 @@ const DocumentAuthentication = () => {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Document Preview Section */}
+            {uploadedFile && (
+              <Card className="mt-8 shadow-2xl border-0 bg-white">
+                <CardHeader className="bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-t-lg">
+                  <CardTitle className="text-2xl font-bold flex items-center">
+                    <FileCheck className="mr-3 h-6 w-6" />
+                    Document Authentication Preview
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {/* Before Authentication */}
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <h3 className="text-xl font-bold text-gray-800">Before Authentication</h3>
+                      </div>
+                      <div className="border-2 border-dashed border-red-300 rounded-xl p-6 bg-red-50">
+                        <div className="flex items-center gap-4 mb-4">
+                          <FileCheck className="h-12 w-12 text-red-500" />
+                          <div>
+                            <p className="font-semibold text-gray-800">{uploadedFile.name}</p>
+                            <p className="text-sm text-red-600">Unverified Document</p>
+                          </div>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg border border-red-200">
+                          <p className="text-sm text-gray-600 mb-2">Status:</p>
+                          <Badge variant="destructive" className="mb-3">
+                            NOT AUTHENTICATED
+                          </Badge>
+                          <p className="text-xs text-gray-500">
+                            This document has not been verified by any official authority and may not be accepted for official purposes.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* After Authentication */}
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className={`w-3 h-3 rounded-full ${isAuthenticated ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                        <h3 className="text-xl font-bold text-gray-800">After Authentication</h3>
+                      </div>
+                      <div className={`border-2 border-dashed rounded-xl p-6 ${isAuthenticated ? 'border-green-300 bg-green-50' : 'border-gray-300 bg-gray-50'}`}>
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="relative">
+                            <FileCheck className={`h-12 w-12 ${isAuthenticated ? 'text-green-500' : 'text-gray-400'}`} />
+                            {isAuthenticated && (
+                              <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                <Shield className="h-3 w-3 text-white" />
+                              </div>
+                            )}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-800">{uploadedFile.name}</p>
+                            <p className={`text-sm ${isAuthenticated ? 'text-green-600' : 'text-gray-500'}`}>
+                              {isAuthenticated ? 'Authenticated Document' : 'Pending Authentication'}
+                            </p>
+                          </div>
+                        </div>
+                        <div className={`p-4 rounded-lg border ${isAuthenticated ? 'bg-white border-green-200' : 'bg-gray-100 border-gray-200'}`}>
+                          <p className="text-sm text-gray-600 mb-2">Status:</p>
+                          <Badge className={isAuthenticated ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'}>
+                            {isAuthenticated ? 'AUTHENTICATED' : 'PENDING'}
+                          </Badge>
+                          {isAuthenticated && selectedStamp && (
+                            <div className="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Stamp className="h-4 w-4 text-blue-600" />
+                                <span className="text-sm font-semibold text-blue-800">Authentication Seal Applied</span>
+                              </div>
+                              <p className="text-xs text-blue-700">
+                                <strong>{stampOptions.find(s => s.id === selectedStamp)?.name}</strong>
+                              </p>
+                              <p className="text-xs text-blue-600">
+                                Verification ID: {stampOptions.find(s => s.id === selectedStamp)?.details}
+                              </p>
+                            </div>
+                          )}
+                          <p className={`text-xs mt-2 ${isAuthenticated ? 'text-green-600' : 'text-gray-500'}`}>
+                            {isAuthenticated 
+                              ? 'This document has been officially verified and authenticated. It is now valid for official purposes.'
+                              : 'Document authentication is pending. Please complete the authentication process.'
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </section>
