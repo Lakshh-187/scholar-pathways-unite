@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Briefcase, CreditCard, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -106,6 +105,11 @@ const Footer = () => {
               <li>
                 <Link to="/unsip" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   UNSIP
+                </Link>
+              </li>
+              <li>
+                <Link to="/offer-letter" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Offer Letter
                 </Link>
               </li>
             </ul>

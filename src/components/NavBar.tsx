@@ -20,7 +20,7 @@ const NavBar = () => {
     { name: 'UNCIF', path: '/uirad' },
     { name: 'UTHA', path: '/talent-hunt-alliance' },
     { name: 'iBacked', path: '/backed-by-uniford' },
-    { name: 'GFT', path: '/gft' },
+    { name: 'Offer', path: '/offer-letter' },
   ];
   
   return (
