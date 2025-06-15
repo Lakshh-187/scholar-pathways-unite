@@ -65,7 +65,7 @@ const OfferLetter = () => {
     setShowOffer(true);
     toast({
       title: "Offer Letter Generated",
-      description: "Your internship offer letter has been generated successfully",
+      description: "Your offer letter has been generated successfully",
     });
   };
 
@@ -118,6 +118,47 @@ const OfferLetter = () => {
     return `SI/HR/${year}-${month}/${day}/${Math.floor(Math.random() * 1000)}`;
   };
 
+  const getCategoryTitle = () => {
+    switch (formData.category) {
+      case 'internship':
+        return 'Internship';
+      case 'fellowship':
+        return 'Fellowship';
+      case 'project':
+        return 'Project';
+      case 'research':
+        return 'Research Program';
+      case 'uni-pitch':
+        return 'Uni-Pitch Program';
+      case 'badge':
+        return 'Badge Program';
+      case 'certification':
+        return 'Certification Program';
+      default:
+        return 'Program';
+    }
+  };
+
+  const getPositionTitle = () => {
+    const categoryTitle = getCategoryTitle();
+    if (formData.category === 'internship') {
+      return `${formData.domain} Intern`;
+    } else if (formData.category === 'fellowship') {
+      return `${formData.domain} Fellow`;
+    } else if (formData.category === 'project') {
+      return `${formData.domain} Project Associate`;
+    } else if (formData.category === 'research') {
+      return `${formData.domain} Research Scholar`;
+    } else if (formData.category === 'uni-pitch') {
+      return `Uni-Pitch ${formData.domain} Participant`;
+    } else if (formData.category === 'badge') {
+      return `${formData.domain} Badge Holder`;
+    } else if (formData.category === 'certification') {
+      return `${formData.domain} Certification Candidate`;
+    }
+    return `${formData.domain} ${categoryTitle} Participant`;
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -129,11 +170,11 @@ const OfferLetter = () => {
               AUTOMATED OFFER SYSTEM
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Internship <span className="text-yellow-300">Offer Letter</span><br />
+              Official <span className="text-yellow-300">Offer Letter</span><br />
               <span className="text-unifor-blue">Generator</span>
             </h1>
             <p className="text-xl text-purple-100 max-w-4xl mx-auto mb-8">
-              Generate your official internship offer letter instantly
+              Generate your official offer letter for any program instantly
             </p>
           </div>
         </div>
@@ -188,13 +229,18 @@ const OfferLetter = () => {
                           <SelectValue placeholder="Select your domain" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="video-editing">Video Editor</SelectItem>
-                          <SelectItem value="content-writing">Content Writer</SelectItem>
-                          <SelectItem value="graphic-design">Graphic Designer</SelectItem>
-                          <SelectItem value="web-development">Web Developer</SelectItem>
-                          <SelectItem value="marketing">Digital Marketing</SelectItem>
-                          <SelectItem value="research">Research Analyst</SelectItem>
-                          <SelectItem value="social-media">Social Media Manager</SelectItem>
+                          <SelectItem value="Video Editing">Video Editing</SelectItem>
+                          <SelectItem value="Content Writing">Content Writing</SelectItem>
+                          <SelectItem value="Graphic Design">Graphic Design</SelectItem>
+                          <SelectItem value="Web Development">Web Development</SelectItem>
+                          <SelectItem value="Digital Marketing">Digital Marketing</SelectItem>
+                          <SelectItem value="Research & Analysis">Research & Analysis</SelectItem>
+                          <SelectItem value="Social Media Management">Social Media Management</SelectItem>
+                          <SelectItem value="Data Science">Data Science</SelectItem>
+                          <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
+                          <SelectItem value="Business Development">Business Development</SelectItem>
+                          <SelectItem value="Project Management">Project Management</SelectItem>
+                          <SelectItem value="Public Relations">Public Relations</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -210,6 +256,9 @@ const OfferLetter = () => {
                           <SelectItem value="fellowship">Fellowship</SelectItem>
                           <SelectItem value="project">Project Based</SelectItem>
                           <SelectItem value="research">Research Program</SelectItem>
+                          <SelectItem value="uni-pitch">Uni-Pitch Program</SelectItem>
+                          <SelectItem value="badge">Badge Program</SelectItem>
+                          <SelectItem value="certification">Certification Program</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -315,7 +364,7 @@ const OfferLetter = () => {
                     {/* Header */}
                     <div className="flex justify-between items-start mb-8">
                       <div>
-                        <h1 className="text-3xl font-bold text-green-600 mb-2">Internship</h1>
+                        <h1 className="text-3xl font-bold text-green-600 mb-2">{getCategoryTitle()}</h1>
                         <h2 className="text-3xl font-bold text-green-600">Offer Letter</h2>
                       </div>
                       <div className="text-right">
@@ -340,34 +389,65 @@ const OfferLetter = () => {
                       <p className="text-gray-800">To,</p>
                       <p className="font-semibold text-gray-800">{formData.name}</p>
                       <p className="text-gray-800">{formData.university}</p>
+                      {formData.address && <p className="text-gray-800">{formData.address}</p>}
                     </div>
 
                     {/* Main Content */}
                     <div className="space-y-4 mb-8 text-gray-800 leading-relaxed">
+                      <p className="font-semibold">
+                        Subject: Offer for {getCategoryTitle()} Position - {getPositionTitle()}
+                      </p>
+                      
+                      <p>Dear {formData.name.split(' ')[0]},</p>
+                      
                       <p>
-                        We are pleased to appoint you to our organization as a <strong>{formData.domain}</strong>{' '}
-                        Intern with effect from <strong>{formatApplicationDate()}</strong>. You will be based out of{' '}
-                        {formData.university}, India.
+                        We are delighted to extend this offer to you for the position of <strong>{getPositionTitle()}</strong> at 
+                        Uniford Foundation, effective from <strong>{formatApplicationDate()}</strong>.
                       </p>
                       
                       <p>
-                        Your offer has been made based on the information you gave me.{' '}
-                        However, if there is a discrepancy in the copies of documents or{' '}
-                        certificates you gave as proof of the above, we retain the right to revoke{' '}
-                        our offer of employment.
-                      </p>
-                      
-                      <p className="italic">
-                        Please sign and return a physical copy of this letter as a token of your{' '}
-                        acceptance.
+                        This opportunity is part of our comprehensive {getCategoryTitle()} program designed to provide 
+                        hands-on experience, professional development, and meaningful contribution to our organization's mission. 
+                        Your application has been carefully reviewed, and we believe your skills and enthusiasm align perfectly 
+                        with our program objectives.
                       </p>
                       
                       <p>
-                        We congratulate you on your appointment and wish you a long and{' '}
-                        successful career with us. We are confident that your contribution will{' '}
-                        take us further in our journey towards the joy of learning in every child in{' '}
-                        India. We would like to assure you of our continued support for your professional{' '}
-                        development and growth.
+                        <strong>Program Details:</strong>
+                      </p>
+                      <ul className="list-disc list-inside ml-4 space-y-1">
+                        <li>Position: {getPositionTitle()}</li>
+                        <li>Domain: {formData.domain}</li>
+                        <li>Category: {getCategoryTitle()}</li>
+                        <li>Scholar ID: {formData.uid}</li>
+                        <li>Start Date: {formatApplicationDate()}</li>
+                        <li>Institution: {formData.university}</li>
+                      </ul>
+                      
+                      <p>
+                        Your participation in this program will contribute to our mission of empowering scholars and 
+                        creating positive impact in communities. We are committed to providing you with a supportive 
+                        learning environment that will enhance your professional growth and development.
+                      </p>
+                      
+                      <p>
+                        This offer is contingent upon the accuracy of the information provided in your application. 
+                        Should there be any discrepancies in the documents or certificates submitted, we reserve the 
+                        right to review and modify this offer accordingly.
+                      </p>
+                      
+                      <p className="font-semibold">
+                        Please confirm your acceptance by signing and returning a copy of this letter to our office.
+                      </p>
+                      
+                      <p>
+                        We congratulate you on this achievement and look forward to your valuable contributions to our 
+                        organization. We are confident that this experience will be mutually beneficial and contribute 
+                        to your professional journey.
+                      </p>
+                      
+                      <p>
+                        Welcome to the Uniford Foundation family!
                       </p>
                     </div>
 
@@ -406,7 +486,7 @@ const OfferLetter = () => {
                     {/* Agreement Acceptance */}
                     <div className="border-t pt-6">
                       <p className="text-sm text-gray-600 italic mb-6">
-                        "I hereby accept this offer and I Confirm that I agree with the privacy policies & employee agreement."
+                        "I hereby accept this offer and confirm that I agree with the privacy policies and program guidelines of Uniford Foundation."
                       </p>
                       
                       <div className="flex justify-between">
