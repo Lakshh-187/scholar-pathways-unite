@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Briefcase, CreditCard, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -108,8 +109,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/offer-letter" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Offer Letter
+                <Link to="/gft" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  GFT Program
                 </Link>
               </li>
             </ul>
@@ -125,44 +126,11 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Internships</h3>
+            <h3 className="text-lg font-semibold mb-4">Documents & Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/social-internship" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Social Internship
-                </Link>
-              </li>
-              <li>
-                <Link to="/unsip" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  UNSIP Program
-                </Link>
-              </li>
-            </ul>
-            <h3 className="text-lg font-semibold mb-4 mt-6">Quick Links</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/h1b-scholar" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  H1B
-                </Link>
-              </li>
-              <li>
-                <Link to="/career" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Career
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq-updates" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  FAQ Updates
-                </Link>
-              </li>
-              <li>
-                <Link to="/leaders" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Leaders
-                </Link>
-              </li>
-              <li>
-                <Link to="/memories" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Memories
+                <Link to="/offer-letter" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Offer Letter
                 </Link>
               </li>
               <li>
@@ -175,8 +143,42 @@ const Footer = () => {
                   Letter of Clearance
                 </Link>
               </li>
+              <li>
+                <Link to="/badge-id" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Badge ID
+                </Link>
+              </li>
+              <li>
+                <Link to="/certificate-generator" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Certificate Generator
+                </Link>
+              </li>
+              <li>
+                <Link to="/document-authentication" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Document Authentication
+                </Link>
+              </li>
+              <li>
+                <Link to="/id-card-services" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  ID Card Services
+                </Link>
+              </li>
+            </ul>
+            <h3 className="text-lg font-semibold mb-4 mt-6">Internships</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/social-internship" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Social Internship
+                </Link>
+              </li>
+              <li>
+                <Link to="/unsip" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UNSIP Program
+                </Link>
+              </li>
             </ul>
           </div>
+          
           <div>
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-3">
@@ -210,6 +212,16 @@ const Footer = () => {
                   FAQ & Updates
                 </Link>
               </li>
+              <li>
+                <Link to="/leaders" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Leaders
+                </Link>
+              </li>
+              <li>
+                <Link to="/memories" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Memories
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -217,10 +229,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact & Apply</h3>
             <ul className="space-y-3">
               <li>
- <Link to="/apply" className="text-gray-300 hover:text-white hover:underline transition-colors">
- Apply for Programs
- </Link>
- </li>
+                <Link to="/apply" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Apply for Programs
+                </Link>
+              </li>
               <li>
                 <Link to="/id-card" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   ID Card Application
@@ -229,11 +241,6 @@ const Footer = () => {
               <li>
                 <Link to="/talent-hunt-alliance" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   Talent Hunt Alliance
-                </Link>
-              </li>
-              <li>
-                <Link to="/letter-of-clearance" className="text-gray-300 hover:text-white hover:underline transition-colors">
-                  Letter of Clearance
                 </Link>
               </li>
               <li className="flex items-center gap-3">
