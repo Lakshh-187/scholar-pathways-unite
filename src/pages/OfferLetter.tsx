@@ -6,40 +6,32 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Download, FileText, Shield, AlertTriangle, CheckCircle, User, Calendar, MapPin } from 'lucide-react';
+import { Download, FileText, Shield, AlertTriangle, CheckCircle, User, Calendar, MapPin, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { Label } from '@/components/ui/label';
 
 const OfferLetter = () => {
-  const [scholarId, setScholarId] = useState('');
-  const [isValidating, setIsValidating] = useState(false);
-  const [offerData, setOfferData] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    scholarId: '',
+    program: '',
+    location: ''
+  });
   const [showOffer, setShowOffer] = useState(false);
   const { toast } = useToast();
 
-  // Mock scholar data - in real implementation, this would come from API
-  const mockScholarData = {
-    'UNF001': {
-      name: 'John Smith',
-      email: 'john.smith@email.com',
-      program: 'Campus to Corporate Track',
-      applicationDate: '2024-01-15',
-      location: 'New York, USA',
-      offerType: 'UNSIP Internship',
-      validUntil: '2024-06-30'
-    },
-    'UNF002': {
-      name: 'Sarah Johnson',
-      email: 'sarah.j@email.com',
-      program: 'Frontliners Track',
-      applicationDate: '2024-01-20',
-      location: 'California, USA',
-      offerType: 'Social Internship',
-      validUntil: '2024-07-15'
-    }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const validateScholarId = async () => {
-    if (!scholarId.startsWith('UNF')) {
+  const generateOfferLetter = () => {
+    // Validate Scholar ID format
+    if (!formData.scholarId.startsWith('UNF')) {
       toast({
         title: "Invalid Scholar ID",
         description: "Scholar ID must start with 'UNF' followed by numbers",
@@ -48,27 +40,21 @@ const OfferLetter = () => {
       return;
     }
 
-    setIsValidating(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      const scholar = mockScholarData[scholarId];
-      if (scholar) {
-        setOfferData(scholar);
-        setShowOffer(true);
-        toast({
-          title: "Scholar Verified",
-          description: "Your offer letter has been generated successfully",
-        });
-      } else {
-        toast({
-          title: "Scholar Not Found",
-          description: "No active application found for this Scholar ID",
-          variant: "destructive"
-        });
-      }
-      setIsValidating(false);
-    }, 2000);
+    // Validate all fields are filled
+    if (!formData.name || !formData.email || !formData.scholarId || !formData.program || !formData.location) {
+      toast({
+        title: "Incomplete Form",
+        description: "Please fill in all required fields",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setShowOffer(true);
+    toast({
+      title: "Offer Letter Generated",
+      description: "Your offer letter has been generated successfully",
+    });
   };
 
   const downloadOfferLetter = () => {
@@ -81,8 +67,13 @@ const OfferLetter = () => {
   };
 
   const resetForm = () => {
-    setScholarId('');
-    setOfferData(null);
+    setFormData({
+      name: '',
+      email: '',
+      scholarId: '',
+      program: '',
+      location: ''
+    });
     setShowOffer(false);
   };
 
@@ -101,8 +92,7 @@ const OfferLetter = () => {
               <span className="text-unifor-blue">Generation</span>
             </h1>
             <p className="text-xl text-purple-100 max-w-4xl mx-auto mb-8">
-              Automated offer letter generation for verified <span className="font-bold text-yellow-300">Uniford Scholars</span> 
-              with instant download capability
+              Generate your offer letter instantly by filling in your scholar details below
             </p>
           </div>
         </div>
@@ -116,54 +106,94 @@ const OfferLetter = () => {
               <Card className="shadow-xl">
                 <CardHeader className="text-center pb-8">
                   <CardTitle className="text-3xl font-bold text-gray-800 mb-4">
-                    Scholar Verification
+                    Scholar Application Form
                   </CardTitle>
                   <p className="text-lg text-gray-600">
-                    Enter your Uniford Scholar ID to generate your offer letter
+                    Fill in your details to generate your offer letter
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="scholarId" className="block text-sm font-medium text-gray-700 mb-2">
-                        Scholar ID
-                      </label>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name *</Label>
                       <Input
-                        id="scholarId"
+                        id="name"
+                        name="name"
                         type="text"
-                        placeholder="Enter your Scholar ID (e.g., UNF001)"
-                        value={scholarId}
-                        onChange={(e) => setScholarId(e.target.value)}
+                        placeholder="Enter your full name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         className="text-lg py-3"
-                        disabled={isValidating}
                       />
                     </div>
                     
-                    <Button 
-                      onClick={validateScholarId}
-                      disabled={!scholarId || isValidating}
-                      className="w-full bg-unifor-purple hover:bg-unifor-dark-purple text-white py-3 text-lg"
-                    >
-                      {isValidating ? (
-                        <>
-                          <Shield className="mr-2 h-5 w-5 animate-spin" />
-                          Validating Scholar ID...
-                        </>
-                      ) : (
-                        <>
-                          <CheckCircle className="mr-2 h-5 w-5" />
-                          Generate Offer Letter
-                        </>
-                      )}
-                    </Button>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="text-lg py-3"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="scholarId">Scholar ID *</Label>
+                      <Input
+                        id="scholarId"
+                        name="scholarId"
+                        type="text"
+                        placeholder="Enter your Scholar ID (e.g., UNF001)"
+                        value={formData.scholarId}
+                        onChange={handleInputChange}
+                        className="text-lg py-3"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="program">Program *</Label>
+                      <Input
+                        id="program"
+                        name="program"
+                        type="text"
+                        placeholder="Enter your program (e.g., Campus to Corporate Track)"
+                        value={formData.program}
+                        onChange={handleInputChange}
+                        className="text-lg py-3"
+                      />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <Label htmlFor="location">Location *</Label>
+                      <Input
+                        id="location"
+                        name="location"
+                        type="text"
+                        placeholder="Enter your location (e.g., New York, USA)"
+                        value={formData.location}
+                        onChange={handleInputChange}
+                        className="text-lg py-3"
+                      />
+                    </div>
                   </div>
+                  
+                  <Button 
+                    onClick={generateOfferLetter}
+                    className="w-full bg-unifor-purple hover:bg-unifor-dark-purple text-white py-3 text-lg"
+                  >
+                    <CheckCircle className="mr-2 h-5 w-5" />
+                    Generate Offer Letter
+                  </Button>
 
                   {/* Important Notice */}
                   <Alert className="border-yellow-400 bg-yellow-50">
                     <AlertTriangle className="h-4 w-4 text-yellow-600" />
                     <AlertDescription className="text-yellow-800">
-                      <strong>Important:</strong> This offer letter is subject to verification during submission and evaluation. 
-                      All details must be accurate as they will be audited during your pitch assessment.
+                      <strong>Important:</strong> After downloading your offer letter, please email it to the organization 
+                      for verification. All details will be verified during your application review process.
                     </AlertDescription>
                   </Alert>
                 </CardContent>
@@ -179,10 +209,10 @@ const OfferLetter = () => {
                           <FileText className="mr-3 h-8 w-8 text-unifor-purple" />
                           Offer Letter Generated
                         </CardTitle>
-                        <p className="text-gray-600 mt-2">Your application has been processed successfully</p>
+                        <p className="text-gray-600 mt-2">Your offer letter is ready for download</p>
                       </div>
                       <Badge className="bg-green-100 text-green-800 px-4 py-2">
-                        VERIFIED
+                        GENERATED
                       </Badge>
                     </div>
                   </CardHeader>
@@ -193,21 +223,21 @@ const OfferLetter = () => {
                           <User className="h-5 w-5 text-unifor-purple mr-3" />
                           <div>
                             <p className="text-sm text-gray-600">Scholar Name</p>
-                            <p className="font-semibold">{offerData?.name}</p>
+                            <p className="font-semibold">{formData.name}</p>
                           </div>
                         </div>
                         <div className="flex items-center">
-                          <FileText className="h-5 w-5 text-unifor-blue mr-3" />
+                          <Mail className="h-5 w-5 text-unifor-blue mr-3" />
+                          <div>
+                            <p className="text-sm text-gray-600">Email</p>
+                            <p className="font-semibold">{formData.email}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          <FileText className="h-5 w-5 text-green-600 mr-3" />
                           <div>
                             <p className="text-sm text-gray-600">Program</p>
-                            <p className="font-semibold">{offerData?.program}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center">
-                          <Calendar className="h-5 w-5 text-green-600 mr-3" />
-                          <div>
-                            <p className="text-sm text-gray-600">Application Date</p>
-                            <p className="font-semibold">{offerData?.applicationDate}</p>
+                            <p className="font-semibold">{formData.program}</p>
                           </div>
                         </div>
                       </div>
@@ -216,21 +246,21 @@ const OfferLetter = () => {
                           <MapPin className="h-5 w-5 text-red-500 mr-3" />
                           <div>
                             <p className="text-sm text-gray-600">Location</p>
-                            <p className="font-semibold">{offerData?.location}</p>
+                            <p className="font-semibold">{formData.location}</p>
                           </div>
                         </div>
                         <div className="flex items-center">
                           <Shield className="h-5 w-5 text-purple-600 mr-3" />
                           <div>
                             <p className="text-sm text-gray-600">Scholar ID</p>
-                            <p className="font-semibold">{scholarId}</p>
+                            <p className="font-semibold">{formData.scholarId}</p>
                           </div>
                         </div>
                         <div className="flex items-center">
                           <Calendar className="h-5 w-5 text-orange-600 mr-3" />
                           <div>
-                            <p className="text-sm text-gray-600">Valid Until</p>
-                            <p className="font-semibold">{offerData?.validUntil}</p>
+                            <p className="text-sm text-gray-600">Generated On</p>
+                            <p className="font-semibold">{new Date().toLocaleDateString()}</p>
                           </div>
                         </div>
                       </div>
@@ -255,12 +285,13 @@ const OfferLetter = () => {
                   </CardContent>
                 </Card>
 
-                {/* Verification Notice */}
+                {/* Email Instructions */}
                 <Alert className="border-blue-400 bg-blue-50">
-                  <Shield className="h-4 w-4 text-blue-600" />
+                  <Mail className="h-4 w-4 text-blue-600" />
                   <AlertDescription className="text-blue-800">
-                    <strong>Verification Process:</strong> This offer letter serves as an invitation to proceed. 
-                    Final verification will be conducted during submission and evaluation phases. Ensure all information is accurate.
+                    <strong>Next Steps:</strong> Please email your downloaded offer letter to <strong>verification@uniford.org</strong> 
+                    with the subject line "Offer Letter Verification - {formData.scholarId}". The organization will verify your details 
+                    and contact you with further instructions.
                   </AlertDescription>
                 </Alert>
               </div>
@@ -287,15 +318,15 @@ const OfferLetter = () => {
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start">
                       <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      All offer letters are audited during submission
+                      All offer letters are verified by the organization
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Information must match application details
+                      Information must be accurate and verifiable
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Subject to verification during evaluation
+                      Email verification is mandatory for processing
                     </li>
                   </ul>
                 </CardContent>
@@ -305,22 +336,22 @@ const OfferLetter = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Shield className="mr-3 h-6 w-6 text-unifor-blue" />
-                    Security & Privacy
+                    Important Notes
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start">
                       <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Secure scholar ID validation system
+                      Offer letter is an invitation to proceed
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Encrypted document generation
+                      Final verification by organization required
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="mr-2 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      Audit trail for all transactions
+                      Follow email format for submission
                     </li>
                   </ul>
                 </CardContent>
