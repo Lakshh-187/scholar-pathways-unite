@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { downloadBadgeAsImage, downloadBadgeAsPDF } from '@/utils/downloadUtils';
 
 const BadgeID = () => {
   const [applicationType, setApplicationType] = useState<'badge' | 'id'>('badge');
@@ -24,6 +24,7 @@ const BadgeID = () => {
   });
   const [generatedUID, setGeneratedUID] = useState('');
   const [showCredentials, setShowCredentials] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,24 +69,35 @@ const BadgeID = () => {
     });
   };
 
-  const downloadAs = (format: 'pdf' | 'png' | 'jpg') => {
-    // In a real implementation, you'd use libraries like jsPDF, html2canvas, etc.
-    const credentialType = applicationType === 'badge' ? 'Badge' : 'ID Card';
+  const downloadAs = async (format: 'pdf' | 'png' | 'jpg') => {
+    if (!showCredentials) return;
     
-    if (format === 'pdf') {
-      window.print();
-    } else {
-      // Simulate download for PNG/JPG
-      const link = document.createElement('a');
-      link.download = `uniford-${applicationType}-${generatedUID}.${format}`;
-      link.href = '#'; // In real implementation, this would be the generated image blob
-      link.click();
+    setIsDownloading(true);
+    const credentialType = applicationType === 'badge' ? 'Badge' : 'ID-Card';
+    const filename = `uniford-${credentialType}-${generatedUID}`;
+    const elementId = applicationType === 'badge' ? 'digital-badge' : 'digital-id-card';
+    
+    try {
+      if (format === 'pdf') {
+        await downloadBadgeAsPDF(elementId, filename);
+      } else {
+        await downloadBadgeAsImage(elementId, filename, format);
+      }
+      
+      toast({
+        title: "Download Successful",
+        description: `Your ${credentialType} has been downloaded as ${format.toUpperCase()}`,
+      });
+    } catch (error) {
+      console.error('Download error:', error);
+      toast({
+        title: "Download Failed",
+        description: "There was an error downloading your credential. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsDownloading(false);
     }
-    
-    toast({
-      title: "Download Started",
-      description: `Your ${credentialType} is downloading as ${format.toUpperCase()}`,
-    });
   };
 
   const resetForm = () => {
@@ -311,30 +323,34 @@ const BadgeID = () => {
                   <div className="flex gap-2">
                     <Button 
                       onClick={() => downloadAs('pdf')}
-                      className="bg-red-500 hover:bg-red-600 text-white px-6 py-3"
+                      disabled={isDownloading}
+                      className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 disabled:opacity-50"
                     >
                       <Download className="mr-2 h-4 w-4" />
-                      PDF
+                      {isDownloading ? 'Downloading...' : 'PDF'}
                     </Button>
                     <Button 
                       onClick={() => downloadAs('png')}
-                      className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3"
+                      disabled={isDownloading}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 disabled:opacity-50"
                     >
                       <Download className="mr-2 h-4 w-4" />
-                      PNG
+                      {isDownloading ? 'Downloading...' : 'PNG'}
                     </Button>
                     <Button 
                       onClick={() => downloadAs('jpg')}
-                      className="bg-green-500 hover:bg-green-600 text-white px-6 py-3"
+                      disabled={isDownloading}
+                      className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 disabled:opacity-50"
                     >
                       <Download className="mr-2 h-4 w-4" />
-                      JPG
+                      {isDownloading ? 'Downloading...' : 'JPG'}
                     </Button>
                   </div>
                   <Button 
                     variant="outline" 
                     onClick={resetForm}
                     className="px-6 py-3 border-2"
+                    disabled={isDownloading}
                   >
                     Generate Another
                   </Button>
@@ -343,142 +359,146 @@ const BadgeID = () => {
                 {applicationType === 'badge' ? (
                   /* Enhanced Digital Badge */
                   <div className="flex justify-center mb-8">
-                    <Card className="w-96 h-96 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden shadow-2xl border-0">
-                      {/* Background Graphics */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-                      
-                      {/* Decorative Elements */}
-                      <div className="absolute top-4 left-4">
-                        <Star className="h-4 w-4 text-yellow-300" />
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <Star className="h-4 w-4 text-yellow-300" />
-                      </div>
-                      <div className="absolute bottom-4 left-4">
-                        <Star className="h-4 w-4 text-yellow-300" />
-                      </div>
-                      <div className="absolute bottom-4 right-4">
-                        <Star className="h-4 w-4 text-yellow-300" />
-                      </div>
+                    <div id="digital-badge" className="bg-white p-8 rounded-lg shadow-lg">
+                      <Card className="w-96 h-96 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden shadow-2xl border-0">
+                        {/* Background Graphics */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent"></div>
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+                        
+                        {/* Decorative Elements */}
+                        <div className="absolute top-4 left-4">
+                          <Star className="h-4 w-4 text-yellow-300" />
+                        </div>
+                        <div className="absolute top-4 right-4">
+                          <Star className="h-4 w-4 text-yellow-300" />
+                        </div>
+                        <div className="absolute bottom-4 left-4">
+                          <Star className="h-4 w-4 text-yellow-300" />
+                        </div>
+                        <div className="absolute bottom-4 right-4">
+                          <Star className="h-4 w-4 text-yellow-300" />
+                        </div>
 
-                      <CardContent className="p-6 h-full flex flex-col justify-between relative z-10">
-                        {/* Header */}
-                        <div className="text-center">
-                          <div className="flex items-center justify-center mb-2">
-                            <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 mr-2">
-                              <Shield className="h-6 w-6 text-yellow-300" />
+                        <CardContent className="p-6 h-full flex flex-col justify-between relative z-10">
+                          {/* Header */}
+                          <div className="text-center">
+                            <div className="flex items-center justify-center mb-2">
+                              <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 mr-2">
+                                <Shield className="h-6 w-6 text-yellow-300" />
+                              </div>
+                              <span className="text-xl font-bold">UNIFORD</span>
                             </div>
-                            <span className="text-xl font-bold">UNIFORD</span>
+                            <div className="text-xs opacity-90 mb-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 inline-block">
+                              DIGITAL BADGE
+                            </div>
                           </div>
-                          <div className="text-xs opacity-90 mb-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 inline-block">
-                            DIGITAL BADGE
-                          </div>
-                        </div>
 
-                        {/* Main Content */}
-                        <div className="text-center space-y-3 flex-grow flex flex-col justify-center">
-                          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                            <div className="text-2xl font-bold text-yellow-300 mb-2">{getCategoryTitle()}</div>
-                            <div className="text-lg font-semibold">{formData.name}</div>
-                            <div className="text-sm opacity-90 mt-2">{formData.domain}</div>
-                            <div className="text-sm opacity-90">{formData.university}</div>
+                          {/* Main Content */}
+                          <div className="text-center space-y-3 flex-grow flex flex-col justify-center">
+                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                              <div className="text-2xl font-bold text-yellow-300 mb-2">{getCategoryTitle()}</div>
+                              <div className="text-lg font-semibold">{formData.name}</div>
+                              <div className="text-sm opacity-90 mt-2">{formData.domain}</div>
+                              <div className="text-sm opacity-90">{formData.university}</div>
+                            </div>
                           </div>
-                        </div>
 
-                        {/* Footer */}
-                        <div className="text-center">
-                          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 mb-2">
-                            <div className="text-xs font-semibold">Badge ID: {generatedUID}</div>
+                          {/* Footer */}
+                          <div className="text-center">
+                            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 mb-2">
+                              <div className="text-xs font-semibold">Badge ID: {generatedUID}</div>
+                            </div>
+                            <div className="text-xs opacity-90">EST. 2024 • VERIFIED</div>
                           </div>
-                          <div className="text-xs opacity-90">EST. 2024 • VERIFIED</div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                        </CardContent>
+                      </Card>
+                    </div>
                   </div>
                 ) : (
                   /* Enhanced ID Card */
-                  <Card className="max-w-4xl mx-auto shadow-2xl bg-gradient-to-r from-slate-900 to-blue-900 text-white border-0 overflow-hidden">
-                    {/* Header Strip */}
-                    <div className="h-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
-                    
-                    <CardContent className="p-8">
-                      <div className="grid md:grid-cols-2 gap-8 items-center">
-                        {/* Left Side - Scholar Info */}
-                        <div className="space-y-6">
-                          <div className="flex items-center mb-6">
-                            <div className="bg-gradient-to-br from-orange-500 to-red-500 p-3 rounded-lg mr-4 shadow-lg">
-                              <Shield className="h-8 w-8 text-white" />
+                  <div id="digital-id-card" className="bg-white p-8 rounded-lg shadow-lg">
+                    <Card className="max-w-4xl mx-auto shadow-2xl bg-gradient-to-r from-slate-900 to-blue-900 text-white border-0 overflow-hidden">
+                      {/* Header Strip */}
+                      <div className="h-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
+                      
+                      <CardContent className="p-8">
+                        <div className="grid md:grid-cols-2 gap-8 items-center">
+                          {/* Left Side - Scholar Info */}
+                          <div className="space-y-6">
+                            <div className="flex items-center mb-6">
+                              <div className="bg-gradient-to-br from-orange-500 to-red-500 p-3 rounded-lg mr-4 shadow-lg">
+                                <Shield className="h-8 w-8 text-white" />
+                              </div>
+                              <div>
+                                <h2 className="text-3xl font-bold text-orange-400">UNIFORD</h2>
+                                <p className="text-sm text-gray-300">Scholar Identification Card</p>
+                              </div>
                             </div>
-                            <div>
-                              <h2 className="text-3xl font-bold text-orange-400">UNIFORD</h2>
-                              <p className="text-sm text-gray-300">Scholar Identification Card</p>
-                            </div>
-                          </div>
 
-                          {/* Info Grid */}
-                          <div className="grid grid-cols-1 gap-4">
-                            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                              <p className="text-sm text-gray-400 mb-1">Full Name</p>
-                              <p className="text-xl font-semibold">{formData.name}</p>
-                            </div>
-                            
-                            <div className="grid grid-cols-2 gap-4">
+                            {/* Info Grid */}
+                            <div className="grid grid-cols-1 gap-4">
                               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                                <p className="text-sm text-gray-400 mb-1">Scholar ID</p>
-                                <p className="text-lg font-bold text-orange-400">{generatedUID}</p>
+                                <p className="text-sm text-gray-400 mb-1">Full Name</p>
+                                <p className="text-xl font-semibold">{formData.name}</p>
+                              </div>
+                              
+                              <div className="grid grid-cols-2 gap-4">
+                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                  <p className="text-sm text-gray-400 mb-1">Scholar ID</p>
+                                  <p className="text-lg font-bold text-orange-400">{generatedUID}</p>
+                                </div>
+                                
+                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                  <p className="text-sm text-gray-400 mb-1">Category</p>
+                                  <p className="text-lg">{getCategoryTitle()}</p>
+                                </div>
                               </div>
                               
                               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                                <p className="text-sm text-gray-400 mb-1">Category</p>
-                                <p className="text-lg">{getCategoryTitle()}</p>
+                                <p className="text-sm text-gray-400 mb-1">Domain</p>
+                                <p className="text-lg">{formData.domain}</p>
+                              </div>
+                              
+                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <p className="text-sm text-gray-400 mb-1">Institution</p>
+                                <p className="text-lg">{formData.university}</p>
                               </div>
                             </div>
-                            
-                            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                              <p className="text-sm text-gray-400 mb-1">Domain</p>
-                              <p className="text-lg">{formData.domain}</p>
-                            </div>
-                            
-                            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                              <p className="text-sm text-gray-400 mb-1">Institution</p>
-                              <p className="text-lg">{formData.university}</p>
-                            </div>
                           </div>
-                        </div>
 
-                        {/* Right Side - QR Code & Verification */}
-                        <div className="text-center space-y-6">
-                          <div className="bg-white p-6 rounded-xl shadow-lg inline-block">
-                            <QrCode className="h-32 w-32 text-gray-800" />
-                          </div>
-                          
-                          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-lg p-6">
-                            <p className="text-orange-400 font-semibold mb-2 text-lg">SCAN FOR VERIFICATION</p>
-                            <p className="text-sm text-gray-300 mb-4">
-                              Scan to verify scholar credentials and access digital portfolio
-                            </p>
-                            
-                            <div className="flex justify-center space-x-2 mb-4">
-                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                          {/* Right Side - QR Code & Verification */}
+                          <div className="text-center space-y-6">
+                            <div className="bg-white p-6 rounded-xl shadow-lg inline-block">
+                              <QrCode className="h-32 w-32 text-gray-800" />
                             </div>
                             
-                            <div className="text-xs text-gray-400">
-                              <p>Issued: {new Date().toLocaleDateString()}</p>
-                              <p>Valid for academic year 2024-25</p>
-                              <p className="mt-2 text-green-400">✓ Verified Credential</p>
+                            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-lg p-6">
+                              <p className="text-orange-400 font-semibold mb-2 text-lg">SCAN FOR VERIFICATION</p>
+                              <p className="text-sm text-gray-300 mb-4">
+                                Scan to verify scholar credentials and access digital portfolio
+                              </p>
+                              
+                              <div className="flex justify-center space-x-2 mb-4">
+                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                              </div>
+                              
+                              <div className="text-xs text-gray-400">
+                                <p>Issued: {new Date().toLocaleDateString()}</p>
+                                <p>Valid for academic year 2024-25</p>
+                                <p className="mt-2 text-green-400">✓ Verified Credential</p>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </CardContent>
-                    
-                    {/* Footer Strip */}
-                    <div className="h-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400"></div>
-                  </Card>
+                      </CardContent>
+                      
+                      {/* Footer Strip */}
+                      <div className="h-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400"></div>
+                    </Card>
+                  </div>
                 )}
 
                 {/* Instructions */}
