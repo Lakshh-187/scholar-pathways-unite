@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -21,6 +20,7 @@ const NavBar = () => {
     { name: 'UTHA', path: '/talent-hunt-alliance' },
     { name: 'iBacked', path: '/backed-by-uniford' },
     { name: 'Offer', path: '/offer-letter' },
+    { name: 'Badge', path: '/badge-id' },
   ];
   
   return (

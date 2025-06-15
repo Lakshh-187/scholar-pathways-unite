@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -35,6 +36,7 @@ import GFT from "./pages/GFT";
 import UNSIP from "./pages/UNSIP";
 import NotificationBanner from "./components/NotificationBanner";
 import OfferLetter from "./pages/OfferLetter";
+import BadgeID from "./pages/BadgeID";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +77,7 @@ const App = () => (
           <Route path="/gft" element={<GFT />} />
           <Route path="/unsip" element={<UNSIP />} />
           <Route path="/offer-letter" element={<OfferLetter />} />
+          <Route path="/badge-id" element={<BadgeID />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />
