@@ -16,7 +16,8 @@ const NavBar = () => {
     { name: 'ID', path: '/id-card-services' },
     { name: 'Docs', path: '/official-documents' },
     { name: 'Pitchburg', path: '/uni-pitch' },
-    { name: 'UNCIF', path: '/uirad' },
+    { name: 'UNCIF', path: '/uncif' },
+    { name: 'UIRAD', path: '/uirad' },
     { name: 'UTHA', path: '/talent-hunt-alliance' },
     { name: 'iBacked', path: '/backed-by-uniford' },
   ];

@@ -87,11 +87,24 @@ const UIRAD = () => {
             <p className="text-xl text-gray-300 mb-8">
               Join the Uniford council
             </p>
-            <Link to="https://council.uniford.org/">
-              <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
-                Join Council Now
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link to="https://council.uniford.org/">
+                <Button size="lg" className="bg-white text-unifor-dark-purple hover:bg-gray-100">
+                  Join Council Now
+                </Button>
+              </Link>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-unifor-dark-purple"
+                asChild
+              >
+                <a href="https://uncif.uniford.org/" target="_blank" rel="noopener noreferrer">
+                  Visit UNCIF Portal
+                  <Globe className="ml-2 h-5 w-5" />
+                </a>
               </Button>
-            </Link>
+            </div>
           </div>
         </div>
       </section>
