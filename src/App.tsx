@@ -39,7 +39,7 @@ import OfferLetter from "./pages/OfferLetter";
 import BadgeID from "./pages/BadgeID";
 import CertificateGenerator from "./pages/CertificateGenerator";
 import DocumentAuthentication from "./pages/DocumentAuthentication";
-import UNCIF from "./pages/UNCIF";
+
 
 const queryClient = new QueryClient();
 
@@ -83,7 +83,7 @@ const App = () => (
           <Route path="/badge-id" element={<BadgeID />} />
           <Route path="/certificate-generator" element={<CertificateGenerator />} />
           <Route path="/document-authentication" element={<DocumentAuthentication />} />
-          <Route path="/uncif" element={<UNCIF />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppHelpDesk />

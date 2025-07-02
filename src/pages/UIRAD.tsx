@@ -12,6 +12,7 @@ import { UIRADInterrelation } from '@/components/UIRADInterrelation';
 import { UIRADImpact } from '@/components/UIRADImpact';
 import { UIRADTransformation } from '@/components/UIRADTransformation';
 import UIRADParentsProfile from '@/components/UIRADParentsProfile';
+import WeBackedSection from '@/components/WeBackedSection';
 import BackedHeroSection from '@/components/backed/BackedHeroSection';
 import InstituteTransformation from '@/components/backed/InstituteTransformation';
 import BackedOfferings from '@/components/backed/BackedOfferings';
@@ -72,6 +73,9 @@ const UIRAD = () => {
       
       {/* New UNCIF Hero Section */}
       <UNCIFHero />
+      
+      {/* We Backed Section */}
+      <WeBackedSection />
       
       {/* Redesigned UIRAD Mid Section */}
       <UIRADMidSection />
