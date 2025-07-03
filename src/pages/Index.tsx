@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import UNCIFSection from "@/components/UNCIFSection";
+import UISSection from "@/components/UISSection";
 
 import { 
   ArrowRight, 
@@ -72,6 +73,8 @@ const Index = () => {
       {/* New UNCIF Section */}
       <UNCIFSection />
 
+      {/* New UIS Section */}
+      <UISSection />
 
       {/* Organization Message Section */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
