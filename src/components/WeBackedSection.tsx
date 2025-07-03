@@ -192,147 +192,146 @@ const WeBackedSection = () => {
         </div>
       </section>
 
-      {/* Detailed Information Modal */}
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-red-900 text-center mb-6">
-            <Shield className="h-8 w-8 inline mr-3" />
-            UNCIF - Complete Overview
-          </DialogTitle>
-        </DialogHeader>
-        
-        <div className="space-y-8">
-          {/* Mission */}
-          <div className="bg-red-50 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-red-900 mb-4 flex items-center">
-              <Heart className="h-6 w-6 mr-3" />
-              Our Mission
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Uniford National Council of Institutes & Frontliners (UNCIF)</strong> is dedicated to backing students by connecting them with platforms, opportunities, and resources. We empower candidates to build credibility and global profiles through excellence in education and self-initiated growth.
-            </p>
-          </div>
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-3xl font-bold text-red-900 text-center mb-6">
+              <Shield className="h-8 w-8 inline mr-3" />
+              UNCIF - Complete Overview
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-8">
+            {/* Mission */}
+            <div className="bg-red-50 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-red-900 mb-4 flex items-center">
+                <Heart className="h-6 w-6 mr-3" />
+                Our Mission
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <strong>Uniford National Council of Institutes & Frontliners (UNCIF)</strong> is dedicated to backing students by connecting them with platforms, opportunities, and resources. We empower candidates to build credibility and global profiles through excellence in education and self-initiated growth.
+              </p>
+            </div>
 
-          {/* What Candidates Get */}
-          <div>
-            <h3 className="text-2xl font-bold text-red-900 mb-6 flex items-center">
-              <Gift className="h-6 w-6 mr-3" />
-              What UNCIF Candidates Receive
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <BookOpen className="h-8 w-8 text-blue-600 mb-3" />
-                <h4 className="font-bold text-blue-900">UNSIP</h4>
-                <p className="text-sm text-gray-600">National Social Internship Program</p>
+            {/* What Candidates Get */}
+            <div>
+              <h3 className="text-2xl font-bold text-red-900 mb-6 flex items-center">
+                <Gift className="h-6 w-6 mr-3" />
+                What UNCIF Candidates Receive
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <BookOpen className="h-8 w-8 text-blue-600 mb-3" />
+                  <h4 className="font-bold text-blue-900">UNSIP</h4>
+                  <p className="text-sm text-gray-600">National Social Internship Program</p>
+                </div>
+                <div className="bg-yellow-50 p-4 rounded-lg">
+                  <Award className="h-8 w-8 text-yellow-600 mb-3" />
+                  <h4 className="font-bold text-yellow-900">Digital Badges</h4>
+                  <p className="text-sm text-gray-600">Official verification credentials</p>
+                </div>
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <Lightbulb className="h-8 w-8 text-purple-600 mb-3" />
+                  <h4 className="font-bold text-purple-900">Uni-Pitch</h4>
+                  <p className="text-sm text-gray-600">Innovation platform for ideas</p>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <GraduationCap className="h-8 w-8 text-green-600 mb-3" />
+                  <h4 className="font-bold text-green-900">Elite Programs</h4>
+                  <p className="text-sm text-gray-600">Exclusive educational initiatives</p>
+                </div>
+                <div className="bg-indigo-50 p-4 rounded-lg">
+                  <Trophy className="h-8 w-8 text-indigo-600 mb-3" />
+                  <h4 className="font-bold text-indigo-900">Competitions</h4>
+                  <p className="text-sm text-gray-600">Academic and skill competitions</p>
+                </div>
+                <div className="bg-red-50 p-4 rounded-lg">
+                  <Globe className="h-8 w-8 text-red-600 mb-3" />
+                  <h4 className="font-bold text-red-900">Global Network</h4>
+                  <p className="text-sm text-gray-600">Worldwide opportunities access</p>
+                </div>
               </div>
-              <div className="bg-yellow-50 p-4 rounded-lg">
-                <Award className="h-8 w-8 text-yellow-600 mb-3" />
-                <h4 className="font-bold text-yellow-900">Digital Badges</h4>
-                <p className="text-sm text-gray-600">Official verification credentials</p>
+            </div>
+
+            {/* Talent Hunt Alliance */}
+            <div className="bg-gradient-to-r from-red-900 to-red-800 rounded-xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4 flex items-center">
+                <Network className="h-6 w-6 mr-3" />
+                Talent Hunt Alliance (THA)
+              </h3>
+              <p className="text-lg text-red-100 mb-6">
+                Our Talent Hunt Alliance helps verified candidates connect with worldwide opportunities through strategic referrals and recommendations.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-bold text-yellow-300 mb-3">Opportunities Include:</h4>
+                  <ul className="space-y-2 text-red-100">
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Internships</li>
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Scholarships</li>
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Research Projects</li>
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Academic Invitations</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-yellow-300 mb-3">Additional Benefits:</h4>
+                  <ul className="space-y-2 text-red-100">
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Career Placements</li>
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Research Grants</li>
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Featured Recognition</li>
+                    <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Global Networking</li>
+                  </ul>
+                </div>
               </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <Lightbulb className="h-8 w-8 text-purple-600 mb-3" />
-                <h4 className="font-bold text-purple-900">Uni-Pitch</h4>
-                <p className="text-sm text-gray-600">Innovation platform for ideas</p>
+            </div>
+
+            {/* Self-Initiated Nature */}
+            <div className="bg-yellow-50 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-red-900 mb-4 flex items-center">
+                <Rocket className="h-6 w-6 mr-3" />
+                Self-Initiated Excellence
+              </h3>
+              <p className="text-lg text-gray-700 mb-4">
+                Most opportunities within UNCIF are self-initiated, empowering candidates to take charge of their academic and professional journey through proactive engagement.
+              </p>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="text-center">
+                  <Target className="h-12 w-12 text-yellow-600 mx-auto mb-2" />
+                  <h4 className="font-bold text-red-900">Initiative Leadership</h4>
+                </div>
+                <div className="text-center">
+                  <TrendingUp className="h-12 w-12 text-yellow-600 mx-auto mb-2" />
+                  <h4 className="font-bold text-red-900">Goal Achievement</h4>
+                </div>
+                <div className="text-center">
+                  <Star className="h-12 w-12 text-yellow-600 mx-auto mb-2" />
+                  <h4 className="font-bold text-red-900">Growth Acceleration</h4>
+                </div>
               </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <GraduationCap className="h-8 w-8 text-green-600 mb-3" />
-                <h4 className="font-bold text-green-900">Elite Programs</h4>
-                <p className="text-sm text-gray-600">Exclusive educational initiatives</p>
-              </div>
-              <div className="bg-indigo-50 p-4 rounded-lg">
-                <Trophy className="h-8 w-8 text-indigo-600 mb-3" />
-                <h4 className="font-bold text-indigo-900">Competitions</h4>
-                <p className="text-sm text-gray-600">Academic and skill competitions</p>
-              </div>
-              <div className="bg-red-50 p-4 rounded-lg">
-                <Globe className="h-8 w-8 text-red-600 mb-3" />
-                <h4 className="font-bold text-red-900">Global Network</h4>
-                <p className="text-sm text-gray-600">Worldwide opportunities access</p>
+            </div>
+
+            {/* Membership */}
+            <div className="bg-green-50 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-red-900 mb-4 flex items-center">
+                <Users className="h-6 w-6 mr-3" />
+                Becoming a Member
+              </h3>
+              <p className="text-lg text-gray-700 mb-6">
+                To become a member of UNCIF, candidates must apply for an official ID card. This serves as verification and grants access to all UNCIF programs and opportunities.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button className="bg-red-600 hover:bg-red-700 text-white">
+                  Apply for ID Card
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white" asChild>
+                  <a href="https://uncif.uniford.org/" target="_blank" rel="noopener noreferrer">
+                    Visit UNCIF Portal
+                    <Globe className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
-
-          {/* Talent Hunt Alliance */}
-          <div className="bg-gradient-to-r from-red-900 to-red-800 rounded-xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4 flex items-center">
-              <Network className="h-6 w-6 mr-3" />
-              Talent Hunt Alliance (THA)
-            </h3>
-            <p className="text-lg text-red-100 mb-6">
-              Our Talent Hunt Alliance helps verified candidates connect with worldwide opportunities through strategic referrals and recommendations.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-bold text-yellow-300 mb-3">Opportunities Include:</h4>
-                <ul className="space-y-2 text-red-100">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Internships</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Scholarships</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Research Projects</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Academic Invitations</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold text-yellow-300 mb-3">Additional Benefits:</h4>
-                <ul className="space-y-2 text-red-100">
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Career Placements</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Research Grants</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Featured Recognition</li>
-                  <li className="flex items-center"><CheckCircle className="h-4 w-4 mr-2 text-green-400" />Global Networking</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Self-Initiated Nature */}
-          <div className="bg-yellow-50 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-red-900 mb-4 flex items-center">
-              <Rocket className="h-6 w-6 mr-3" />
-              Self-Initiated Excellence
-            </h3>
-            <p className="text-lg text-gray-700 mb-4">
-              Most opportunities within UNCIF are self-initiated, empowering candidates to take charge of their academic and professional journey through proactive engagement.
-            </p>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="text-center">
-                <Target className="h-12 w-12 text-yellow-600 mx-auto mb-2" />
-                <h4 className="font-bold text-red-900">Initiative Leadership</h4>
-              </div>
-              <div className="text-center">
-                <TrendingUp className="h-12 w-12 text-yellow-600 mx-auto mb-2" />
-                <h4 className="font-bold text-red-900">Goal Achievement</h4>
-              </div>
-              <div className="text-center">
-                <Star className="h-12 w-12 text-yellow-600 mx-auto mb-2" />
-                <h4 className="font-bold text-red-900">Growth Acceleration</h4>
-              </div>
-            </div>
-          </div>
-
-          {/* Membership */}
-          <div className="bg-green-50 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-red-900 mb-4 flex items-center">
-              <Users className="h-6 w-6 mr-3" />
-              Becoming a Member
-            </h3>
-            <p className="text-lg text-gray-700 mb-6">
-              To become a member of UNCIF, candidates must apply for an official ID card. This serves as verification and grants access to all UNCIF programs and opportunities.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button className="bg-red-600 hover:bg-red-700 text-white">
-                Apply for ID Card
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white" asChild>
-                <a href="https://uncif.uniford.org/" target="_blank" rel="noopener noreferrer">
-                  Visit UNCIF Portal
-                  <Globe className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </DialogContent>
+        </DialogContent>
     </>
   );
 };
