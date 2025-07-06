@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -181,10 +182,12 @@ const UISSection = () => {
                 Join our waiting list for early access and exclusive updates.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Button className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold text-lg px-8 py-4 rounded-xl shadow-xl">
-                  Join Waiting List
-                  <ArrowRight className="ml-2 h-6 w-6" />
-                </Button>
+                <Link to="/uis">
+                  <Button className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold text-lg px-8 py-4 rounded-xl shadow-xl">
+                    Join Waiting List
+                    <ArrowRight className="ml-2 h-6 w-6" />
+                  </Button>
+                </Link>
                 <Button 
                   variant="outline" 
                   className="border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-4 rounded-xl"

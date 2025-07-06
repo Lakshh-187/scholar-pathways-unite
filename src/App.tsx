@@ -39,6 +39,7 @@ import OfferLetter from "./pages/OfferLetter";
 import BadgeID from "./pages/BadgeID";
 import CertificateGenerator from "./pages/CertificateGenerator";
 import DocumentAuthentication from "./pages/DocumentAuthentication";
+import UIS from "./pages/UIS";
 
 
 const queryClient = new QueryClient();
@@ -83,6 +84,7 @@ const App = () => (
           <Route path="/badge-id" element={<BadgeID />} />
           <Route path="/certificate-generator" element={<CertificateGenerator />} />
           <Route path="/document-authentication" element={<DocumentAuthentication />} />
+          <Route path="/uis" element={<UIS />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
