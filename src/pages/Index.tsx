@@ -171,13 +171,13 @@ const Index = () => {
                 </Link>
               </div>
               <div className="order-1 lg:order-2">
-                <div className="rounded-2xl overflow-hidden shadow-xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" 
-                    alt="Uniford Scholar Program"
-                    className="w-full h-80 object-cover"
-                  />
-                </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src="/lovable-uploads/baf6c96d-a314-4745-ba69-67672aa9a098.png" 
+                  alt="Uniford Scholar Program - Student Presentation"
+                  className="w-full h-80 object-cover"
+                />
+              </div>
               </div>
             </div>
 
@@ -185,8 +185,8 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop" 
-                  alt="UIEP Institute Transformation"
+                  src="/lovable-uploads/7cdd624e-8f94-4d4c-822d-305853985de3.png" 
+                  alt="UIEP Institute Transformation - Uniford Foundation Campus"
                   className="w-full h-80 object-cover"
                 />
               </div>
@@ -247,8 +247,8 @@ const Index = () => {
               <div className="order-1 lg:order-2">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" 
-                    alt="Frontliner Leadership Program"
+                    src="/lovable-uploads/01f46edd-8f21-4683-8a5a-d39d95b6d35c.png" 
+                    alt="Frontliner Leadership Program - Student Innovation"
                     className="w-full h-80 object-cover"
                   />
                 </div>
@@ -259,8 +259,8 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop" 
-                  alt="Pitchburg Innovation Platform"
+                  src="/lovable-uploads/06d7a363-4fa0-4df2-8417-9267f42b3add.png" 
+                  alt="Pitchburg Innovation Platform - Modern Uniford Office"
                   className="w-full h-80 object-cover"
                 />
               </div>
@@ -323,8 +323,8 @@ const Index = () => {
               <div className="order-1 lg:order-2">
                 <div className="rounded-2xl overflow-hidden shadow-xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" 
-                    alt="UIRAD Research Program"
+                    src="/lovable-uploads/4949b6b2-3040-4a7a-a474-5bd28a85a8b3.png" 
+                    alt="UIRAD Research Program - Uniford Foundation Collaboration"
                     className="w-full h-80 object-cover"
                   />
                 </div>
