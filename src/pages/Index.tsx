@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Layout from "@/components/Layout";
 import UNCIFSection from "@/components/UNCIFSection";
 import UISSection from "@/components/UISSection";
@@ -27,6 +28,19 @@ import { Badge } from "@/components/ui/badge";
 const Index = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Uniford Foundation - Transforming Education Through UNCIF Network | Educational Innovation</title>
+        <meta name="description" content="Uniford Foundation: Leading educational transformation through UNCIF Network. Empowering students with scholarships, research opportunities, and global connections. Join 50,000+ scholars worldwide." />
+        <meta name="keywords" content="Uniford, UNCIF, education, scholarship, Uniford Foundation, student opportunities, educational transformation, research, global network, academic excellence" />
+        <meta property="og:title" content="Uniford Foundation - Transforming Education Through UNCIF Network" />
+        <meta property="og:description" content="Join the Uniford movement transforming education worldwide. Access scholarships, research opportunities, and global connections through our UNCIF Network." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://uniford.org" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Uniford Foundation - Educational Transformation" />
+        <meta name="twitter:description" content="Transforming education through UNCIF Network. Join 50,000+ scholars in our global educational revolution." />
+        <link rel="canonical" href="https://uniford.org" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-unifor-dark-purple to-purple-900 text-white py-20">
         <div className="container mx-auto px-4">

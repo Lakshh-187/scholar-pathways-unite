@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Helmet } from "react-helmet";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import ScholarIDProcess from "@/components/scholar/ScholarIDProcess";
@@ -19,6 +20,16 @@ import { CreditCard, ExternalLink } from "lucide-react";
 const IDCard = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Uniford Scholar ID Card - Official Student Credentials | UNCIF Verification</title>
+        <meta name="description" content="Get your official Uniford Scholar ID Card with UNCIF verification. Access exclusive benefits, global recognition, and networking opportunities through our authenticated credential system." />
+        <meta name="keywords" content="Uniford ID card, scholar card, UNCIF verification, student credentials, Uniford Foundation, official ID, student benefits, global recognition" />
+        <meta property="og:title" content="Uniford Scholar ID Card - Your Gateway to Opportunities" />
+        <meta property="og:description" content="Official scholar identification with UNCIF network access. Unlock exclusive benefits and global opportunities." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://uniford.org/id-card" />
+        <link rel="canonical" href="https://uniford.org/id-card" />
+      </Helmet>
       <NavBar />
       
       <main className="flex-grow">

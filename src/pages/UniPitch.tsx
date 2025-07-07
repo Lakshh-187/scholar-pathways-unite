@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import NavBar from '@/components/NavBar';

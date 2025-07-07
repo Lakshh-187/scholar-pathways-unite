@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { Badge } from '@/components/ui/badge';
 import { Button } from "@/components/ui/button";
 import NavBar from '@/components/NavBar';
@@ -69,6 +70,16 @@ const UIRAD = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <Helmet>
+        <title>UIRAD & UNCIF Network - Uniford Research & Development | Educational Innovation</title>
+        <meta name="description" content="UIRAD (Uniford International Research & Development) and UNCIF Network - Transforming educational institutions through research, innovation, and global partnerships." />
+        <meta name="keywords" content="UIRAD, UNCIF, Uniford research, educational innovation, institute transformation, research development, Uniford Foundation, academic research" />
+        <meta property="og:title" content="UIRAD & UNCIF - Educational Research & Innovation" />
+        <meta property="og:description" content="Leading educational transformation through UIRAD research initiatives and UNCIF global network. Join universities worldwide in innovation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://uniford.org/uirad" />
+        <link rel="canonical" href="https://uniford.org/uirad" />
+      </Helmet>
       <NavBar />
       
       {/* New UNCIF Hero Section */}

@@ -1,4 +1,5 @@
 import { Briefcase, GraduationCap, Lightbulb, Trophy, Users, Rocket, BookOpen, Target, Badge as BadgeIcon, Globe, Award, User, Code, Palette, Store, Lock, ArrowRight, CheckCircle, Star, TrendingUp, Heart, Building, DollarSign, Medal, UserCheck, ExternalLink } from "lucide-react";
+import { Helmet } from "react-helmet";
 import NavBar from '@/components/NavBar';
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
@@ -28,6 +29,16 @@ const Programs = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Uniford Programs - Scholar, Frontliner, UNCIF Network | Educational Opportunities</title>
+        <meta name="description" content="Explore Uniford Foundation programs: Scholar ID, Frontliner Leadership, Campus to Corporate, UNCIF Network, and more. Transform your educational journey today." />
+        <meta name="keywords" content="Uniford programs, scholar program, frontliner, UNCIF network, educational opportunities, Uniford Foundation, student development, leadership" />
+        <meta property="og:title" content="Uniford Programs - Transformative Educational Opportunities" />
+        <meta property="og:description" content="Discover comprehensive programs designed to unlock student potential through UNCIF network and Uniford Foundation initiatives." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://uniford.org/programs" />
+        <link rel="canonical" href="https://uniford.org/programs" />
+      </Helmet>
       <NavBar />
       
       <main className="flex-grow pt-20">

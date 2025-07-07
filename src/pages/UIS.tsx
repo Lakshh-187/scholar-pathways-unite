@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -51,6 +52,16 @@ const UIS = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Uniford International School - UIS | Project-Based Learning | UNCIF Curriculum</title>
+        <meta name="description" content="Uniford International School (UIS) - Revolutionary education with project-based learning, UNCIF curriculum, and affordable fees ($20-30/year). Grades 5-12 admissions open." />
+        <meta name="keywords" content="Uniford International School, UIS, UNCIF, project-based learning, affordable education, Uniford Foundation, international school, frontliner program" />
+        <meta property="og:title" content="Uniford International School - Next-Gen Education" />
+        <meta property="og:description" content="Experience revolutionary education at UIS with project-based learning, social leadership programs, and UNCIF curriculum at just $20-30/year." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://uniford.org/uis" />
+        <link rel="canonical" href="https://uniford.org/uis" />
+      </Helmet>
       {/* Hero Section with Carousel */}
       <section className="relative bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white py-20 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
