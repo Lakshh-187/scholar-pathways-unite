@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Layout from "@/components/Layout";
 import UNCIFSection from "@/components/UNCIFSection";
+import UNCIF2026Milestones from "@/components/UNCIF2026Milestones";
 import UISSection from "@/components/UISSection";
 
 import { 
@@ -86,6 +87,9 @@ const Index = () => {
 
       {/* New UNCIF Section */}
       <UNCIFSection />
+
+      {/* UNCIF 2026 Milestones */}
+      <UNCIF2026Milestones />
 
       {/* New UIS Section */}
       <UISSection />
