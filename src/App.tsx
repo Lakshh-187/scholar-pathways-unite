@@ -41,6 +41,8 @@ import CertificateGenerator from "./pages/CertificateGenerator";
 import DocumentAuthentication from "./pages/DocumentAuthentication";
 import UIS from "./pages/UIS";
 import UNCIF from "./pages/UNCIF";
+import Grants from "./pages/Grants";
+import GrantsDetails from "./pages/GrantsDetails";
 
 
 const queryClient = new QueryClient();
@@ -87,6 +89,8 @@ const App = () => (
           <Route path="/document-authentication" element={<DocumentAuthentication />} />
           <Route path="/uis" element={<UIS />} />
           <Route path="/uncif" element={<UNCIF />} />
+          <Route path="/grants" element={<Grants />} />
+          <Route path="/grants-details" element={<GrantsDetails />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

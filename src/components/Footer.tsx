@@ -113,6 +113,11 @@ const Footer = () => {
                   GFT Program
                 </Link>
               </li>
+              <li>
+                <Link to="/grants" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UNCIF Grants
+                </Link>
+              </li>
             </ul>
             <h3 className="text-lg font-semibold mb-4 mt-6">Partnerships</h3>
             <ul className="space-y-3">
