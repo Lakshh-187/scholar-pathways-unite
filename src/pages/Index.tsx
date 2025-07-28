@@ -6,6 +6,7 @@ import UNCIFSection from "@/components/UNCIFSection";
 import UNCIF2026Milestones from "@/components/UNCIF2026Milestones";
 import UISSection from "@/components/UISSection";
 import WelcomePopup from "@/components/WelcomePopup";
+import CredibilityCarousel from "@/components/CredibilityCarousel";
 import {
   Carousel,
   CarouselContent,
@@ -121,6 +122,9 @@ const Index = () => {
 
       {/* New UIS Section */}
       <UISSection />
+
+      {/* Credibility Carousel */}
+      <CredibilityCarousel />
 
       {/* Organization Message Section */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
