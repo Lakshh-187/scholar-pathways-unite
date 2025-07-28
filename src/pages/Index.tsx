@@ -91,7 +91,7 @@ const Index = () => {
                         <img 
                           src="https://i.ibb.co/Lzm5hQPn/a-professional-photo-of-a-young-woman-wearing-a-un-MYMPk0-FYS9u-Ryz-X-ksf-Di-Q-rz2-Fq-R4s-Qgm-Tdu5-H.jpg" 
                           alt="Students at Uniford"
-                          className="w-full h-auto rounded-lg"
+                          className="w-full h-[300px] object-cover rounded-lg"
                         />
                       </div>
                     </CarouselItem>
@@ -100,13 +100,40 @@ const Index = () => {
                         <img 
                           src="/lovable-uploads/cf19831c-2c00-4761-8379-c6757b623d07.png" 
                           alt="Sustainable Development Goals - We Support & Execute"
-                          className="w-full h-auto rounded-lg object-contain"
+                          className="w-full h-[300px] object-contain rounded-lg"
+                        />
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="bg-white p-4 rounded-xl shadow-2xl">
+                        <img 
+                          src="/lovable-uploads/ad360940-b29b-4c32-9666-1b858478ccd1.png" 
+                          alt="OUR Free Workshops & Chapters - Uniford Foundation Programs"
+                          className="w-full h-[300px] object-cover rounded-lg"
+                        />
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="bg-white p-4 rounded-xl shadow-2xl">
+                        <img 
+                          src="/lovable-uploads/e6b92560-9760-40ab-a35f-c80a1bbac855.png" 
+                          alt="Our Scholars & UF'26 Chapters from Global Universities"
+                          className="w-full h-[300px] object-cover rounded-lg"
+                        />
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="bg-white p-4 rounded-xl shadow-2xl">
+                        <img 
+                          src="/lovable-uploads/be3517cc-e81e-4f61-a133-019267cf75c1.png" 
+                          alt="Scholar Program - Uniford Foundation Success Stories"
+                          className="w-full h-[300px] object-cover rounded-lg"
                         />
                       </div>
                     </CarouselItem>
                   </CarouselContent>
-                  <CarouselPrevious className="left-2" />
-                  <CarouselNext className="right-2" />
+                  <CarouselPrevious className="left-2 bg-white/90 hover:bg-white" />
+                  <CarouselNext className="right-2 bg-white/90 hover:bg-white" />
                 </Carousel>
               </div>
             </div>
