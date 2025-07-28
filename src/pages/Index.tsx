@@ -5,6 +5,14 @@ import Layout from "@/components/Layout";
 import UNCIFSection from "@/components/UNCIFSection";
 import UNCIF2026Milestones from "@/components/UNCIF2026Milestones";
 import UISSection from "@/components/UISSection";
+import WelcomePopup from "@/components/WelcomePopup";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 import { 
   ArrowRight, 
@@ -29,6 +37,7 @@ import { Badge } from "@/components/ui/badge";
 const Index = () => {
   return (
     <Layout>
+      <WelcomePopup />
       <Helmet>
         <title>Uniford Foundation - Transforming Education Through UNCIF Network | Educational Innovation</title>
         <meta name="description" content="Uniford Foundation: Leading educational transformation through UNCIF Network. Empowering students with scholarships, research opportunities, and global connections. Join 50,000+ scholars worldwide." />
@@ -73,12 +82,31 @@ const Index = () => {
             <div className="relative">
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-purple-400/20 rounded-full blur-xl"></div>
               <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-400/20 rounded-full blur-xl"></div>
-              <div className="relative z-10 bg-white p-4 rounded-xl shadow-2xl">
-                <img 
-                  src="https://i.ibb.co/Lzm5hQPn/a-professional-photo-of-a-young-woman-wearing-a-un-MYMPk0-FYS9u-Ryz-X-ksf-Di-Q-rz2-Fq-R4s-Qgm-Tdu5-H.jpg" 
-                  alt="Students at Uniford"
-                  className="w-full h-auto rounded-lg"
-                />
+              <div className="relative z-10">
+                <Carousel className="w-full max-w-lg mx-auto">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <div className="bg-white p-4 rounded-xl shadow-2xl">
+                        <img 
+                          src="https://i.ibb.co/Lzm5hQPn/a-professional-photo-of-a-young-woman-wearing-a-un-MYMPk0-FYS9u-Ryz-X-ksf-Di-Q-rz2-Fq-R4s-Qgm-Tdu5-H.jpg" 
+                          alt="Students at Uniford"
+                          className="w-full h-auto rounded-lg"
+                        />
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="bg-white p-4 rounded-xl shadow-2xl">
+                        <img 
+                          src="/lovable-uploads/cf19831c-2c00-4761-8379-c6757b623d07.png" 
+                          alt="Sustainable Development Goals - We Support & Execute"
+                          className="w-full h-auto rounded-lg object-contain"
+                        />
+                      </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
+                </Carousel>
               </div>
             </div>
           </div>
