@@ -11,16 +11,11 @@ const NavBar = () => {
   
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Programs', path: '/programs' },
-    { name: 'Orientation', path: '/id-card' },
-    { name: 'ID', path: '/id-card-services' },
     { name: 'Docs', path: '/official-documents' },
     { name: 'Pitchburg', path: '/uni-pitch' },
-    
     { name: 'UIRAD', path: '/uirad' },
     { name: 'UTHA', path: '/talent-hunt-alliance' },
     { name: 'iBacked', path: '/backed-by-uniford' },
-    { name: 'Grants', path: '/grants' },
   ];
   
   return (
