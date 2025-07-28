@@ -11,6 +11,7 @@ const NavBar = () => {
   
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'UNCIF', path: 'https://uncif.uniford.org/', external: true },
     { name: 'Docs', path: '/official-documents' },
     { name: 'Pitchburg', path: '/uni-pitch' },
     { name: 'UIRAD', path: '/uirad' },
@@ -47,17 +48,29 @@ const NavBar = () => {
         <div className="hidden md:flex items-center gap-8">
           <div className="flex gap-6">
             {navLinks.map((link) => (
-              <Link 
-                key={link.path} 
-                to={link.path}
-                className={`font-medium transition-colors duration-200 ${
-                  isActive(link.path) 
-                    ? 'text-unifor-purple' 
-                    : 'text-gray-600 hover:text-unifor-dark-purple'
-                }`}
-              >
-                {link.name}
-              </Link>
+              link.external ? (
+                <a 
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium transition-colors duration-200 text-gray-600 hover:text-unifor-dark-purple"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link 
+                  key={link.path} 
+                  to={link.path}
+                  className={`font-medium transition-colors duration-200 ${
+                    isActive(link.path) 
+                      ? 'text-unifor-purple' 
+                      : 'text-gray-600 hover:text-unifor-dark-purple'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
           </div>
           <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
@@ -71,18 +84,31 @@ const NavBar = () => {
         <div className="md:hidden bg-white p-4 shadow-md animate-fade-in border-t border-gray-100">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <Link 
-                key={link.path} 
-                to={link.path}
-                className={`font-medium p-2 ${
-                  isActive(link.path) 
-                    ? 'text-unifor-purple bg-unifor-light-purple rounded-md' 
-                    : 'text-gray-600'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
+              link.external ? (
+                <a 
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium p-2 text-gray-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link 
+                  key={link.path} 
+                  to={link.path}
+                  className={`font-medium p-2 ${
+                    isActive(link.path) 
+                      ? 'text-unifor-purple bg-unifor-light-purple rounded-md' 
+                      : 'text-gray-600'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
               <Button className="primary-btn w-full mt-2">Apply Now</Button>
