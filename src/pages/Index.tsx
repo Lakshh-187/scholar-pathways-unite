@@ -63,10 +63,6 @@ const Index = () => {
               <h1 className="text-4xl md:text-5xl font-bold white ">
                 Transforming Students & Institutes Through <span className="text-yellow-300">CSR Grants</span>
               </h1>
-              <p className="text-xl text-gray-200">
-                Building a future where quality education is accessible to all through 
-                alumni donations, modern AI platforms, and zero-fee opportunities.
-              </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/apply">
                   <Button className="bg-white text-unifor-dark-purple hover:bg-gray-100 text-lg px-6 py-6">
@@ -84,57 +80,53 @@ const Index = () => {
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-purple-400/20 rounded-full blur-xl"></div>
               <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-400/20 rounded-full blur-xl"></div>
               <div className="relative z-10">
-                <Carousel className="w-full max-w-lg mx-auto">
-                  <CarouselContent>
-                    <CarouselItem>
-                      <div className="bg-white p-4 rounded-xl shadow-2xl">
-                        <img 
-                          src="https://i.ibb.co/Lzm5hQPn/a-professional-photo-of-a-young-woman-wearing-a-un-MYMPk0-FYS9u-Ryz-X-ksf-Di-Q-rz2-Fq-R4s-Qgm-Tdu5-H.jpg" 
-                          alt="Students at Uniford"
-                          className="w-full h-[300px] object-cover rounded-lg"
-                        />
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div className="bg-white p-4 rounded-xl shadow-2xl">
-                        <img 
-                          src="/lovable-uploads/cf19831c-2c00-4761-8379-c6757b623d07.png" 
-                          alt="Sustainable Development Goals - We Support & Execute"
-                          className="w-full h-[300px] object-contain rounded-lg"
-                        />
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div className="bg-white p-4 rounded-xl shadow-2xl">
-                        <img 
-                          src="/lovable-uploads/ad360940-b29b-4c32-9666-1b858478ccd1.png" 
-                          alt="OUR Free Workshops & Chapters - Uniford Foundation Programs"
-                          className="w-full h-[300px] object-cover rounded-lg"
-                        />
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div className="bg-white p-4 rounded-xl shadow-2xl">
-                        <img 
-                          src="/lovable-uploads/e6b92560-9760-40ab-a35f-c80a1bbac855.png" 
-                          alt="Our Scholars & UF'26 Chapters from Global Universities"
-                          className="w-full h-[300px] object-cover rounded-lg"
-                        />
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem>
-                      <div className="bg-white p-4 rounded-xl shadow-2xl">
-                        <img 
-                          src="/lovable-uploads/be3517cc-e81e-4f61-a133-019267cf75c1.png" 
-                          alt="Scholar Program - Uniford Foundation Success Stories"
-                          className="w-full h-[300px] object-cover rounded-lg"
-                        />
-                      </div>
-                    </CarouselItem>
-                  </CarouselContent>
-                  <CarouselPrevious className="left-2 bg-white/90 hover:bg-white" />
-                  <CarouselNext className="right-2 bg-white/90 hover:bg-white" />
-                </Carousel>
+                {/* 5 in 1 Frame Layout */}
+                <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+                  {/* Left Column - 2 images */}
+                  <div className="space-y-4">
+                    <div className="bg-white p-2 rounded-xl shadow-2xl">
+                      <img 
+                        src="https://i.ibb.co/Lzm5hQPn/a-professional-photo-of-a-young-woman-wearing-a-un-MYMPk0-FYS9u-Ryz-X-ksf-Di-Q-rz2-Fq-R4s-Qgm-Tdu5-H.jpg" 
+                        alt="Students at Uniford"
+                        className="w-full h-32 object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="bg-white p-2 rounded-xl shadow-2xl">
+                      <img 
+                        src="/lovable-uploads/ad360940-b29b-4c32-9666-1b858478ccd1.png" 
+                        alt="OUR Free Workshops & Chapters - Uniford Foundation Programs"
+                        className="w-full h-32 object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Center Column - 1 large image */}
+                  <div className="bg-white p-2 rounded-xl shadow-2xl">
+                    <img 
+                      src="/lovable-uploads/cf19831c-2c00-4761-8379-c6757b623d07.png" 
+                      alt="Sustainable Development Goals - We Support & Execute"
+                      className="w-full h-68 object-contain rounded-lg"
+                    />
+                  </div>
+                  
+                  {/* Right Column - 2 images */}
+                  <div className="space-y-4">
+                    <div className="bg-white p-2 rounded-xl shadow-2xl">
+                      <img 
+                        src="/lovable-uploads/e6b92560-9760-40ab-a35f-c80a1bbac855.png" 
+                        alt="Our Scholars & UF'26 Chapters from Global Universities"
+                        className="w-full h-32 object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="bg-white p-2 rounded-xl shadow-2xl">
+                      <img 
+                        src="/lovable-uploads/be3517cc-e81e-4f61-a133-019267cf75c1.png" 
+                        alt="Scholar Program - Uniford Foundation Success Stories"
+                        className="w-full h-32 object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
