@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
@@ -73,9 +74,17 @@ const NavBar = () => {
               )
             ))}
           </div>
-          <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
-            <Button className="primary-btn">Apply Now</Button>
-          </a>
+          <div className="flex items-center gap-4">
+            <Link to="/certificate-awards">
+              <Button className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-yellow-900 font-semibold shadow-lg border-0 px-6 py-2 transition-all duration-200 hover:shadow-xl">
+                <Trophy className="mr-2 h-4 w-4" />
+                Awards
+              </Button>
+            </Link>
+            <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
+              <Button className="primary-btn">Apply Now</Button>
+            </a>
+          </div>
         </div>
       </div>
     
@@ -110,6 +119,12 @@ const NavBar = () => {
                 </Link>
               )
             ))}
+            <Link to="/certificate-awards" onClick={() => setIsMenuOpen(false)}>
+              <Button className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-yellow-900 font-semibold shadow-lg border-0 w-full mt-2">
+                <Trophy className="mr-2 h-4 w-4" />
+                Awards
+              </Button>
+            </Link>
             <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
               <Button className="primary-btn w-full mt-2">Apply Now</Button>
             </a>

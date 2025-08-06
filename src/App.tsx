@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -43,7 +42,7 @@ import UIS from "./pages/UIS";
 import UNCIF from "./pages/UNCIF";
 import Grants from "./pages/Grants";
 import GrantsDetails from "./pages/GrantsDetails";
-
+import CertificateAwards from "./pages/CertificateAwards";
 
 const queryClient = new QueryClient();
 
@@ -91,6 +90,7 @@ const App = () => (
           <Route path="/uncif" element={<UNCIF />} />
           <Route path="/grants" element={<Grants />} />
           <Route path="/grants-details" element={<GrantsDetails />} />
+          <Route path="/certificate-awards" element={<CertificateAwards />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
