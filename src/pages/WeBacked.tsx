@@ -1,5 +1,6 @@
+
 import { useEffect } from 'react';
-import { NavBar } from '@/components/NavBar';
+import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import BackedHeroSection from '@/components/backed/BackedHeroSection';
 import BackedRoadmap from '@/components/backed/BackedRoadmap';

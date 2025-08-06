@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Badge } from '@/components/ui/badge';
 import { Button } from "@/components/ui/button";
-import { NavBar } from '@/components/NavBar';
+import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import UNCIFHero from '@/components/UNCIFHero';
 import UIRADMidSection from '@/components/UIRADMidSection';

@@ -1,5 +1,6 @@
+
 import React from "react";
-import { NavBar } from "@/components/NavBar";
+import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import StoreProducts from "@/components/store/StoreProducts";
 import StoreSuggestions from "@/components/store/StoreSuggestions";

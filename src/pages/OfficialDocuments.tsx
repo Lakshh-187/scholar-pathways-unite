@@ -12,7 +12,7 @@ import {
   Search, 
   SlidersHorizontal
 } from "lucide-react";
-import { NavBar } from "@/components/NavBar";
+import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
