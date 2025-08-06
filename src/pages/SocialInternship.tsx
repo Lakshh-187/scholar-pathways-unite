@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import NavBar from "@/components/NavBar";
+import { NavBar } from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";

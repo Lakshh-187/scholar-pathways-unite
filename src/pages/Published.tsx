@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import NavBar from "@/components/NavBar";
+import { NavBar } from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import DocumentTypes from "@/components/documents/DocumentTypes";
