@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { NavBar } from '@/components/NavBar';
-import { Footer } from '@/components/Footer';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Trophy, Award, Mail, Users, Building2, Lightbulb, Star, CheckCircle } from 'lucide-react';
