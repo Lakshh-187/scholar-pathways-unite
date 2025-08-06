@@ -12,12 +12,14 @@ const CertificateAwards = () => {
     {
       grade: "A++",
       emoji: "🥇",
-      criteria: "The school has both well-established infrastructure (labs, digital tools, PBL systems) and active frontliners (trained teachers, student leaders, eco-ambassadors, etc.)."
+      criteria: "The school has both well-established infrastructure (labs, digital tools, PBL systems) and active frontliners (trained teachers, student leaders, eco-ambassadors, etc.).",
+      image: "/lovable-uploads/417c6974-656e-4cc8-9b02-9500b11d325b.png"
     },
     {
       grade: "A+",
       emoji: "🥈", 
-      criteria: "The school has either strong establishments or active frontliners, but not both."
+      criteria: "The school has either strong establishments or active frontliners, but not both.",
+      image: "/lovable-uploads/61438adf-d790-43aa-82d6-7d96b9e8f931.png"
     }
   ];
 
@@ -107,48 +109,75 @@ const CertificateAwards = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <NavBar />
       
       <div className="container mx-auto px-4 py-16">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <Trophy className="h-16 w-16 text-yellow-500" />
+        {/* Hero Section with Background Image */}
+        <div 
+          className="text-center mb-16 py-20 bg-cover bg-center bg-no-repeat rounded-3xl relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/lovable-uploads/9487df78-6cfe-43c2-a1e9-9bffe95059c9.png')`
+          }}
+        >
+          <div className="relative z-10">
+            <div className="flex justify-center mb-6">
+              <Trophy className="h-20 w-20 text-yellow-400 animate-bounce" />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
+              Certificate & Awards
+            </h1>
+            <p className="text-xl text-white max-w-4xl mx-auto drop-shadow-md">
+              🏆 Great Place To Learn Certification & Recognition by UNCIF
+            </p>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-unifor-purple to-unifor-dark-purple bg-clip-text text-transparent">
-            Certificate & Awards
-          </h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            🏆 Great Place To Learn Certification & Recognition by UNCIF
-          </p>
         </div>
 
-        {/* Introduction */}
-        <Card className="mb-12">
-          <CardContent className="p-8">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              The Great Place To Learn Certification is a prestigious recognition awarded by UNCIF to schools that meet high standards in infrastructure, pedagogy, and social responsibility. This recognition is based on a comprehensive audit, ensuring that certified schools are truly advancing modern education practices. It provides validation to parents, educators, and communities that the institution is committed to excellence, innovation, and impact.
-            </p>
-          </CardContent>
-        </Card>
+        {/* Introduction with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-center">
+          <Card className="h-full shadow-xl border-0 bg-gradient-to-br from-white to-blue-50">
+            <CardContent className="p-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                The Great Place To Learn Certification is a prestigious recognition awarded by UNCIF to schools that meet high standards in infrastructure, pedagogy, and social responsibility. This recognition is based on a comprehensive audit, ensuring that certified schools are truly advancing modern education practices. It provides validation to parents, educators, and communities that the institution is committed to excellence, innovation, and impact.
+              </p>
+            </CardContent>
+          </Card>
+          <div className="relative">
+            <img 
+              src="/lovable-uploads/83320e27-0b79-43f5-8e30-6e45043a85a9.png" 
+              alt="Education Excellence" 
+              className="w-full h-80 object-cover rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
 
-        {/* Certification Grades */}
+        {/* Certification Grades with Images */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">🎖️ Certification Grades</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            🎖️ Certification Grades
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
             {certificationGrades.map((grade, index) => (
-              <Card key={index} className="h-full">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <span className="text-2xl">{grade.emoji}</span>
-                    <Badge className="bg-yellow-100 text-yellow-800 text-lg px-4 py-2">
+              <Card key={index} className="h-full overflow-hidden shadow-2xl border-0 bg-gradient-to-br from-white to-yellow-50 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={grade.image} 
+                    alt={`Grade ${grade.grade}`} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-yellow-500 text-white text-xl px-6 py-3 shadow-lg">
                       Grade {grade.grade}
                     </Badge>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">{grade.criteria}</p>
+                  </div>
+                  <div className="absolute bottom-4 left-4">
+                    <span className="text-4xl">{grade.emoji}</span>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <p className="text-gray-700 text-lg leading-relaxed">{grade.criteria}</p>
                 </CardContent>
               </Card>
             ))}
@@ -157,36 +186,38 @@ const CertificateAwards = () => {
 
         {/* How to Apply */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">📩 How to Apply</h2>
-          <Card>
-            <CardContent className="p-8">
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-unifor-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">1</div>
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            📩 How to Apply
+          </h2>
+          <Card className="shadow-2xl border-0 bg-gradient-to-br from-white to-green-50">
+            <CardContent className="p-12">
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">1</div>
                   <div>
-                    <p className="text-lg">Email us at <Mail className="inline h-4 w-4" /> <a href="mailto:info@uniford.org" className="text-unifor-purple font-semibold">info@uniford.org</a> to request the submission form.</p>
+                    <p className="text-xl">Email us at <Mail className="inline h-5 w-5" /> <a href="mailto:info@uniford.org" className="text-purple-600 font-semibold hover:underline">info@uniford.org</a> to request the submission form.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <div className="bg-unifor-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">2</div>
+                <div className="flex items-start gap-6">
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">2</div>
                   <div>
-                    <p className="text-lg">Fill out the form with required data and documentation.</p>
+                    <p className="text-xl">Fill out the form with required data and documentation.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-4">
-                  <div className="bg-unifor-purple text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">3</div>
+                <div className="flex items-start gap-6">
+                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">3</div>
                   <div>
-                    <p className="text-lg">Connect with your regional officer for the audit process and verification.</p>
+                    <p className="text-xl">Connect with your regional officer for the audit process and verification.</p>
                   </div>
                 </div>
               </div>
               
-              <div className="mt-8 text-center">
+              <div className="mt-12 text-center">
                 <a href="mailto:info@uniford.org">
-                  <Button className="primary-btn text-lg px-8 py-3">
-                    <Mail className="mr-2 h-5 w-5" />
+                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl px-12 py-4 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <Mail className="mr-3 h-6 w-6" />
                     Apply Now
                   </Button>
                 </a>
@@ -197,18 +228,22 @@ const CertificateAwards = () => {
 
         {/* Eligibility Criteria */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">✅ Eligibility Criteria</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+            ✅ Eligibility Criteria
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
             {eligibilityCriteria.map((criteria, index) => (
-              <Card key={index} className="h-full text-center">
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <criteria.icon className="h-12 w-12 text-unifor-purple" />
+              <Card key={index} className="h-full text-center shadow-2xl border-0 bg-gradient-to-br from-white to-orange-50 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+                <CardHeader className="pb-4">
+                  <div className="flex justify-center mb-6">
+                    <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-full p-4 shadow-lg">
+                      <criteria.icon className="h-12 w-12 text-white" />
+                    </div>
                   </div>
-                  <CardTitle className="text-xl">{criteria.title}</CardTitle>
+                  <CardTitle className="text-xl text-gray-800">{criteria.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700">{criteria.description}</p>
+                  <p className="text-gray-700 text-lg">{criteria.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -217,19 +252,21 @@ const CertificateAwards = () => {
 
         {/* Core Award Parameters */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">🔧 Core Award Parameters</h2>
-          <div className="space-y-4">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            🔧 Core Award Parameters
+          </h2>
+          <div className="space-y-6">
             {coreParameters.map((param, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <div className="grid md:grid-cols-3 gap-4">
+              <Card key={index} className="shadow-2xl border-0 bg-gradient-to-r from-white to-indigo-50 hover:shadow-3xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="grid md:grid-cols-3 gap-6 items-center">
                     <div className="md:col-span-1">
-                      <Badge className="bg-unifor-light-purple text-unifor-dark-purple text-lg px-4 py-2">
+                      <Badge className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xl px-6 py-3 shadow-lg">
                         {index + 1}. {param.parameter}
                       </Badge>
                     </div>
                     <div className="md:col-span-2">
-                      <p className="text-gray-700">{param.focus}</p>
+                      <p className="text-gray-700 text-lg">{param.focus}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -240,18 +277,22 @@ const CertificateAwards = () => {
 
         {/* Award Categories */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">🏅 Award Categories</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
+            🏅 Award Categories
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {awardCategories.map((category, index) => (
-              <Card key={index} className="h-full">
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <category.icon className="h-12 w-12 text-unifor-purple" />
+              <Card key={index} className="h-full shadow-2xl border-0 bg-gradient-to-br from-white to-pink-50 hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+                <CardHeader className="text-center pb-4">
+                  <div className="flex justify-center mb-6">
+                    <div className="bg-gradient-to-r from-pink-500 to-rose-500 rounded-full p-4 shadow-lg">
+                      <category.icon className="h-12 w-12 text-white" />
+                    </div>
                   </div>
-                  <CardTitle className="text-lg text-center">{category.title}</CardTitle>
+                  <CardTitle className="text-lg text-gray-800">{category.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 text-center">{category.description}</p>
+                  <p className="text-gray-700 text-center leading-relaxed">{category.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -260,18 +301,20 @@ const CertificateAwards = () => {
 
         {/* Audit & Evaluation Process */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">🔍 Audit + Evaluation Process</h2>
-          <div className="space-y-6">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+            🔍 Audit + Evaluation Process
+          </h2>
+          <div className="space-y-8">
             {auditSteps.map((step, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-r from-unifor-purple to-unifor-dark-purple text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg flex-shrink-0">
+              <Card key={index} className="shadow-2xl border-0 bg-gradient-to-r from-white to-teal-50 hover:shadow-3xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-6">
+                    <div className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl flex-shrink-0 shadow-lg">
                       {index + 1}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">{step.step}</h3>
-                      <p className="text-gray-700">{step.description}</p>
+                      <h3 className="text-2xl font-semibold mb-3 text-gray-800">{step.step}</h3>
+                      <p className="text-gray-700 text-lg leading-relaxed">{step.description}</p>
                     </div>
                   </div>
                 </CardContent>
