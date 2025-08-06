@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   NavigationMenu,
@@ -19,8 +20,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { AlignJustify } from 'lucide-react';
-import Link from 'next/link';
-import { useAuth } from '@clerk/nextjs';
+import { Link } from 'react-router-dom';
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -155,12 +155,10 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export const NavBar = () => {
-  const { isSignedIn, signOut, user } = useAuth();
-
   return (
     <div className="border-b">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="mr-4 flex items-center space-x-2">
+        <Link to="/" className="mr-4 flex items-center space-x-2">
           <Avatar className="h-8 w-8">
             <AvatarImage src="https://uniford.org/wp-content/uploads/2024/01/cropped-UNIFORD-logo-2024-192x192.png" alt="Uniford Foundation Logo" />
             <AvatarFallback>UF</AvatarFallback>
@@ -170,26 +168,34 @@ export const NavBar = () => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/" className={navigationMenuTriggerStyle()}>
-                Home
+              <NavigationMenuLink asChild>
+                <Link to="/" className={navigationMenuTriggerStyle()}>
+                  Home
+                </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/about" className={navigationMenuTriggerStyle()}>
-                About
+              <NavigationMenuLink asChild>
+                <Link to="/about" className={navigationMenuTriggerStyle()}>
+                  About
+                </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/programs" className={navigationMenuTriggerStyle()}>
-                Programs
+              <NavigationMenuLink asChild>
+                <Link to="/programs" className={navigationMenuTriggerStyle()}>
+                  Programs
+                </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/certificate-awards"
-                className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-              >
-                Certificate & Awards
+              <NavigationMenuLink asChild>
+                <Link
+                  to="/certificate-awards"
+                  className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                >
+                  Certificate & Awards
+                </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -208,21 +214,9 @@ export const NavBar = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        {isSignedIn ? (
-          <div className="flex items-center space-x-4">
-            <Avatar className="h-9 w-9">
-              <AvatarImage src={user?.imageUrl || ""} alt={user?.firstName || "User"} />
-              <AvatarFallback>{user?.firstName?.charAt(0) || "U"}{user?.lastName?.charAt(0) || "F"}</AvatarFallback>
-            </Avatar>
-            <Button variant="outline" size="sm" onClick={() => signOut()}>Sign Out</Button>
-          </div>
-        ) : (
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/sign-in">
-              Sign In
-            </Link>
-          </Button>
-        )}
+        <Button variant="outline" size="sm">
+          Sign In
+        </Button>
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="sm" className="ml-2 px-2 lg:hidden">
@@ -237,22 +231,15 @@ export const NavBar = () => {
               </SheetDescription>
             </SheetHeader>
             <div className="grid gap-4 py-4">
-              <Link href="/" className="hover:underline">Home</Link>
-              <Link href="/about" className="hover:underline">About</Link>
-              <Link href="/programs" className="hover:underline">Programs</Link>
-              <Link href="/certificate-awards" className="hover:underline">Certificate & Awards</Link>
+              <Link to="/" className="hover:underline">Home</Link>
+              <Link to="/about" className="hover:underline">About</Link>
+              <Link to="/programs" className="hover:underline">Programs</Link>
+              <Link to="/certificate-awards" className="hover:underline">Certificate & Awards</Link>
               {components.map((component) => (
-                <Link href={component.href} key={component.title} className="hover:underline">
+                <Link to={component.href} key={component.title} className="hover:underline">
                   {component.title}
                 </Link>
               ))}
-              {isSignedIn ? (
-                <Button variant="outline" size="sm" onClick={() => signOut()}>Sign Out</Button>
-              ) : (
-                <Link href="/sign-in">
-                  Sign In
-                </Link>
-              )}
             </div>
           </SheetContent>
         </Sheet>
