@@ -4,160 +4,104 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { CheckCircle, Award, Users, Briefcase, BookOpen, Globe, Star, Download, FileText, Target } from 'lucide-react';
+import { CheckCircle, Award, Users, Briefcase, BookOpen, Globe, Star, Download, FileText, Target, Brain, Heart, PenTool, Search, Lightbulb, Rocket, Paperclip } from 'lucide-react';
 
 const UNSIP = () => {
-  const [selectedDomain, setSelectedDomain] = useState('campus-to-corporate');
+  const [selectedDomain, setSelectedDomain] = useState('problem-solving');
 
-  const benefits = [
+  const themes = [
     {
-      icon: <Award className="h-6 w-6 text-yellow-500" />,
-      title: "UNSR Verified Certificates",
-      description: "Get internationally recognized certificates for your achievements"
+      id: 'problem-solving',
+      icon: <Brain className="h-8 w-8" />,
+      title: "Problem Solving & Innovation",
+      description: "Tackle real-world challenges with creative solutions",
+      color: "from-blue-500 to-purple-600"
     },
     {
-      icon: <Star className="h-6 w-6 text-purple-500" />,
-      title: "Best Performer Goodies",
-      description: "Top performers receive exclusive rewards and recognition"
+      id: 'social-initiative',
+      icon: <Heart className="h-8 w-8" />,
+      title: "Social Initiative & Awareness",
+      description: "Drive social change and community awareness",
+      color: "from-pink-500 to-red-600"
     },
     {
-      icon: <Users className="h-6 w-6 text-blue-500" />,
-      title: "Career Opportunities via THA",
-      description: "Access more career opportunities through Talent Hunt Alliance"
+      id: 'collaboration',
+      icon: <Users className="h-8 w-8" />,
+      title: "Collaboration & Open Source",
+      description: "Build together through collaborative projects",
+      color: "from-green-500 to-teal-600"
     },
     {
-      icon: <Briefcase className="h-6 w-6 text-green-500" />,
-      title: "Referrals & Recommendations",
-      description: "Get referrals for paid internships, scholarships using CAF"
-    },
-    {
-      icon: <Globe className="h-6 w-6 text-red-500" />,
-      title: "Talent Expo Opportunities",
-      description: "Opens doors for internships & career opportunities"
+      id: 'authorship',
+      icon: <PenTool className="h-8 w-8" />,
+      title: "Authorship / Public Policy",
+      description: "Shape policy and create meaningful content",
+      color: "from-orange-500 to-yellow-600"
     }
   ];
 
-  const campusToCorporateTasks = [
+  const phases = [
     {
-      id: 1,
-      title: "Professional Resume & Portfolio Development",
-      type: "Mandatory",
-      description: "Create a comprehensive resume and professional portfolio showcasing your skills",
-      guidelines: "Follow WEF standards for professional documentation"
+      phase: "1",
+      title: "Research & Analyze",
+      icon: <Search className="h-6 w-6" />,
+      description: "Screen profiles of inspiring individuals, organizations, or movements that align with your chosen domain",
+      details: ["Analyze their work, models, and strategies", "Draw inspiration to define your own challenge or idea"]
     },
     {
-      id: 2,
-      title: "Industry Research & Market Analysis",
-      type: "Optional",
-      description: "Conduct research on your target industry and market trends",
-      guidelines: "Minimum 2000 words with proper citations"
+      phase: "2",
+      title: "AI-Powered Creation",
+      icon: <Lightbulb className="h-6 w-6" />,
+      description: "Use free AI tools to convert your idea into a prototype or plan",
+      details: ["Campaign model", "Policy draft", "Product or website wireframe", "Community engagement toolkit"]
     },
     {
-      id: 3,
-      title: "Digital Marketing Campaign",
-      type: "Optional",
-      description: "Design and execute a digital marketing strategy for a product/service",
-      guidelines: "Include analytics and performance metrics"
-    },
-    {
-      id: 4,
-      title: "Business Process Optimization",
-      type: "Optional",
-      description: "Identify and propose solutions for business process improvements",
-      guidelines: "Use lean methodology and provide implementation plan"
-    },
-    {
-      id: 5,
-      title: "Leadership Case Study",
-      type: "Optional",
-      description: "Analyze successful leadership strategies and their implementation",
-      guidelines: "Focus on 'What Matters' principles in leadership"
-    },
-    {
-      id: 6,
-      title: "Innovation Project Proposal",
-      type: "Optional",
-      description: "Develop a comprehensive proposal for an innovative solution",
-      guidelines: "Address real-world problems with feasible solutions"
+      phase: "3",
+      title: "Execute the Prototype",
+      icon: <Rocket className="h-6 w-6" />,
+      description: "Put your plan into action through real-world implementation",
+      details: ["Team Meetings & Strategic Collaboration", "Social Campaigns or Awareness Drives", "Public Engagement or Educational Outreach", "Policy Advocacy or Open-Source Contributions"]
     }
   ];
 
-  const frontlinersTasks = [
-    {
-      id: 1,
-      title: "Community Impact Assessment",
-      type: "Mandatory",
-      description: "Assess and document community needs and propose intervention strategies",
-      guidelines: "Follow WEF community development framework"
-    },
-    {
-      id: 2,
-      title: "Healthcare Access Initiative",
-      type: "Optional",
-      description: "Design a program to improve healthcare accessibility in underserved areas",
-      guidelines: "Include stakeholder mapping and resource allocation"
-    },
-    {
-      id: 3,
-      title: "Educational Outreach Program",
-      type: "Optional",
-      description: "Develop and implement an educational program for community members",
-      guidelines: "Measure impact through pre and post assessments"
-    },
-    {
-      id: 4,
-      title: "Emergency Response Plan",
-      type: "Optional",
-      description: "Create comprehensive emergency response strategies for communities",
-      guidelines: "Include risk assessment and resource mobilization"
-    },
-    {
-      id: 5,
-      title: "Social Innovation Project",
-      type: "Optional",
-      description: "Design innovative solutions for social challenges",
-      guidelines: "Focus on sustainability and scalability"
-    },
-    {
-      id: 6,
-      title: "Policy Research & Advocacy",
-      type: "Optional",
-      description: "Research policy gaps and propose advocacy strategies",
-      guidelines: "Include stakeholder analysis and implementation roadmap"
-    }
-  ];
-
-  const handleDownloadPDF = (type: string) => {
-    // This would typically download from a real URL
-    console.log(`Downloading ${type} PDF...`);
-    // Placeholder for actual PDF download functionality
+  const handleDownloadResource = (type: string, domain: string) => {
+    console.log(`Downloading ${type} for ${domain}...`);
+    // Placeholder for actual download functionality
   };
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-unifor-purple via-unifor-dark-purple to-purple-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-700 to-pink-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="w-full h-full" style={{backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"}}></div>
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="bg-white/20 text-white border-white/30 px-4 py-1 mb-4">
-              UNSIP PROGRAM
+            <Badge variant="outline" className="bg-white/20 text-white border-white/30 px-4 py-2 mb-6 text-lg">
+              🌟 FRONTLINER INITIATIVE
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-yellow-300">Uniford</span> Special <br />
-              <span className="text-unifor-blue">Internship</span> Program
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              <span className="text-yellow-300">Frontliner</span><br />
+              <span className="bg-gradient-to-r from-pink-300 to-blue-300 bg-clip-text text-transparent">
+                Special Initiative
+              </span><br />
+              <span className="text-white">Internship</span>
             </h1>
-            <p className="text-xl text-purple-100 max-w-4xl mx-auto mb-8">
-              Designed as per <span className="font-bold text-yellow-300">World Economic Forum</span> standards 
-              and <span className="font-bold text-unifor-blue">"What Matters"</span> principles for comprehensive skill development
+            <p className="text-2xl text-white/90 max-w-4xl mx-auto mb-4 font-light">
+              Transforming Passion into Real-World Impact
+            </p>
+            <p className="text-xl text-purple-100 max-w-3xl mx-auto mb-10">
+              Do you want to solve real problems, collaborate with changemakers, and build a portfolio of impact?
             </p>
             
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 text-lg">
-                Start Your Journey
+            <div className="flex flex-wrap gap-6 justify-center">
+              <Button className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold px-10 py-4 text-xl rounded-full shadow-2xl transform hover:scale-105 transition-all">
+                🚀 Start Your Journey
               </Button>
-              <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-                Download Guidelines
+              <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm px-8 py-4 text-lg rounded-full">
+                📋 Program Guide
                 <Download className="ml-2 h-5 w-5" />
               </Button>
             </div>
@@ -165,223 +109,257 @@ const UNSIP = () => {
         </div>
       </section>
 
-      {/* Program Overview */}
-      <section className="py-16 bg-white">
+      {/* Theme Selection */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Complete Roadmap</h2>
-            <p className="text-lg text-gray-600">From Application to Certification</p>
-            
-            {/* PDF Downloads for Roadmap */}
-            <div className="flex flex-wrap gap-4 justify-center mt-6">
-              <Button 
-                variant="outline" 
-                className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple hover:text-white"
-                onClick={() => handleDownloadPDF('roadmap-guide')}
-              >
-                <FileText className="mr-2 h-4 w-4" />
-                Download Detailed Guide PDF
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-unifor-blue text-unifor-blue hover:bg-unifor-blue hover:text-white"
-                onClick={() => handleDownloadPDF('roadmap-faq')}
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download FAQ PDF
-              </Button>
-            </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">🎯 Your Mission: Pick the Card</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Choose ONE theme that resonates most with you</p>
           </div>
-          
-          <div className="grid md:grid-cols-5 gap-4 max-w-6xl mx-auto">
-            {[
-              { step: "1", title: "Application", desc: "Submit your application" },
-              { step: "2", title: "Domain Selection", desc: "Choose your specialization" },
-              { step: "3", title: "Task Selection", desc: "Pick your tasks (1 mandatory + others)" },
-              { step: "4", title: "Submission", desc: "Complete and submit your work" },
-              { step: "5", title: "Certification", desc: "Receive UNSR verified certificate" }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-unifor-purple text-white flex items-center justify-center font-bold text-lg mx-auto mb-3">
-                  {item.step}
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {themes.map((theme) => (
+              <Card 
+                key={theme.id} 
+                className={`group cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-2 ${
+                  selectedDomain === theme.id ? 'border-blue-500 shadow-xl' : 'border-gray-200 hover:border-gray-300'
+                }`}
+                onClick={() => setSelectedDomain(theme.id)}
+              >
+                <CardContent className="p-8 text-center h-full flex flex-col">
+                  <div className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r ${theme.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                    {theme.icon}
+                  </div>
+                  <h3 className="font-bold text-lg text-gray-800 mb-4 leading-tight">{theme.title}</h3>
+                  <p className="text-gray-600 flex-grow">{theme.description}</p>
+                  {selectedDomain === theme.id && (
+                    <Badge className="mt-4 bg-blue-500 text-white">Selected ✓</Badge>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Phases */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Your Journey Phases</h2>
+            <p className="text-xl text-gray-600">Three powerful phases to transform your ideas into impact</p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            {phases.map((phase, index) => (
+              <div key={phase.phase} className="flex flex-col md:flex-row items-center mb-16 last:mb-0">
+                <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:order-2'}`}>
+                  <Card className="border-2 border-gray-100 hover:shadow-xl transition-all">
+                    <CardContent className="p-8">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl">
+                          {phase.phase}
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-gray-800">{phase.title}</h3>
+                          <div className="flex items-center text-blue-600 mt-1">
+                            {phase.icon}
+                            <span className="ml-2 font-medium">Phase {phase.phase}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-700 text-lg mb-6 leading-relaxed">{phase.description}</p>
+                      <div className="space-y-3">
+                        {phase.details.map((detail, idx) => (
+                          <div key={idx} className="flex items-center text-gray-600">
+                            <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                            <span>{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-                <h3 className="font-semibold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.desc}</p>
+                <div className={`md:w-1/2 mt-8 md:mt-0 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
+                  <div className="text-center">
+                    <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center text-white mb-4">
+                      <div className="text-6xl">{phase.icon}</div>
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-700">Phase {phase.phase}</h4>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Domain Selection */}
-      <section className="py-16 bg-gray-50">
+      {/* PBL Sections */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Choose Your Domain</h2>
-            <p className="text-lg text-gray-600">Select the path that aligns with your career goals</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">📚 Problem-Based Learning Resources</h2>
+            <p className="text-xl text-gray-600">Domain-wise inspiration, hints, examples, and resources</p>
           </div>
 
-          <Tabs value={selectedDomain} onValueChange={setSelectedDomain} className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
-              <TabsTrigger value="campus-to-corporate">Campus to Corporate</TabsTrigger>
-              <TabsTrigger value="frontliners">Frontliners</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="campus-to-corporate">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Briefcase className="h-6 w-6 text-unifor-purple" />
-                    Campus to Corporate Track
-                  </CardTitle>
-                  <p className="text-gray-600">Prepare for corporate careers with industry-relevant skills</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4">
-                    {campusToCorporateTasks.map((task) => (
-                      <Card key={task.id} className="border border-gray-200">
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <h3 className="font-semibold text-gray-800">{task.title}</h3>
-                            <Badge variant={task.type === 'Mandatory' ? 'destructive' : 'secondary'}>
-                              {task.type}
-                            </Badge>
-                          </div>
-                          <p className="text-gray-600 mb-2">{task.description}</p>
-                          <p className="text-sm text-unifor-purple font-medium">{task.guidelines}</p>
-                        </CardContent>
-                      </Card>
-                    ))}
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* PBL-15 */}
+            <Card className="border-2 border-purple-200 hover:shadow-2xl transition-all">
+              <CardHeader className="bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-t-lg">
+                <CardTitle className="text-2xl font-bold flex items-center gap-3">
+                  <BookOpen className="h-8 w-8" />
+                  PBL-15: Foundation Resources
+                </CardTitle>
+                <p className="text-purple-100">Essential guides and inspiration for beginners</p>
+              </CardHeader>
+              <CardContent className="p-8">
+                <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <Button 
+                      variant="outline" 
+                      className="border-purple-300 text-purple-700 hover:bg-purple-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('inspiration-guides', 'pbl-15')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      Inspiration Guides
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-blue-300 text-blue-700 hover:bg-blue-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('examples', 'pbl-15')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      Examples
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-green-300 text-green-700 hover:bg-green-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('hints', 'pbl-15')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      Project Hints
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-orange-300 text-orange-700 hover:bg-orange-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('faq', 'pbl-15')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      FAQ
+                    </Button>
                   </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="frontliners">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Users className="h-6 w-6 text-unifor-blue" />
-                    Frontliners Track
-                  </CardTitle>
-                  <p className="text-gray-600">Focus on community impact and social innovation</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid gap-4">
-                    {frontlinersTasks.map((task) => (
-                      <Card key={task.id} className="border border-gray-200">
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <h3 className="font-semibold text-gray-800">{task.title}</h3>
-                            <Badge variant={task.type === 'Mandatory' ? 'destructive' : 'secondary'}>
-                              {task.type}
-                            </Badge>
-                          </div>
-                          <p className="text-gray-600 mb-2">{task.description}</p>
-                          <p className="text-sm text-unifor-blue font-medium">{task.guidelines}</p>
-                        </CardContent>
-                      </Card>
-                    ))}
+                  <div className="bg-purple-50 p-6 rounded-lg">
+                    <h4 className="font-semibold text-purple-800 mb-2">What's Included:</h4>
+                    <ul className="text-purple-700 space-y-1 text-sm">
+                      <li>• Domain-wise case studies</li>
+                      <li>• Step-by-step project templates</li>
+                      <li>• Success stories from past participants</li>
+                      <li>• Common challenges and solutions</li>
+                    </ul>
                   </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* PBL-18 */}
+            <Card className="border-2 border-blue-200 hover:shadow-2xl transition-all">
+              <CardHeader className="bg-gradient-to-r from-blue-500 to-teal-600 text-white rounded-t-lg">
+                <CardTitle className="text-2xl font-bold flex items-center gap-3">
+                  <Target className="h-8 w-8" />
+                  PBL-18: Advanced Resources
+                </CardTitle>
+                <p className="text-blue-100">Advanced tools and methodologies for experienced learners</p>
+              </CardHeader>
+              <CardContent className="p-8">
+                <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <Button 
+                      variant="outline" 
+                      className="border-blue-300 text-blue-700 hover:bg-blue-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('advanced-frameworks', 'pbl-18')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      Frameworks
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-teal-300 text-teal-700 hover:bg-teal-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('research-methods', 'pbl-18')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      Research Methods
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-indigo-300 text-indigo-700 hover:bg-indigo-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('implementation-guides', 'pbl-18')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      Implementation
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-purple-300 text-purple-700 hover:bg-purple-50 flex items-center gap-2"
+                      onClick={() => handleDownloadResource('assessment-rubrics', 'pbl-18')}
+                    >
+                      <Paperclip className="h-4 w-4" />
+                      Assessments
+                    </Button>
+                  </div>
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <h4 className="font-semibold text-blue-800 mb-2">What's Included:</h4>
+                    <ul className="text-blue-700 space-y-1 text-sm">
+                      <li>• Advanced analytical frameworks</li>
+                      <li>• Industry partnership guidelines</li>
+                      <li>• Impact measurement tools</li>
+                      <li>• Scaling and sustainability strategies</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
-      {/* Submission Guidelines */}
-      <section className="py-16 bg-white">
+      {/* Final Submission */}
+      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600 text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Submission Guidelines</h2>
-            <p className="text-lg text-gray-600">Follow these guidelines for successful submission</p>
-            
-            {/* PDF Downloads for Submission Guidelines */}
-            <div className="flex flex-wrap gap-4 justify-center mt-6">
-              <Button 
-                variant="outline" 
-                className="border-unifor-purple text-unifor-purple hover:bg-unifor-purple hover:text-white"
-                onClick={() => handleDownloadPDF('submission-guide')}
-              >
-                <FileText className="mr-2 h-4 w-4" />
-                Download Submission Guide PDF
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6">📩 Final Submission: Show Your Impact</h2>
+            <p className="text-xl text-green-100 mb-10 leading-relaxed">
+              Document your journey, showcase your prototype, and demonstrate the real-world impact 
+              you've created. Your submission becomes part of your professional portfolio and opens 
+              doors to incredible opportunities.
+            </p>
+            <div className="flex flex-wrap gap-6 justify-center">
+              <Button className="bg-white text-green-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg rounded-full shadow-lg">
+                📤 Submit Your Project
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-unifor-blue text-unifor-blue hover:bg-unifor-blue hover:text-white"
-                onClick={() => handleDownloadPDF('submission-faq')}
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download FAQ PDF
+              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full">
+                📋 Submission Guidelines
+                <Download className="ml-2 h-5 w-5" />
               </Button>
             </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card>
-              <CardContent className="p-6 text-center">
-                <FileText className="h-12 w-12 text-unifor-purple mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Documentation</h3>
-                <p className="text-gray-600">All submissions must be well-documented with proper citations and references</p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-6 text-center">
-                <Target className="h-12 w-12 text-unifor-blue mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Quality Standards</h3>
-                <p className="text-gray-600">Meet WEF quality standards and "What Matters" principles in all deliverables</p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-6 text-center">
-                <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Originality</h3>
-                <p className="text-gray-600">All work must be original with proper attribution to sources and collaborators</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits & Perks */}
-      <section className="py-16 bg-gradient-to-r from-unifor-light-purple to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Benefits & Perks</h2>
-            <p className="text-lg text-gray-600">What you gain from UNSIP participation</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4">{benefit.icon}</div>
-                  <h3 className="font-semibold text-gray-800 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-unifor-dark text-white">
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-purple-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your UNSIP Journey?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of students who have transformed their careers through our comprehensive internship program
+          <h2 className="text-4xl font-bold mb-6">Ready to Become a Frontliner?</h2>
+          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+            Join the movement of young changemakers who are solving real problems and creating lasting impact. 
+            Your journey to transform passion into purpose starts here.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button className="bg-unifor-purple hover:bg-unifor-dark-purple text-white px-8 py-3 text-lg">
-              Apply Now
+          <div className="flex flex-wrap gap-6 justify-center">
+            <Button className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold px-10 py-4 text-xl rounded-full shadow-2xl">
+              🚀 Begin Your Journey
             </Button>
-            <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-              Download Program Guide
-              <Download className="ml-2 h-5 w-5" />
+            <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full">
+              💬 Connect with Mentors
+              <Heart className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
