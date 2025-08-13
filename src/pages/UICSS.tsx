@@ -10,7 +10,7 @@ import UICSSToolkits from "@/components/uicss/UICSSToolkits";
 import UICSSSafetyTopics from "@/components/uicss/UICSSSafetyTopics";
 import UICSSMembership from "@/components/uicss/UICSSMembership";
 import UICSSGlobalAction from "@/components/uicss/UICSSGlobalAction";
-import UICSSDialogue from "@/components/uicss/UICSSDialogue";
+
 
 const UICSS: React.FC = () => {
   const canonical = typeof window !== 'undefined' ? `${window.location.origin}/uicss` : 'https://uniford.org/uicss';
@@ -37,7 +37,7 @@ const UICSS: React.FC = () => {
 
       <UICSSHero />
       <UICSSGlobalAction />
-      <UICSSDialogue />
+      
       <UICSSBenefitsStrip />
       <UICSSPrograms />
       <UICSSMedia />
