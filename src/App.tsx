@@ -43,6 +43,7 @@ import UNCIF from "./pages/UNCIF";
 import Grants from "./pages/Grants";
 import GrantsDetails from "./pages/GrantsDetails";
 import CertificateAwards from "./pages/CertificateAwards";
+import UICSS from "./pages/UICSS";
 
 const queryClient = new QueryClient();
 
@@ -91,6 +92,7 @@ const App = () => (
           <Route path="/grants" element={<Grants />} />
           <Route path="/grants-details" element={<GrantsDetails />} />
           <Route path="/certificate-awards" element={<CertificateAwards />} />
+          <Route path="/uicss" element={<UICSS />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
