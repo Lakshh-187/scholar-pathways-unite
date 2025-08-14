@@ -22,10 +22,17 @@ const AttachmentModal: React.FC<AttachmentModalProps> = ({ title, items, trigger
       <DialogTrigger asChild>
         <Button variant="outline" className="hover-scale">{triggerText}</Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
         </DialogHeader>
+        <div className="bg-muted/50 p-4 rounded-lg mb-4">
+          <p className="text-sm text-muted-foreground">
+            <strong>Disclaimer:</strong> These resources are shared for educational and reference purposes only. 
+            We sincerely thank and acknowledge all the organizations that created these materials and made them publicly available. 
+            Full credit belongs to the original creators.
+          </p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {items.map((item, idx) => (
             <Card key={idx} className="border bg-card/50">
