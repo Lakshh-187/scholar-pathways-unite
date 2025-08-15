@@ -3,6 +3,7 @@ import React from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import WhatsAppHelpDesk from './WhatsAppHelpDesk';
+import LinkedInHelpDesk from './LinkedInHelpDesk';
 import NotificationBanner from './NotificationBanner';
 
 interface LayoutProps {
@@ -18,6 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <main className="flex-grow">{children}</main>
         <Footer />
         <WhatsAppHelpDesk />
+        <LinkedInHelpDesk />
       </div>
     </div>
   );

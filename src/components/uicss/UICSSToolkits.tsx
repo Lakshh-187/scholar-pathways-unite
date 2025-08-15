@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import AttachmentModal, { AttachmentItem } from "./AttachmentModal";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import MemberDialog from "@/components/ui/member-dialog";
+import { useToast } from "@/hooks/use-toast";
 
 const quickItems: AttachmentItem[] = [
   { title: "Anti-Bullying Classroom Kit", href: "/placeholder.svg", size: "PDF • 320KB" },
@@ -16,6 +19,26 @@ const moreItems: AttachmentItem[] = Array.from({ length: 15 }, (_, i) => ({
 }));
 
 const UICSSToolkits: React.FC = () => {
+  const [isMemberDialogOpen, setIsMemberDialogOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<AttachmentItem | null>(null);
+  const { toast } = useToast();
+
+  const handleMemberDownload = (item: AttachmentItem) => {
+    setSelectedItem(item);
+    setIsMemberDialogOpen(true);
+  };
+
+  const handleMemberIdSubmit = (memberId: string) => {
+    if (selectedItem) {
+      toast({
+        title: "Access Granted",
+        description: `Downloading ${selectedItem.title}`,
+      });
+      // Here you would typically validate the member ID and then download
+      window.open(selectedItem.href, '_blank');
+    }
+  };
+
   return (
     <section className="py-14 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -31,17 +54,30 @@ const UICSSToolkits: React.FC = () => {
             <Card key={i.title} className="hover:shadow-md transition-shadow">
               <CardContent className="p-5 flex items-center justify-between">
                 <div>
-                  <h3 className="font-medium">{i.title}</h3>
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="font-medium">{i.title}</h3>
+                    <Badge variant="secondary" className="text-xs bg-primary/10 text-primary">
+                      ICSS Members Only
+                    </Badge>
+                  </div>
                   <p className="text-xs text-muted-foreground mt-1">{i.size}</p>
                 </div>
-                <a href={i.href} download>
-                  <Button size="sm">Download</Button>
-                </a>
+                <Button size="sm" onClick={() => handleMemberDownload(i)}>
+                  Download
+                </Button>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
+      
+      <MemberDialog
+        isOpen={isMemberDialogOpen}
+        onClose={() => setIsMemberDialogOpen(false)}
+        onSubmit={handleMemberIdSubmit}
+        title="ICSS Member Access"
+        description="This toolkit is exclusive to ICSS members. Please enter your Member ID to access this resource."
+      />
     </section>
   );
 };
