@@ -44,6 +44,7 @@ import Grants from "./pages/Grants";
 import GrantsDetails from "./pages/GrantsDetails";
 import CertificateAwards from "./pages/CertificateAwards";
 import UICSS from "./pages/UICSS";
+import Stanburg from "./pages/Stanburg";
 
 const queryClient = new QueryClient();
 
@@ -93,6 +94,7 @@ const App = () => (
           <Route path="/grants-details" element={<GrantsDetails />} />
           <Route path="/certificate-awards" element={<CertificateAwards />} />
           <Route path="/uicss" element={<UICSS />} />
+          <Route path="/stanburg" element={<Stanburg />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
