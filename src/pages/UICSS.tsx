@@ -10,6 +10,7 @@ import UICSSToolkits from "@/components/uicss/UICSSToolkits";
 import UICSSSafetyTopics from "@/components/uicss/UICSSSafetyTopics";
 import UICSSMembership from "@/components/uicss/UICSSMembership";
 import UICSSGlobalAction from "@/components/uicss/UICSSGlobalAction";
+import UICSSElite from "@/components/uicss/UICSSElite";
 
 
 const UICSS: React.FC = () => {
@@ -44,6 +45,7 @@ const UICSS: React.FC = () => {
       <UICSSSafetyTopics />
       <UICSSResources />
       <UICSSToolkits />
+      <UICSSElite />
       <UICSSMembership />
     </Layout>
   );
