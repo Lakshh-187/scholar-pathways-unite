@@ -79,6 +79,21 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/uis" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UIS
+                </Link>
+              </li>
+              <li>
+                <Link to="/uncif" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UNCIF
+                </Link>
+              </li>
+              <li>
+                <Link to="/uicss" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UICSS
+                </Link>
+              </li>
+              <li>
                 <Link to="/backed-by-uniford" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   Backed By Uniford
                 </Link>
@@ -116,6 +131,11 @@ const Footer = () => {
               <li>
                 <Link to="/grants" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   UNCIF Grants
+                </Link>
+              </li>
+              <li>
+                <Link to="/grants-details" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Grants Details
                 </Link>
               </li>
             </ul>
@@ -166,6 +186,16 @@ const Footer = () => {
               <li>
                 <Link to="/id-card-services" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   ID Card Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/certificate-awards" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Certificate Awards
+                </Link>
+              </li>
+              <li>
+                <Link to="/elite" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Elite Portal
                 </Link>
               </li>
             </ul>
