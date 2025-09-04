@@ -32,7 +32,7 @@ import LetterOfClearance from "./pages/LetterOfClearance";
 import Apply from "./pages/Apply";
 import UTHA from "./pages/UTHA";
 import GFT from "./pages/GFT";
-import UNSIP from "./pages/UNSIP";
+import Frontliner from "./pages/Frontliner";
 import NotificationBanner from "./components/NotificationBanner";
 import OfferLetter from "./pages/OfferLetter";
 import BadgeID from "./pages/BadgeID";
@@ -83,7 +83,7 @@ const App = () => (
           <Route path="/apply" element={<Apply />} />
           <Route path="/utha" element={<UTHA />} />
           <Route path="/gft" element={<GFT />} />
-          <Route path="/unsip" element={<UNSIP />} />
+          <Route path="/frontliner" element={<Frontliner />} />
           <Route path="/offer-letter" element={<OfferLetter />} />
           <Route path="/badge-id" element={<BadgeID />} />
           <Route path="/certificate-generator" element={<CertificateGenerator />} />
