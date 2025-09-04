@@ -124,6 +124,25 @@ const Frontliner = () => {
     { name: "Business Model Canvas Template", size: "672 KB", type: "XLSX" },
   ];
 
+  const stage1Attachments = [
+    { name: "Initiative Selection Guide", size: "1.8 MB", type: "PDF" },
+    { name: "Research Methodology Video", size: "45 MB", type: "MP4" },
+    { name: "Competitive Analysis Worksheet", size: "920 KB", type: "XLSX" },
+    { name: "Passion Discovery Framework", size: "1.1 MB", type: "PDF" },
+    { name: "Market Research Templates", size: "2.3 MB", type: "DOCX" },
+    { name: "Initiative Examples Database", size: "5.2 MB", type: "PDF" },
+  ];
+
+  const stage2Attachments = [
+    { name: "Digital Infrastructure Setup Guide", size: "3.1 MB", type: "PDF" },
+    { name: "Social Media Strategy Video", size: "78 MB", type: "MP4" },
+    { name: "Team Building Playbook", size: "2.7 MB", type: "PDF" },
+    { name: "Business Strategy Templates", size: "1.4 MB", type: "XLSX" },
+    { name: "Impact Measurement Tools", size: "2.9 MB", type: "PDF" },
+    { name: "Execution Checklist", size: "850 KB", type: "DOCX" },
+    { name: "Partnership Templates", size: "1.6 MB", type: "PDF" },
+  ];
+
   const StepDetailModal = ({ step }: { step: any }) => (
     <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
       <DialogHeader>
@@ -302,14 +321,55 @@ const Frontliner = () => {
             <div className="space-y-16">
               {roadmapData.stages.map((stage, stageIndex) => (
                 <div key={stage.id} className="relative">
-                  {/* Stage Header */}
-                  <div className="text-center mb-12">
-                    <div className={`inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r ${stage.color} text-white mb-4`}>
-                      {stage.icon}
-                      <h2 className="text-2xl md:text-3xl font-bold">{stage.title}</h2>
-                    </div>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{stage.description}</p>
-                  </div>
+                   {/* Stage Header */}
+                   <div className="text-center mb-12">
+                     <div className={`inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r ${stage.color} text-white mb-4`}>
+                       {stage.icon}
+                       <h2 className="text-2xl md:text-3xl font-bold">{stage.title}</h2>
+                     </div>
+                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{stage.description}</p>
+                   </div>
+
+                   {/* Stage Resources */}
+                   <div className="mb-12 max-w-4xl mx-auto">
+                     <Dialog>
+                       <DialogTrigger asChild>
+                         <Button variant="outline" size="lg" className="w-full">
+                           <Download className="mr-2 h-5 w-5" />
+                           {stage.id === 1 ? 'Stage 1 Resources & Mentorship Materials' : 'Stage 2 Resources & Mentorship Materials'}
+                         </Button>
+                       </DialogTrigger>
+                       <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+                         <DialogHeader>
+                           <DialogTitle className="flex items-center gap-2">
+                             <FileText className="w-6 h-6" />
+                             {stage.title} - Supporting Materials
+                           </DialogTitle>
+                         </DialogHeader>
+                         <div className="space-y-3">
+                           {(stage.id === 1 ? stage1Attachments : stage2Attachments).map((attachment, index) => (
+                             <Card key={index} className="hover:shadow-md transition-shadow">
+                               <CardContent className="p-4 flex items-center justify-between">
+                                 <div className="flex items-center gap-3">
+                                   <div className={`w-10 h-10 ${attachment.type === 'MP4' ? 'bg-red-100 dark:bg-red-900/20' : 'bg-primary/10'} rounded-lg flex items-center justify-center`}>
+                                     <FileText className={`w-5 h-5 ${attachment.type === 'MP4' ? 'text-red-600' : 'text-primary'}`} />
+                                   </div>
+                                   <div>
+                                     <p className="font-medium">{attachment.name}</p>
+                                     <p className="text-sm text-muted-foreground">{attachment.size} • {attachment.type}</p>
+                                   </div>
+                                 </div>
+                                 <Button variant="outline" size="sm">
+                                   <Download className="w-4 h-4 mr-2" />
+                                   {attachment.type === 'MP4' ? 'Watch' : 'Download'}
+                                 </Button>
+                               </CardContent>
+                             </Card>
+                           ))}
+                         </div>
+                       </DialogContent>
+                     </Dialog>
+                   </div>
 
                   {/* Steps Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
