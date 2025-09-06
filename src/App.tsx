@@ -33,6 +33,7 @@ import Apply from "./pages/Apply";
 import UTHA from "./pages/UTHA";
 import GFT from "./pages/GFT";
 import Frontliner from "./pages/Frontliner";
+import HerHaVa from "./pages/HerHaVa";
 import NotificationBanner from "./components/NotificationBanner";
 import OfferLetter from "./pages/OfferLetter";
 import BadgeID from "./pages/BadgeID";
@@ -84,6 +85,7 @@ const App = () => (
           <Route path="/utha" element={<UTHA />} />
           <Route path="/gft" element={<GFT />} />
           <Route path="/frontliner" element={<Frontliner />} />
+          <Route path="/her-hava" element={<HerHaVa />} />
           <Route path="/offer-letter" element={<OfferLetter />} />
           <Route path="/badge-id" element={<BadgeID />} />
           <Route path="/certificate-generator" element={<CertificateGenerator />} />
