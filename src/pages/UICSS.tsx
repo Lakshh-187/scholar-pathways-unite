@@ -5,8 +5,6 @@ import UICSSHero from "@/components/uicss/UICSSHero";
 import UICSSBenefitsStrip from "@/components/uicss/UICSSBenefitsStrip";
 import UICSSPrograms from "@/components/uicss/UICSSPrograms";
 import UICSSMedia from "@/components/uicss/UICSSMedia";
-import UICSSResources from "@/components/uicss/UICSSResources";
-import UICSSToolkits from "@/components/uicss/UICSSToolkits";
 import UICSSSafetyTopics from "@/components/uicss/UICSSSafetyTopics";
 import UICSSMembership from "@/components/uicss/UICSSMembership";
 import UICSSGlobalAction from "@/components/uicss/UICSSGlobalAction";
@@ -43,8 +41,6 @@ const UICSS: React.FC = () => {
       <UICSSPrograms />
       <UICSSMedia />
       <UICSSSafetyTopics />
-      <UICSSResources />
-      <UICSSToolkits />
       <UICSSElite />
       <UICSSMembership />
     </Layout>
