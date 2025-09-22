@@ -25,13 +25,12 @@ const NavBar = () => {
     <nav className="sticky top-12 left-0 right-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="font-bold text-xl flex items-center">
-          <div className="flex items-center gap-2">
-            <div className="relative">
-              <div className="bg-gradient-to-br from-unifor-purple to-unifor-dark-purple h-8 w-8 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">U</span>
-              </div>
-              <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
-            </div>
+          <div className="flex items-center gap-3">
+            <img 
+              src="/uncif-logo.png" 
+              alt="UNCIF Logo" 
+              className="h-10 w-auto"
+            />
             <div className="flex flex-col leading-tight">
               <span className="text-lg font-bold">UNCIF</span>
               <span className="text-xs text-unifor-purple font-medium -mt-1">Non-profit Organization</span>
