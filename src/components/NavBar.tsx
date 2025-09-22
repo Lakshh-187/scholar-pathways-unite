@@ -33,7 +33,7 @@ const NavBar = () => {
               <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold">Uniford Foundation</span>
+              <span className="text-lg font-bold">UNCIF</span>
               <span className="text-xs text-unifor-purple font-medium -mt-1">Non-profit Organization</span>
             </div>
           </div>

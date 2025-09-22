@@ -7,6 +7,7 @@ import UNCIF2026Milestones from "@/components/UNCIF2026Milestones";
 import UISSection from "@/components/UISSection";
 import WelcomePopup from "@/components/WelcomePopup";
 import CredibilityCarousel from "@/components/CredibilityCarousel";
+import ICSSLegalCompliance from "@/components/ICSSLegalCompliance";
 import {
   Carousel,
   CarouselContent,
@@ -132,6 +133,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ICSS Legal Compliance Section */}
+      <ICSSLegalCompliance />
 
       {/* New UNCIF Section */}
       <UNCIFSection />

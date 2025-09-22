@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "@/components/Layout";
 import { Helmet } from "react-helmet";
 import UICSSHero from "@/components/uicss/UICSSHero";
+import ICSSLegalCompliance from "@/components/ICSSLegalCompliance";
 import UICSSBenefitsStrip from "@/components/uicss/UICSSBenefitsStrip";
 import UICSSPrograms from "@/components/uicss/UICSSPrograms";
 import UICSSMedia from "@/components/uicss/UICSSMedia";
@@ -35,6 +36,7 @@ const UICSS: React.FC = () => {
       </Helmet>
 
       <UICSSHero />
+      <ICSSLegalCompliance />
       <UICSSGlobalAction />
       
       <UICSSBenefitsStrip />
