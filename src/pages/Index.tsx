@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Layout from "@/components/Layout";
+import HeroSection from "@/components/HeroSection";
 import UNCIFSection from "@/components/UNCIFSection";
 import UNCIF2026Milestones from "@/components/UNCIF2026Milestones";
 import UISSection from "@/components/UISSection";
@@ -54,86 +55,9 @@ const Index = () => {
         <meta name="twitter:description" content="Transforming education through UNCIF Network. Join 50,000+ scholars in our global educational revolution." />
         <link rel="canonical" href="https://uniford.org" />
       </Helmet>
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-unifor-dark-purple to-purple-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <Badge className="bg-white text-unifor-dark light-purple  px-4 py-1.5">
-                TRANSFORMING EDUCATION
-              </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold white ">
-                Transforming Students & Institutes Through <span className="text-yellow-300">CSR Grants</span>
-              </h1>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/apply">
-                  <Button className="bg-white text-unifor-dark-purple hover:bg-gray-100 text-lg px-6 py-6">
-                    Apply Now
-                  </Button>
-                </Link>
-                <Link to="/programs">
-                  <Button variant="outline" className="border-white text-white :bg-white/10 text-lg px-6 py-6">
-                    Explore Programs
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute -top-10 -left-10 w-40 h-40 bg-purple-400/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-blue-400/20 rounded-full blur-xl"></div>
-              <div className="relative z-10">
-                {/* 5 in 1 Frame Layout */}
-                <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-                  {/* Left Column - 2 images */}
-                  <div className="space-y-4">
-                    <div className="bg-white p-2 rounded-xl shadow-2xl">
-                      <img 
-                        src="https://i.ibb.co/Lzm5hQPn/a-professional-photo-of-a-young-woman-wearing-a-un-MYMPk0-FYS9u-Ryz-X-ksf-Di-Q-rz2-Fq-R4s-Qgm-Tdu5-H.jpg" 
-                        alt="Students at Uniford"
-                        className="w-full h-32 object-cover rounded-lg"
-                      />
-                    </div>
-                    <div className="bg-white p-2 rounded-xl shadow-2xl">
-                      <img 
-                        src="/lovable-uploads/ad360940-b29b-4c32-9666-1b858478ccd1.png" 
-                        alt="OUR Free Workshops & Chapters - Uniford Foundation Programs"
-                        className="w-full h-32 object-cover rounded-lg"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Center Column - 1 large image */}
-                  <div className="bg-white p-2 rounded-xl shadow-2xl">
-                    <img 
-                      src="/lovable-uploads/cf19831c-2c00-4761-8379-c6757b623d07.png" 
-                      alt="Sustainable Development Goals - We Support & Execute"
-                      className="w-full h-68 object-contain rounded-lg"
-                    />
-                  </div>
-                  
-                  {/* Right Column - 2 images */}
-                  <div className="space-y-4">
-                    <div className="bg-white p-2 rounded-xl shadow-2xl">
-                      <img 
-                        src="/lovable-uploads/e6b92560-9760-40ab-a35f-c80a1bbac855.png" 
-                        alt="Our Scholars & UF'26 Chapters from Global Universities"
-                        className="w-full h-32 object-cover rounded-lg"
-                      />
-                    </div>
-                    <div className="bg-white p-2 rounded-xl shadow-2xl">
-                      <img 
-                        src="/lovable-uploads/be3517cc-e81e-4f61-a133-019267cf75c1.png" 
-                        alt="Scholar Program - Uniford Foundation Success Stories"
-                        className="w-full h-32 object-cover rounded-lg"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Organization Overview */}
       <OrganizationOverview />

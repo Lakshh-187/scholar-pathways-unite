@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Move } from 'lucide-react';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import unifordInfographic from '@/assets/uniford-infographic.jpg';
 import unifordPresentation from '@/assets/uniford-presentation.png';
 import unifordMeeting from '@/assets/uniford-meeting.png';
@@ -120,6 +120,13 @@ const ImageGallery = () => {
             transition: isDragging ? 'none' : 'transform 0.2s ease-out'
           }}
         >
+          <DialogTitle className="sr-only">
+            {images[currentImage].title}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Uniford Foundation image gallery showcasing our programs and activities
+          </DialogDescription>
+          
           {/* Draggable Header */}
           <div
             className="relative bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm border-b border-white/10 p-4 cursor-move"
