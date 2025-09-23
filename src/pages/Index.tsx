@@ -8,6 +8,7 @@ import UISSection from "@/components/UISSection";
 import WelcomePopup from "@/components/WelcomePopup";
 import CredibilityCarousel from "@/components/CredibilityCarousel";
 import ICSSLegalCompliance from "@/components/ICSSLegalCompliance";
+import OrganizationOverview from "@/components/OrganizationOverview";
 import {
   Carousel,
   CarouselContent,
@@ -133,6 +134,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Organization Overview */}
+      <OrganizationOverview />
 
       {/* ICSS Legal Compliance Section */}
       <ICSSLegalCompliance />
