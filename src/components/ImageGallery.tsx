@@ -1,97 +1,193 @@
+import React, { useState } from 'react';
+import { X, ChevronLeft, ChevronRight, Move } from 'lucide-react';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import unifordInfographic from '@/assets/uniford-infographic.jpg';
+import unifordPresentation from '@/assets/uniford-presentation.png';
+import unifordMeeting from '@/assets/uniford-meeting.png';
+import unifordStudent from '@/assets/uniford-student.png';
 
-import { FC } from 'react';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
-} from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-
-interface GalleryImage {
-  id: number;
-  src: string;
-  alt: string;
-  caption?: string;
-}
-
-const galleryImages: GalleryImage[] = [
+const images = [
   {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-    alt: "Student working on laptop",
-    caption: "Scholar developing innovative solutions"
+    src: unifordInfographic,
+    alt: "Uniford Foundation Structure",
+    title: "Organization Overview"
   },
   {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-    alt: "Technology showcase",
-    caption: "Exploring technology frontiers"
+    src: unifordPresentation,
+    alt: "Uniford Presentation",
+    title: "Innovation in Action"
   },
   {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-    alt: "Student researching",
-    caption: "Scholars pushing boundaries of knowledge"
+    src: unifordMeeting,
+    alt: "Uniford Team Meeting",
+    title: "Collaborative Excellence"
   },
   {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-    alt: "Nature landscape",
-    caption: "Inspiring environments for growth"
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-    alt: "Mountain view",
-    caption: "Reaching new heights in education"
+    src: unifordStudent,
+    alt: "Uniford Student Achievement",
+    title: "Student Success"
   }
 ];
 
-const ImageGallery: FC = () => {
+const ImageGallery = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragPosition, setDragPosition] = useState({ x: 0, y: 0 });
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setDragStart({
+      x: e.clientX - dragPosition.x,
+      y: e.clientY - dragPosition.y
+    });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging) {
+      setDragPosition({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <Badge variant="outline" className="bg-unifor-light-purple text-unifor-dark-purple px-4 py-1 mb-4">
-            GALLERY
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Scholar Highlights</h2>
-          <p className="text-gray-600">
-            Explore moments from our scholar community, events, and initiatives
-          </p>
+    <>
+      {/* Thumbnail Grid */}
+      <div className="relative">
+        <div className="grid grid-cols-2 gap-4 animate-fade-in-right">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="relative group cursor-pointer transform transition-all duration-300 hover:scale-105"
+              onClick={() => {
+                setCurrentImage(index);
+                setIsOpen(true);
+              }}
+            >
+              <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm border border-white/10">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-32 md:h-40 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-2 left-2 right-2">
+                    <p className="text-white text-xs font-medium truncate">{image.title}</p>
+                  </div>
+                </div>
+                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-1">
+                    <Move className="h-3 w-3 text-white" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
         
-        <div className="max-w-5xl mx-auto">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {galleryImages.map((image) => (
-                <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="overflow-hidden border-0 shadow-md">
-                      <div className="aspect-square relative overflow-hidden">
-                        <img 
-                          src={image.src} 
-                          alt={image.alt} 
-                          className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
-                        />
-                      </div>
-                      <CardContent className="p-4">
-                        <p className="text-sm font-medium text-gray-700">{image.caption}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2" />
-            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2" />
-          </Carousel>
+        {/* Floating Action Button */}
+        <div className="absolute -bottom-4 -right-4">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="bg-gradient-to-r from-primary to-secondary text-white rounded-full p-3 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
+          >
+            <Move className="h-5 w-5" />
+          </button>
         </div>
       </div>
-    </section>
+
+      {/* Modern Moveable Popup */}
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent 
+          className="fixed max-w-4xl w-[90vw] h-[80vh] p-0 border-0 bg-black/95 backdrop-blur-xl rounded-2xl overflow-hidden"
+          style={{
+            transform: `translate(${dragPosition.x}px, ${dragPosition.y}px)`,
+            transition: isDragging ? 'none' : 'transform 0.2s ease-out'
+          }}
+        >
+          {/* Draggable Header */}
+          <div
+            className="relative bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm border-b border-white/10 p-4 cursor-move"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Move className="h-4 w-4 text-white/60" />
+                <h3 className="text-white font-semibold">{images[currentImage].title}</h3>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white/60 hover:text-white transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Image Display */}
+          <div className="relative flex-1 flex items-center justify-center p-4">
+            <img
+              src={images[currentImage].src}
+              alt={images[currentImage].alt}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            
+            {/* Navigation Buttons */}
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full p-2 transition-all duration-300"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-full p-2 transition-all duration-300"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+
+          {/* Bottom Controls */}
+          <div className="bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm border-t border-white/10 p-4">
+            <div className="flex items-center justify-between">
+              <div className="flex gap-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImage(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImage ? 'bg-primary scale-125' : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+              <span className="text-white/60 text-sm">
+                {currentImage + 1} / {images.length}
+              </span>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

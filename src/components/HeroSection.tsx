@@ -2,6 +2,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import ImageGallery from './ImageGallery';
 
 const HeroSection = () => {
   return (
@@ -54,13 +55,7 @@ const HeroSection = () => {
           </div>
           
           <div className="relative animate-fade-in-right">
-            <div className="relative mx-auto">
-              <img 
-                src="https://id.uniford.org/uniford-main/temp.jpg" 
-                alt="Uniford Scholars" 
-                className="w-full h-auto object-cover rounded-2xl shadow-lg"
-                />
-            </div>
+            <ImageGallery />
             <div className="absolute -bottom-8 -left-8 h-32 w-32 bg-unifor-blue/30 backdrop-blur-xl rounded-full animate-float"></div>
           </div>
         </div>
