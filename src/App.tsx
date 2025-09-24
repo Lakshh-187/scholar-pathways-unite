@@ -46,6 +46,7 @@ import GrantsDetails from "./pages/GrantsDetails";
 import CertificateAwards from "./pages/CertificateAwards";
 import UICSS from "./pages/UICSS";
 import Elite from "./pages/Elite";
+import UNCIFCertified from "./pages/UNCIFCertified";
 
 const queryClient = new QueryClient();
 
@@ -97,6 +98,7 @@ const App = () => (
           <Route path="/certificate-awards" element={<CertificateAwards />} />
           <Route path="/uicss" element={<UICSS />} />
           <Route path="/elite" element={<Elite />} />
+          <Route path="/uncif-certified" element={<UNCIFCertified />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
