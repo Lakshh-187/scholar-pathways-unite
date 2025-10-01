@@ -35,7 +35,6 @@ import GFT from "./pages/GFT";
 import Frontliner from "./pages/Frontliner";
 import HerHaVa from "./pages/HerHaVa";
 import HerHaVaManual from "./pages/HerHaVaManual";
-import Standard from "./pages/Standard";
 import NotificationBanner from "./components/NotificationBanner";
 import OfferLetter from "./pages/OfferLetter";
 import BadgeID from "./pages/BadgeID";
@@ -90,7 +89,6 @@ const App = () => (
           <Route path="/frontliner" element={<Frontliner />} />
           <Route path="/her-hava" element={<HerHaVa />} />
           <Route path="/her-hava-manual" element={<HerHaVaManual />} />
-          <Route path="/standard" element={<Standard />} />
           <Route path="/offer-letter" element={<OfferLetter />} />
           <Route path="/badge-id" element={<BadgeID />} />
           <Route path="/certificate-generator" element={<CertificateGenerator />} />
