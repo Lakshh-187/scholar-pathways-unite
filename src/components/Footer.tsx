@@ -138,6 +138,21 @@ const Footer = () => {
                   Grants Details
                 </Link>
               </li>
+              <li>
+                <Link to="/frontliner" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Frontliner
+                </Link>
+              </li>
+              <li>
+                <Link to="/her-hava" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Her-HaVa
+                </Link>
+              </li>
+              <li>
+                <Link to="/uncif-certified" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  UNCIF Certified
+                </Link>
+              </li>
             </ul>
             <h3 className="text-lg font-semibold mb-4 mt-6">Partnerships</h3>
             <ul className="space-y-3">
@@ -255,6 +270,11 @@ const Footer = () => {
               <li>
                 <Link to="/memories" className="text-gray-300 hover:text-white hover:underline transition-colors">
                   Memories
+                </Link>
+              </li>
+              <li>
+                <Link to="/her-hava-manual" className="text-gray-300 hover:text-white hover:underline transition-colors">
+                  Her-HaVa Manual
                 </Link>
               </li>
             </ul>
