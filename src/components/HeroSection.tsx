@@ -22,15 +22,111 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">
             <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4 animate-pulse">
-              <span className="text-white font-semibold tracking-wider">Non-profit Organization</span>
+              <span className="text-white font-semibold tracking-wider">Weekly News - Stanburg</span>
             </div>
-            <h1 className="hero-text tracking-tight">
-              Empowering <span className="text-unifor-purple">Scholars</span> For Tomorrow's World
-            </h1>
-            <p className="text-xl text-gray-300 max-w-2xl">
-              A complete ecosystem where scholars learn, perform, and connect with opportunities through the Talent Hunt Alliance.
-            </p>
-            <div className="flex flex-wrap gap-4">
+            
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                Uniford transforms{' '}
+                <span className="inline-block min-w-[280px] text-unifor-purple relative">
+                  <span className="animate-fade-in-out absolute left-0" key="schools" style={{
+                    animation: 'fadeInOut 12s infinite',
+                    animationDelay: '0s'
+                  }}>
+                    Schools
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 12s infinite',
+                    animationDelay: '2s'
+                  }}>
+                    NGOs
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 12s infinite',
+                    animationDelay: '4s'
+                  }}>
+                    Frontliners
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 12s infinite',
+                    animationDelay: '6s'
+                  }}>
+                    Organizations
+                  </span>
+                </span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+                through{' '}
+                <span className="inline-block min-w-[220px] text-unifor-blue font-semibold relative">
+                  <span className="animate-fade-in-out absolute left-0" style={{
+                    animation: 'fadeInOut 15s infinite',
+                    animationDelay: '0s'
+                  }}>
+                    Grants
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 15s infinite',
+                    animationDelay: '2.5s'
+                  }}>
+                    Accreditation
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 15s infinite',
+                    animationDelay: '5s'
+                  }}>
+                    Financial Aid
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 15s infinite',
+                    animationDelay: '7.5s'
+                  }}>
+                    Recognition
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 15s infinite',
+                    animationDelay: '10s'
+                  }}>
+                    Licensing
+                  </span>
+                </span>
+                {' '}— powered by comprehensive{' '}
+                <span className="inline-block min-w-[200px] text-yellow-300 font-semibold relative">
+                  <span className="animate-fade-in-out absolute left-0" style={{
+                    animation: 'fadeInOut 16s infinite',
+                    animationDelay: '0s'
+                  }}>
+                    Assessments
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 16s infinite',
+                    animationDelay: '4s'
+                  }}>
+                    Audits
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 16s infinite',
+                    animationDelay: '8s'
+                  }}>
+                    Impact Reports
+                  </span>
+                  <span className="animate-fade-in-out absolute left-0 opacity-0" style={{
+                    animation: 'fadeInOut 16s infinite',
+                    animationDelay: '12s'
+                  }}>
+                    Evaluations
+                  </span>
+                </span>
+              </p>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <p className="text-sm md:text-base text-gray-200">
+                  <span className="font-bold text-unifor-purple">Cross-Border Collaborations</span> in UAE, Singapore, UK, and Canada — enabling joint programs, research alliances, and international accreditation exchanges.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex flex-wrap gap-4 pt-4">
               <Link to="/id-card">
                 <Button className="primary-btn" size="lg">
                   Apply for ID Card
@@ -42,15 +138,6 @@ const HeroSection = () => {
                   Explore Programs
                 </Button>
               </Link>
-            </div>
-            <div className="pt-6">
-              <p className="text-gray-400">Trusted by leading institutions and organizations</p>
-              <div className="flex flex-wrap gap-8 items-center mt-4">
-                <div className="h-8 w-20 bg-white/10 rounded"></div>
-                <div className="h-8 w-24 bg-white/10 rounded"></div>
-                <div className="h-8 w-20 bg-white/10 rounded"></div>
-                <div className="h-8 w-28 bg-white/10 rounded"></div>
-              </div>
             </div>
           </div>
           

@@ -87,3 +87,18 @@
     @apply glass-card w-full md:w-[45%] p-6 my-8 animate-fade-in;
   }
 }
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  8%, 25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  33% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
