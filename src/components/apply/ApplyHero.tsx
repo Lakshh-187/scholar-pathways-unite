@@ -1,58 +1,80 @@
-
 import React from "react";
-import { ClipboardList } from "lucide-react";
+import { Shield, Award, Users } from "lucide-react";
 
 const ApplyHero = () => {
   return (
-    <section className="bg-gradient-to-r from-unifor-dark-purple to-unifor-purple text-white py-16 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <img 
-          src="https://www.uniford.org/uniford-main/uniford1.jpg" 
-          alt="Students collaborating" 
-          className="w-full h-full object-cover"
-        />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full mb-4">
-            <span className="text-white font-medium tracking-wider text-sm">Uniford Council Applications</span>
+    <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/10 border-b">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
+              <Award className="h-5 w-5 text-primary" />
+              <span className="text-sm font-medium">Transform Your Institution</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              Apply for <span className="text-primary">SDG Recognition</span> & Accreditation
+            </h1>
+            
+            <p className="text-lg text-muted-foreground">
+              Join a global network of schools committed to excellence in safety, standards, and sustainable development goals.
+            </p>
+            
+            <div className="flex flex-wrap gap-6 pt-4">
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold">17 SDG Categories</div>
+                  <div className="text-sm text-muted-foreground">Global Recognition</div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold">No Hidden Fees</div>
+                  <div className="text-sm text-muted-foreground">Fully Funded Program</div>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Apply for Uniford Programs</h1>
-          
-          <p className="text-lg md:text-xl mb-8">
-            Complete your applications, submit documents, request resources, and apply for 
-            various Uniford programs all in one place.
-          </p>
-          
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mt-8">
-            <div className="flex items-center justify-center mb-4">
-              <ClipboardList size={32} className="text-white mr-3" />
-              <h2 className="text-2xl font-bold">Important Guidelines</h2>
-            </div>
-            <ul className="text-left space-y-3 max-w-2xl mx-auto">
-              <li className="flex items-start">
-                <span className="bg-white text-unifor-purple rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
-                <span>All form links must be <strong>public</strong> and accessible without requiring special permissions.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-white text-unifor-purple rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
-                <span>Use the "Share Link" option instead of uploading files directly to ensure accessibility.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-white text-unifor-purple rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                <span>Complete all required fields in the applications to avoid processing delays.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="bg-white text-unifor-purple rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
-                <span>Applications are reviewed within 2-5 business days after submission.</span>
-              </li>
-            </ul>
+          {/* Right Image Grid */}
+          <div className="grid grid-cols-2 gap-4">
+            <img 
+              src="/lovable-uploads/uniford-edutech-fair.png" 
+              alt="Uniford Edutech Fair"
+              className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+            />
+            <img 
+              src="/lovable-uploads/uniford-foundation-event.png" 
+              alt="Uniford Foundation Event"
+              className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 mt-8"
+            />
+            <img 
+              src="/lovable-uploads/uniford-art-display.png" 
+              alt="Uniford Art Display"
+              className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 -mt-8"
+            />
+            <img 
+              src="/lovable-uploads/uniford-flags.png" 
+              alt="Uniford Flags"
+              className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+            />
           </div>
         </div>
       </div>
-    </section>
+      
+      {/* SDG Logo Badge */}
+      <div className="absolute top-4 right-4 opacity-10">
+        <div className="text-9xl font-bold text-primary">SDG</div>
+      </div>
+    </div>
   );
 };
 

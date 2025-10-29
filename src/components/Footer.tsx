@@ -314,7 +314,43 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
+        {/* SDG Section */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-2xl p-8 text-center">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center">
+                <span className="text-3xl font-bold">🌍</span>
+              </div>
+              <div className="text-left">
+                <h3 className="text-2xl font-bold">Sustainable Development Goals</h3>
+                <p className="text-sm opacity-80">Committed to UN SDG Framework</p>
+              </div>
+            </div>
+            <p className="text-base opacity-90 max-w-3xl mx-auto mb-6">
+              Uniford Foundation is committed to advancing the United Nations Sustainable Development Goals through education, accreditation, and global partnerships. We support institutions in achieving excellence across all 17 SDG categories.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-sm">
+              <div className="bg-white/10 rounded-lg p-3">
+                <div className="font-bold text-lg">17</div>
+                <div className="opacity-80">SDG Categories</div>
+              </div>
+              <div className="bg-white/10 rounded-lg p-3">
+                <div className="font-bold text-lg">Global</div>
+                <div className="opacity-80">Recognition</div>
+              </div>
+              <div className="bg-white/10 rounded-lg p-3">
+                <div className="font-bold text-lg">Free</div>
+                <div className="opacity-80">Application</div>
+              </div>
+              <div className="bg-white/10 rounded-lg p-3">
+                <div className="font-bold text-lg">100%</div>
+                <div className="opacity-80">Funded</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-white/10 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Uniford Foundation. All rights reserved.</p>
         </div>
       </div>
