@@ -26,14 +26,15 @@ const NavBar = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="font-bold text-xl flex items-center">
           <div className="flex items-center gap-3">
-            <img 
-              src="/uncif-logo.png" 
-              alt="UNCIF Logo" 
-              className="h-10 w-auto"
-            />
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold">UNCIF</span>
-              <span className="text-xs text-unifor-purple font-medium -mt-1">Non-profit Organization</span>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Uniford
+              </span>
+              <img 
+                src="/sdg-logo.png" 
+                alt="SDG Goals" 
+                className="h-8 w-8"
+              />
             </div>
           </div>
         </Link>
@@ -89,9 +90,9 @@ const NavBar = () => {
                 Awards
               </Button>
             </Link>
-            <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
-              <Button className="primary-btn">Apply Now</Button>
-            </a>
+            <Link to="/apply">
+              <Button className="primary-btn">Apply</Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -142,9 +143,9 @@ const NavBar = () => {
                 Awards
               </Button>
             </Link>
-            <a href="https://forms.gle/VJJCWM2wzcZjT8YK8" target="_blank" rel="noopener noreferrer">
-              <Button className="primary-btn w-full mt-2">Apply Now</Button>
-            </a>
+            <Link to="/apply">
+              <Button className="primary-btn w-full mt-2">Apply</Button>
+            </Link>
           </div>
         </div>
       )}

@@ -4,12 +4,15 @@ import { Helmet } from "react-helmet";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import UNCIFSection from "@/components/UNCIFSection";
-import UNCIF2026Milestones from "@/components/UNCIF2026Milestones";
 import UISSection from "@/components/UISSection";
 import WelcomePopup from "@/components/WelcomePopup";
 import CredibilityCarousel from "@/components/CredibilityCarousel";
-import ICSSLegalCompliance from "@/components/ICSSLegalCompliance";
-import OrganizationOverview from "@/components/OrganizationOverview";
+import BISSSection from "@/components/BISSSection";
+import GreatPlaceToLearnSection from "@/components/GreatPlaceToLearnSection";
+import UNCIFSDGSection from "@/components/UNCIFSDGSection";
+import OneMillionOneBillionSection from "@/components/OneMillionOneBillionSection";
+import BackedOrganizationsCarousel from "@/components/BackedOrganizationsCarousel";
+import ProgramsInMotionCarousel from "@/components/ProgramsInMotionCarousel";
 import {
   Carousel,
   CarouselContent,
@@ -59,20 +62,29 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Organization Overview */}
-      <OrganizationOverview />
+      {/* BISS - Bringing International Standard & Safety */}
+      <BISSSection />
 
-      {/* ICSS Legal Compliance Section */}
-      <ICSSLegalCompliance />
+      {/* Great Place to Learn */}
+      <GreatPlaceToLearnSection />
+
+      {/* UNCIF SDG Certification */}
+      <UNCIFSDGSection />
 
       {/* New UNCIF Section */}
       <UNCIFSection />
 
-      {/* UNCIF 2026 Milestones */}
-      <UNCIF2026Milestones />
-
       {/* New UIS Section */}
       <UISSection />
+
+      {/* 1M 1B Mission */}
+      <OneMillionOneBillionSection />
+
+      {/* Our Backed Organizations - Auto Swapping */}
+      <BackedOrganizationsCarousel />
+
+      {/* Programs in Motion - Auto Swapping */}
+      <ProgramsInMotionCarousel />
 
       {/* Credibility Carousel */}
       <CredibilityCarousel />
