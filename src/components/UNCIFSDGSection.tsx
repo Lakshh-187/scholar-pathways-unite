@@ -52,10 +52,10 @@ const UNCIFSDGSection = () => {
           </div>
           
           <div className="order-1 lg:order-2">
-            <div className="rounded-2xl overflow-hidden shadow-xl bg-white p-8">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="/sdg-logo.png" 
-                alt="UN Sustainable Development Goals"
+                src="/sdg-grid.png" 
+                alt="UN Sustainable Development Goals - 17 Goals"
                 className="w-full h-auto"
               />
             </div>
