@@ -110,48 +110,6 @@ const credibilityItems: CredibilityItem[] = [
     image: "/lovable-uploads/uniford-foundation-event.png",
     category: "Event"
   },
-  {
-    id: 15,
-    title: "Art & Culture",
-    description: "Celebrating student creativity and artistic expression through exhibitions.",
-    image: "/lovable-uploads/uniford-art-display.png",
-    category: "Culture"
-  },
-  {
-    id: 16,
-    title: "Student Success",
-    description: "Empowering students with opportunities for academic and personal growth.",
-    image: "/lovable-uploads/uniford-student.png",
-    category: "Achievement"
-  },
-  {
-    id: 17,
-    title: "Leadership Meetings",
-    description: "Strategic planning sessions for educational transformation initiatives.",
-    image: "/lovable-uploads/uniford-meeting.png",
-    category: "Strategy"
-  },
-  {
-    id: 18,
-    title: "Global Presentations",
-    description: "Sharing best practices and innovations at international education forums.",
-    image: "/lovable-uploads/uniford-presentation.png",
-    category: "Knowledge"
-  },
-  {
-    id: 19,
-    title: "Impact Infographic",
-    description: "Visualizing our reach and impact across educational institutions globally.",
-    image: "/lovable-uploads/uniford-infographic.jpg",
-    category: "Data"
-  },
-  {
-    id: 20,
-    title: "ICSS School Excellence",
-    description: "Partner schools demonstrating excellence in international standards and safety.",
-    image: "/lovable-uploads/icss-school.jpg",
-    category: "Partnership"
-  }
 ];
 
 const CredibilityCarousel = () => {
@@ -160,7 +118,7 @@ const CredibilityCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % credibilityItems.length);
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, []);

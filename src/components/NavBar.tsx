@@ -28,7 +28,7 @@ const NavBar = () => {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-3">
             <img 
-              src="/sdg-logo.png" 
+              src="/sdg-badge-logo.png" 
               alt="SDG" 
               className="h-10 w-auto"
             />
