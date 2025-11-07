@@ -32,6 +32,9 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSection />
 
+      {/* Credibility Carousel */}
+      <CredibilityCarousel />
+
       {/* BISS - Bringing International Standard & Safety */}
       <BISSSection />
 
@@ -49,9 +52,6 @@ const Index = () => {
 
       {/* Programs in Motion - Auto Swapping */}
       <ProgramsInMotionCarousel />
-
-      {/* Credibility Carousel */}
-      <CredibilityCarousel />
     </Layout>
   );
 };

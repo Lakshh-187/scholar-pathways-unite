@@ -4,13 +4,13 @@ import { Badge } from '@/components/ui/badge';
 import { ExternalLink } from 'lucide-react';
 
 const organizations = [
-  { name: 'TUQ Service', country: 'India', url: 'https://www.youngburg.com/', logo: '🏢' },
-  { name: 'PTV Global', country: 'South Africa', url: 'https://www.ptvevent.com/', logo: '🌍' },
-  { name: 'CIA', country: 'India', url: '#', logo: '🎯' },
-  { name: 'Stanburg', country: 'India', url: 'https://uniwave.in', logo: '⭐' },
-  { name: 'Ablestar', country: 'India', url: 'https://ablestar.youngburg.com/', logo: '✨' },
-  { name: 'NCHW', country: 'Indo-Canada', url: '#', logo: '🍁' },
-  { name: 'UIRAD', country: 'International', url: '/uirad', logo: '🔬' },
+  { name: "TUQ Service", country: "India", countryCode: "IN", url: "https://www.youngburg.com/", grants: "Education & Innovation Grants" },
+  { name: "PTV Global", country: "South Africa", countryCode: "ZA", url: "https://www.ptvevent.com/", grants: "Event & Cultural Grants" },
+  { name: "CIA", country: "India", countryCode: "IN", url: "https://ciarampur.org", grants: "Research & Development Grants" },
+  { name: "Stanburg", country: "India", countryCode: "IN", url: "https://uniwave.in", grants: "Technology & Learning Grants" },
+  { name: "Ablestar", country: "India", countryCode: "IN", url: "https://ablestar.youngburg.com/", grants: "Innovation & Startup Grants" },
+  { name: "NCHW", country: "Indo-Canada", countryCode: "CA", url: "https://uniwave.in", grants: "Global Partnership Grants" },
+  { name: "UIRAD", country: "Global", countryCode: "UN", url: "/uirad", grants: "Educational Excellence Grants" },
 ];
 
 const BackedOrganizationsCarousel = () => {
@@ -59,9 +59,22 @@ const BackedOrganizationsCarousel = () => {
             >
               <CardContent className="p-6">
                 <div className="text-center">
-                  <div className="text-5xl mb-4">{org.logo}</div>
+                  <div className="mb-4 relative">
+                    <div className="text-7xl mb-2">
+                      {org.countryCode === "IN" && "🇮🇳"}
+                      {org.countryCode === "ZA" && "🇿🇦"}
+                      {org.countryCode === "CA" && "🇨🇦"}
+                      {org.countryCode === "UN" && "🌐"}
+                    </div>
+                    <Badge className="bg-green-500 text-white text-xs">
+                      Grants Available
+                    </Badge>
+                  </div>
                   <h3 className="font-bold text-xl mb-2">{org.name}</h3>
-                  <Badge variant="outline" className="mb-4">{org.country}</Badge>
+                  <Badge variant="outline" className="mb-2">{org.country}</Badge>
+                  <p className="text-xs text-purple-600 font-medium mb-3 px-3 py-1 bg-purple-50 rounded-full">
+                    {org.grants}
+                  </p>
                   {org.url !== '#' && (
                     <a 
                       href={org.url.startsWith('http') ? org.url : org.url}
