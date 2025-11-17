@@ -18,6 +18,7 @@ const NavBar = () => {
     { name: 'UIRAD', path: '/uirad' },
     { name: 'UICSS', path: '/uicss' },
     { name: 'UTHA', path: '/talent-hunt-alliance' },
+    { name: 'Get Involved', path: '/get-involved' },
     { name: 'Her', path: '/her-hava', special: 'pink' },
   ];
   
