@@ -29,6 +29,7 @@ const NavBar = () => {
     { name: 'UNCIF', path: 'https://uncif.uniford.org/', external: true },
     { name: 'UICSS', path: '/uicss' },
     { name: 'Pitchburg', path: '/uni-pitch' },
+    { name: 'UPPSC', path: '/uppsc' },
   ];
   
   return (
