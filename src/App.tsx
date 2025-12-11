@@ -49,6 +49,7 @@ import UICSS from "./pages/UICSS";
 import Elite from "./pages/Elite";
 import UNCIFCertified from "./pages/UNCIFCertified";
 import GetInvolved from "./pages/GetInvolved";
+import UPPSC from "./pages/UPPSC";
 
 const queryClient = new QueryClient();
 
@@ -103,6 +104,7 @@ const App = () => (
           <Route path="/elite" element={<Elite />} />
           <Route path="/uncif-certified" element={<UNCIFCertified />} />
           <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="/uppsc" element={<UPPSC />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
