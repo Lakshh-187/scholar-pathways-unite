@@ -54,8 +54,8 @@ const UNCIFSDGSection = () => {
           <div className="order-1 lg:order-2">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="/sdg-grid.png" 
-                alt="UN Sustainable Development Goals - 17 Goals"
+                src="/uncif-sdg-certification.png" 
+                alt="UNCIF SDG Certification - Free Certification & Global Recognition"
                 className="w-full h-auto"
               />
             </div>

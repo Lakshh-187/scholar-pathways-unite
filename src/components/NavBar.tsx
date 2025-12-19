@@ -37,18 +37,19 @@ const NavBar = () => {
     <nav className="sticky top-12 left-0 right-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="font-bold text-xl flex items-center">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <img 
-              src="/uniford-logo.png" 
-              alt="Uniford" 
+              src="/uniford-sdg-logo.png" 
+              alt="Uniford SDG" 
               className="h-12 w-auto"
             />
-            <span className="text-2xl font-bold bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Uniford
-            </span>
+            <div className="h-10 w-px bg-gray-300" />
+            <img 
+              src="/sssa-logo.png" 
+              alt="SSSA - School Safety & Standard Authority" 
+              className="h-12 w-auto"
+            />
           </div>
-        </div>
         </Link>
 
         {/* Mobile Menu Toggle */}
