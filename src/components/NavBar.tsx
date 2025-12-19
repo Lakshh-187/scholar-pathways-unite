@@ -30,6 +30,7 @@ const NavBar = () => {
     { name: 'UICSS', path: '/uicss' },
     { name: 'Pitchburg', path: '/uni-pitch' },
     { name: 'UPPSC', path: '/uppsc' },
+    { name: 'SSSA', path: '/sssa' },
   ];
   
   return (
