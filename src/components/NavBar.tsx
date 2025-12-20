@@ -19,8 +19,8 @@ const NavBar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Docs', path: '/official-documents' },
-    { name: 'UIRAD', path: '/uirad' },
-    { name: 'UTHA', path: '/talent-hunt-alliance' },
+    { name: 'Greats', path: '/greats' },
+    { name: 'SSSA', path: '/sssa' },
     { name: 'Get Involved', path: '/get-involved' },
     { name: 'Her', path: '/her-hava', special: 'pink' },
   ];
@@ -30,25 +30,25 @@ const NavBar = () => {
     { name: 'UICSS', path: '/uicss' },
     { name: 'Pitchburg', path: '/uni-pitch' },
     { name: 'UPPSC', path: '/uppsc' },
-    { name: 'SSSA', path: '/sssa' },
-    { name: 'Greats', path: '/greats' },
+    { name: 'UIRAD', path: '/uirad' },
+    { name: 'UTHA', path: '/talent-hunt-alliance' },
   ];
   
   return (
     <nav className="sticky top-12 left-0 right-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="font-bold text-xl flex items-center">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <img 
               src="/uniford-sdg-logo.png" 
               alt="Uniford SDG" 
-              className="h-12 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
-            <div className="h-10 w-px bg-gray-300" />
+            <div className="h-12 w-px bg-gray-300" />
             <img 
               src="/sssa-logo.png" 
               alt="SSSA - School Safety & Standard Authority" 
-              className="h-12 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
           </div>
         </Link>
