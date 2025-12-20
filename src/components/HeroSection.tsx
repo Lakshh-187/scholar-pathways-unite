@@ -80,24 +80,34 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Weekly News Section */}
-            <div className="bg-gradient-to-r from-primary/10 to-accent/10 backdrop-blur-sm border border-primary/20 rounded-xl p-4 mt-6">
-              <p className="text-primary font-semibold text-sm mb-2">Weekly News - Stanburg</p>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Uniford announces <span className="text-white font-medium">Cross-Border Collaborations</span> in UAE, Singapore, UK, and Canada, enabling joint programs, research alliances, and international accreditation exchanges.
+            {/* 1M1B Model Section */}
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-xl p-5 mt-6">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="bg-yellow-500 text-black font-bold px-3 py-1 rounded-full text-sm">1M1B Model</span>
+              </div>
+              <p className="text-2xl font-bold text-white mb-1">
+                <span className="text-yellow-400">1 Million</span> Safe & Standard Schools
+              </p>
+              <p className="text-lg text-gray-300">
+                for <span className="text-yellow-400 font-semibold">1 Billion</span> Frontliners
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link to="/id-card">
+              <Link to="/apply">
                 <Button className="primary-btn" size="lg">
-                  Apply for ID Card
+                  Apply Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/programs">
+              <Link to="/greats">
+                <Button className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold" size="lg">
+                  Greats
+                </Button>
+              </Link>
+              <Link to="/sssa">
                 <Button className="secondary-btn" size="lg">
-                  Explore Programs
+                  BISS
                 </Button>
               </Link>
             </div>

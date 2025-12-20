@@ -197,72 +197,60 @@ const UPPSC = () => {
         <meta name="description" content="UPPSC - Bringing International Standard & Safety to schools. Backed by Uniford & UNCIF for 1 million safe schools." />
       </Helmet>
 
-      {/* Hero Section - Yellow-White-Black Theme like SSSA */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-gradient-to-br from-yellow-50 via-white to-gray-100">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-black transform skew-x-[-12deg] translate-x-20 hidden lg:block" />
-        <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-400/20 rounded-full blur-2xl" />
-        <div className="absolute bottom-20 right-1/4 w-48 h-48 bg-yellow-400/30 rounded-full blur-3xl" />
-        
-        {/* Dot Pattern */}
+      {/* Hero Section - Dark Yellow/Orange Theme like Greats */}
+      <section className="relative min-h-screen bg-gradient-to-br from-amber-900 via-orange-800 to-yellow-900 overflow-hidden">
+        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 right-1/4 grid grid-cols-8 gap-2">
-            {[...Array(64)].map((_, i) => (
-              <div key={i} className="w-1 h-1 bg-black rounded-full" />
-            ))}
-          </div>
-          <div className="absolute bottom-1/4 left-1/4 grid grid-cols-8 gap-2">
-            {[...Array(64)].map((_, i) => (
-              <div key={i} className="w-1 h-1 bg-black rounded-full" />
-            ))}
-          </div>
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <Badge className="bg-yellow-400 text-black font-bold px-4 py-2 text-sm">
+        <div className="container mx-auto px-4 py-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+            <div className="text-white space-y-6">
+              <Badge className="bg-yellow-500/20 text-yellow-300 border-yellow-400/30 text-sm px-4 py-2">
                 <School className="w-4 h-4 mr-2 inline" />
                 UPPSC Initiative
               </Badge>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black">
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 <span className="block">Uttar Pradesh</span>
-                <span className="block text-2xl md:text-3xl font-bold mt-2 text-gray-700">
+                <span className="block text-2xl md:text-3xl font-semibold text-yellow-200 mt-2">
                   Progressive Schools Council
                 </span>
               </h1>
               
               <div className="space-y-2">
-                <p className="text-xl md:text-2xl text-gray-700">
-                  For <span className="bg-yellow-400 px-2 font-bold text-black">"Bringing International</span>
+                <p className="text-xl md:text-2xl text-amber-100/90">
+                  For <span className="text-yellow-400 font-bold">"Bringing International</span>
                 </p>
-                <p className="text-xl md:text-2xl text-gray-700">
-                  <span className="inline-block min-w-[160px] font-black text-black text-3xl">
+                <p className="text-xl md:text-2xl text-amber-100/90">
+                  <span className="inline-block min-w-[160px] font-bold text-yellow-400 text-3xl">
                     {words[currentWordIndex]}
                   </span>
-                  <span className="bg-yellow-400 px-2 font-bold text-black">"</span> Movement
+                  <span className="text-yellow-400 font-bold">"</span> Movement
                 </p>
               </div>
 
               {/* Mission Statement */}
-              <div className="bg-black text-white rounded-xl p-5 mt-6 border-4 border-yellow-400">
+              <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-5 border border-yellow-500/20">
                 <div className="flex items-center gap-3 mb-3">
                   <img src="/uniford-logo.png" alt="Uniford" className="h-8 object-contain bg-white rounded p-1" />
                   <img src="/uncif-logo.png" alt="UNCIF" className="h-8 object-contain bg-white rounded p-1" />
                 </div>
-                <p className="text-gray-300 text-base leading-relaxed">
+                <p className="text-amber-100/80 text-base leading-relaxed">
                   <span className="text-yellow-400 font-bold text-xl">1 Million</span> Safe & Standard Schools for{' '}
                   <span className="text-yellow-400 font-bold text-xl">1 Billion</span> Frontliners
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-8 py-6 text-lg shadow-lg" size="lg">
+                <Button className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-6 text-lg" size="lg">
                   Join the Movement
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white font-bold px-8 py-6 text-lg" size="lg" asChild>
+                <Button variant="outline" className="border-yellow-400 text-yellow-400 hover:bg-yellow-400/10 font-bold px-8 py-6 text-lg" size="lg" asChild>
                   <a href="https://biss.uniford.org" target="_blank" rel="noopener noreferrer">
                     BISS Guide Book
                   </a>
@@ -277,8 +265,8 @@ const UPPSC = () => {
                   { value: "50+", label: "Countries" }
                 ].map((stat, idx) => (
                   <div key={idx} className="text-center">
-                    <div className="text-3xl font-black text-black">{stat.value}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
+                    <div className="text-3xl font-bold text-yellow-400">{stat.value}</div>
+                    <div className="text-sm text-amber-200">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -290,34 +278,34 @@ const UPPSC = () => {
                   <img 
                     src="/lovable-uploads/uniford-flags.png" 
                     alt="UPPSC Global Initiative" 
-                    className="rounded-xl shadow-2xl w-full h-48 object-cover border-4 border-yellow-400"
+                    className="rounded-2xl shadow-2xl w-full h-48 object-cover border-4 border-yellow-500/30"
                   />
                   <img 
                     src="/lovable-uploads/uniford-foundation-event.png" 
                     alt="UPPSC Event" 
-                    className="rounded-xl shadow-2xl w-full h-56 object-cover"
+                    className="rounded-2xl shadow-2xl w-full h-56 object-cover"
                   />
                 </div>
                 <div className="space-y-4 pt-8">
                   <img 
                     src="/lovable-uploads/uniford-edutech-fair.png" 
                     alt="EdTech Fair" 
-                    className="rounded-xl shadow-2xl w-full h-56 object-cover"
+                    className="rounded-2xl shadow-2xl w-full h-56 object-cover"
                   />
                   <img 
                     src="/lovable-uploads/uniford-art-display.png" 
                     alt="Art Display" 
-                    className="rounded-xl shadow-2xl w-full h-48 object-cover border-4 border-black"
+                    className="rounded-2xl shadow-2xl w-full h-48 object-cover border-4 border-orange-500/30"
                   />
                 </div>
               </div>
               
               {/* Floating Badges */}
-              <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-4 rounded-xl shadow-xl">
+              <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-yellow-500 to-orange-500 text-black p-4 rounded-xl shadow-xl">
                 <div className="text-3xl font-bold">1M+</div>
                 <div className="text-sm font-medium">Schools Target</div>
               </div>
-              <div className="absolute -top-6 -left-6 bg-black text-white p-4 rounded-xl shadow-xl">
+              <div className="absolute -top-6 -left-6 bg-black/80 backdrop-blur-sm text-white p-4 rounded-xl shadow-xl border border-yellow-500/30">
                 <Shield className="w-8 h-8 mb-1 text-yellow-400" />
                 <div className="text-sm font-medium">Safety First</div>
               </div>

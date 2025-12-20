@@ -5,11 +5,10 @@ import HeroSection from "@/components/HeroSection";
 import WelcomePopup from "@/components/WelcomePopup";
 import CredibilityCarousel from "@/components/CredibilityCarousel";
 import BISSSection from "@/components/BISSSection";
-import GreatPlaceToLearnSection from "@/components/GreatPlaceToLearnSection";
+import GreatsPreviewSection from "@/components/GreatsPreviewSection";
 import UNCIFSDGSection from "@/components/UNCIFSDGSection";
 import OneMillionOneBillionSection from "@/components/OneMillionOneBillionSection";
 import BackedOrganizationsCarousel from "@/components/BackedOrganizationsCarousel";
-import ProgramsInMotionCarousel from "@/components/ProgramsInMotionCarousel";
 
 const Index = () => {
   return (
@@ -38,8 +37,8 @@ const Index = () => {
       {/* BISS - Bringing International Standard & Safety */}
       <BISSSection />
 
-      {/* Great Place to Learn */}
-      <GreatPlaceToLearnSection />
+      {/* Greats Section - Great Place to Learn */}
+      <GreatsPreviewSection />
 
       {/* UNCIF SDG Certification */}
       <UNCIFSDGSection />
@@ -49,9 +48,6 @@ const Index = () => {
 
       {/* Our Backed Organizations - Auto Swapping */}
       <BackedOrganizationsCarousel />
-
-      {/* Programs in Motion - Auto Swapping */}
-      <ProgramsInMotionCarousel />
     </Layout>
   );
 };
