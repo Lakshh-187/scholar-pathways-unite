@@ -31,6 +31,7 @@ const NavBar = () => {
     { name: 'Pitchburg', path: '/uni-pitch' },
     { name: 'UPPSC', path: '/uppsc' },
     { name: 'SSSA', path: '/sssa' },
+    { name: 'Greats', path: '/greats' },
   ];
   
   return (
