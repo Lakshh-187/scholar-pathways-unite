@@ -3,16 +3,8 @@ import { Helmet } from 'react-helmet';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Shield, BookOpen, Heart, Bus, Users, Headphones, Film, Lightbulb, GraduationCap, Cpu, Flower2, Award, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Shield, BookOpen, Heart, Bus, Users, Headphones, Film, Lightbulb, GraduationCap, Cpu, Flower2, Award, Sparkles, CheckCircle2, FileText, ClipboardCheck, Phone, Mail, BookMarked, Globe, Video, Newspaper, Target, FileCheck, Users2, Building, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 const movements = [
   {
@@ -134,8 +126,35 @@ const movements = [
   }
 ];
 
+const roadmapSteps = [
+  { step: 1, title: "Join the SSSA Network", icon: Users2, color: "from-yellow-500 to-amber-500" },
+  { step: 2, title: "Receive Manual Guide & Self-Audit Toolkit", icon: BookMarked, color: "from-amber-500 to-orange-500" },
+  { step: 3, title: "Conduct Self-Audit & Submit Report", icon: ClipboardCheck, color: "from-orange-500 to-red-500" },
+  { step: 4, title: "Adopt Best Practices with Expert Support", icon: TrendingUp, color: "from-red-500 to-pink-500" },
+  { step: 5, title: "Monthly Newsletter & Expert Talks", icon: Mail, color: "from-pink-500 to-purple-500" },
+  { step: 6, title: "Help-Desk Support for Annual Report", icon: Headphones, color: "from-purple-500 to-indigo-500" },
+  { step: 7, title: "Apply for Recognition & Accreditation", icon: Award, color: "from-indigo-500 to-blue-500" }
+];
+
+const membershipBenefits = [
+  { title: "School Safety & Standards Compliance Manual Guide", icon: FileText },
+  { title: "Self-Audit Checklist & Documentation Toolkit", icon: ClipboardCheck },
+  { title: "School Safety Help-Desk Access", icon: Phone },
+  { title: "Certificate of SSSA Membership", icon: Award },
+  { title: "Expert Talks by Subject Matter Experts", icon: Users },
+  { title: "Monthly Safety & Compliance Newsletters", icon: Newspaper },
+  { title: "Eligibility for Safe & Standard School Recognition & Accreditation", icon: FileCheck },
+  { title: "Great School Cinema", icon: Film },
+  { title: "International Dialogues & Conferences", icon: Globe },
+  { title: "Leadership Appointments & Governance", icon: Building },
+  { title: "Establishment of School Climate Credit Bank", icon: Target },
+  { title: "Advocacy & Global Best Practices", icon: TrendingUp },
+  { title: "BISS Movement", icon: Shield }
+];
+
 const SSSA: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeMovement, setActiveMovement] = useState(0);
   const words = ['Safety', 'Standards', 'Excellence', 'Innovation'];
 
   useEffect(() => {
@@ -144,10 +163,6 @@ const SSSA: React.FC = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
-
-  const autoplayPlugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
-  );
 
   return (
     <Layout>
@@ -258,72 +273,327 @@ const SSSA: React.FC = () => {
         </div>
       </section>
 
-      {/* Movements Carousel Section */}
+      {/* Our Movements Section - Tab-based Sidebar Layout */}
       <section className="py-20 bg-gradient-to-b from-amber-50 to-orange-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <Badge className="bg-orange-100 text-orange-700 mb-4">Our Movements</Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Transform Your <span className="text-orange-600">School</span>
+              Why Partner <span className="text-orange-600">With Us?</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Schools apply for these comprehensive movements to achieve international standards and safety excellence
+              Powerful movements built to simplify every step, from safety audits to recognition
             </p>
           </div>
 
-          <Carousel
-            plugins={[autoplayPlugin.current]}
-            className="w-full"
-            opts={{ loop: true, align: "start" }}
-          >
-            <CarouselContent className="-ml-4">
-              {movements.map((movement) => (
-                <CarouselItem key={movement.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 h-full border border-orange-100">
-                    {/* Image */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={movement.image} 
-                        alt={movement.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      
-                      {/* Icon Badge */}
-                      <div className="absolute bottom-3 left-3 bg-yellow-500 p-2 rounded-lg">
-                        <movement.icon className="w-5 h-5 text-black" />
-                      </div>
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Left Sidebar - Movement List */}
+            <div className="lg:col-span-4 space-y-2">
+              {movements.map((movement, idx) => (
+                <button
+                  key={movement.id}
+                  onClick={() => setActiveMovement(idx)}
+                  className={`w-full text-left px-5 py-4 rounded-xl transition-all duration-300 flex items-center gap-3 ${
+                    activeMovement === idx 
+                      ? 'bg-yellow-500 text-black font-semibold shadow-lg' 
+                      : 'bg-white hover:bg-orange-100 text-gray-700 border border-orange-100'
+                  }`}
+                >
+                  <movement.icon className={`w-5 h-5 flex-shrink-0 ${activeMovement === idx ? 'text-black' : 'text-orange-500'}`} />
+                  <span className="text-sm">{movement.title}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Right Content - Active Movement Details */}
+            <div className="lg:col-span-8">
+              <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-3xl p-8 min-h-[500px] relative overflow-hidden">
+                {/* Decorative circles */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-300/30 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-orange-300/30 rounded-full blur-3xl" />
+                
+                <div className="relative z-10 grid md:grid-cols-2 gap-8 h-full">
+                  <div className="flex flex-col justify-center">
+                    <h3 className="text-3xl font-bold text-black mb-2">
+                      {movements[activeMovement].title}
+                    </h3>
+                    <p className="text-orange-800 font-semibold mb-4">
+                      {movements[activeMovement].subtitle}
+                    </p>
+                    <p className="text-gray-800 leading-relaxed mb-6">
+                      {movements[activeMovement].description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {movements[activeMovement].tags.map((tag, idx) => (
+                        <span 
+                          key={idx}
+                          className="bg-white/60 text-gray-800 text-sm font-medium px-4 py-2 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{movement.title}</h3>
-                      <p className="text-orange-600 font-semibold text-sm mb-3">{movement.subtitle}</p>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{movement.description}</p>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2">
-                        {movement.tags.slice(0, 2).map((tag, idx) => (
-                          <span 
-                            key={idx}
-                            className="bg-orange-100 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                    <Link to="/apply">
+                      <Button className="bg-black hover:bg-gray-900 text-white w-fit">
+                        Join This Movement <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="relative">
+                      <img 
+                        src={movements[activeMovement].image}
+                        alt={movements[activeMovement].title}
+                        className="rounded-2xl shadow-2xl max-h-[350px] object-cover border-4 border-white/50"
+                      />
+                      <div className="absolute -bottom-4 -right-4 bg-white rounded-xl p-3 shadow-lg">
+                        {React.createElement(movements[activeMovement].icon, { className: "w-8 h-8 text-orange-500" })}
                       </div>
                     </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-4 bg-yellow-500 hover:bg-yellow-400 border-0 text-black" />
-            <CarouselNext className="right-4 bg-yellow-500 hover:bg-yellow-400 border-0 text-black" />
-          </Carousel>
+                </div>
+              </div>
 
-          {/* View All Link */}
-          <div className="text-center mt-10">
-            <p className="text-gray-600 mb-4">Explore all 13+ movements designed to transform your school</p>
+              {/* Progress Dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {movements.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveMovement(idx)}
+                    className={`transition-all duration-300 ${
+                      activeMovement === idx 
+                        ? 'w-8 h-2 bg-yellow-500 rounded-full' 
+                        : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-orange-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-amber-900 to-orange-900 text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="bg-yellow-500/20 text-yellow-300 border-yellow-400/30 mb-4">Your Journey</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Your Roadmap to a <span className="text-yellow-400">Safer & Standard</span> School
+            </h2>
+            <p className="text-amber-100/80 text-lg max-w-3xl mx-auto">
+              Follow our proven 7-step process to transform your school into a SSSA certified institution
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-500 via-orange-500 to-red-500 transform -translate-x-1/2" />
+            
+            <div className="space-y-8 lg:space-y-12">
+              {roadmapSteps.map((step, idx) => (
+                <div 
+                  key={step.step}
+                  className={`flex flex-col lg:flex-row items-center gap-6 ${
+                    idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                  }`}
+                >
+                  {/* Content Card */}
+                  <div className={`lg:w-5/12 ${idx % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20 hover:border-yellow-500/50 transition-all duration-300 hover:scale-105">
+                      <div className={`flex items-center gap-4 mb-3 ${idx % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
+                        <div className={`bg-gradient-to-r ${step.color} p-3 rounded-xl`}>
+                          <step.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <span className="text-yellow-400 font-bold text-lg">Step {step.step}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                    </div>
+                  </div>
+
+                  {/* Center Circle */}
+                  <div className="lg:w-2/12 flex justify-center">
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-yellow-500/30 z-10`}>
+                      {step.step}
+                    </div>
+                  </div>
+
+                  {/* Empty space for alternating layout */}
+                  <div className="hidden lg:block lg:w-5/12" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Membership Benefits Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-amber-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge className="bg-orange-100 text-orange-700 mb-4">Membership Benefits</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              What Schools Receive with <span className="text-orange-600">SSSA Membership</span>
+            </h2>
+            <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+              SSSA empowers schools to achieve safety, standards & sustainability without financial burden
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {membershipBenefits.map((benefit, idx) => (
+              <div 
+                key={idx}
+                className="group flex items-start gap-4 bg-white rounded-2xl p-6 border border-orange-100 hover:border-yellow-500 hover:shadow-xl hover:shadow-yellow-500/10 transition-all duration-300"
+              >
+                <div className="flex-shrink-0 bg-gradient-to-br from-yellow-500 to-orange-500 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                  <benefit.icon className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <CheckCircle2 className="w-5 h-5 text-green-500 mb-2" />
+                  <p className="text-gray-800 font-medium">{benefit.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/apply">
+              <Button className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black font-bold px-8 py-6 text-lg">
+                Become a Member <ArrowRight className="ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* UIRAD Research Tour Section */}
+      <section className="py-20 bg-gradient-to-br from-amber-900 via-orange-800 to-yellow-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="bg-yellow-500/20 text-yellow-300 border-yellow-400/30 mb-4">Global Research</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Global Academic Research Tour by <span className="text-yellow-400">UIRAD</span>
+              </h2>
+              <p className="text-amber-100/90 text-lg mb-6">
+                Best Practices, Strengths & Unique Attributes of Schools
+              </p>
+              
+              <div className="space-y-6 mb-8">
+                <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
+                  <h3 className="text-xl font-bold text-yellow-400 mb-3 flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5" /> That helps:
+                  </h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-amber-100">SSSA Founding Member Schools to adopt & implement best practices</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-amber-100">Publish achievements on Greats School Cinema</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link to="/greats">
+                  <Button className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold">
+                    <Video className="w-4 h-4 mr-2" /> View Greats Cinema
+                  </Button>
+                </Link>
+                <Link to="/uirad">
+                  <Button variant="outline" className="border-yellow-400 text-yellow-400 hover:bg-yellow-400/10">
+                    <Globe className="w-4 h-4 mr-2" /> Learn About UIRAD
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <img 
+                  src="/sssa/great-school-tour.png" 
+                  alt="School Tour"
+                  className="rounded-2xl shadow-2xl w-full h-48 object-cover border-4 border-yellow-500/30"
+                />
+                <img 
+                  src="/sssa/school-cinema.png" 
+                  alt="School Cinema"
+                  className="rounded-2xl shadow-2xl w-full h-48 object-cover"
+                />
+                <img 
+                  src="/sssa/teacher-training.png" 
+                  alt="Teacher Training"
+                  className="rounded-2xl shadow-2xl w-full h-48 object-cover"
+                />
+                <img 
+                  src="/sssa/standard-audit.png" 
+                  alt="Standard Audit"
+                  className="rounded-2xl shadow-2xl w-full h-48 object-cover border-4 border-orange-500/30"
+                />
+              </div>
+              
+              <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-yellow-500 to-orange-500 text-black p-4 rounded-xl shadow-xl">
+                <Globe className="w-8 h-8 mb-1" />
+                <div className="text-sm font-bold">Global Research</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SSSA Wants Section */}
+      <section className="py-20 bg-gradient-to-r from-yellow-500 to-orange-500 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-yellow-300/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-orange-300/30 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="bg-black/10 text-black border-black/20 mb-6">Our Vision</Badge>
+            <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
+              SSSA Wants
+            </h2>
+            
+            <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/30">
+              <p className="text-2xl md:text-3xl text-black font-medium leading-relaxed mb-8">
+                Every School to Proudly <span className="font-bold">Publish their Safety & Standard Annual Report</span> & a Vision Manifesto for the Upcoming Year
+              </p>
+              
+              <div className="flex flex-wrap justify-center gap-6 mb-8">
+                <div className="bg-black/10 rounded-2xl p-6 flex items-center gap-4">
+                  <FileText className="w-12 h-12 text-black" />
+                  <div className="text-left">
+                    <div className="font-bold text-black text-lg">Annual Report</div>
+                    <div className="text-black/70 text-sm">Safety & Standards</div>
+                  </div>
+                </div>
+                <div className="bg-black/10 rounded-2xl p-6 flex items-center gap-4">
+                  <Target className="w-12 h-12 text-black" />
+                  <div className="text-left">
+                    <div className="font-bold text-black text-lg">Vision Manifesto</div>
+                    <div className="text-black/70 text-sm">Future Goals</div>
+                  </div>
+                </div>
+              </div>
+
+              <Link to="/apply">
+                <Button className="bg-black hover:bg-gray-900 text-white font-bold px-10 py-6 text-lg shadow-xl">
+                  Start Your Journey <ArrowRight className="ml-2" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -374,9 +644,9 @@ const SSSA: React.FC = () => {
 
             <div className="relative">
               <img 
-                src="/sssa/designator-movement.png" 
-                alt="BISS Certification"
-                className="rounded-3xl shadow-2xl w-full border-4 border-yellow-500/30"
+                src="/sssa/sssa-international-logo.png" 
+                alt="SSSA International"
+                className="rounded-3xl shadow-2xl w-full bg-white p-4"
               />
               <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-yellow-500 to-orange-500 text-black p-4 rounded-xl shadow-xl">
                 <div className="text-3xl font-bold">500+</div>
