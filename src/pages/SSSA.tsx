@@ -137,24 +137,103 @@ const roadmapSteps = [
 ];
 
 const membershipBenefits = [
-  { title: "School Safety & Standards Compliance Manual Guide", icon: FileText },
-  { title: "Self-Audit Checklist & Documentation Toolkit", icon: ClipboardCheck },
-  { title: "School Safety Help-Desk Access", icon: Phone },
-  { title: "Certificate of SSSA Membership", icon: Award },
-  { title: "Expert Talks by Subject Matter Experts", icon: Users },
-  { title: "Monthly Safety & Compliance Newsletters", icon: Newspaper },
-  { title: "Eligibility for Safe & Standard School Recognition & Accreditation", icon: FileCheck },
-  { title: "Great School Cinema", icon: Film },
-  { title: "International Dialogues & Conferences", icon: Globe },
-  { title: "Leadership Appointments & Governance", icon: Building },
-  { title: "Establishment of School Climate Credit Bank", icon: Target },
-  { title: "Advocacy & Global Best Practices", icon: TrendingUp },
-  { title: "BISS Movement", icon: Shield }
+  { 
+    title: "School Safety & Standards Compliance Manual Guide", 
+    icon: FileText,
+    description: "Comprehensive manual covering all aspects of school safety and standards compliance with step-by-step implementation guidelines.",
+    image: "/sssa/safety-audit.png",
+    tags: ["Documentation", "Guidelines", "Compliance"]
+  },
+  { 
+    title: "Self-Audit Checklist & Documentation Toolkit", 
+    icon: ClipboardCheck,
+    description: "Complete toolkit for conducting self-assessments with ready-to-use checklists and documentation templates.",
+    image: "/sssa/standard-audit.png",
+    tags: ["Self-Assessment", "Checklists", "Templates"]
+  },
+  { 
+    title: "School Safety Help-Desk Access", 
+    icon: Phone,
+    description: "24/7 dedicated helpdesk support for all your safety and compliance queries with expert guidance.",
+    image: "/sssa/helpdesk-launch.png",
+    tags: ["Support", "24/7 Access", "Expert Help"]
+  },
+  { 
+    title: "Certificate of SSSA Membership", 
+    icon: Award,
+    description: "Official SSSA membership certificate recognizing your commitment to school safety and standards.",
+    image: "/sssa/designator-movement.png",
+    tags: ["Recognition", "Certificate", "Membership"]
+  },
+  { 
+    title: "Expert Talks by Subject Matter Experts", 
+    icon: Users,
+    description: "Regular sessions with industry experts covering latest trends in school safety, pedagogy, and governance.",
+    image: "/sssa/teacher-training.png",
+    tags: ["Expert Sessions", "Knowledge", "Learning"]
+  },
+  { 
+    title: "Monthly Safety & Compliance Newsletters", 
+    icon: Newspaper,
+    description: "Stay updated with monthly newsletters featuring best practices, case studies, and compliance updates.",
+    image: "/sssa/standard-audit.png",
+    tags: ["Updates", "Best Practices", "News"]
+  },
+  { 
+    title: "Eligibility for Recognition & Accreditation", 
+    icon: FileCheck,
+    description: "Become eligible for Safe & Standard School Recognition and prestigious accreditation programs.",
+    image: "/greats/gptl-schools.jpeg",
+    tags: ["Accreditation", "Recognition", "Excellence"]
+  },
+  { 
+    title: "Great School Cinema", 
+    icon: Film,
+    description: "Feature your school's best practices and achievements in our Great School Cinema platform.",
+    image: "/sssa/school-cinema.png",
+    tags: ["Media", "Showcase", "Visibility"]
+  },
+  { 
+    title: "International Dialogues & Conferences", 
+    icon: Globe,
+    description: "Access to international conferences, dialogues, and networking opportunities with global educators.",
+    image: "/sssa/great-school-tour.png",
+    tags: ["Global Network", "Conferences", "Collaboration"]
+  },
+  { 
+    title: "Leadership Appointments & Governance", 
+    icon: Building,
+    description: "Opportunities for leadership roles and governance positions within the SSSA network.",
+    image: "/sssa/designator-movement.png",
+    tags: ["Leadership", "Governance", "Appointments"]
+  },
+  { 
+    title: "School Climate Credit Bank", 
+    icon: Target,
+    description: "Establish your school's climate credit bank to track and showcase environmental initiatives.",
+    image: "/sssa/ai-green-skills.png",
+    tags: ["Sustainability", "Climate", "Credits"]
+  },
+  { 
+    title: "Advocacy & Global Best Practices", 
+    icon: TrendingUp,
+    description: "Access to global best practices and advocacy support for implementing international standards.",
+    image: "/sssa/incubation-cell.png",
+    tags: ["Advocacy", "Best Practices", "Standards"]
+  },
+  { 
+    title: "BISS Movement Participation", 
+    icon: Shield,
+    description: "Be part of the BISS movement bringing international standards and safety to schools nationwide.",
+    image: "/sssa/safety-audit.png",
+    tags: ["BISS", "Movement", "Safety"]
+  }
 ];
 
 const SSSA: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeMovement, setActiveMovement] = useState(0);
+  const [activeBenefit, setActiveBenefit] = useState(0);
   const words = ['Safety', 'Standards', 'Excellence', 'Innovation'];
 
   useEffect(() => {
@@ -428,7 +507,7 @@ const SSSA: React.FC = () => {
         </div>
       </section>
 
-      {/* Membership Benefits Section */}
+      {/* Membership Benefits Section - Tab-based Sidebar Layout */}
       <section className="py-20 bg-gradient-to-b from-white to-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -441,21 +520,99 @@ const SSSA: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {membershipBenefits.map((benefit, idx) => (
-              <div 
-                key={idx}
-                className="group flex items-start gap-4 bg-white rounded-2xl p-6 border border-orange-100 hover:border-yellow-500 hover:shadow-xl hover:shadow-yellow-500/10 transition-all duration-300"
-              >
-                <div className="flex-shrink-0 bg-gradient-to-br from-yellow-500 to-orange-500 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                  <benefit.icon className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <CheckCircle2 className="w-5 h-5 text-green-500 mb-2" />
-                  <p className="text-gray-800 font-medium">{benefit.title}</p>
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Left Sidebar - Benefits List */}
+            <div className="lg:col-span-4 space-y-2 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin">
+              {membershipBenefits.map((benefit, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveBenefit(idx)}
+                  className={`w-full text-left px-5 py-4 rounded-xl transition-all duration-300 flex items-center gap-3 ${
+                    activeBenefit === idx 
+                      ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold shadow-lg' 
+                      : 'bg-white hover:bg-orange-100 text-gray-700 border border-orange-100'
+                  }`}
+                >
+                  <benefit.icon className={`w-5 h-5 flex-shrink-0 ${activeBenefit === idx ? 'text-black' : 'text-orange-500'}`} />
+                  <span className="text-sm">{benefit.title}</span>
+                  {activeBenefit === idx && (
+                    <CheckCircle2 className="w-5 h-5 ml-auto text-green-700" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Right Content - Active Benefit Details */}
+            <div className="lg:col-span-8">
+              <div className="bg-gradient-to-br from-yellow-400 to-orange-400 rounded-3xl p-8 min-h-[500px] relative overflow-hidden">
+                {/* Decorative circles */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-300/30 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-orange-300/30 rounded-full blur-3xl" />
+                
+                <div className="relative z-10 grid md:grid-cols-2 gap-8 h-full">
+                  <div className="flex flex-col justify-center">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="bg-white/80 p-3 rounded-xl">
+                        {React.createElement(membershipBenefits[activeBenefit].icon, { className: "w-8 h-8 text-orange-600" })}
+                      </div>
+                      <CheckCircle2 className="w-6 h-6 text-green-700" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
+                      {membershipBenefits[activeBenefit].title}
+                    </h3>
+                    <p className="text-gray-800 leading-relaxed mb-6">
+                      {membershipBenefits[activeBenefit].description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {membershipBenefits[activeBenefit].tags.map((tag, idx) => (
+                        <span 
+                          key={idx}
+                          className="bg-white/60 text-gray-800 text-sm font-medium px-4 py-2 rounded-full"
+                        >
+                          ✓ {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <Link to="/apply">
+                      <Button className="bg-black hover:bg-gray-900 text-white w-fit">
+                        Get This Benefit <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="relative">
+                      <img 
+                        src={membershipBenefits[activeBenefit].image}
+                        alt={membershipBenefits[activeBenefit].title}
+                        className="rounded-2xl shadow-2xl max-h-[350px] object-cover border-4 border-white/50"
+                      />
+                      <div className="absolute -bottom-4 -right-4 bg-white rounded-xl p-3 shadow-lg">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle2 className="w-6 h-6 text-green-500" />
+                          <span className="text-sm font-bold text-gray-800">Included</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              {/* Progress Dots */}
+              <div className="flex justify-center gap-2 mt-6 flex-wrap">
+                {membershipBenefits.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveBenefit(idx)}
+                    className={`transition-all duration-300 ${
+                      activeBenefit === idx 
+                        ? 'w-8 h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full' 
+                        : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-orange-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="text-center mt-12">
