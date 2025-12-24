@@ -1,65 +1,106 @@
+import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
-import { Globe } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Globe, Users, Shield, Leaf, Lightbulb, Award } from 'lucide-react';
 
 const dialogues = [
   {
-    title: "Cyber & Physical Safety",
-    person: "Scott Flower",
-    role: "Co-founder CIISAC International, Singapore",
-    description: "Leading conversations on comprehensive safety measures combining digital security with physical protection for educational institutions worldwide.",
-    image: "/lovable-uploads/06d7a363-4fa0-4df2-8417-9267f42b3add.png",
+    id: 'biss-finland',
+    title: "BISS Movement - Finland",
+    person: "International Education Expo",
+    role: "Finland Learning Together Partnership",
+    description: "BISS - 1 Million Safe & Standard School movement was presented at Finland's premier education expo. This international dialogue brought together educators from across Europe to discuss best practices in school safety and standards.",
+    highlights: [
+      "Cross-border safety protocols",
+      "Nordic education best practices",
+      "International certification standards",
+      "Cultural exchange programs"
+    ],
+    image: "/uppsc/global-dialogue-1.png",
+    icon: Shield,
+    color: "bg-blue-500"
   },
   {
-    title: "SDG Movement",
-    person: "Dharmender Tomar",
-    role: "Director CIA Group of Schools",
-    description: "Championing sustainable development goals integration in education, creating a roadmap for schools to contribute to global sustainability.",
-    image: "/lovable-uploads/uniford-foundation-event.png",
+    id: 'biss-europe',
+    title: "BISS Movement - Europe",
+    person: "European Education Forum",
+    role: "Uniford Council Initiative",
+    description: "Engaging with European education leaders to spread the BISS movement across borders. This dialogue focused on adapting safety standards for diverse educational contexts while maintaining core principles.",
+    highlights: [
+      "Pan-European safety framework",
+      "Multi-lingual resource development",
+      "Cross-cultural implementation",
+      "Regulatory compliance guidance"
+    ],
+    image: "/uppsc/global-dialogue-2.png",
+    icon: Users,
+    color: "bg-green-500"
   },
   {
-    title: "School Safety",
-    person: "Michelle Yao",
-    role: "Co-founder Cyberlite",
-    description: "Pioneering digital literacy and safety programs that empower students to navigate the online world safely and responsibly.",
-    image: "/lovable-uploads/uniford-edutech-fair.png",
+    id: 'edutech-fair',
+    title: "EduTech Fair Participation",
+    person: "National Education Summit",
+    role: "NCERT & CIET Collaboration",
+    description: "Showcasing UPPSC initiatives at India's largest education technology fair. Interactive sessions demonstrated how technology can enhance school safety and standardization efforts.",
+    highlights: [
+      "Digital safety tools demo",
+      "Smart audit systems",
+      "EdTech integration strategies",
+      "Future of school safety"
+    ],
+    image: "/uppsc/global-dialogue-3.png",
+    icon: Lightbulb,
+    color: "bg-purple-500"
   },
   {
-    title: "International Board",
-    person: "India - Australia Collaboration",
-    role: "Cross-border Educational Initiative",
-    description: "Building bridges between educational systems, fostering international standards and cultural exchange for holistic development.",
+    id: 'sdg-energy',
+    title: "SDG - Natural Energy",
+    person: "Director, Chankya International Academy",
+    role: "UPPSC Expert Session",
+    description: "Expert session on Solar & Hydrogen energy solutions that can transform schools into sustainable institutions. This dialogue explored practical implementation strategies for renewable energy in educational settings.",
+    highlights: [
+      "Solar power integration",
+      "Hydrogen fuel education",
+      "Cost-effective solutions",
+      "Carbon footprint reduction"
+    ],
+    image: "/uppsc/expert-session.png",
+    icon: Leaf,
+    color: "bg-yellow-500"
+  },
+  {
+    id: 'global-standards',
+    title: "Global Safety Standards",
+    person: "International Safety Council",
+    role: "Cross-border Education Initiative",
+    description: "Building frameworks for international school safety standards. This ongoing dialogue creates bridges between educational systems worldwide, fostering best practices exchange.",
+    highlights: [
+      "International benchmarking",
+      "Safety certification framework",
+      "Global compliance standards",
+      "Recognition protocols"
+    ],
     image: "/lovable-uploads/uniford-flags.png",
-  },
-  {
-    title: "AI for Education",
-    person: "India - UAE Partnership",
-    role: "EdTech Innovation Initiative",
-    description: "Leveraging artificial intelligence to personalize learning, enhance teaching methodologies, and prepare students for the future.",
-    image: "/lovable-uploads/uniford-art-display.png",
+    icon: Award,
+    color: "bg-red-500"
   }
 ];
 
 const UPPSCGlobalDialogues = () => {
+  const [activeDialogue, setActiveDialogue] = useState(0);
+
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Dot Pattern */}
+      {/* Decorative Background */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 right-1/4 grid grid-cols-12 gap-4">
-          {[...Array(144)].map((_, i) => (
-            <div key={i} className="w-2 h-2 bg-black rounded-full" />
+        <div className="absolute top-20 right-10 grid grid-cols-10 gap-3">
+          {[...Array(100)].map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 bg-black rounded-full" />
           ))}
         </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
         <div className="text-center mb-12">
           <Badge className="bg-yellow-400 text-black font-bold mb-4 px-6 py-2">
             <Globe className="w-4 h-4 mr-2 inline" />
@@ -69,47 +110,114 @@ const UPPSCGlobalDialogues = () => {
             International <span className="bg-yellow-400 px-2">Conversations</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Leading discussions with global experts shaping the future of education
+            Leading discussions with global experts shaping the future of safe & standard schools
           </p>
         </div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {dialogues.map((dialogue, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className="group overflow-hidden h-full border-2 border-gray-100 hover:border-yellow-400 shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={dialogue.image} 
-                      alt={dialogue.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <Badge className="bg-yellow-400 text-black font-bold mb-2">
-                        Dialogue {index + 1}
-                      </Badge>
-                      <h3 className="text-xl font-bold">{dialogue.title}</h3>
+        {/* Tab-based Layout */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          {/* Left Sidebar - Tab Navigation */}
+          <div className="lg:col-span-4 space-y-2">
+            {dialogues.map((dialogue, index) => {
+              const IconComponent = dialogue.icon;
+              return (
+                <button
+                  key={dialogue.id}
+                  onClick={() => setActiveDialogue(index)}
+                  className={`w-full text-left p-4 rounded-lg transition-all duration-300 flex items-center gap-3 ${
+                    activeDialogue === index
+                      ? 'bg-yellow-400 text-black shadow-lg scale-[1.02]'
+                      : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    activeDialogue === index ? 'bg-black text-yellow-400' : dialogue.color + ' text-white'
+                  }`}>
+                    <IconComponent className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className={`font-bold truncate ${activeDialogue === index ? 'text-black' : 'text-gray-800'}`}>
+                      {dialogue.title}
+                    </p>
+                    <p className={`text-sm truncate ${activeDialogue === index ? 'text-black/70' : 'text-gray-500'}`}>
+                      {dialogue.role}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
+
+            {/* Progress Indicator */}
+            <div className="flex gap-2 pt-4 justify-center">
+              {dialogues.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveDialogue(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    activeDialogue === index ? 'w-8 bg-yellow-400' : 'w-2 bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right Content Area */}
+          <div className="lg:col-span-8">
+            <div className="grid md:grid-cols-2 gap-6 items-start">
+              {/* Content Details */}
+              <div className="space-y-6 order-2 md:order-1">
+                <div>
+                  <Badge className={`${dialogues[activeDialogue].color} text-white font-bold mb-3`}>
+                    Dialogue {activeDialogue + 1}
+                  </Badge>
+                  <h3 className="text-2xl md:text-3xl font-black text-black mb-2">
+                    {dialogues[activeDialogue].title}
+                  </h3>
+                  <p className="text-lg font-semibold text-gray-700">{dialogues[activeDialogue].person}</p>
+                  <p className="text-sm text-gray-500 mb-4">{dialogues[activeDialogue].role}</p>
+                </div>
+
+                <p className="text-gray-600 leading-relaxed">
+                  {dialogues[activeDialogue].description}
+                </p>
+
+                {/* Highlights */}
+                <div className="space-y-2">
+                  <p className="font-bold text-black text-sm uppercase tracking-wider">Key Highlights</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {dialogues[activeDialogue].highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full flex-shrink-0" />
+                        {highlight}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Image Area */}
+              <div className="relative order-1 md:order-2">
+                <div className="absolute -top-4 -right-4 w-32 h-32 bg-yellow-400/20 rounded-full blur-2xl" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-yellow-400/30 rounded-full blur-xl" />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src={dialogues[activeDialogue].image}
+                    alt={dialogues[activeDialogue].title}
+                    className="w-full h-64 md:h-80 object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <Globe className="w-4 h-4 text-black" />
+                      </div>
+                      <span className="text-white text-sm font-medium">Powered by Uniford</span>
                     </div>
                   </div>
-                  <CardContent className="p-6 bg-white">
-                    <p className="text-black font-bold text-lg">{dialogue.person}</p>
-                    <p className="text-gray-500 text-sm mb-3">{dialogue.role}</p>
-                    <p className="text-gray-600 text-sm line-clamp-3">{dialogue.description}</p>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-4 bg-yellow-400 text-black border-0 hover:bg-yellow-500" />
-          <CarouselNext className="hidden md:flex -right-4 bg-yellow-400 text-black border-0 hover:bg-yellow-500" />
-        </Carousel>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

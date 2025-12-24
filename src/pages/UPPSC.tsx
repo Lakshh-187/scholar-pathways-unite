@@ -18,9 +18,9 @@ const UPPSC = () => {
       </Helmet>
 
       <UPPSCHero />
+      <UPPSCGlobalDialogues />
       <UPPSCMovementsPartnership />
       <UPPSCMemberBenefits />
-      <UPPSCGlobalDialogues />
       <UPPSCCarbonCreditBank />
       <UPPSCFinancialAid />
       <UPPSCRankingAwards />
