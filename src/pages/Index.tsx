@@ -31,9 +31,6 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Credibility Carousel */}
-      <CredibilityCarousel />
-
       {/* BISS - Bringing International Standard & Safety */}
       <BISSSection />
 
@@ -45,6 +42,9 @@ const Index = () => {
 
       {/* 1M 1B Mission */}
       <OneMillionOneBillionSection />
+
+      {/* Credibility Carousel - Moved near Network section */}
+      <CredibilityCarousel />
 
       {/* Our Backed Organizations - Auto Swapping */}
       <BackedOrganizationsCarousel />

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Shield, Globe, Users, BookOpen, Lightbulb, Heart, Star, Trophy, Target } from "lucide-react";
 
@@ -115,9 +114,9 @@ const CredibilityCarousel = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8">
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Sidebar Navigation */}
-          <div className="lg:col-span-4 space-y-2">
+          <div className="lg:col-span-5 space-y-2">
             {credibilityItems.map((item, index) => (
               <button
                 key={item.id}
@@ -147,47 +146,27 @@ const CredibilityCarousel = () => {
             ))}
           </div>
 
-          {/* Content Area */}
-          <div className="lg:col-span-8">
-            <Card className="overflow-hidden bg-card border-border/50 shadow-xl h-full">
-              <div className="grid md:grid-cols-2 h-full">
-                {/* Image Section */}
-                <div className="relative aspect-square md:aspect-auto overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
-                  <img
-                    src={activeItem.image}
-                    alt={activeItem.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
-                    {activeItem.category}
-                  </Badge>
-                </div>
-
-                {/* Text Content */}
-                <div className="p-8 flex flex-col justify-center">
-                  <div className="mb-4 p-3 bg-primary/10 rounded-xl w-fit">
-                    {activeItem.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">
-                    {activeItem.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {activeItem.description}
-                  </p>
-                  
-                  {/* Features Grid */}
-                  <div className="grid grid-cols-2 gap-3">
-                    {activeItem.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm">
-                        <Star className="w-4 h-4 text-primary" />
-                        <span className="text-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          {/* Big Image Only */}
+          <div className="lg:col-span-7">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] bg-gradient-to-br from-primary/10 to-secondary/10">
+              <img
+                src={activeItem.image}
+                alt={activeItem.title}
+                className="w-full h-full object-cover transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <Badge className="mb-3 bg-primary text-primary-foreground">
+                  {activeItem.category}
+                </Badge>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  {activeItem.title}
+                </h3>
+                <p className="text-white/80 text-sm md:text-base max-w-xl">
+                  {activeItem.description}
+                </p>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
 
