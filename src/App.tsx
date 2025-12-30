@@ -52,6 +52,7 @@ import GetInvolved from "./pages/GetInvolved";
 import UPPSC from "./pages/UPPSC";
 import SSSA from "./pages/SSSA";
 import Greats from "./pages/Greats";
+import Nominate from "./pages/Nominate";
 
 const queryClient = new QueryClient();
 
@@ -109,6 +110,7 @@ const App = () => (
           <Route path="/uppsc" element={<UPPSC />} />
           <Route path="/sssa" element={<SSSA />} />
           <Route path="/greats" element={<Greats />} />
+          <Route path="/nominate" element={<Nominate />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

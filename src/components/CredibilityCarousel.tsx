@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { motion, AnimatePresence } from "framer-motion";
+import { Award, Shield, Globe, Users, BookOpen, Lightbulb, Heart, Star, Trophy, Target } from "lucide-react";
 
 interface CredibilityItem {
   id: number;
@@ -9,140 +9,105 @@ interface CredibilityItem {
   description: string;
   image: string;
   category: string;
+  icon: React.ReactNode;
+  features: string[];
 }
 
 const credibilityItems: CredibilityItem[] = [
   {
     id: 1,
     title: "Great Place to Learn",
-    description: "Certified schools maintaining international standards in safety and education excellence.",
+    description: "Certified schools maintaining international standards in safety and education excellence. Our rigorous certification process ensures schools meet global benchmarks.",
     image: "/lovable-uploads/great-place-badge.png",
-    category: "Certification"
+    category: "Certification",
+    icon: <Award className="w-5 h-5" />,
+    features: ["International Standards", "Safety Compliance", "Quality Education", "Recognition Badge"]
   },
   {
     id: 2,
     title: "SDG Recognition",
-    description: "Aligned with UN Sustainable Development Goals for transformative education.",
+    description: "Aligned with UN Sustainable Development Goals for transformative education. Schools contribute to global sustainability while educating future leaders.",
     image: "/lovable-uploads/sdg-badge.png",
-    category: "UN SDG"
+    category: "UN SDG",
+    icon: <Globe className="w-5 h-5" />,
+    features: ["UN Alignment", "Sustainability Focus", "Global Impact", "SDG Certification"]
   },
   {
     id: 3,
     title: "Official Certification",
-    description: "Recognized institutions maintaining international standards in safety and education.",
+    description: "Recognized institutions maintaining international standards in safety and education. Comprehensive evaluation ensures excellence across all parameters.",
     image: "/lovable-uploads/uniford-certificate.jpeg",
-    category: "Recognition"
+    category: "Recognition",
+    icon: <Trophy className="w-5 h-5" />,
+    features: ["Official Recognition", "Quality Assurance", "Standards Compliance", "Excellence Award"]
   },
   {
     id: 4,
     title: "School Safety Standards",
-    description: "Certified safe and standard schools across the globe ensuring student wellbeing.",
+    description: "Certified safe and standard schools across the globe ensuring student wellbeing. Comprehensive safety audits and compliance verification.",
     image: "/lovable-uploads/school-bus-certification.jpeg",
-    category: "Safety"
+    category: "Safety",
+    icon: <Shield className="w-5 h-5" />,
+    features: ["Safety Protocols", "Regular Audits", "Compliance Checks", "Wellbeing Focus"]
   },
   {
     id: 5,
-    title: "Council Member Badge",
-    description: "Great Place to Learn certification displayed on school transportation.",
-    image: "/lovable-uploads/school-bus-badge.jpeg",
-    category: "Certification"
+    title: "BISS Initiative",
+    description: "1 Million Safe & Standard Schools for 1 Billion Frontliners program. Transforming education infrastructure worldwide through systematic improvement.",
+    image: "/lovable-uploads/biss-book.jpeg",
+    category: "Initiative",
+    icon: <Target className="w-5 h-5" />,
+    features: ["1M1B Model", "Global Reach", "Systematic Approach", "Impact Driven"]
   },
   {
     id: 6,
-    title: "BISS Initiative",
-    description: "1 Million Safe & Standard Schools for 1 Billion Frontliners program documentation.",
-    image: "/lovable-uploads/biss-book.jpeg",
-    category: "Initiative"
+    title: "Global Network",
+    description: "International partnerships strengthening educational standards worldwide. Connecting schools across continents for shared learning.",
+    image: "/lovable-uploads/uniford-flags.png",
+    category: "Network",
+    icon: <Users className="w-5 h-5" />,
+    features: ["25+ Countries", "Partner Schools", "Knowledge Sharing", "Global Community"]
   },
   {
     id: 7,
-    title: "Scholar Achievers Meet 2024",
-    description: "Annual gathering celebrating outstanding achievements of Uniford scholars globally.",
-    image: "https://i.ibb.co/PvQTGvqQ/an-inspiring-photo-of-a-confident-student-with-a-m-y-LHo-SSq-KRg2-KX9z-L86db-YQ-5deos-Yky-SL20-r-N3a.jpg",
-    category: "Event"
+    title: "Educational Innovation",
+    description: "Showcasing innovative educational technology solutions for modern learning. Cutting-edge approaches to teaching and learning.",
+    image: "/lovable-uploads/uniford-edutech-fair.png",
+    category: "Innovation",
+    icon: <Lightbulb className="w-5 h-5" />,
+    features: ["EdTech Solutions", "Modern Learning", "Innovation Hub", "Future Ready"]
   },
   {
     id: 8,
-    title: "Educational Innovation Conference",
-    description: "Hosted leaders from 25 countries discussing the future of learning and technology.",
-    image: "https://i.ibb.co/Mx6K1nbj/a-photo-of-a-young-girl-wearing-a-uniford-shirt-wi-9-Hegk7-GWSBKHsu-H2i-He-Mn-Q-k-Ca-Tap-KZQf-GGdsvy.jpg",
-    category: "Conference"
-  },
-  {
-    id: 9,
-    title: "Volunteer Impact Milestone",
-    description: "100,000 teaching hours completed across rural schools impacting 25,000+ students.",
-    image: "https://i.ibb.co/jmdwCMS/a-vibrant-engaging-booth-for-uniford-with-a-modern-g-Uo5-Ae-Df-STe-HJx-Yvtyw00-Q-AMmpu-NKs-Sb-O8o9z.jpg",
-    category: "Impact"
-  },
-  {
-    id: 10,
-    title: "Leadership Summit",
-    description: "Transformative retreat where scholars developed leadership skills through workshops.",
-    image: "https://i.ibb.co/Pvv7psn6/a-social-media-image-of-a-lively-event-scene-with-lnrmn4u-DQ0-Cw-ZH-7k-WDUPg-Lq-NEDYIo-R3e-Ju-Fag-Ru.jpg",
-    category: "Event"
-  },
-  {
-    id: 11,
-    title: "AI Research Competition",
-    description: "Scholars presented groundbreaking AI solutions addressing real-world problems.",
-    image: "https://i.ibb.co/gZVppTts/a-photo-of-a-smiling-student-holding-a-large-white-P6-M3q-Vy-VT-i2-BQm-APn-Xvpg-rv-ELP3-CVRIi-X-k-HF.jpg",
-    category: "Competition"
-  },
-  {
-    id: 12,
-    title: "EduTech Fair",
-    description: "Showcasing innovative educational technology solutions for modern learning.",
-    image: "/lovable-uploads/uniford-edutech-fair.png",
-    category: "Innovation"
-  },
-  {
-    id: 13,
-    title: "Global Network",
-    description: "International partnerships strengthening educational standards worldwide.",
-    image: "/lovable-uploads/uniford-flags.png",
-    category: "Network"
-  },
-  {
-    id: 14,
-    title: "Foundation Event",
-    description: "Community gathering promoting educational excellence and safety standards.",
+    title: "Community Impact",
+    description: "Community gathering promoting educational excellence and safety standards. Building stronger communities through education.",
     image: "/lovable-uploads/uniford-foundation-event.png",
-    category: "Event"
-  },
+    category: "Impact",
+    icon: <Heart className="w-5 h-5" />,
+    features: ["Community Building", "Social Impact", "Outreach Programs", "Grassroots Change"]
+  }
 ];
 
 const CredibilityCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % credibilityItems.length);
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const getVisibleItems = () => {
-    const items = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i) % credibilityItems.length;
-      items.push(credibilityItems[index]);
-    }
-    return items;
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeItem = credibilityItems[activeIndex];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-background via-accent/5 to-background relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-700" />
+    <section className="py-20 bg-gradient-to-b from-background via-accent/5 to-background relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25px 25px, currentColor 2px, transparent 0)`,
+          backgroundSize: '50px 50px'
+        }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            Trusted Worldwide
+          </Badge>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Our Credibility & Impact
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -150,70 +115,94 @@ const CredibilityCarousel = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <AnimatePresence mode="wait">
-            {getVisibleItems().map((item, idx) => (
-              <motion.div
-                key={`${item.id}-${currentIndex}`}
-                initial={{ 
-                  opacity: 0, 
-                  rotateY: -90,
-                  scale: 0.8,
-                  z: -100
-                }}
-                animate={{ 
-                  opacity: 1, 
-                  rotateY: 0,
-                  scale: 1,
-                  z: 0
-                }}
-                exit={{ 
-                  opacity: 0, 
-                  rotateY: 90,
-                  scale: 0.8,
-                  z: -100
-                }}
-                transition={{ 
-                  duration: 0.6,
-                  delay: idx * 0.1,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                style={{ transformStyle: "preserve-3d" }}
+        <div className="grid lg:grid-cols-12 gap-8">
+          {/* Sidebar Navigation */}
+          <div className="lg:col-span-4 space-y-2">
+            {credibilityItems.map((item, index) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveIndex(index)}
+                className={`w-full text-left px-5 py-4 rounded-xl transition-all duration-300 flex items-center gap-4 group ${
+                  activeIndex === index
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "bg-card hover:bg-accent/50 text-foreground border border-border/50"
+                }`}
               >
-                <Card className="overflow-hidden h-full bg-card/80 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 border-border/50">
-                  <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/5">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                    <Badge className="absolute top-3 right-3 bg-primary/90 text-primary-foreground">
-                      {item.category}
-                    </Badge>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-lg mb-2 text-foreground">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
-                </Card>
-              </motion.div>
+                <div className={`p-2 rounded-lg ${
+                  activeIndex === index 
+                    ? "bg-primary-foreground/20" 
+                    : "bg-primary/10 group-hover:bg-primary/20"
+                }`}>
+                  {item.icon}
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-sm">{item.title}</h4>
+                  <p className={`text-xs mt-0.5 ${
+                    activeIndex === index ? "text-primary-foreground/70" : "text-muted-foreground"
+                  }`}>
+                    {item.category}
+                  </p>
+                </div>
+              </button>
             ))}
-          </AnimatePresence>
+          </div>
+
+          {/* Content Area */}
+          <div className="lg:col-span-8">
+            <Card className="overflow-hidden bg-card border-border/50 shadow-xl h-full">
+              <div className="grid md:grid-cols-2 h-full">
+                {/* Image Section */}
+                <div className="relative aspect-square md:aspect-auto overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
+                  <img
+                    src={activeItem.image}
+                    alt={activeItem.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                    {activeItem.category}
+                  </Badge>
+                </div>
+
+                {/* Text Content */}
+                <div className="p-8 flex flex-col justify-center">
+                  <div className="mb-4 p-3 bg-primary/10 rounded-xl w-fit">
+                    {activeItem.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">
+                    {activeItem.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {activeItem.description}
+                  </p>
+                  
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {activeItem.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm">
+                        <Star className="w-4 h-4 text-primary" />
+                        <span className="text-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
 
-        {/* Pagination dots */}
-        <div className="flex justify-center gap-2">
+        {/* Progress Indicators */}
+        <div className="flex justify-center gap-2 mt-8">
           {credibilityItems.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setCurrentIndex(idx)}
+              onClick={() => setActiveIndex(idx)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex 
+                idx === activeIndex 
                   ? "w-8 bg-primary" 
                   : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
               }`}
-              aria-label={`Go to slide ${idx + 1}`}
+              aria-label={`Go to item ${idx + 1}`}
             />
           ))}
         </div>
