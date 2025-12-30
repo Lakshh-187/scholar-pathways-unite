@@ -21,6 +21,7 @@ const NavBar = () => {
     { name: 'Docs', path: '/official-documents' },
     { name: 'Greats', path: '/greats' },
     { name: 'SSSA', path: '/sssa' },
+    { name: 'Nominate', path: '/nominate' },
     { name: 'Get Involved', path: '/get-involved' },
     { name: 'Her', path: '/her-hava', special: 'pink' },
   ];
