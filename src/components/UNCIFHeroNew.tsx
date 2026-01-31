@@ -14,6 +14,8 @@ const UNCIFHeroNew = () => {
     { src: '/hero/uncif-demoday.png', alt: 'Innovation Showcase Event' },
     { src: '/hero/uncif-biss.png', alt: 'BISS Global Initiative' },
     { src: '/hero/uncif-expo.png', alt: 'Education Excellence Expo' },
+    { src: '/hero/uncif-finland.png', alt: 'UNCIF Finland Partnership' },
+    { src: '/hero/uncif-presenter.png', alt: 'Uniford Young Leaders' },
   ];
 
   const movements = [
@@ -42,12 +44,12 @@ const UNCIFHeroNew = () => {
   const CurrentIcon = currentMovement.icon;
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-950 via-teal-950 to-slate-900 text-white overflow-hidden relative pt-16">
-      {/* SDG-themed Background Pattern */}
+    <section className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-pink-950 text-white overflow-hidden relative pt-16">
+      {/* Pink-Purple themed Background Pattern */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute h-[600px] w-[600px] rounded-full bg-teal-500 blur-[150px] -top-20 -left-40 animate-pulse"></div>
-        <div className="absolute h-96 w-96 rounded-full bg-green-500 blur-[120px] bottom-20 right-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute h-80 w-80 rounded-full bg-amber-400 blur-[100px] top-1/3 right-1/4 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute h-[600px] w-[600px] rounded-full bg-pink-500 blur-[150px] -top-20 -left-40 animate-pulse"></div>
+        <div className="absolute h-96 w-96 rounded-full bg-purple-500 blur-[120px] bottom-20 right-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute h-80 w-80 rounded-full bg-fuchsia-400 blur-[100px] top-1/3 right-1/4 animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
@@ -55,13 +57,13 @@ const UNCIFHeroNew = () => {
         <div className="grid lg:grid-cols-12 gap-4 mb-8">
           
           {/* Left - Main Content Block */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-teal-600 to-teal-700 rounded-3xl p-8 flex flex-col justify-between min-h-[500px]">
+          <div className="lg:col-span-5 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-8 flex flex-col justify-between min-h-[500px]">
             {/* UNCIF Badge */}
             <div className="flex items-center gap-3 mb-6">
               <img src="/uncif-logo.png" alt="UNCIF" className="h-10 w-10 object-contain bg-white rounded-full p-1" />
               <div>
                 <span className="text-xl font-bold text-white">UNCIF</span>
-                <span className="text-sm text-teal-100 block">United Nations Council for Institutions & Frontliners</span>
+                <span className="text-sm text-pink-100 block">Uniford Nations Council for Institutions & Frontliners</span>
               </div>
             </div>
 
@@ -72,7 +74,7 @@ const UNCIFHeroNew = () => {
                 <span className="block text-amber-300 mt-2">Great Institutions</span>
               </h1>
               
-              <p className="text-lg text-teal-50 leading-relaxed">
+              <p className="text-lg text-pink-50 leading-relaxed">
                 A global convening platform where changemakers, educators, and organizations collaborate to create institutions with measurable social return and lasting impact.
               </p>
             </div>
@@ -80,7 +82,7 @@ const UNCIFHeroNew = () => {
             {/* CTA */}
             <div className="flex flex-wrap gap-4 mt-6">
               <Link to="/apply">
-                <Button className="bg-white text-teal-700 hover:bg-teal-50 font-bold px-8 py-6 text-lg rounded-xl shadow-lg" size="lg">
+                <Button className="bg-white text-purple-700 hover:bg-pink-50 font-bold px-8 py-6 text-lg rounded-xl shadow-lg" size="lg">
                   Join the Movement
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -158,7 +160,7 @@ const UNCIFHeroNew = () => {
           {/* Movements Carousel Block */}
           <div className="lg:col-span-5 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-6 overflow-hidden">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-1 w-8 bg-gradient-to-r from-teal-400 to-green-400 rounded-full"></div>
+              <div className="h-1 w-8 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full"></div>
               <h3 className="text-lg font-bold text-white">UNCIF Founding Movements</h3>
             </div>
             
@@ -191,7 +193,7 @@ const UNCIFHeroNew = () => {
 
           {/* Global Partners Block */}
           <div className="lg:col-span-4 bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 border border-white/10">
-            <span className="inline-block bg-teal-500/20 text-teal-300 text-xs font-bold px-3 py-1 rounded-full mb-4">
+            <span className="inline-block bg-pink-500/20 text-pink-300 text-xs font-bold px-3 py-1 rounded-full mb-4">
               GLOBAL NETWORK
             </span>
             <h3 className="text-xl font-bold text-white mb-3">
@@ -212,8 +214,8 @@ const UNCIFHeroNew = () => {
           {/* Image Grid Block */}
           <div className="lg:col-span-3 grid grid-cols-2 gap-2">
             <img src="/hero/uncif-team.png" alt="UNCIF Team" className="w-full h-28 object-cover rounded-2xl" />
-            <img src="/hero/uncif-expo.png" alt="UNCIF Expo" className="w-full h-28 object-cover rounded-2xl" />
-            <img src="/hero/uncif-biss.png" alt="BISS Initiative" className="w-full h-28 object-cover rounded-2xl" />
+            <img src="/hero/uncif-finland.png" alt="UNCIF Finland" className="w-full h-28 object-cover rounded-2xl" />
+            <img src="/hero/uncif-presenter.png" alt="Uniford Youth" className="w-full h-28 object-cover rounded-2xl" />
             <img src="/hero/uncif-demoday.png" alt="Demo Day" className="w-full h-28 object-cover rounded-2xl" />
           </div>
         </div>
@@ -221,10 +223,10 @@ const UNCIFHeroNew = () => {
         {/* Bottom Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { value: '1M+', label: 'Target Great Institutions', icon: School, color: 'from-teal-500 to-green-500' },
-            { value: '1B+', label: 'Lives to Impact', icon: Users, color: 'from-amber-500 to-orange-500' },
-            { value: '50+', label: 'Countries Reached', icon: Globe, color: 'from-blue-500 to-cyan-500' },
-            { value: '17', label: 'SDGs Addressed', icon: Leaf, color: 'from-green-500 to-emerald-500' },
+            { value: '1M+', label: 'Target Great Institutions', icon: School, color: 'from-purple-500 to-pink-500' },
+            { value: '1B+', label: 'Lives to Impact', icon: Users, color: 'from-pink-500 to-rose-500' },
+            { value: '50+', label: 'Countries Reached', icon: Globe, color: 'from-fuchsia-500 to-purple-500' },
+            { value: '17', label: 'SDGs Addressed', icon: Leaf, color: 'from-violet-500 to-indigo-500' },
           ].map((stat, idx) => (
             <div key={idx} className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-5 flex items-center gap-4 hover:bg-white/10 transition-colors">
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center flex-shrink-0`}>
