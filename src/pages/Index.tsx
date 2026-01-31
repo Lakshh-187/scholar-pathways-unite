@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Layout from "@/components/Layout";
-import UNCIFHeroNew from "@/components/UNCIFHeroNew";
+import HeroSection from "@/components/HeroSection";
 import WelcomePopup from "@/components/WelcomePopup";
 import CredibilityCarousel from "@/components/CredibilityCarousel";
 import BISSSection from "@/components/BISSSection";
@@ -28,8 +28,8 @@ const Index = () => {
         <link rel="canonical" href="https://uniford.org" />
       </Helmet>
 
-      {/* New UNCIF Hero Section */}
-      <UNCIFHeroNew />
+      {/* Hero Section */}
+      <HeroSection />
 
       {/* BISS - Bringing International Standard & Safety */}
       <BISSSection />
